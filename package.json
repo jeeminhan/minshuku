@@ -1,0 +1,13 @@
+{
+  "name": "hanare",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scene": "tsx scripts/run-scene.ts",
+    "render-log": "tsx scripts/render-log.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  }
+}
