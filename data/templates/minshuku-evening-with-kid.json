@@ -1,0 +1,30 @@
+{
+  "id": "minshuku-evening-with-kid",
+  "location": "minshuku",
+  "characters": [
+    { "id": "kid", "role": "host_family_kid", "voiceConfig": "ja-young-casual" }
+  ],
+  "scriptedTurns": [
+    { "turn": 1, "speaker": "coach" },
+    { "turn": 2, "speaker": "kid" },
+    { "turn": 3, "speaker": "player" },
+    { "turn": 4, "speaker": "kid" },
+    { "turn": 5, "speaker": "player" },
+    { "turn": 6, "speaker": "kid" },
+    { "turn": 7, "speaker": "player" },
+    { "turn": 8, "speaker": "coach" }
+  ],
+  "microStakeSkeleton": "It's evening at the minshuku. Hiro (the host family kid) is curious about your plans for tomorrow. He's been thinking about the weather and wonders if you'll go out.",
+  "registerTag": "casual",
+  "activeTargetCompatibility": [
+    "grammar:つもり",
+    "tag:planning",
+    "tag:weekend",
+    "tag:evening"
+  ],
+  "passiveScenarioTags": ["evening", "weather", "minshuku", "planning"],
+  "allowedNudges": [
+    "If the player doesn't reach for the active target, the kid asks a follow-up question that invites it naturally."
+  ],
+  "exitBeat": "The kid says good night and mentions he's looking forward to tomorrow."
+}
