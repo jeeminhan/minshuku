@@ -456,13 +456,109 @@ Used for moments where social texture matters: family dinner with all 4 host fam
 
 ## 13. Onboarding
 
-**World-first. Import surfaced after scene 1.**
+**World-first onboarding with a brief settle-in interview, then in-world calibration scenes.**
 
-- Sign-up → drop the player straight into the world.
-- Scene 1 happens at the minshuku — the host family kid asks easy questions, escalating until the player struggles. This *is* the level calibration; it also welcomes them.
-- Right after scene 1, the coach surfaces the import option: *"If you're already studying with a deck, you can bring it here — your daily review will pull from your own material instead of (or alongside) ours."*
+The system needs to serve five user types from day one:
 
-Why: most users decide in the first 60 seconds. The first thing that happens should be the *thing* (a scene), not a form. Existing-deck users see "bring your own material" *after* deciding the product is interesting — conversion goes up.
+| Type | Has deck? | Formal study? | Unstructured exposure? | Path |
+|---|---|---|---|---|
+| 1. Total beginner | no | no | no | Curriculum from scratch |
+| 2. Formal-study + deck | yes | yes | maybe | Import deck; deck implies level |
+| 3. Formal-study, no deck | no | yes | maybe | Estimate level; seed SRS via discovery |
+| 4. Self-taught from media | no | no | yes | Estimate level; seed SRS via discovery |
+| 5. Fluent (review only) | maybe | varies | yes | Estimate high; seed SRS broadly |
+
+Types 3, 4, and 5 are why a single scene-1 calibration isn't sufficient — they need explicit exposure signal *and* in-world level discovery to seed their SRS meaningfully.
+
+### The flow
+
+```
+Sign-up
+   ↓
+Settle-in interview  (~60s, voice-led with multiple-choice cues)
+   ↓
+Coach forms an initial level estimate + onboarding path
+   ↓
+   ┌───────────────────────────┬─────────────────────────────┐
+   ↓ (deck users)              ↓ (no-deck users)
+   Import flow                 Skip import; use estimate
+   ↓                           ↓
+   Scene 1 at deck-implied level           Discovery scenes (3–5) at estimated level
+                       ↓
+                Both arrive in normal play
+                       ↓
+        Scene-by-scene evaluator continues to refine the estimate
+                       ↓
+        After scene 5: optional "settle-in check" — coach says
+        "I've placed you at roughly N2 — does that feel right?"
+        Player can confirm / adjust up / adjust down.
+```
+
+### The settle-in interview (voice + multiple-choice)
+
+Coach asks ~5 questions, ~60 seconds total. Hybrid format: quantitative questions are tap-driven multiple-choice; qualitative questions take voice answers.
+
+Suggested questions:
+
+1. **(Tap)** "Have you studied Japanese formally?" — never / a little / a few years / extensively
+2. **(Tap)** "How often do you read or watch Japanese media?" — never / occasionally / often / daily
+3. **(Voice)** "What anime, drama, or shows have you watched in Japanese? Which ones do you remember?" — open-ended; LLM extracts difficulty signal (Yotsuba is N5, Mushishi is N2, anime newscasts are N1)
+4. **(Tap)** "Roughly how much natural Japanese conversation do you understand?" — barely any / some / most / nearly all
+5. **(Tap)** "Do you currently use a deck or app for review?" — no / yes (Anki) / yes (WaniKani) / yes (other)
+
+The LLM combines these signals into an initial estimate (rough JLPT level + listening/speaking strengths/weaknesses) and an onboarding path (deck import vs discovery scenes).
+
+### Discovery scenes (advanced no-deck path)
+
+For users without a deck whose interview suggests intermediate-or-higher level, the first 3–5 scenes are **calibration scenes**: indistinguishable from normal scenes to the player, but item selection is strategic.
+
+**Mechanics per scene:**
+
+```
+Setting:    minshuku (default — host family, warm)
+Items:      6–8 items per scene, mostly passive
+            ~60% from estimated level
+            ~20% one level below (sanity check)
+            ~20% one level above (ceiling probe)
+Active:     1 simple item to gauge speaking
+Tracks:     comprehension per item, register matching, response speed,
+            speech complexity in player turns
+```
+
+After each calibration scene, the system updates the level estimate and tilts the next scene's distribution accordingly.
+
+**Visible to the player:** a normal scene — same briefing card, same story-frame UI, same target chip. Scene 1's briefing has a soft acknowledgment from the coach: *"we'll spend the next few scenes getting a sense of where you're at — just play normally."*
+
+**Invisible to the player:** the calibration logic, scoring, and per-item rationale. Calibration is naturalistic — items come up because they fit the scenario, not because they're on a list.
+
+**SRS seeding after scene 5:**
+
+| Player behavior on a calibration item | SRS state assigned |
+|---|---|
+| Understood passively, no hesitation | "Mature" — long interval (~14 days) |
+| Understood with effort or after re-listen | "Young" — medium interval (~3 days) |
+| Missed passively, didn't recognize | "Learning" — short interval (~1 day) |
+| Produced actively, clean | Mature + active-confidence flag |
+| Produced actively, with errors | Young + active-needs-work flag |
+| Item not seen in calibration | Not in SRS yet |
+
+After 5 scenes, the player has ~20–30 items in their SRS with realistic intervals. From scene 6 onward, the system flips back to pure item-anchored generation (§9). The "settle-in check" right after the calibration window catches cases where the estimate was wrong and lets the player self-correct.
+
+### Why this works (and the tradeoff)
+
+- An advanced learner without a deck reaches "real" daily review in ~5 scenes (~25 minutes of total play).
+- The interview narrows the search before any scene runs, so calibration converges quickly.
+- Calibration is iterative — not perfect at scene 5, but every subsequent scene continues to refine SRS state. Items in early-calibration SRS are flagged "low confidence" and re-evaluated on subsequent appearances.
+- Player has a hard "this feels off" channel (the settle-in check + persistent feedback) so the system recovers gracefully when calibration was wrong.
+
+**Tradeoff:** calibration scenes are slightly *less* item-anchored than normal scenes — items are chosen for level-discovery value, not just SRS-due value. This is a small purity compromise on the principle "items drive scenes," limited to the first 5 scenes per advanced-no-deck user. Worth it.
+
+### Why this is better than alternatives
+
+- **Better than scene-1-only calibration:** advanced learners would never trigger sufficient escalation in a single scene; their level estimate would be wrong by 2 levels.
+- **Better than a separate placement test:** stays in-world, no test-feel, uses the time productively (player is also learning the system).
+- **Better than self-report alone:** users overestimate or underestimate; calibration scenes confirm or correct.
+- **Better than browse-and-check-off:** advanced learners with thousands of items don't want to mark 500 boxes. Discovery scenes do this passively in 25 minutes.
 
 ---
 
@@ -479,7 +575,7 @@ Why: most users decide in the first 60 seconds. The first thing that happens sho
 
 - ❌ Streak counters / streak shame
 - ❌ Push notifications by default
-- ❌ "Play forever" world-scene mode (this is a known v2 path — see §17)
+- ❌ "Play forever" world-scene mode (this is a known v2 path — see §21)
 - ❌ Daily goal counters / XP grinds
 - ❌ Leaderboards or social features
 
@@ -585,6 +681,60 @@ Optional gentle daily reminder, **off by default**. Soft phrasing if the user op
 - Preferences (voice speed, furigana on/off, reminder opt-in, etc.)
 - Familiarity scores per character (v2)
 - Cumulative scene count, last-active date (used for natural review-cadence calculations, not displayed as streak)
+
+### CalibrationState (per user, only during onboarding)
+```
+{
+  userId,
+  interviewAnswers: { formalStudy, mediaConsumption, animeWatched, comprehensionEstimate, deckUsage },
+  initialEstimate: { jlptBucket, listeningStrength, speakingStrength, registerComfort: {...} },
+  calibrationPath: "deck-import" | "discovery-scenes" | "beginner-curriculum",
+  scenesCompleted: 0,
+  itemPerformance: [{ itemId, scene, mode, outcome, lowConfidence: true }],
+  status: "interview-pending" | "in-progress" | "settle-in-pending" | "completed"
+}
+```
+Once `status = completed`, this state is archived. The estimate flows into UserState; per-item outcomes flow into ReviewItems.
+
+### SceneRunLog (per scene run, structured log for replay & debug)
+This is the substrate for the Scene Replay viewer (§20) and AI judges (§20). Written for every scene run, dev or prod.
+```
+{
+  id, userId, sceneTemplateId, startedAt, endedAt,
+
+  // generator decisions
+  activeTargetsConsidered: [...],
+  activeTargetsChosen: [...],
+  templateCandidates: [{ id, score, scoringRationale }],
+  templateChosen: { id, finalScore },
+
+  // narrative state
+  threadStateAtStart, threadStateAtEnd,
+  threadAction: "open" | "advance" | "close" | "standalone",
+  beatStateAtStart, beatStateAtEnd,
+  beatFired: beatId | null,
+
+  // generation
+  llmPrompt, llmResponse, llmCost, llmLatency,
+
+  // execution
+  turns: [{
+    speaker, text, audioUrl,
+    sttTranscript, sttConfidence,
+    evaluatorOutput: {
+      ruleCheck: {...},
+      conjugationCheck: {...},
+      llmJudge: { ... } | null,
+      finalOutcome
+    },
+    aiResponseGenerated, aiResponseLatency
+  }],
+
+  // outcomes
+  itemOutcomes: [{ itemId, mode, outcome, evidence }],
+  finalRating: { rubric: {...}, holistic: "..." } | null   // populated by judge in CI / sampling
+}
+```
 
 ---
 
@@ -729,7 +879,116 @@ Per-scene cost is bounded.
 
 ---
 
-## 20. v1 / v2 / v3 roadmap consolidated
+## 20. Testing strategy
+
+The architecture is designed to be testable, but the testing investment must be **streamlined** because:
+
+- Each scene is ~5 min of real-time audio — manual iteration is brutally slow.
+- LLM outputs are non-deterministic — naïve unit tests don't apply.
+- Multi-day behaviors (threads, beats arming, calibration convergence) can't be tested by waiting weeks.
+- Audio/voice testing without a real mic requires fixtures.
+- Content quality (JP fluency, register accuracy) needs *judgment*, not assertions.
+
+The strategy is built around **6 leverage points**, layered AI tooling for the things humans can't do quickly, and clean architectural boundaries for mocking.
+
+### The 6 leverage points
+
+**1. Text-mode scene renderer (the single biggest leverage win).** Run the *entire* scene generation pipeline with a simulated player; output is plain text — chosen template, items assigned, generated dialogue, simulated player turns, evaluator outputs, thread/beat state changes. Read in 30 seconds, not 5 minutes. Should land *very early* in the build (before scene 5 of building); every subsequent step gets faster once it exists.
+
+**2. Synthetic players.** Simulated learners that interact with generated scenes through the same pipeline a real player would. v1 uses LLM-driven personality players (see below). Powers the renderer + AI judges.
+
+**3. Time-injection / fast-forward.** SRS clock is injectable, not `Date.now()`. CLI: `simulate-days --player=X --days=60` runs 60 days of usage in seconds. Verifies thread lifecycles, beat firing, content variety distribution, calibration convergence. Catches "why did this beat never arm?" class of bug before it ships.
+
+**4. Replay system.** Every scene run produces a `SceneRunLog` (§15) with full state. `replay --session=abc123` reconstructs the full text or audio. Debugging "why did this player get this weird scene?" goes from impossible to 30 seconds.
+
+**5. AI judge golden set.** ~20 canonical scenarios with expected dialogue properties (uses target X, character Y stays in register Z, no register slips, no cultural errors). LLM-as-judge runs the eval. Run before any prompt change. Detects regressions before users see them.
+
+**6. Audio fixture library.** Pre-recorded JP utterances (clean, mumbled, partial, mispronounced, off-topic) piped through STT + evaluator without a real mic. Test the audio pipeline deterministically.
+
+### Synthetic player shape (v1)
+
+**LLM-driven personality players.** Each player is an LLM persona with declared level, style, and personality (e.g., "an N3 learner with shaky particles, prone to drop は, generally responds with shorter sentences than native speakers, has lived in Japan for 6 months, watches anime weekly"). The persona prompts the LLM to produce realistic player utterances given the AI's prompts.
+
+**Trade-off accepted in v1:** non-deterministic across runs. Per-test LLM cost. Harder to assert exact outcomes. Acceptable for v1 because the priority is validating that the plumbing works end-to-end with realistic-feeling player input.
+
+**Path forward:**
+- **v2: Hybrid players** — deterministic skeleton (knows X items, fails at Y rate, makes Z error patterns) + LLM persona for natural-sounding utterances. Seeded for reproducibility; reseeded for stress testing.
+- **v2: Replay-driven players** — synthesize a player from a recorded production session. Becomes a regression test for the exact scenario that previously caused issues.
+
+### AI-as-judge format (v1)
+
+**Rubric + holistic in a single judge call.** One LLM call per scene returns structured JSON containing both:
+
+- **Rubric scores (1–5)** on 5 dimensions:
+  1. Target usage — did the AI use/test the active target appropriately?
+  2. Register accuracy — did each character speak in the right register?
+  3. Conversational naturalness — does the dialogue flow?
+  4. Item integration — are passive items used naturally, not forced?
+  5. World tone — does it match the soft-magical register?
+- **Holistic free-form note** — "anything off?" Catches gestalt issues the rubric misses.
+
+Same cost as rubric-only; catches significantly more.
+
+**Path forward:**
+- **v2: Multi-judge ensemble** — separate specialized judges (register-judge, cultural-judge, target-usage-judge) each focused on one dimension. Higher accuracy per dimension; significantly more cost. Add only when a single dimension shows it needs specialization.
+
+### Where AI testing runs (v1)
+
+**CI + sampled production.**
+
+- **CI tier** runs on every PR/commit:
+  - Fixed synthetic-player suite × fixed scene suite (~10–50 scene-runs)
+  - ~5 min runtime, ~$0.10–1 per run
+  - Catches: prompt regressions, code bugs, plumbing breaks, immediate output-quality drops
+- **Sampled production tier** runs continuously (batched nightly):
+  - ~1–5% of real production scene-runs get logged + judged in batch
+  - Catches: LLM-provider drift, prompt edge-cases real users trigger, gradual quality decay
+
+**Path forward:**
+- **v2: Pre-release sweep** — broader synthetic-player + judge run before each release (~100–500 runs, 30–60 min, $10–50). Adds release latency but catches multi-day cross-scene issues at scale. Defer until release cadence slows from weekly to monthly+.
+
+### Debug observability (v1)
+
+**Structured logs + Scene Replay viewer.**
+
+- **Structured logs.** Every scene run produces a `SceneRunLog` (§15). Cheap to write; pays back forever. Substrate for the Replay viewer, AI judges, and any future debugging tool.
+- **Scene Replay viewer.** Web UI that takes any logged scene run and visualizes the entire hidden state next to the dialogue. For each turn: what the player said, what the system thought, evaluator outputs, LLM prompts/responses. Killer debug tool when production produces an unexpected scene.
+
+**Path forward:**
+- **v2: Debug overlay** — toggleable panel during live scenes (dev mode only) showing system state in real time. Add when prompt iteration becomes the bottleneck.
+- **v2: Try-now mode** — synthesize a scene from arbitrary state ("show me what scene Player X would get if these items were due"). For quality work on the generator itself.
+- **v3: Player state dashboard** — per-player view of SRS state, threads, beats, calibration history. Useful at scale.
+
+### Developer workflow this enables
+
+```
+Author a new template
+  → run schema check (instant)
+  → text-mode render with 3 synthetic players (10 sec)
+  → eyeball the output
+  → tweak, repeat
+Once it looks right:
+  → AI judge golden-set check (1 min)
+  → fast-forward simulation (does this template get selected appropriately over 60 days?)
+  → audio test ONCE before shipping
+```
+
+Most iteration happens at the text level. Audio is only used to verify *feel* before shipping — not for every iteration.
+
+### Architecture decisions that enable streamlined testing
+
+- LLM/TTS/STT each behind clean abstract interfaces → easy to mock
+- Scene generation is a structured plan → text first, audio second
+- Templates are data, not code → fast to mutate
+- Per-turn evaluator on completed transcripts → STT can be replaced with a string in tests
+- Per-player thread/beat state is bounded data → easy to set up fixtures
+- SRS clock is injectable → fast-forward simulation is cheap
+
+These decisions are already locked in earlier sections. Testing strategy doesn't require new architecture; it requires *building the tooling on top of the architecture we already have.*
+
+---
+
+## 21. v1 / v2 / v3 roadmap consolidated
 
 Things explicitly layered as future work:
 
@@ -742,10 +1001,14 @@ Things explicitly layered as future work:
 | Mystery arcs | One arc | Multiple arcs available | — |
 | Re-engagement | Opt-in gentle reminder | — | — |
 | Languages | JP only | (consider) | — |
+| Synthetic players (testing) | LLM-driven personality | + Hybrid (deterministic skeleton + LLM persona, seeded) | + Replay-driven from prod sessions |
+| AI-as-judge | Single judge call (rubric + holistic) | Multi-judge ensemble per dimension | — |
+| Where AI testing runs | CI + sampled production | + Pre-release sweep | — |
+| Debug observability | Structured logs + Scene Replay viewer | + Debug overlay (live scenes) + Try-now mode | + Player state dashboard |
 
 ---
 
-## 21. Non-goals (v1)
+## 22. Non-goals (v1)
 
 - ❌ Free-form open conversation. The product is *structured* scenes.
 - ❌ Live/streaming voice substrate.
@@ -753,13 +1016,13 @@ Things explicitly layered as future work:
 - ❌ Native mobile apps. Web first.
 - ❌ Live human tutors.
 - ❌ Writing/kanji practice as a primary mode. Listening + speaking is the core.
-- ❌ Streak counters, push notification spam, leaderboards, social features. (Streaks are an open consideration for post-v1 — see §22.)
+- ❌ Streak counters, push notification spam, leaderboards, social features. (Streaks are an open consideration for post-v1 — see §23.)
 - ❌ Conversation-mining as the engine (the open-language model). SRS is the engine.
 - ❌ Pre-baked scene scripts that ignore SRS. The whole point is items drive scenes.
 
 ---
 
-## 22. Open design questions / authoring tasks
+## 23. Open design questions / authoring tasks
 
 These are the real authoring + design work that's still to do. Each needs its own pass.
 
@@ -784,54 +1047,71 @@ These are the real authoring + design work that's still to do. Each needs its ow
 14. **Audio mixing.** Client-side WebAudio for ambient + dialogue mixing? Server-rendered? Streaming TTS?
 
 ### Onboarding details
-15. **Scene 1 calibration mechanic.** How does the kid escalate questions? What determines the placement-bucket the player lands in?
-16. **Import flows.** Anki .apkg parser? CSV paste? WaniKani API? At minimum: paste-a-list. Likely v1 = paste-list, v2 = .apkg + integrations.
-17. **Tagging pass for imported items.** LLM tagging with manual override UI.
+15. **Discovery-scene template authoring.** Which specific scene templates serve calibration well? How do we encode "this template can host items at levels N3–N1" without rewriting the template engine?
+16. **Settle-in interview wording.** Exact phrasing of the 5 interview questions, the cued-response options for tap-driven ones, and the LLM prompt that turns answers into the initial level estimate.
+17. **Anime / media difficulty mapping.** When a player says "I watch *Mushishi* and *Yotsuba*," how does the LLM convert that to a JP level signal? (Could use a mapping file; could let the LLM judge.)
+18. **Import flows.** Anki .apkg parser? CSV paste? WaniKani API? At minimum: paste-a-list. Likely v1 = paste-list, v2 = .apkg + integrations.
+19. **Tagging pass for imported items.** LLM tagging with manual override UI.
 
 ### Scoring details
-18. **STT confidence thresholds** for "ask to repeat" vs "accept and adapt."
-19. **Pronunciation scoring.** Depth vs phoneme-level analysis. v1 is probably "STT confidence is the proxy."
-20. **What counts as "correct conjugation"** (tolerance for filler words, slight register slips).
+20. **STT confidence thresholds** for "ask to repeat" vs "accept and adapt."
+21. **Pronunciation scoring.** Depth vs phoneme-level analysis. v1 is probably "STT confidence is the proxy."
+22. **What counts as "correct conjugation"** (tolerance for filler words, slight register slips).
 
 ### Game mechanics
-21. **Streak counter exact behavior.** Reset rules, time-zone handling, freeze/grace logic.
-22. **XP-light system, if any.** The exact dopamine math.
+23. **Streak counter exact behavior.** Reset rules, time-zone handling, freeze/grace logic. (Not in v1; relevant if we add streaks post-v1.)
+24. **XP-light system, if any.** The exact dopamine math. (Not in v1.)
 
 ### Design / UI / Brand
-23. **Visual identity / palette.** Per-location and overall.
-24. **Coach voice personality direction.** The brand voice in detail.
-25. **Audio cue vocabulary.** Specific sounds for turn start, turn end, scene transitions, success, miss, beat firing.
-26. **Onboarding visual.**
+25. **Visual identity / palette.** Per-location and overall.
+26. **Coach voice personality direction.** The brand voice in detail.
+27. **Audio cue vocabulary.** Specific sounds for turn start, turn end, scene transitions, success, miss, beat firing.
+28. **Onboarding visual.**
+
+### Testing & quality
+29. **Synthetic player persona library.** What initial set of LLM-driven personas to seed for CI runs (level diversity, error patterns, register comfort)?
+30. **AI judge golden set.** Author the canonical scenarios + expected properties for the regression eval (~20 scenes spanning location/template/level diversity).
+31. **Audio fixture library.** Pre-recorded JP utterance set (clean / mumbled / partial / mispronounced / off-topic) for deterministic STT + evaluator testing.
+32. **Sampled-production sampling rate + judge cost budget.** Start at 1%? Scale by traffic?
 
 ### Business
-27. **Pricing model.** Out of scope for this design but shapes scope decisions (free trial length, free arc, etc.).
+33. **Pricing model.** Out of scope for this design but shapes scope decisions (free trial length, free arc, etc.).
 
 ---
 
-## 23. What to build first
+## 24. What to build first
 
 A minimum loop that proves the system, not a polished product. Each step builds on the previous.
 
 1. **Seed content.** Small vocab + grammar set (~30 vocab, ~10 grammar) — N3/N2 to keep authoring burden low. Enough to drive ~10 scenes.
 2. **Author 5–10 scene templates.** Spanning at least 2 locations and 2 characters.
 3. **SRS that picks due items.** Postgres-shaped. Just the basic interval/ease/lapse model.
-4. **Scene generator** that fills a template (no thread or beat layers yet — those are step 7).
-5. **TTS + STT plumbing.** One JP character voice + one EN coach voice. Hands-free turn boundaries with audio cues.
-6. **Evaluator (rule-based only for v0.1).** Target-presence + conjugation. LLM judge layer comes after.
-7. **Run a scene end-to-end.** Score one active target and three passive targets. Update SRS.
-8. **Loop:** scene → result → next scene. Confirm the rhythm feels right.
-9. **Add thread layer.** One open thread per character; advance/close logic in the generator.
-10. **Add LLM judge layer** for nuance evaluation.
-11. **Add multi-AI scenes** (one template, one author session).
-12. **Add mystery beat layer** with one armed beat to test the layered insertion.
+4. **Scene generator** that fills a template (no thread or beat layers yet — those are step 9).
+5. **`SceneRunLog` + structured logging from day one.** Cheap to write; substrate for everything downstream.
+6. **Text-mode scene renderer.** Run scene generation end-to-end with a one-line LLM-driven synthetic player; output is plain text. *This is the single biggest dev-velocity tool — land it before iterating on prompts or templates.*
+7. **TTS + STT plumbing.** One JP character voice + one EN coach voice. Hands-free turn boundaries with audio cues.
+8. **Evaluator (rule-based only for v0.1).** Target-presence + conjugation. LLM judge layer comes after.
+9. **Run a scene end-to-end with audio.** Score one active target and three passive targets. Update SRS.
+10. **Loop:** scene → result → next scene. Confirm the rhythm feels right.
+11. **Add thread layer.** One open thread per character; advance/close logic in the generator.
+12. **Add LLM judge layer** (rubric + holistic, single call) for nuance evaluation.
+13. **Add the AI judge golden set** + CI integration. Now any prompt change runs against the rubric automatically.
+14. **Scene Replay viewer.** Web UI over the `SceneRunLog` data. From this point on, debugging unexpected scenes takes 30 seconds instead of an hour.
+15. **Add multi-AI scenes** (one template, one author session).
+16. **Add mystery beat layer** with one armed beat to test the layered insertion.
+17. **Time-injection / fast-forward simulator.** Validate thread/beat lifecycles over 60 simulated days.
+18. **Onboarding flow** (interview + discovery scenes for the advanced-no-deck path; deck-import for everyone else).
+19. **Sampled-production judging** at 1% of real scene runs.
 
-Everything else (full quest arc, all 9 characters, all 6 locations, ambient audio, on-screen story-frame polish, onboarding flow, import flow, settings) builds on this loop.
+Everything else (full quest arc, all 9 characters, all 6 locations, ambient audio, on-screen story-frame polish, import flow polish, settings, debug overlay, try-now mode) builds on this loop.
 
 **The loop is the product. Don't build features that don't run through it.**
 
+Note: the text-mode renderer (step 6) and `SceneRunLog` (step 5) are the **two highest-leverage early investments**. They make every subsequent step faster. Don't skip them or defer them — even though they aren't user-facing.
+
 ---
 
-## 24. What carries over from open-language
+## 25. What carries over from open-language
 
 Almost nothing. The architecture is fundamentally inverted:
 
