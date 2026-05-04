@@ -1,4 +1,4 @@
-# Foundational Design — Nihongo Scenes
+# Foundational Design — Hanare
 
 **Status:** v1 design, source of truth.
 **Date:** 2026-05-04
@@ -1166,7 +1166,7 @@ Note: the text-mode renderer (step 6) and `SceneRunLog` (step 5) are the **two h
 
 Almost nothing. The architecture is fundamentally inverted:
 
-| | Open-language (old) | Nihongo Scenes (this) |
+| | Open-language (old) | Hanare (this) |
 |---|---|---|
 | Loop direction | Conversation first → mine for signal | SRS first → deliver in scene |
 | Source of truth | Conversation transcript | SRS state |
