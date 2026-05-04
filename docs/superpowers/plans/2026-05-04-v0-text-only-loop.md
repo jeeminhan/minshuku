@@ -4,9 +4,9 @@
 
 **Goal:** A CLI command that runs one full scene end-to-end in text mode — exercising SRS → template selection → LLM dialogue generation → synthetic player → rule-based evaluator → structured `SceneRunLog`. No audio, no UI, no onboarding.
 
-**Architecture:** Plain Node.js + TypeScript project (no Next.js yet — v0 is CLI only; Next.js arrives in a later plan when the Scene Replay viewer needs a UI). All content (vocab, grammar, scene templates) lives as JSON files. SRS state and run logs are JSON/JSONL on disk. LLM calls go directly through the Anthropic SDK. Synthetic player is an LLM persona. Evaluator is rule-based only (target-presence + conjugation via kuromoji); LLM judge layer arrives in a later plan.
+**Architecture:** Plain Node.js + TypeScript project (no Next.js yet — v0 is CLI only; Next.js arrives in a later plan when the Scene Replay viewer needs a UI). All content (vocab, grammar, scene templates) lives as JSON files. SRS state and run logs are JSON/JSONL on disk. LLM calls go directly through the Gemini SDK (`@google/genai`). Synthetic player is an LLM persona. Evaluator is rule-based only (target-presence + conjugation via kuromoji); LLM judge layer arrives in a later plan.
 
-**Tech Stack:** Node.js 20+, TypeScript 5+, npm, Vitest (testing), tsx (TS runtime for CLI scripts), `@anthropic-ai/sdk` (LLM client), `kuromoji` (JP morphological analyzer), `zod` (runtime JSON validation), `dotenv` (env vars).
+**Tech Stack:** Node.js 20+, TypeScript 5+, npm, Vitest (testing), tsx (TS runtime for CLI scripts), `@google/genai` (LLM client — Gemini), `kuromoji` (JP morphological analyzer), `zod` (runtime JSON validation), `dotenv` (env vars).
 
 **Repository:** `/Users/jeeminhan/Code/hanare`. Currently contains only `.git`, `.gitignore`, `.superpowers/` (gitignored), and `docs/`.
 
@@ -47,7 +47,7 @@ hanare/
 │       │   ├── pickPassiveItems.ts      # Pick passive items to fit chosen template
 │       │   └── buildScenePlan.ts        # Combine into a structured scene plan
 │       ├── llm/
-│       │   ├── client.ts                # Anthropic SDK wrapper
+│       │   ├── client.ts                # Gemini SDK wrapper
 │       │   ├── generateDialogue.ts      # Turn scene plan into dialogue script
 │       │   └── syntheticPlayer.ts       # LLM persona that responds as a player
 │       ├── evaluator/
@@ -158,7 +158,7 @@ export default defineConfig({
 - [ ] **Step 4: Create `.env.example`**
 
 ```
-ANTHROPIC_API_KEY=
+GEMINI_API_KEY=
 ```
 
 - [ ] **Step 5: Update `.gitignore`** — add Node, env, and logs entries
@@ -192,7 +192,7 @@ git commit -m "chore: scaffold node/typescript project for v0"
 
 Run:
 ```bash
-npm install @anthropic-ai/sdk kuromoji zod dotenv
+npm install @google/genai kuromoji zod dotenv
 ```
 
 Expected: `package.json` now has `dependencies`. `node_modules/` populated.
@@ -1741,7 +1741,7 @@ git commit -m "feat(generator): build full scene plan from due items + recent co
 
 ---
 
-## Task 15: LLM client wrapper (Anthropic SDK)
+## Task 15: LLM client wrapper (Gemini SDK)
 
 **Files:**
 - Create: `src/lib/llm/client.ts`
@@ -1751,7 +1751,7 @@ git commit -m "feat(generator): build full scene plan from due items + recent co
 - [ ] **Step 1: Create `src/lib/llm/client.ts`**
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenAI } from "@google/genai";
 import "dotenv/config";
 
 export interface LLMClient {
@@ -1763,14 +1763,14 @@ export interface LLMClient {
   }): Promise<{ text: string; latencyMs: number }>;
 }
 
-export class AnthropicClient implements LLMClient {
-  private client: Anthropic;
+export class GeminiClient implements LLMClient {
+  private client: GoogleGenAI;
   constructor(apiKey?: string) {
-    const key = apiKey ?? process.env.ANTHROPIC_API_KEY;
+    const key = apiKey ?? process.env.GEMINI_API_KEY;
     if (!key) {
-      throw new Error("ANTHROPIC_API_KEY is required (set it in .env or pass to constructor)");
+      throw new Error("GEMINI_API_KEY is required (set it in .env or pass to constructor)");
     }
-    this.client = new Anthropic({ apiKey: key });
+    this.client = new GoogleGenAI({ apiKey: key });
   }
 
   async complete(args: {
@@ -1780,21 +1780,22 @@ export class AnthropicClient implements LLMClient {
     maxTokens?: number;
   }): Promise<{ text: string; latencyMs: number }> {
     const start = Date.now();
-    const response = await this.client.messages.create({
-      model: args.model ?? "claude-sonnet-4-6",
-      max_tokens: args.maxTokens ?? 2048,
-      system: args.system,
-      messages: [{ role: "user", content: args.user }],
+    const response = await this.client.models.generateContent({
+      model: args.model ?? "gemini-2.5-flash",
+      contents: args.user,
+      config: {
+        systemInstruction: args.system,
+        maxOutputTokens: args.maxTokens ?? 2048,
+      },
     });
     const latencyMs = Date.now() - start;
 
-    // Extract first text block.
-    const textBlock = response.content.find((b) => b.type === "text");
-    if (!textBlock || textBlock.type !== "text") {
+    const text = response.text;
+    if (!text) {
       throw new Error("LLM returned no text content");
     }
 
-    return { text: textBlock.text, latencyMs };
+    return { text, latencyMs };
   }
 }
 
@@ -1816,7 +1817,7 @@ Expected: no errors.
 
 ```bash
 git add src/lib/llm/client.ts
-git commit -m "feat(llm): Anthropic SDK client wrapper + mock for tests"
+git commit -m "feat(llm): Gemini SDK client wrapper + mock for tests"
 ```
 
 ---
@@ -2874,7 +2875,7 @@ git commit -m "feat(runScene): top-level scene orchestrator with mocked-LLM inte
 ```typescript
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { AnthropicClient } from "../src/lib/llm/client.js";
+import { GeminiClient } from "../src/lib/llm/client.js";
 import { runScene } from "../src/lib/runScene.js";
 import type { ReviewItem, SceneRunLog } from "../src/lib/types.js";
 
@@ -2899,7 +2900,7 @@ function loadOrInitState(): ReviewItem[] {
 
 async function main(): Promise<void> {
   const items = loadOrInitState();
-  const client = new AnthropicClient();
+  const client = new GeminiClient();
   const log = await runScene({
     reviewItems: items,
     now: new Date(),
@@ -3036,7 +3037,7 @@ This task is a manual verification step — no test code, just running the CLI a
 Create `.env` (NOT committed — it's in `.gitignore`):
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...your-real-key...
+GEMINI_API_KEY=...your-real-key...
 ```
 
 - [ ] **Step 2: Run the scene**
@@ -3105,7 +3106,7 @@ The v0 milestone is complete when **all of the following are true**:
 
 1. `npm test` exits 0 with all suites passing.
 2. `npm run typecheck` exits 0.
-3. `npm run scene` runs end-to-end against the real Anthropic API and writes a valid `SceneRunLog` to `logs/scene-runs.jsonl`.
+3. `npm run scene` runs end-to-end against the real Gemini API and writes a valid `SceneRunLog` to `logs/scene-runs.jsonl`.
 4. `npm run render-log` prints a readable transcript of the latest run with: template choice, item assignments, dialogue, and per-target evaluator outcomes.
 5. The `SceneRunLog` JSON contains full generator decisions (template candidates with rationale, active/passive item assignments, llmPrompt, llmResponse, per-turn results).
 
