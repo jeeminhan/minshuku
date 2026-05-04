@@ -1,0 +1,72 @@
+[
+  {
+    "id": "vocab.mado",
+    "word": "窓",
+    "reading": "まど",
+    "meaning": "window",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "frequencyRank": 720,
+    "scenarioTags": ["minshuku", "evening", "weather"],
+    "exampleSentences": [
+      "窓の外を見てください。",
+      "窓の近くの席でもいいですか？"
+    ]
+  },
+  {
+    "id": "vocab.yakusoku",
+    "word": "約束",
+    "reading": "やくそく",
+    "meaning": "promise",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "frequencyRank": 1100,
+    "scenarioTags": ["minshuku", "planning"],
+    "exampleSentences": [
+      "明日の約束、覚えてる？",
+      "約束ね。"
+    ]
+  },
+  {
+    "id": "vocab.fushigi",
+    "word": "不思議",
+    "reading": "ふしぎ",
+    "meaning": "mysterious; strange",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N3",
+    "frequencyRank": 2500,
+    "scenarioTags": ["minshuku", "evening", "soft-magical"],
+    "exampleSentences": [
+      "ちょっと不思議なんだけど。",
+      "不思議な話を聞いた。"
+    ]
+  },
+  {
+    "id": "vocab.ame",
+    "word": "雨",
+    "reading": "あめ",
+    "meaning": "rain",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "frequencyRank": 600,
+    "scenarioTags": ["weather", "evening", "morning"],
+    "exampleSentences": [
+      "明日、雨だって。",
+      "雨が降ってる。"
+    ]
+  },
+  {
+    "id": "vocab.motsu",
+    "word": "持つ",
+    "reading": "もつ",
+    "meaning": "to hold; to have",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "frequencyRank": 250,
+    "scenarioTags": ["minshuku", "everyday"],
+    "exampleSentences": [
+      "傘を持って行く。",
+      "誰が持ってる？"
+    ]
+  }
+]
