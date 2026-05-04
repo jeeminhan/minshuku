@@ -93,7 +93,7 @@ Beginners can drop to (1 active / 2 passive). Advanced learners can push to (1 a
 
 **Hard rule: never more than 2 active targets in a single scene.**
 
-### Scene rhythm (strict 5-phase)
+### Scene rhythm (strict 6-phase)
 
 ```
 1. Briefing (voice + on-screen mission card)
@@ -104,7 +104,7 @@ Beginners can drop to (1 active / 2 passive). Advanced learners can push to (1 a
 6. Result (voice-led summary + on-screen result card)
 ```
 
-Strict for v1 because predictability is currently more valuable than adaptive variation. Future v2 may collapse phases that don't add value (per-scene-type).
+Strict for v1 because predictability is currently more valuable than adaptive variation. The lesson phase is optional; the result phase is always present. Future v2 may collapse phases that don't add value (per-scene-type).
 
 ---
 
@@ -346,6 +346,18 @@ If a beat is armed and no compatible scene appears for 3 weeks: **do nothing**. 
 **Hands-free.** Open the app, the scene plays. AI speaks → audio cue → mic auto-activates → player speaks → silence triggers turn end → AI responds. No buttons during a scene.
 
 The screen exists as **passive support** — never demands a tap. Player can glance at it; player can also set the phone down.
+
+### Failure / fallback states
+
+The hands-free contract still needs explicit degraded-mode behavior:
+
+- **Mic permission denied before scene start:** block scene start with a simple permission request screen. No scene begins until the audio path is viable.
+- **Low STT confidence / noisy room:** coach asks for one repeat. If the second attempt is still low-confidence, accept a tap/text fallback for that turn and mark the outcome as low-confidence.
+- **Repeated silence:** coach restates the prompt once. If silence repeats, coach gives a model answer and the scene moves on without rewarding the item.
+- **User says stop / pause:** stop cleanly at the next boundary and preserve the current `SceneRunLog`; no partial SRS update unless an item has already produced a scored outcome.
+- **TTS/STT/network failure mid-scene:** resume from the last completed turn when possible. If not possible, abandon the scene run and do not update SRS from incomplete evidence.
+
+Tap/text fallback is allowed only as degraded mode. It must not become the default interaction path for a normal scene.
 
 ### Coach voice
 
@@ -832,6 +844,32 @@ Per turn:
 
 These map to standard SRS grades (Again / Hard / Good / Easy).
 
+### Minimum scoring rubric for v0.1
+
+Every scored turn stores both the final category and the evidence that justified it. The evaluator should not update SRS from a bare transcript alone.
+
+| Evidence | Required for |
+|---|---|
+| STT confidence above threshold | Any scored active-production outcome |
+| Target presence or accepted inflected form | `produced_with_help`, `produced`, `mastered` |
+| Morphology / conjugation pass for grammar targets | `produced`, `mastered` |
+| Meaning fit in context | `produced`, `mastered` |
+| No explicit hint before production | `produced`, `mastered` |
+| Target used before the system prompted for it | `mastered` |
+| Correct answer to quiz comprehension check | Passive `recognized` / understood outcome |
+
+Default v0.1 grade mapping:
+
+| Outcome | SRS grade |
+|---|---|
+| `missed` | Again |
+| `recognized` | Hard for active targets; Good for passive targets |
+| `produced_with_help` | Hard |
+| `produced` | Good |
+| `mastered` | Easy |
+
+If evidence is ambiguous, grade conservatively and keep an `evidence.lowConfidence = true` flag in the `SceneRunLog`.
+
 ### Cost / latency profile
 
 - **Cost.** LLM judge runs maybe once per turn, only for nuance. A 5-minute session has ~6–10 turns; that's at most 6–10 LLM judge calls, often fewer. Plus 1 LLM call for scene-script generation.
@@ -996,7 +1034,7 @@ Things explicitly layered as future work:
 |---|---|---|---|
 | Mistake handling | Coach immediate | Tiered escalation (4-step) | — |
 | Continuity | Threads only | Threads + familiarity scoring | Threads + familiarity + character arcs |
-| Scene rhythm | Strict 5-phase | Adaptive (collapse phases that don't add value) | Per-scene-type rhythm |
+| Scene rhythm | Strict 6-phase | Adaptive (collapse phases that don't add value) | Per-scene-type rhythm |
 | Cadence | Pure SRS hard-stop + add-lesson | + world-scenes when SRS empty | — |
 | Mystery arcs | One arc | Multiple arcs available | — |
 | Re-engagement | Opt-in gentle reminder | — | — |
@@ -1082,6 +1120,19 @@ These are the real authoring + design work that's still to do. Each needs its ow
 ## 24. What to build first
 
 A minimum loop that proves the system, not a polished product. Each step builds on the previous.
+
+### v0 milestone: text-only loop
+
+The first shippable internal milestone is **not audio**. It is a text-mode proof that the core product loop works:
+
+- SRS chooses due items.
+- Template selection respects active-target compatibility.
+- A scene plan is generated from structured data.
+- Dialogue is generated from the scene plan.
+- A synthetic player can complete the scene in text.
+- `SceneRunLog` captures every decision needed for replay/debug.
+
+This milestone is complete when a developer can run one command, see a full scene transcript with assigned items and evaluator outcomes, and inspect the structured log. No TTS, STT, ambient audio, onboarding, mystery beats, or polished UI should block this milestone.
 
 1. **Seed content.** Small vocab + grammar set (~30 vocab, ~10 grammar) — N3/N2 to keep authoring burden low. Enough to drive ~10 scenes.
 2. **Author 5–10 scene templates.** Spanning at least 2 locations and 2 characters.
