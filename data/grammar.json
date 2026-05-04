@@ -1,0 +1,41 @@
+[
+  {
+    "id": "grammar.tsumori",
+    "pattern": "つもり",
+    "meaning": "intend to / plan to do something",
+    "jlptLevel": "N3",
+    "formation": "Verb dictionary form + つもりです",
+    "scenarioTags": ["planning", "minshuku", "weekend", "evening"],
+    "exampleSentences": [
+      "明日、教会に行くつもりです。",
+      "週末は何をするつもり？"
+    ],
+    "commonMistakes": [
+      "Using past-tense verb (e.g., 行ったつもり) — that means 'pretended to', not 'plan to'."
+    ]
+  },
+  {
+    "id": "grammar.temo-ii",
+    "pattern": "てもいい",
+    "meaning": "may / it's OK to",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + もいい(です/ですか)",
+    "scenarioTags": ["minshuku", "permission"],
+    "exampleSentences": [
+      "見てもいいですか？",
+      "ここで待ってもいい？"
+    ]
+  },
+  {
+    "id": "grammar.dakara",
+    "pattern": "から",
+    "meaning": "because / so",
+    "jlptLevel": "N5",
+    "formation": "Reason から conclusion",
+    "scenarioTags": ["minshuku", "everyday"],
+    "exampleSentences": [
+      "雨だから、傘を持って行く。",
+      "寒いから、窓を閉めよう。"
+    ]
+  }
+]
