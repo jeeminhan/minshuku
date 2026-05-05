@@ -51,4 +51,12 @@ describe("generateDialogue", () => {
     const mock = new MockLLMClient(() => "not-json-at-all");
     await expect(generateDialogue(samplePlan, mock)).rejects.toThrow();
   });
+
+  it("strips markdown fences from the LLM response before parsing", async () => {
+    const fenced = "```json\n" + FAKE_RESPONSE + "\n```";
+    const mock = new MockLLMClient(() => fenced);
+    const out = await generateDialogue(samplePlan, mock);
+    expect(out.briefing).toContain("minshuku");
+    expect(out.turns.length).toBeGreaterThan(0);
+  });
 });

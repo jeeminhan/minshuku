@@ -88,9 +88,18 @@ export async function generateDialogue(
   const { system, user } = buildPrompt(plan);
   const { text, latencyMs } = await client.complete({ system, user });
 
+  // Strip markdown fences if Gemini wrapped the JSON.
+  // Matches: ```json\n{...}\n```, ```\n{...}\n```, or no fences at all.
+  function stripJsonFences(s: string): string {
+    const trimmed = s.trim();
+    const fenceMatch = trimmed.match(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/);
+    return fenceMatch ? fenceMatch[1].trim() : trimmed;
+  }
+
   let parsed;
+  const stripped = stripJsonFences(text);
   try {
-    parsed = JSON.parse(text);
+    parsed = JSON.parse(stripped);
   } catch (e) {
     throw new Error(`LLM returned non-JSON response: ${text.slice(0, 200)}`);
   }

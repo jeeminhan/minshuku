@@ -57,6 +57,22 @@ export async function runScene(args: RunSceneArgs): Promise<SceneRunLog | null> 
   const turnsByNumber = new Map<number, DialogueLine>();
   for (const t of dialogue.turns) turnsByNumber.set(t.turn, t);
 
+  // Warn if any expected AI turn is missing from the LLM response (e.g., model
+  // renumbered turns 2/4/6 → 1/2/3). This produces an incoherent conversation
+  // because player turns then have empty AI context.
+  const expectedAiTurns = built.plan.scriptedTurns
+    .filter((t) => t.speaker !== "coach" && t.speaker !== "player")
+    .map((t) => t.turn);
+  const missingAiTurns = expectedAiTurns.filter((n) => !turnsByNumber.has(n));
+  if (missingAiTurns.length > 0) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `[runScene] LLM response missing expected AI turns: ${missingAiTurns.join(", ")}. ` +
+      `Returned turns: ${[...turnsByNumber.keys()].join(", ")}. ` +
+      `Conversation will have gaps. Check llmResponse in the SceneRunLog.`,
+    );
+  }
+
   const conversation: DialogueLine[] = [];
   // Per-turn evaluator results so we can both attach to the right turn AND aggregate later.
   const perTurnResults = new Map<number, EvaluatorResult[]>();
