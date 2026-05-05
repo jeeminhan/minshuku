@@ -453,6 +453,18 @@ TTS/STT is structured: we decide when the AI speaks, which voice, what language,
 - **Ambient audio loops** layered behind dialogue (per-location ambience — forest at shrine, café hum, etc.)
 - **STT confidence thresholds** so we know when to ask the player to repeat vs. accept and adapt
 
+### TTS provider — Gemini 3.1 Flash TTS
+
+Default TTS provider: **Gemini 3.1 Flash TTS**. Fits the required capabilities directly:
+
+- 40+ predefined voices across 70+ languages (JP + EN covered) — enough headroom for the ~9 JP character voices + 1 EN coach voice without custom voice training.
+- Per-speaker voice + style config per call; up to 2 speakers natively, more via per-utterance routing (matches the "each tagged line routes to the right character voice" model in §12 multi-AI scenes).
+- 200+ inline audio tags (`[whispers]`, `[excited]`, etc.) — useful for character affect (grandpa's slow tea-room cadence vs. host mom's brisk kitchen energy) without per-character model swaps.
+- Language switching at utterance boundaries is the natural call shape — one call per utterance, language picked per call. No mid-sentence switching needed.
+- Cost: ~$0.03 per minute of generated speech ($1/M input, $20/M output tokens; ~1,500 output tokens per 60s). At one hour of generated audio per day per user: ~$1.80/day, ~$54/month per user pre-volume-discount. Negligible against scene generation cost.
+
+Not committed for v0 (text-only loop). Wire in when the loop moves to audio-first — likely v1.
+
 ### Multi-AI scenes — first-class
 
 Multiple characters in one scene is supported from v1.
