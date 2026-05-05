@@ -1,7 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { loadTemplates } from "../src/lib/content.js";
 import { GeminiClient } from "../src/lib/llm/client.js";
+import { recentContextFromLogs } from "../src/lib/log/recentContext.js";
 import { renderSceneRunLog } from "../src/lib/log/renderSceneRunLog.js";
+import { readAllSceneRunLogs } from "../src/lib/log/sceneRunLog.js";
 import { runScene } from "../src/lib/runScene.js";
 import { applyOutcome } from "../src/lib/srs/intervals.js";
 import type { EvaluatorResult, ReviewItem } from "../src/lib/types.js";
@@ -47,19 +50,21 @@ async function main(): Promise<void> {
   const items = loadOrInitState();
   const client = new GeminiClient();
   const now = new Date();
-  const log = await runScene({
+  const result = await runScene({
     reviewItems: items,
     now,
-    recentContext: { lastTemplateId: null, lastLocation: null },
+    recentContext: recentContextFromLogs(readAllSceneRunLogs(), loadTemplates()),
     llmClient: client,
     persona: "intermediate-n3-foreign-student",
   });
 
-  if (!log) {
-    console.log("No due items — nothing to run.");
+  if (result.status === "skipped") {
+    console.log(result.message);
+    console.log(`Reason: ${result.reason}`);
     return;
   }
 
+  const { log } = result;
   writeState(applySceneOutcomes(items, log.itemOutcomes, now));
 
   console.log(renderSceneRunLog(log));

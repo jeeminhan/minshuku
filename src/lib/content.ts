@@ -61,24 +61,34 @@ const SceneTemplateSchema = z.object({
 
 const DATA_DIR = join(process.cwd(), "data");
 
+let vocabCache: VocabItem[] | null = null;
+let grammarCache: GrammarItem[] | null = null;
+let templatesCache: SceneTemplate[] | null = null;
+
 export function loadVocab(): VocabItem[] {
+  if (vocabCache) return vocabCache;
   const raw = readFileSync(join(DATA_DIR, "vocab.json"), "utf8");
   const parsed = JSON.parse(raw);
-  return z.array(VocabItemSchema).parse(parsed) as VocabItem[];
+  vocabCache = z.array(VocabItemSchema).parse(parsed) as VocabItem[];
+  return vocabCache;
 }
 
 export function loadGrammar(): GrammarItem[] {
+  if (grammarCache) return grammarCache;
   const raw = readFileSync(join(DATA_DIR, "grammar.json"), "utf8");
   const parsed = JSON.parse(raw);
-  return z.array(GrammarItemSchema).parse(parsed) as GrammarItem[];
+  grammarCache = z.array(GrammarItemSchema).parse(parsed) as GrammarItem[];
+  return grammarCache;
 }
 
 export function loadTemplates(): SceneTemplate[] {
+  if (templatesCache) return templatesCache;
   const dir = join(DATA_DIR, "templates");
   const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
-  return files.map((f) => {
+  templatesCache = files.map((f) => {
     const raw = readFileSync(join(dir, f), "utf8");
     const parsed = JSON.parse(raw);
     return SceneTemplateSchema.parse(parsed) as SceneTemplate;
   });
+  return templatesCache;
 }

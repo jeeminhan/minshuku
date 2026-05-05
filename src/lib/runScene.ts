@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { buildScenePlan } from "./generator/buildScenePlan";
+import { pickDueItems } from "./srs/pickDueItems";
 import { generateDialogue } from "./llm/generateDialogue";
 import { syntheticPlayerTurn } from "./llm/syntheticPlayer";
 import { evaluatePlayerTurn } from "./evaluator/evaluate";
@@ -21,6 +22,21 @@ export interface RunSceneArgs {
   persona: string;
   userId?: string;
 }
+
+export type RunSceneSkippedReason = "no_due_items" | "no_compatible_template";
+
+export interface RunSceneCompleted {
+  status: "completed";
+  log: SceneRunLog;
+}
+
+export interface RunSceneSkipped {
+  status: "skipped";
+  reason: RunSceneSkippedReason;
+  message: string;
+}
+
+export type RunSceneResult = RunSceneCompleted | RunSceneSkipped;
 
 // Aggregate per-turn results into one outcome per active target.
 // Order of preference: produced > recognized > produced_with_help > missed.
@@ -46,9 +62,24 @@ function aggregateOutcomes(
   return aggregated;
 }
 
-export async function runScene(args: RunSceneArgs): Promise<SceneRunLog | null> {
+export async function runScene(args: RunSceneArgs): Promise<RunSceneResult> {
+  const due = pickDueItems(args.reviewItems, args.now);
+  if (due.length === 0) {
+    return {
+      status: "skipped",
+      reason: "no_due_items",
+      message: "No due items — nothing to run.",
+    };
+  }
+
   const built = buildScenePlan(args.reviewItems, args.now, args.recentContext);
-  if (!built) return null;
+  if (!built) {
+    return {
+      status: "skipped",
+      reason: "no_compatible_template",
+      message: "Due items exist, but no scene template can host them.",
+    };
+  }
 
   const startedAt = new Date().toISOString();
   const dialogue = await generateDialogue(built.plan, args.llmClient);
@@ -144,5 +175,5 @@ export async function runScene(args: RunSceneArgs): Promise<SceneRunLog | null> 
   };
 
   writeSceneRunLog(log, args.logDir);
-  return log;
+  return { status: "completed", log };
 }

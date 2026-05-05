@@ -45,7 +45,7 @@ describe("buildScenePlan", () => {
 
   it("promotes the next due item when the most urgent active target has no template", () => {
     const due = [
-      item("grammar.dakara", "grammar"),
+      item("grammar.unknown", "grammar"),
       item("grammar.tsumori", "grammar"),
       item("vocab.ame", "vocab"),
     ];
@@ -59,8 +59,20 @@ describe("buildScenePlan", () => {
     expect(result!.plan.activeTargets).toEqual([
       { itemId: "grammar.tsumori", itemType: "grammar", mode: "active" },
     ]);
-    expect(result!.plan.passiveItems.some((p) => p.itemId === "grammar.dakara")).toBe(true);
-    expect(result!.activeConsidered.some((a) => a.itemId === "grammar.dakara")).toBe(true);
+    expect(result!.plan.passiveItems.some((p) => p.itemId === "grammar.unknown")).toBe(true);
+    expect(result!.activeConsidered.some((a) => a.itemId === "grammar.unknown")).toBe(true);
+  });
+
+  it("can actively host seeded grammar.dakara", () => {
+    const result = buildScenePlan([item("grammar.dakara", "grammar")], today, {
+      lastTemplateId: null,
+      lastLocation: null,
+    });
+
+    expect(result).not.toBeNull();
+    expect(result!.plan.activeTargets).toEqual([
+      { itemId: "grammar.dakara", itemType: "grammar", mode: "active" },
+    ]);
   });
 
   it("returns null when there are no due items", () => {

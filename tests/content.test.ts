@@ -31,4 +31,10 @@ describe("content loader", () => {
     // smoke test that zod is applied — actual malformed file test deferred
     expect(() => loadVocab()).not.toThrow();
   });
+
+  it("caches parsed JSON content at module scope", () => {
+    expect(loadVocab()).toBe(loadVocab());
+    expect(loadGrammar()).toBe(loadGrammar());
+    expect(loadTemplates()).toBe(loadTemplates());
+  });
 });

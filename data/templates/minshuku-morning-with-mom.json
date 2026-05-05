@@ -19,8 +19,10 @@
   "activeTargetCompatibility": [
     "grammar:つもり",
     "grammar:てもいい",
+    "grammar:から",
     "tag:planning",
     "tag:permission",
+    "tag:everyday",
     "tag:morning"
   ],
   "passiveScenarioTags": ["morning", "weather", "minshuku", "everyday"],
