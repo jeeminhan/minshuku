@@ -43,6 +43,26 @@ describe("buildScenePlan", () => {
     expect(result).toBeNull();
   });
 
+  it("promotes the next due item when the most urgent active target has no template", () => {
+    const due = [
+      item("grammar.dakara", "grammar"),
+      item("grammar.tsumori", "grammar"),
+      item("vocab.ame", "vocab"),
+    ];
+
+    const result = buildScenePlan(due, today, {
+      lastTemplateId: null,
+      lastLocation: null,
+    });
+
+    expect(result).not.toBeNull();
+    expect(result!.plan.activeTargets).toEqual([
+      { itemId: "grammar.tsumori", itemType: "grammar", mode: "active" },
+    ]);
+    expect(result!.plan.passiveItems.some((p) => p.itemId === "grammar.dakara")).toBe(true);
+    expect(result!.activeConsidered.some((a) => a.itemId === "grammar.dakara")).toBe(true);
+  });
+
   it("returns null when there are no due items", () => {
     const result = buildScenePlan([], today, {
       lastTemplateId: null,

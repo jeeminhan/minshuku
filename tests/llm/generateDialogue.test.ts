@@ -59,4 +59,19 @@ describe("generateDialogue", () => {
     expect(out.briefing).toContain("minshuku");
     expect(out.turns.length).toBeGreaterThan(0);
   });
+
+  it("requests structured JSON output from the LLM client", async () => {
+    let capturedResponseMimeType: string | undefined;
+    let capturedResponseSchema: unknown;
+    const mock = new MockLLMClient((args) => {
+      capturedResponseMimeType = args.responseMimeType;
+      capturedResponseSchema = args.responseSchema;
+      return FAKE_RESPONSE;
+    });
+
+    await generateDialogue(samplePlan, mock);
+
+    expect(capturedResponseMimeType).toBe("application/json");
+    expect(capturedResponseSchema).toBeDefined();
+  });
 });

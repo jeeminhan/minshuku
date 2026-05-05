@@ -22,6 +22,41 @@ export interface ScenePlanResult {
   activeConsidered: ItemAssignment[];
 }
 
+function assignmentForItem(item: ReviewItem): ItemAssignment {
+  return {
+    itemId: item.itemId,
+    itemType: item.itemType,
+    mode: "active",
+  };
+}
+
+function pushUniqueAttempt(
+  attempts: ItemAssignment[][],
+  seen: Set<string>,
+  attempt: ItemAssignment[],
+): void {
+  const key = attempt.map((a) => `${a.itemType}:${a.itemId}`).join("|");
+  if (seen.has(key)) return;
+  seen.add(key);
+  attempts.push(attempt);
+}
+
+function activeTargetAttempts(due: ReviewItem[]): ItemAssignment[][] {
+  const attempts: ItemAssignment[][] = [];
+  const seen = new Set<string>();
+
+  const firstChoice = pickActiveTargets(due);
+  if (firstChoice.length > 0) {
+    pushUniqueAttempt(attempts, seen, firstChoice);
+  }
+
+  for (const item of due) {
+    pushUniqueAttempt(attempts, seen, [assignmentForItem(item)]);
+  }
+
+  return attempts;
+}
+
 export function buildScenePlan(
   reviewItems: ReviewItem[],
   now: Date,
@@ -30,12 +65,22 @@ export function buildScenePlan(
   const due = pickDueItems(reviewItems, now);
   if (due.length === 0) return null;
 
-  const active = pickActiveTargets(due);
-  if (active.length === 0) return null;
-
   const allTemplates = loadTemplates();
-  const compatible = filterTemplates(allTemplates, active);
-  if (compatible.length === 0) return null;
+  const considered: ItemAssignment[] = [];
+  let active: ItemAssignment[] | null = null;
+  let compatible: ReturnType<typeof filterTemplates> = [];
+
+  for (const attempt of activeTargetAttempts(due)) {
+    considered.push(...attempt);
+    const matches = filterTemplates(allTemplates, attempt);
+    if (matches.length > 0) {
+      active = attempt;
+      compatible = matches;
+      break;
+    }
+  }
+
+  if (!active || compatible.length === 0) return null;
 
   const scored = scoreTemplates(compatible, ctx);
   const best = pickBestTemplate(scored);
@@ -61,6 +106,6 @@ export function buildScenePlan(
   return {
     plan,
     candidatesScored: scored,
-    activeConsidered: active,
+    activeConsidered: considered,
   };
 }

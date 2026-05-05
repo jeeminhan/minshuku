@@ -100,7 +100,7 @@ export async function runScene(args: RunSceneArgs): Promise<SceneRunLog | null> 
 
     // Otherwise it's an AI character — pull the line generated upfront.
     const aiLine = turnsByNumber.get(t.turn);
-    if (aiLine) conversation.push(aiLine);
+    if (aiLine) conversation.push({ ...aiLine, speaker: t.speaker });
   }
 
   const itemOutcomes = aggregateOutcomes(
@@ -118,6 +118,7 @@ export async function runScene(args: RunSceneArgs): Promise<SceneRunLog | null> 
     endedAt,
     activeTargetsConsidered: built.activeConsidered,
     activeTargetsChosen: built.plan.activeTargets,
+    passiveItemsChosen: built.plan.passiveItems,
     templateCandidates: built.candidatesScored,
     templateChosen: {
       id: built.plan.templateId,

@@ -129,6 +129,7 @@ export interface SceneRunLog {
   // generator decisions
   activeTargetsConsidered: ItemAssignment[];
   activeTargetsChosen: ItemAssignment[];
+  passiveItemsChosen: ItemAssignment[];
   templateCandidates: TemplateScoringRationale[];
   templateChosen: { id: string; finalScore: number };
 

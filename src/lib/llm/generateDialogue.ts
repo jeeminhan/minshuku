@@ -1,7 +1,32 @@
+import { Type } from "@google/genai";
 import { z } from "zod";
 import { loadGrammar, loadVocab } from "../content";
 import type { LLMClient } from "./client";
 import type { ScenePlan, DialogueLine } from "../types";
+
+const DialogueResponseSchema = {
+  type: Type.OBJECT,
+  required: ["briefing", "turns", "result"],
+  propertyOrdering: ["briefing", "turns", "result"],
+  properties: {
+    briefing: { type: Type.STRING },
+    turns: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        required: ["turn", "speaker", "text", "language"],
+        propertyOrdering: ["turn", "speaker", "text", "language"],
+        properties: {
+          turn: { type: Type.INTEGER },
+          speaker: { type: Type.STRING },
+          text: { type: Type.STRING },
+          language: { type: Type.STRING, enum: ["ja"] },
+        },
+      },
+    },
+    result: { type: Type.STRING },
+  },
+};
 
 const ResponseSchema = z.object({
   briefing: z.string(),
@@ -86,7 +111,12 @@ export async function generateDialogue(
   client: LLMClient,
 ): Promise<GeneratedDialogue> {
   const { system, user } = buildPrompt(plan);
-  const { text, latencyMs } = await client.complete({ system, user });
+  const { text, latencyMs } = await client.complete({
+    system,
+    user,
+    responseMimeType: "application/json",
+    responseSchema: DialogueResponseSchema,
+  });
 
   // Strip markdown fences if Gemini wrapped the JSON.
   // Matches: ```json\n{...}\n```, ```\n{...}\n```, or no fences at all.

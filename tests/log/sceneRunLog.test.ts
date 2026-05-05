@@ -14,6 +14,7 @@ const sample: SceneRunLog = {
   endedAt: "2026-05-04T12:05:00.000Z",
   activeTargetsConsidered: [],
   activeTargetsChosen: [],
+  passiveItemsChosen: [],
   templateCandidates: [],
   templateChosen: { id: "minshuku-evening-with-kid", finalScore: 10 },
   threadAction: "standalone",
