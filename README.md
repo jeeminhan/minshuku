@@ -1,5 +1,7 @@
 # minshuku
 
+![minshuku](docs/assets/hero.png)
+
 Text-based Japanese conversation practice. You step into a small Japanese guesthouse (民宿) and run scenes — ordering tea with grandpa, helping with laundry, talking to a kid about their day. The system picks vocab and grammar that are due for review (SRS), generates a scene around them, plays an NPC, and grades your replies on whether you actually used the target items correctly.
 
 ## What it does
