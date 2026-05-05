@@ -1,0 +1,33 @@
+{
+  "id": "minshuku-package-delivery",
+  "location": "minshuku",
+  "characters": [
+    { "id": "delivery_person", "role": "courier", "voiceConfig": "ja-formal-male" }
+  ],
+  "scriptedTurns": [
+    { "turn": 1, "speaker": "coach" },
+    { "turn": 2, "speaker": "delivery_person" },
+    { "turn": 3, "speaker": "player" },
+    { "turn": 4, "speaker": "delivery_person" },
+    { "turn": 5, "speaker": "player" },
+    { "turn": 6, "speaker": "delivery_person" },
+    { "turn": 7, "speaker": "player" },
+    { "turn": 8, "speaker": "coach" }
+  ],
+  "microStakeSkeleton": "A delivery person is at the front entrance of the minshuku with a package. They need to confirm the recipient's name, ask whether you can sign on behalf of the host family, and clarify a delivery instruction. They speak in keigo throughout — your chance to handle a real formal exchange.",
+  "registerTag": "keigo",
+  "activeTargetCompatibility": [
+    "grammar:てもいい",
+    "tag:formal",
+    "tag:shopping",
+    "tag:directions",
+    "tag:work",
+    "tag:introductions"
+  ],
+  "passiveScenarioTags": ["minshuku", "formal", "everyday"],
+  "allowedNudges": [
+    "If the player struggles, the delivery person rephrases politely with a slightly simpler keigo construction.",
+    "The delivery person may step back, give the player a moment, then re-ask the same question more clearly."
+  ],
+  "exitBeat": "The delivery person bows, thanks you, and heads back to the truck."
+}

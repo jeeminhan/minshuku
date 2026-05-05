@@ -1,0 +1,35 @@
+{
+  "id": "minshuku-dinner-with-family",
+  "location": "minshuku",
+  "characters": [
+    { "id": "mom", "role": "host_family_mom", "voiceConfig": "ja-warm-female" },
+    { "id": "kid", "role": "host_family_kid", "voiceConfig": "ja-young-casual" }
+  ],
+  "scriptedTurns": [
+    { "turn": 1, "speaker": "coach" },
+    { "turn": 2, "speaker": "kid" },
+    { "turn": 3, "speaker": "player" },
+    { "turn": 4, "speaker": "mom" },
+    { "turn": 5, "speaker": "player" },
+    { "turn": 6, "speaker": "kid" },
+    { "turn": 7, "speaker": "player" },
+    { "turn": 8, "speaker": "coach" }
+  ],
+  "microStakeSkeleton": "Dinner at the minshuku. Mom has made tonkatsu and rice; Hiro is bouncing in his seat about something he ate at school today. The conversation drifts naturally between favorite foods, what you used to eat back home, and whether anything Hiro brought up reminded you of something.",
+  "registerTag": "casual",
+  "activeTargetCompatibility": [
+    "grammar:から",
+    "grammar:こと",
+    "tag:food",
+    "tag:family",
+    "tag:hobbies",
+    "tag:feelings",
+    "tag:school"
+  ],
+  "passiveScenarioTags": ["food", "family", "evening", "minshuku", "casual"],
+  "allowedNudges": [
+    "If the player doesn't reach for the active target, the kid asks a more concrete follow-up about a specific food or a specific moment from school.",
+    "Mom can rephrase warmly if the kid's question is too direct."
+  ],
+  "exitBeat": "Mom asks if you'd like seconds; the kid is already half asleep at the table."
+}

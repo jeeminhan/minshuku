@@ -29,7 +29,9 @@ describe("buildScenePlan", () => {
     expect(result).not.toBeNull();
     expect(result!.plan.activeTargets.length).toBeGreaterThan(0);
     expect(result!.plan.passiveItems.length).toBeGreaterThan(0);
-    expect(result!.plan.microStake).toContain("minshuku");
+    // Plan should resolve to some template's microStake (text varies as
+    // more templates are added; we just need a non-empty string).
+    expect(result!.plan.microStake.length).toBeGreaterThan(20);
     expect(result!.candidatesScored.length).toBeGreaterThan(0);
   });
 

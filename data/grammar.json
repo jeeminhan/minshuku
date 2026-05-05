@@ -5,7 +5,12 @@
     "meaning": "intend to / plan to do something",
     "jlptLevel": "N3",
     "formation": "Verb dictionary form + つもりです",
-    "scenarioTags": ["planning", "minshuku", "weekend", "evening"],
+    "scenarioTags": [
+      "planning",
+      "minshuku",
+      "weekend",
+      "evening"
+    ],
     "exampleSentences": [
       "明日、教会に行くつもりです。",
       "週末は何をするつもり？"
@@ -20,7 +25,10 @@
     "meaning": "may / it's OK to",
     "jlptLevel": "N4",
     "formation": "Verb te-form + もいい(です/ですか)",
-    "scenarioTags": ["minshuku", "permission"],
+    "scenarioTags": [
+      "minshuku",
+      "permission"
+    ],
     "exampleSentences": [
       "見てもいいですか？",
       "ここで待ってもいい？"
@@ -32,10 +40,1469 @@
     "meaning": "because / so",
     "jlptLevel": "N5",
     "formation": "Reason から conclusion",
-    "scenarioTags": ["minshuku", "everyday"],
+    "scenarioTags": [
+      "minshuku",
+      "everyday"
+    ],
     "exampleSentences": [
       "雨だから、傘を持って行く。",
       "寒いから、窓を閉めよう。"
+    ]
+  },
+  {
+    "id": "grammar.n5.001",
+    "pattern": "これ、それ、あれ、どれ",
+    "meaning": "Demonstrative pronouns: this, that, that-over-there, which.",
+    "jlptLevel": "N5",
+    "formation": "Standalone pronouns: これ (near speaker), それ (near listener), あれ (far from both), どれ (which one)",
+    "scenarioTags": [
+      "shopping",
+      "introductions"
+    ],
+    "exampleSentences": [
+      "これは何ですか。",
+      "あれは私の傘です。"
+    ],
+    "commonMistakes": [
+      "Don't confuse with この/その/あの/どの, which modify nouns directly."
+    ]
+  },
+  {
+    "id": "grammar.n5.002",
+    "pattern": "この、その、あの、どの",
+    "meaning": "Demonstrative adjectives: this, that, that, which (modifying nouns).",
+    "jlptLevel": "N5",
+    "formation": "この/その/あの/どの + Noun",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "この本は面白いです。",
+      "あの人は誰ですか。"
+    ],
+    "commonMistakes": [
+      "Cannot stand alone — they require a following noun."
+    ]
+  },
+  {
+    "id": "grammar.n5.003",
+    "pattern": "ここ、そこ、あそこ、どこ",
+    "meaning": "Place demonstratives: here, there, over there, where.",
+    "jlptLevel": "N5",
+    "formation": "Standalone place pronouns",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "ここに座ってください。",
+      "トイレはどこですか。"
+    ]
+  },
+  {
+    "id": "grammar.n5.004",
+    "pattern": "こう、そう、ああ、どう",
+    "meaning": "Adverbial demonstratives: like this, like that, that way, how.",
+    "jlptLevel": "N5",
+    "formation": "Standalone adverbs modifying verbs",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "こうしてください。",
+      "どう思いますか。"
+    ]
+  },
+  {
+    "id": "grammar.n5.005",
+    "pattern": "こちら、そちら、あちら、どちら",
+    "meaning": "Polite directional pronouns: this way, that way, which way.",
+    "jlptLevel": "N5",
+    "formation": "Polite versions of これ/それ/あれ/どれ; also indicate direction",
+    "scenarioTags": [
+      "formal",
+      "directions"
+    ],
+    "exampleSentences": [
+      "こちらへどうぞ。",
+      "あちらが入り口です。"
+    ]
+  },
+  {
+    "id": "grammar.n5.006",
+    "pattern": "こんな、そんな、あんな、どんな",
+    "meaning": "Demonstrative quality modifiers: this kind of, what kind of.",
+    "jlptLevel": "N5",
+    "formation": "こんな/そんな/あんな/どんな + Noun",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "こんな本を探していました。",
+      "どんな映画が好きですか。"
+    ]
+  },
+  {
+    "id": "grammar.n5.007",
+    "pattern": "基数词",
+    "meaning": "Cardinal numbers: one, two, three, etc.",
+    "jlptLevel": "N5",
+    "formation": "一、二、三、四、五、六、七、八、九、十…",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "りんごを三つください。",
+      "今、五時です。"
+    ]
+  },
+  {
+    "id": "grammar.n5.008",
+    "pattern": "序数词",
+    "meaning": "Ordinal numbers: first, second, etc.",
+    "jlptLevel": "N5",
+    "formation": "番目-counter (一番目, 二番目) or 第-prefix (第一, 第二)",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "私は二番目に着きました。",
+      "第一の問題は時間です。"
+    ]
+  },
+  {
+    "id": "grammar.n5.009",
+    "pattern": "常用助数词",
+    "meaning": "Common counter words attached to numbers (人, つ, 本, 枚, etc.).",
+    "jlptLevel": "N5",
+    "formation": "Number + counter (e.g., 三人, 二つ, 五本)",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "学生が三人います。",
+      "ペンを二本買いました。"
+    ]
+  },
+  {
+    "id": "grammar.n5.010",
+    "pattern": "常用数量的读法",
+    "meaning": "Reading common quantities; choosing between つ-counter and 個-counter.",
+    "jlptLevel": "N5",
+    "formation": "Use つ-counter for general items 1-10, 個 for round/discrete things",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "りんごを四つください。",
+      "本が三冊あります。"
+    ]
+  },
+  {
+    "id": "grammar.n5.011",
+    "pattern": "三类动词的区分",
+    "meaning": "Three verb classes: godan (Group I), ichidan (Group II), irregular (Group III).",
+    "jlptLevel": "N5",
+    "formation": "Group I: ends in う,く,ぐ,す,つ,ぬ,ぶ,む,or る (after a/u/o vowel). Group II: ends in いる/える. Irregular: する, 来る",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "「飲む」は一類動詞です。",
+      "「食べる」は二類動詞です。"
+    ]
+  },
+  {
+    "id": "grammar.n5.012",
+    "pattern": "自动词和他动词",
+    "meaning": "Intransitive vs. transitive verbs.",
+    "jlptLevel": "N5",
+    "formation": "Transitive (他動詞) takes を-object; intransitive (自動詞) takes が-subject. Many pairs: 開ける/開く, 閉める/閉まる",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "ドアを開けます。",
+      "ドアが開きました。"
+    ]
+  },
+  {
+    "id": "grammar.n5.013",
+    "pattern": "动词「ます形」及敬体形",
+    "meaning": "Polite ます-form of verbs.",
+    "jlptLevel": "N5",
+    "formation": "Verb stem + ます (present), ました (past), ません (negative)",
+    "scenarioTags": [
+      "formal",
+      "school"
+    ],
+    "exampleSentences": [
+      "毎朝シャワーを浴びます。",
+      "昨日学校へ行きました。"
+    ]
+  },
+  {
+    "id": "grammar.n5.014",
+    "pattern": "动词「て形」",
+    "meaning": "Te-form connecting verbs (sequencing, requests, ongoing state).",
+    "jlptLevel": "N5",
+    "formation": "Verb te-form (e.g., 食べて, 飲んで). Used to chain actions or with ください/います",
+    "scenarioTags": [
+      "school",
+      "home"
+    ],
+    "exampleSentences": [
+      "辞書を見て漢字を覚えます。",
+      "ちょっと待ってください。"
+    ]
+  },
+  {
+    "id": "grammar.n5.015",
+    "pattern": "动词「た形」",
+    "meaning": "Past plain (た) form of verbs.",
+    "jlptLevel": "N5",
+    "formation": "Verb past plain ending in た or だ",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "これは去年買ったカメラです。",
+      "昨日映画を見た。"
+    ]
+  },
+  {
+    "id": "grammar.n5.016",
+    "pattern": "动词「ない形」",
+    "meaning": "Negative plain (ない) form of verbs.",
+    "jlptLevel": "N5",
+    "formation": "Verb stem + ない",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "明日は学校に行かない。",
+      "私はお酒を飲まない。"
+    ]
+  },
+  {
+    "id": "grammar.n5.017",
+    "pattern": "动词敬体形和普通形",
+    "meaning": "Polite (です/ます) vs. plain (普通形) speech style.",
+    "jlptLevel": "N5",
+    "formation": "Polite uses です/ます for politeness; plain (普通形) used in casual speech and writing",
+    "scenarioTags": [
+      "formal",
+      "casual"
+    ],
+    "exampleSentences": [
+      "私は学生です。",
+      "私は学生だ。"
+    ]
+  },
+  {
+    "id": "grammar.n5.018",
+    "pattern": "する",
+    "meaning": "To do; the irregular verb する.",
+    "jlptLevel": "N5",
+    "formation": "Standalone or attached to noun: 勉強する, 運動する, 練習する",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "運動をしてもいいですか。",
+      "毎日日本語を勉強します。"
+    ]
+  },
+  {
+    "id": "grammar.n5.019",
+    "pattern": "やる",
+    "meaning": "Casual 'to do' (also 'to give to inferior/animal').",
+    "jlptLevel": "N5",
+    "formation": "Casual variant of する; can also mean give to animal/junior",
+    "scenarioTags": [
+      "casual"
+    ],
+    "exampleSentences": [
+      "宿題をやりました。",
+      "犬に水をやってください。"
+    ]
+  },
+  {
+    "id": "grammar.n5.020",
+    "pattern": "できる",
+    "meaning": "Can do; be able to (potential).",
+    "jlptLevel": "N5",
+    "formation": "Noun + が + できる; or Verb-こと + が + できる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "辞書を使わずに新聞を読むことができますか。",
+      "私はピアノができます。"
+    ]
+  },
+  {
+    "id": "grammar.n4.001",
+    "pattern": "～ず（に）",
+    "meaning": "Without doing (formal alternative to ～ないで).",
+    "jlptLevel": "N4",
+    "formation": "Verb nai-form (drop い) + ずに. Note: する → せずに, 来る → 来ずに",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "彼は何も言わずに部屋を出ていった。",
+      "傘を持たずに家を出てしまった。"
+    ],
+    "commonMistakes": [
+      "Don't forget the irregular: する → せずに.",
+      "Confused with ～ないで; ずに sounds more written/formal."
+    ]
+  },
+  {
+    "id": "grammar.n4.002",
+    "pattern": "～たがる",
+    "meaning": "Want to do (used about a third person).",
+    "jlptLevel": "N4",
+    "formation": "Verb ます-stem + たがる / たがっている",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "弟はゲームばかりしたがる。",
+      "子供は外で遊びたがっている。"
+    ],
+    "commonMistakes": [
+      "Use ～たい for first person. ～たがる is for describing another person's desire."
+    ]
+  },
+  {
+    "id": "grammar.n4.003",
+    "pattern": "～がる",
+    "meaning": "Show outward signs of (a feeling/state).",
+    "jlptLevel": "N4",
+    "formation": "i-adjective stem / na-adjective stem + がる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "妹は最初は嫌がっていたが、今は楽しんでいる。",
+      "彼は寒がっています。"
+    ]
+  },
+  {
+    "id": "grammar.n4.004",
+    "pattern": "～そうだ",
+    "meaning": "Looks like / I heard that (hearsay or appearance).",
+    "jlptLevel": "N4",
+    "formation": "Verb plain + そうだ (hearsay); Verb ます-stem + そうだ (appearance)",
+    "scenarioTags": [
+      "feelings",
+      "weather"
+    ],
+    "exampleSentences": [
+      "来週うちの近くで祭りがあるそうです。",
+      "雨が降りそうです。"
+    ],
+    "commonMistakes": [
+      "Hearsay そうだ attaches to plain form; appearance そうだ attaches to ます-stem."
+    ]
+  },
+  {
+    "id": "grammar.n4.005",
+    "pattern": "～ようだ",
+    "meaning": "Seems like; like (simile).",
+    "jlptLevel": "N4",
+    "formation": "Verb/Adjective plain + ようだ; Noun + のようだ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "母は子供のように喜んだ。",
+      "彼は疲れているようだ。"
+    ]
+  },
+  {
+    "id": "grammar.n4.006",
+    "pattern": "～らしい",
+    "meaning": "Apparently (hearsay) / typical of (suffix).",
+    "jlptLevel": "N4",
+    "formation": "Verb/Adjective plain + らしい; Noun + らしい",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "二人は来年結婚するらしい。",
+      "今日は春らしい天気です。"
+    ]
+  },
+  {
+    "id": "grammar.n4.007",
+    "pattern": "～みたいだ",
+    "meaning": "Seems / like (casual ようだ).",
+    "jlptLevel": "N4",
+    "formation": "Verb plain + みたいだ; Noun + みたいだ (no の needed)",
+    "scenarioTags": [
+      "feelings",
+      "casual"
+    ],
+    "exampleSentences": [
+      "誰か教室にいるみたいだ。",
+      "彼は子供みたいだ。"
+    ]
+  },
+  {
+    "id": "grammar.n4.008",
+    "pattern": "可能助动词「れる/られる」",
+    "meaning": "Potential form: can do / be able to.",
+    "jlptLevel": "N4",
+    "formation": "Group I: change ending to え-row + る. Group II: stem + られる. Irregular: する → できる, 来る → 来られる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "この店で日本のお金が使えますか。",
+      "刺身が食べられますか。"
+    ]
+  },
+  {
+    "id": "grammar.n4.009",
+    "pattern": "使役助动词「せる/させる」",
+    "meaning": "Causative: make/let someone do.",
+    "jlptLevel": "N4",
+    "formation": "Group I: nai-stem + せる. Group II: nai-stem + させる. Irregular: する → させる, 来る → 来させる",
+    "scenarioTags": [
+      "family",
+      "work"
+    ],
+    "exampleSentences": [
+      "母は私に野菜を食べさせる。",
+      "先生は生徒に本を読ませた。"
+    ]
+  },
+  {
+    "id": "grammar.n4.010",
+    "pattern": "被动助动词「れる/られる」",
+    "meaning": "Passive form: be done to.",
+    "jlptLevel": "N4",
+    "formation": "Group I: nai-stem + れる. Group II: nai-stem + られる. Irregular: する → される, 来る → 来られる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "今日先生に褒められました。",
+      "雨に降られて困りました。"
+    ]
+  },
+  {
+    "id": "grammar.n4.011",
+    "pattern": "使役被动助动词「される/させられる」",
+    "meaning": "Causative-passive: be made to do (often unwillingly).",
+    "jlptLevel": "N4",
+    "formation": "Group I: nai-stem + される. Group II: nai-stem + させられる. Irregular: する → させられる",
+    "scenarioTags": [
+      "feelings",
+      "work"
+    ],
+    "exampleSentences": [
+      "病院で1時間も待たされた。",
+      "親に勉強させられた。"
+    ]
+  },
+  {
+    "id": "grammar.n4.012",
+    "pattern": "命令助动词「れ/ろ」",
+    "meaning": "Imperative form: a direct command.",
+    "jlptLevel": "N4",
+    "formation": "Group I: change ending to え-row. Group II: stem + ろ. Irregular: する → しろ, 来る → 来い",
+    "scenarioTags": [
+      "feelings",
+      "casual"
+    ],
+    "exampleSentences": [
+      "急げ！電車に遅れる。",
+      "早く起きろ。"
+    ]
+  },
+  {
+    "id": "grammar.n4.013",
+    "pattern": "禁止助动词「な」",
+    "meaning": "Prohibitive 'don't': forbidden command.",
+    "jlptLevel": "N4",
+    "formation": "Verb dictionary form + な",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "「ここにごみを捨てるな！」と書いてある。",
+      "嘘をつくな。"
+    ]
+  },
+  {
+    "id": "grammar.n4.014",
+    "pattern": "～ておく/とく",
+    "meaning": "Do in advance / leave (something) prepared.",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + おく (or contracted ～とく)",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "あとで捨てるから、ごみを集めておいてください。",
+      "ビールを冷やしておきます。"
+    ]
+  },
+  {
+    "id": "grammar.n4.015",
+    "pattern": "～ていく",
+    "meaning": "Go on doing / continue (away from speaker).",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + いく",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "これからも日本語を勉強していきます。",
+      "傘を持っていきましょう。"
+    ]
+  },
+  {
+    "id": "grammar.n4.016",
+    "pattern": "～てくる",
+    "meaning": "Come having done / has come to (toward speaker).",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + くる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "ちょっと手紙を出してきます。",
+      "雨が降ってきました。"
+    ]
+  },
+  {
+    "id": "grammar.n4.017",
+    "pattern": "～てしまう/ちゃう",
+    "meaning": "Finish completely / regrettably / accidentally.",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + しまう (formal) or ちゃう (casual contraction)",
+    "scenarioTags": [
+      "feelings",
+      "casual"
+    ],
+    "exampleSentences": [
+      "急いで来たから財布を忘れちゃった。",
+      "宿題を全部やってしまいました。"
+    ]
+  },
+  {
+    "id": "grammar.n4.018",
+    "pattern": "～てみる",
+    "meaning": "Try doing (and see what happens).",
+    "jlptLevel": "N4",
+    "formation": "Verb te-form + みる",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "新しいレストランに行ってみよう。",
+      "この服を着てみてもいいですか。"
+    ]
+  },
+  {
+    "id": "grammar.n4.019",
+    "pattern": "～もの",
+    "meaning": "A thing / nominalizer 'もの'.",
+    "jlptLevel": "N4",
+    "formation": "Modifier (verb plain / adjective) + もの",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "メニューの中から好きなものを一つ選んでください。",
+      "若い時の苦労は買ってでもするものだ。"
+    ]
+  },
+  {
+    "id": "grammar.n4.020",
+    "pattern": "～こと",
+    "meaning": "A fact / nominalizer 'こと'.",
+    "jlptLevel": "N4",
+    "formation": "Verb plain + こと; nominalizes a verb or clause",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "銀行の名前が変わったことを知りませんでした。",
+      "毎朝走ることが趣味です。"
+    ]
+  },
+  {
+    "id": "grammar.n3.001",
+    "pattern": "～間",
+    "meaning": "During / while (continuous action over a period).",
+    "jlptLevel": "N3",
+    "formation": "Noun + の + 間; Verb plain (often ている-form) + 間",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "授業の間、携帯電話を使うのは禁止されています。",
+      "私が留守の間、友達が猫の世話をしてくれた。"
+    ],
+    "commonMistakes": [
+      "Often confused with ～間に, which means 'at some point during', not the entire duration."
+    ]
+  },
+  {
+    "id": "grammar.n3.002",
+    "pattern": "～間に",
+    "meaning": "At some point during a period (one-shot action).",
+    "jlptLevel": "N3",
+    "formation": "Noun + の + 間に; Verb plain + 間に",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "赤ちゃんが寝ている間に、洗濯をしました。",
+      "夏休みの間に北海道へ行った。"
+    ]
+  },
+  {
+    "id": "grammar.n3.003",
+    "pattern": "～あがる",
+    "meaning": "Compound suffix indicating completion or rising up.",
+    "jlptLevel": "N3",
+    "formation": "Verb ます-stem + あがる",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "最新の企画書ができあがりました。",
+      "晴れあがった空がきれいだ。"
+    ]
+  },
+  {
+    "id": "grammar.n3.004",
+    "pattern": "～いい/よい",
+    "meaning": "Easy/good to do (ーやすい/ーいい).",
+    "jlptLevel": "N3",
+    "formation": "Verb ます-stem + やすい / いい",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "この町は住みよいです。",
+      "この本は読みやすい。"
+    ]
+  },
+  {
+    "id": "grammar.n3.005",
+    "pattern": "～一方（で）",
+    "meaning": "On one hand / while (contrasting two aspects).",
+    "jlptLevel": "N3",
+    "formation": "Verb plain + 一方（で）",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼は自分は何もしない一方で、他人に文句を言う。",
+      "都会は便利な一方で、人が多すぎる。"
+    ]
+  },
+  {
+    "id": "grammar.n3.006",
+    "pattern": "～一方だ",
+    "meaning": "Continuously increasing (one-way trend).",
+    "jlptLevel": "N3",
+    "formation": "Verb dictionary form + 一方だ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "物価は上がる一方だ。",
+      "彼の人気は高まる一方だ。"
+    ]
+  },
+  {
+    "id": "grammar.n3.007",
+    "pattern": "～上で（の）",
+    "meaning": "After doing / based on (formal sequencing).",
+    "jlptLevel": "N3",
+    "formation": "Noun + の + 上で(の); Verb ta-form + 上で(の)",
+    "scenarioTags": [
+      "planning",
+      "formal"
+    ],
+    "exampleSentences": [
+      "皆様のご意見を伺った上で、ご報告いたします。",
+      "確認の上で連絡します。"
+    ]
+  },
+  {
+    "id": "grammar.n3.008",
+    "pattern": "～上で（は）/上での",
+    "meaning": "In terms of / regarding (a specific aspect).",
+    "jlptLevel": "N3",
+    "formation": "Noun + の + 上で(は); Verb dictionary form + 上で(は)/上での",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "仕事の上では別に問題はない。",
+      "計画を立てる上での注意点を説明します。"
+    ]
+  },
+  {
+    "id": "grammar.n3.009",
+    "pattern": "～上に",
+    "meaning": "On top of (additionally).",
+    "jlptLevel": "N3",
+    "formation": "Verb plain / Noun + の + 上に",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そのスポーツクラブは入会金が要らない上に、家から近い。",
+      "彼は親切な上に頭もいい。"
+    ]
+  },
+  {
+    "id": "grammar.n3.010",
+    "pattern": "～うちは",
+    "meaning": "While (still in a particular state).",
+    "jlptLevel": "N3",
+    "formation": "Verb plain / Noun + の + うちは",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "膝に痛みがあるうちは、運動しないでください。",
+      "若いうちはたくさん旅行をしたい。"
+    ]
+  },
+  {
+    "id": "grammar.n3.011",
+    "pattern": "～おかげで/おかげだ",
+    "meaning": "Thanks to (positive cause).",
+    "jlptLevel": "N3",
+    "formation": "Verb plain / Noun + の + おかげで / おかげだ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "風邪を引かないのは、毎朝のジョギングのおかげだ。",
+      "先生のおかげで合格できました。"
+    ]
+  },
+  {
+    "id": "grammar.n3.012",
+    "pattern": "～おきに",
+    "meaning": "At intervals of (every X spacing).",
+    "jlptLevel": "N3",
+    "formation": "Quantity + おきに",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "この道には5メートルおきに木が植えてある。",
+      "薬は4時間おきに飲んでください。"
+    ]
+  },
+  {
+    "id": "grammar.n3.013",
+    "pattern": "～恐れがある",
+    "meaning": "There's a danger/risk that.",
+    "jlptLevel": "N3",
+    "formation": "Verb dictionary / Noun + の + 恐れがある",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "今晩、大型の台風がこの地方へ近づく恐れがあります。",
+      "この製品は故障する恐れがある。"
+    ]
+  },
+  {
+    "id": "grammar.n3.014",
+    "pattern": "～がかり",
+    "meaning": "Continuous undertaking (with sustained effort or duration).",
+    "jlptLevel": "N3",
+    "formation": "Noun + がかり",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "3年がかりの調査の結果がやっと出た。",
+      "10人がかりで荷物を運んだ。"
+    ]
+  },
+  {
+    "id": "grammar.n3.015",
+    "pattern": "～がたい",
+    "meaning": "Hard to / unbearable to (formal).",
+    "jlptLevel": "N3",
+    "formation": "Verb ます-stem + がたい",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "税金を上げようとするのは、国民には理解しがたい。",
+      "彼の決断は信じがたい。"
+    ]
+  },
+  {
+    "id": "grammar.n3.016",
+    "pattern": "～か何か",
+    "meaning": "Or something (similar).",
+    "jlptLevel": "N3",
+    "formation": "Verb plain / Noun + か何か",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "風で紙が飛んでしまうので、本か何か重いものを載せておこう。",
+      "コーヒーか何か飲みませんか。"
+    ]
+  },
+  {
+    "id": "grammar.n3.017",
+    "pattern": "～から言うと/から言えば/から言って",
+    "meaning": "Speaking from (a specific perspective).",
+    "jlptLevel": "N3",
+    "formation": "Noun + から言うと / から言えば / から言って",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "経済の観点から言うと、この計画はいい。",
+      "親の立場から言って、心配だ。"
+    ]
+  },
+  {
+    "id": "grammar.n3.018",
+    "pattern": "～からすると/からすれば",
+    "meaning": "Judging from (an observation).",
+    "jlptLevel": "N3",
+    "formation": "Noun + からすると / からすれば",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "あの雲の様子からすると、明日は雨だろう。",
+      "彼の話し方からすれば、学生のようだ。"
+    ]
+  },
+  {
+    "id": "grammar.n3.019",
+    "pattern": "～から～にかけて",
+    "meaning": "From X to Y (covering a period or area).",
+    "jlptLevel": "N3",
+    "formation": "Noun + から + Noun + にかけて",
+    "scenarioTags": [
+      "planning",
+      "weather"
+    ],
+    "exampleSentences": [
+      "あの鳥が日本で見られるのは、11月から3月にかけてです。",
+      "東京から京都にかけて雪が降った。"
+    ]
+  },
+  {
+    "id": "grammar.n3.020",
+    "pattern": "～から見ると/から見れば/から見て",
+    "meaning": "From the standpoint of / viewed from.",
+    "jlptLevel": "N3",
+    "formation": "Noun + から見ると / から見れば / から見て",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "私から見ると、彼女はあらゆる才能に恵まれている。",
+      "外国人から見ると、日本のマナーは独特だ。"
+    ]
+  },
+  {
+    "id": "grammar.n2.001",
+    "pattern": "～あげく（に）",
+    "meaning": "After much effort, ending in (usually negative) outcome.",
+    "jlptLevel": "N2",
+    "formation": "Verb ta-form / Noun + の + あげく(に)",
+    "scenarioTags": [
+      "work",
+      "feelings"
+    ],
+    "exampleSentences": [
+      "何時間も議論を重ねたあげく、結局解決しなかった。",
+      "悩んだあげくに、留学を諦めた。"
+    ],
+    "commonMistakes": [
+      "Used only for negative or undesirable outcomes — never for positive ones.",
+      "Implies exhaustion or futility after a long process."
+    ]
+  },
+  {
+    "id": "grammar.n2.002",
+    "pattern": "～あまり（に）",
+    "meaning": "Excessively, to the point of (a consequence).",
+    "jlptLevel": "N2",
+    "formation": "Verb plain / Noun + の + あまり(に)",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "完全にやろうと思うあまりに、体を壊す人がいる。",
+      "驚きのあまり、声も出なかった。"
+    ]
+  },
+  {
+    "id": "grammar.n2.003",
+    "pattern": "～以上（は）",
+    "meaning": "Now that / since (given a fact, naturally...).",
+    "jlptLevel": "N2",
+    "formation": "Verb plain / Noun + である + 以上(は)",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "問題がこれほど深刻になった以上、対策をたてるべきだ。",
+      "約束した以上、必ず守ります。"
+    ]
+  },
+  {
+    "id": "grammar.n2.004",
+    "pattern": "～上は",
+    "meaning": "Now that / given that (formal, similar to 以上).",
+    "jlptLevel": "N2",
+    "formation": "Verb dictionary / ta-form + 上は",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "事態がこうなった上は、もう彼一人に任せてはおけない。",
+      "引き受けた上は、最後までやり抜きます。"
+    ]
+  },
+  {
+    "id": "grammar.n2.005",
+    "pattern": "～（よ）うではないか/（よ）うじゃないか",
+    "meaning": "Let's / shall we (rhetorical exhortation).",
+    "jlptLevel": "N2",
+    "formation": "Verb volitional + ではないか / じゃないか",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "困っている人たちに、できる限りの援助をしようではないか。",
+      "みんなで力を合わせて頑張ろうじゃないか。"
+    ]
+  },
+  {
+    "id": "grammar.n2.006",
+    "pattern": "～得る/得ない",
+    "meaning": "Possible / impossible (formal).",
+    "jlptLevel": "N2",
+    "formation": "Verb ます-stem + 得る (possible) / 得ない (impossible)",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "海面の上昇が続けば、島々が沈んでしまうこともありうる。",
+      "そんなことはあり得ない。"
+    ]
+  },
+  {
+    "id": "grammar.n2.007",
+    "pattern": "～甲斐があって/甲斐がある/甲斐がない/甲斐もなく",
+    "meaning": "Worth doing / with the result that the effort paid off.",
+    "jlptLevel": "N2",
+    "formation": "Verb ta-form / Noun + の + 甲斐がある / 甲斐があって",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "3時間待った甲斐があって、美しい景色を見ることができた。",
+      "毎日勉強した甲斐があって、合格できた。"
+    ]
+  },
+  {
+    "id": "grammar.n2.008",
+    "pattern": "～がきっかけで/がきっかけになって/をきっかけに（して）/をきっかけとして",
+    "meaning": "With X as the trigger / starting point.",
+    "jlptLevel": "N2",
+    "formation": "Noun + がきっかけで / をきっかけに(して) / をきっかけとして",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "子どもたちの姿を見たのがきっかけで、この活動を始めた。",
+      "病気をきっかけに、健康を意識するようになった。"
+    ]
+  },
+  {
+    "id": "grammar.n2.009",
+    "pattern": "～限り（は）/限りでは",
+    "meaning": "As far as / as long as (within scope of).",
+    "jlptLevel": "N2",
+    "formation": "Verb dictionary / ta-form + 限り(は) / 限りでは",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "父は働ける限りは働きたいと言っている。",
+      "私の知る限りでは、彼は信頼できる人だ。"
+    ]
+  },
+  {
+    "id": "grammar.n2.010",
+    "pattern": "～が契機で/が契機になって/を契機に（して）/を契機として",
+    "meaning": "With X as a turning point or pivotal event.",
+    "jlptLevel": "N2",
+    "formation": "Noun + が契機で / を契機に(して) / を契機として",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "入院生活を契機に、健康に気をつけて生活しようと決心した。",
+      "結婚が契機で、転職した。"
+    ]
+  },
+  {
+    "id": "grammar.n2.011",
+    "pattern": "～かけだ/かける",
+    "meaning": "Half-finished / in the middle of doing.",
+    "jlptLevel": "N2",
+    "formation": "Verb ます-stem + かけだ / かける",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "テーブルの上に食べかけのケーキがおいてある。",
+      "言いかけて、やめた。"
+    ]
+  },
+  {
+    "id": "grammar.n2.012",
+    "pattern": "～がちだ",
+    "meaning": "Tend to / often (with a slightly negative nuance).",
+    "jlptLevel": "N2",
+    "formation": "Verb ます-stem / Noun + がちだ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "つい思ってしまいがちだが、相手が嫌がる場合もある。",
+      "忙しいと食事を忘れがちになる。"
+    ]
+  },
+  {
+    "id": "grammar.n2.013",
+    "pattern": "～かというと/かといえば",
+    "meaning": "As to whether / well, actually... (introducing a counter).",
+    "jlptLevel": "N2",
+    "formation": "Verb plain + かというと / かといえば",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "文章がうまければ作家になれるかというと、そんなことはない。",
+      "好きかといえば、そうでもない。"
+    ]
+  },
+  {
+    "id": "grammar.n2.014",
+    "pattern": "～かと思えば",
+    "meaning": "No sooner than / one moment X, then suddenly Y.",
+    "jlptLevel": "N2",
+    "formation": "Verb dictionary or ta-form + かと思えば",
+    "scenarioTags": [
+      "feelings",
+      "weather"
+    ],
+    "exampleSentences": [
+      "9月になって涼しくなったかと思えば、また急に暑くなった。",
+      "泣いていたかと思えば、笑い出した。"
+    ]
+  },
+  {
+    "id": "grammar.n2.015",
+    "pattern": "～か～ないかのうちに",
+    "meaning": "As soon as / barely had X happened when Y.",
+    "jlptLevel": "N2",
+    "formation": "Verb dictionary + か + Verb nai-stem + かのうちに",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "「いってきます」と言い終わるか終わらないかのうちに、玄関を飛び出した。",
+      "授業が始まるか始まらないかのうちに、寝てしまった。"
+    ]
+  },
+  {
+    "id": "grammar.n2.016",
+    "pattern": "～かねる/かねない",
+    "meaning": "Cannot do / might happen (negative possibility).",
+    "jlptLevel": "N2",
+    "formation": "Verb ます-stem + かねる (cannot) / かねない (might happen)",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "そのようなことを聞かれてもちょっと答えかねる。",
+      "このまま放置すれば事故になりかねない。"
+    ]
+  },
+  {
+    "id": "grammar.n2.017",
+    "pattern": "～かのようだ",
+    "meaning": "As if / it's as though.",
+    "jlptLevel": "N2",
+    "formation": "Verb plain + かのようだ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "もう秋なのに、今日は真夏に戻ったかのような暑さだ。",
+      "彼は何も知らないかのような顔をしていた。"
+    ]
+  },
+  {
+    "id": "grammar.n2.018",
+    "pattern": "～からいいようなものの",
+    "meaning": "Fortunately X, but (could have been worse).",
+    "jlptLevel": "N2",
+    "formation": "Sentence plain + からいいようなものの",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "資料が見つかったからいいようなものの、紛失したらどうするんだ。",
+      "怪我が軽かったからいいようなものの、危なかった。"
+    ]
+  },
+  {
+    "id": "grammar.n2.019",
+    "pattern": "～からこそ",
+    "meaning": "Precisely because / for the very reason that.",
+    "jlptLevel": "N2",
+    "formation": "Sentence plain + からこそ",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "電子メールが普及している今だからこそ、手書きの手紙に温かさを感じる。",
+      "あなただからこそ任せられる。"
+    ]
+  },
+  {
+    "id": "grammar.n2.020",
+    "pattern": "～からして",
+    "meaning": "Even / starting from (a notable feature already shows X).",
+    "jlptLevel": "N2",
+    "formation": "Noun + からして",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼の話し方や服装からしてがまんならない。",
+      "名前からして高そうなレストランだ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.001",
+    "pattern": "～あっての",
+    "meaning": "B is possible only because of A; A is essential to B's existence.",
+    "jlptLevel": "N1",
+    "formation": "Noun A + (が) + あっての + Noun B",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "今の私があるのも、恩師の指導あってのことだ。",
+      "会社の発展は、社員の努力あってのものだ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.002",
+    "pattern": "～以外の何ものでもない",
+    "meaning": "Nothing other than / is precisely (strong identification).",
+    "jlptLevel": "N1",
+    "formation": "Noun + 以外の何ものでもない",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "彼女を悩ませているのは仕事のストレス以外のなにものでもない。",
+      "あれは事故以外の何ものでもなかった。"
+    ]
+  },
+  {
+    "id": "grammar.n1.003",
+    "pattern": "～いかんで/いかんでは/いかんによっては/いかんにかかっている/いかんだ",
+    "meaning": "Depending on X (outcome varies with X).",
+    "jlptLevel": "N1",
+    "formation": "Noun + (の) + いかんで / いかんでは / いかんによっては",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "出席状況・成績のいかんでは、奨学金の支給を停止することもある。",
+      "結果のいかんで、計画を見直す。"
+    ]
+  },
+  {
+    "id": "grammar.n1.004",
+    "pattern": "～いかんにかかわらず/いかんによらず/いかんをとわず",
+    "meaning": "Regardless of (formal 'no matter the X').",
+    "jlptLevel": "N1",
+    "formation": "Noun + (の) + いかんにかかわらず / いかんによらず / いかんを問わず",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "出席欠席のいかんによらず、葉書にてお返事ください。",
+      "結果のいかんを問わず、最後まで戦う。"
+    ]
+  },
+  {
+    "id": "grammar.n1.005",
+    "pattern": "いざ～となると/いざ～となれば/いざ～となったら",
+    "meaning": "When it actually comes to doing X (idiomatic 'when push comes to shove').",
+    "jlptLevel": "N1",
+    "formation": "いざ + Verb dictionary + となると / となれば / となったら",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "いざ買うとなると、なかなか決心がつかなかった。",
+      "いざとなれば、私が責任を取ります。"
+    ]
+  },
+  {
+    "id": "grammar.n1.006",
+    "pattern": "今ひとつ～（ない）",
+    "meaning": "Not quite / lacking something (slight deficiency).",
+    "jlptLevel": "N1",
+    "formation": "今ひとつ + (negative or weak adjective)",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "話題の映画を見たが、今ひとつ迫力が足りない気がした。",
+      "今ひとつピンとこない。"
+    ]
+  },
+  {
+    "id": "grammar.n1.007",
+    "pattern": "言わずもがな",
+    "meaning": "Something better left unsaid / needless to say.",
+    "jlptLevel": "N1",
+    "formation": "言わずもがな + の + Noun; or Noun + は言わずもがな",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "腹が立ったので、つい言わずもがなのことを言ってしまった。",
+      "経験は言わずもがな、人柄も大切だ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.008",
+    "pattern": "～（よ）うが/（よ）うと",
+    "meaning": "No matter what / even if (concessive).",
+    "jlptLevel": "N1",
+    "formation": "Verb volitional + が / と; Adjective stem + かろう + が",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "たとえ相手が誰であろうと、全力を尽くす。",
+      "何が起ころうが、彼は冷静だ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.009",
+    "pattern": "～（よ）うが～（よ）うが/（よ）うと～（よ）うと",
+    "meaning": "Whether X or Y (paired alternatives, both irrelevant).",
+    "jlptLevel": "N1",
+    "formation": "Verb volitional + が + Verb volitional + が (or と + と)",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "タバコの値段が上がろうと下がろうと、私には関係ない。",
+      "勝とうが負けようが、最後まで戦う。"
+    ]
+  },
+  {
+    "id": "grammar.n1.010",
+    "pattern": "～（よ）うが～まいが/（よ）うと～まいと",
+    "meaning": "Whether or not (paired with mai-form).",
+    "jlptLevel": "N1",
+    "formation": "Verb volitional + が + Verb mai-form + が",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "周囲の人が反対しようとしまいと、私の気持ちは変わらない。",
+      "彼が来ようが来まいが、会議は始める。"
+    ]
+  },
+  {
+    "id": "grammar.n1.011",
+    "pattern": "～（よ）うとも/くとも",
+    "meaning": "Even if (concessive, formal).",
+    "jlptLevel": "N1",
+    "formation": "Verb volitional + とも; i-Adjective stem + くとも",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "周囲からどのような批判を浴びようとも、自分の考えを貫く。",
+      "どんなに難しくとも、諦めない。"
+    ]
+  },
+  {
+    "id": "grammar.n1.012",
+    "pattern": "～（よ）うにも～ない",
+    "meaning": "Cannot do, even if one wanted to.",
+    "jlptLevel": "N1",
+    "formation": "Verb volitional + にも + same Verb in negative potential",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "風邪で喉が痛くて、声を出そうにも出せない。",
+      "雨で出かけようにも出かけられない。"
+    ]
+  },
+  {
+    "id": "grammar.n1.013",
+    "pattern": "～か否か",
+    "meaning": "Whether or not (formal yes/no question structure).",
+    "jlptLevel": "N1",
+    "formation": "Verb plain / Adjective / Noun + である + か否か",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "新たな雇用対策が有効であるか否か、結果はまだ先だ。",
+      "成功するか否かは、努力次第だ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.014",
+    "pattern": "～限りだ",
+    "meaning": "Extremely (with strong emotion: happy/sad/lonely beyond words).",
+    "jlptLevel": "N1",
+    "formation": "i-Adjective dictionary / na-Adjective + な + 限りだ",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "自分の作品が大勢に評価されるとは、嬉しい限りだ。",
+      "誰も来てくれないとは、寂しい限りだ。"
+    ]
+  },
+  {
+    "id": "grammar.n1.015",
+    "pattern": "～が最後/たら最後",
+    "meaning": "Once X (happens), then there's no going back.",
+    "jlptLevel": "N1",
+    "formation": "Verb ta-form + が最後 / ら最後",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "信用というものは、いったん失ったが最後、取り戻すのは難しい。",
+      "彼が話し始めたら最後、止まらない。"
+    ]
+  },
+  {
+    "id": "grammar.n1.016",
+    "pattern": "～かたがた",
+    "meaning": "While doing / on the side of (very formal, often paired with 'visiting').",
+    "jlptLevel": "N1",
+    "formation": "Noun + かたがた",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "近くに用事があったので、先日のお礼かたがた伺いました。",
+      "散歩かたがた郵便局へ行ってきた。"
+    ]
+  },
+  {
+    "id": "grammar.n1.017",
+    "pattern": "～かたわら",
+    "meaning": "While also doing / alongside (parallel activity).",
+    "jlptLevel": "N1",
+    "formation": "Noun + の / Verb dictionary + かたわら",
+    "scenarioTags": [
+      "work",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "彼は歌手としての活動のかたわら、小説家としても活躍している。",
+      "仕事のかたわら、ボランティアをしている。"
+    ]
+  },
+  {
+    "id": "grammar.n1.018",
+    "pattern": "～がてら",
+    "meaning": "While doing X (combining two purposes in one trip).",
+    "jlptLevel": "N1",
+    "formation": "Verb ます-stem / Noun + がてら",
+    "scenarioTags": [
+      "hobbies",
+      "weekend"
+    ],
+    "exampleSentences": [
+      "週末にはドライブがてら、新しい博物館まで行こうと思う。",
+      "散歩がてら、買い物に出かけた。"
+    ]
+  },
+  {
+    "id": "grammar.n1.019",
+    "pattern": "～が早いか",
+    "meaning": "As soon as / no sooner than (instant follow-up).",
+    "jlptLevel": "N1",
+    "formation": "Verb dictionary or ta-form + が早いか",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "授業終了のベルを聞くが早いか、生徒たちは教室を飛び出した。",
+      "ドアが開くが早いか、犬が走り出した。"
+    ]
+  },
+  {
+    "id": "grammar.n1.020",
+    "pattern": "～からある/からする/からの",
+    "meaning": "As much as / weighing/measuring (emphasizing magnitude).",
+    "jlptLevel": "N1",
+    "formation": "Noun (number) + からある (size/weight) / からする (price) / からの (number)",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "100キロからある荷物を3階まで運ぶには、3人は必要だ。",
+      "100万円からする時計を買った。"
     ]
   }
 ]

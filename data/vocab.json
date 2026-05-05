@@ -7,7 +7,11 @@
     "partOfSpeech": "noun",
     "jlptLevel": "N5",
     "frequencyRank": 720,
-    "scenarioTags": ["minshuku", "evening", "weather"],
+    "scenarioTags": [
+      "minshuku",
+      "evening",
+      "weather"
+    ],
     "exampleSentences": [
       "窓の外を見てください。",
       "窓の近くの席でもいいですか？"
@@ -21,7 +25,10 @@
     "partOfSpeech": "noun",
     "jlptLevel": "N4",
     "frequencyRank": 1100,
-    "scenarioTags": ["minshuku", "planning"],
+    "scenarioTags": [
+      "minshuku",
+      "planning"
+    ],
     "exampleSentences": [
       "明日の約束、覚えてる？",
       "約束ね。"
@@ -35,7 +42,11 @@
     "partOfSpeech": "na-adjective",
     "jlptLevel": "N3",
     "frequencyRank": 2500,
-    "scenarioTags": ["minshuku", "evening", "soft-magical"],
+    "scenarioTags": [
+      "minshuku",
+      "evening",
+      "soft-magical"
+    ],
     "exampleSentences": [
       "ちょっと不思議なんだけど。",
       "不思議な話を聞いた。"
@@ -49,7 +60,11 @@
     "partOfSpeech": "noun",
     "jlptLevel": "N5",
     "frequencyRank": 600,
-    "scenarioTags": ["weather", "evening", "morning"],
+    "scenarioTags": [
+      "weather",
+      "evening",
+      "morning"
+    ],
     "exampleSentences": [
       "明日、雨だって。",
       "雨が降ってる。"
@@ -63,10 +78,6116 @@
     "partOfSpeech": "godan-verb",
     "jlptLevel": "N5",
     "frequencyRank": 250,
-    "scenarioTags": ["minshuku", "everyday"],
+    "scenarioTags": [
+      "minshuku",
+      "everyday"
+    ],
     "exampleSentences": [
       "傘を持って行く。",
       "誰が持ってる？"
+    ]
+  },
+  {
+    "id": "vocab.n5.maiasa",
+    "word": "毎朝",
+    "reading": "まいあさ",
+    "meaning": "every morning",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "morning"
+    ],
+    "exampleSentences": [
+      "毎朝コーヒーを飲みます。",
+      "毎朝公園を散歩します。"
+    ]
+  },
+  {
+    "id": "vocab.n5.mondai",
+    "word": "問題",
+    "reading": "もんだい",
+    "meaning": "problem",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "この問題は難しいです。",
+      "何か問題がありますか。"
+    ]
+  },
+  {
+    "id": "vocab.n5.ocha",
+    "word": "お茶",
+    "reading": "おちゃ",
+    "meaning": "green tea",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "お茶を飲みましょう。",
+      "日本のお茶は美味しいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kuro",
+    "word": "黒",
+    "reading": "くろ",
+    "meaning": "black",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "私の車は黒です。",
+      "黒のペンを使います。"
+    ]
+  },
+  {
+    "id": "vocab.n5.daidokoro",
+    "word": "台所",
+    "reading": "だいどころ",
+    "meaning": "kitchen",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "台所で料理をします。",
+      "台所はあそこです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.hagaki",
+    "word": "葉書",
+    "reading": "はがき",
+    "meaning": "postcard",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "友達に葉書を書きます。",
+      "京都から葉書が来ました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.pen",
+    "word": "ペン",
+    "reading": "ペン",
+    "meaning": "pen",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "黒いペンを使います。",
+      "ペンを貸してください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.nyuusu",
+    "word": "ニュース",
+    "reading": "ニュース",
+    "meaning": "news",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "毎晩ニュースを見ます。",
+      "ニュースで知りました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kabin",
+    "word": "花瓶",
+    "reading": "かびん",
+    "meaning": "a vase",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "花瓶に花を入れます。",
+      "テーブルの上に花瓶があります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.fouku",
+    "word": "フォーク",
+    "reading": "フォーク",
+    "meaning": "fork",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "フォークでパスタを食べます。",
+      "フォークとスプーンをください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.hiku",
+    "word": "引く",
+    "reading": "ひく",
+    "meaning": "to pull",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "ドアを引いてください。",
+      "椅子を引きました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.firumu",
+    "word": "フィルム",
+    "reading": "フィルム",
+    "meaning": "roll of film",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "新しいフィルムを買います。",
+      "フィルムで写真を撮ります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.migaku",
+    "word": "磨く",
+    "reading": "みがく",
+    "meaning": "to brush teeth, to polish",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "morning",
+      "health"
+    ],
+    "exampleSentences": [
+      "毎朝歯を磨きます。",
+      "靴を磨きました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.osu",
+    "word": "押す",
+    "reading": "おす",
+    "meaning": "to push, to stamp something",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "ボタンを押してください。",
+      "ドアを押します。"
+    ]
+  },
+  {
+    "id": "vocab.n5.uru",
+    "word": "売る",
+    "reading": "うる",
+    "meaning": "to sell",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "本を売ります。",
+      "あの店で野菜を売っています。"
+    ]
+  },
+  {
+    "id": "vocab.n5.denki",
+    "word": "電気",
+    "reading": "でんき",
+    "meaning": "electricity, electric light",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "電気を消してください。",
+      "電気をつけます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.narabu",
+    "word": "並ぶ",
+    "reading": "ならぶ",
+    "meaning": "to line up, to stand in a line",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "レストランの前に並びました。",
+      "学生が一列に並んでいます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.byouki",
+    "word": "病気",
+    "reading": "びょうき",
+    "meaning": "illness",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "病気で学校を休みました。",
+      "弟は病気です。"
+    ]
+  },
+  {
+    "id": "vocab.n5.poketto",
+    "word": "ポケット",
+    "reading": "ポケット",
+    "meaning": "pocket",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "ポケットに鍵があります。",
+      "コートのポケットを使います。"
+    ]
+  },
+  {
+    "id": "vocab.n5.atama",
+    "word": "頭",
+    "reading": "あたま",
+    "meaning": "head",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "頭が痛いです。",
+      "頭を洗います。"
+    ]
+  },
+  {
+    "id": "vocab.n5.hashi",
+    "word": "はし",
+    "reading": "はし",
+    "meaning": "chopsticks",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "はしでご飯を食べます。",
+      "新しいはしを買いました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.eigo",
+    "word": "英語",
+    "reading": "えいご",
+    "meaning": "English language",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "英語を勉強しています。",
+      "英語の本を読みます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.ie",
+    "word": "家",
+    "reading": "いえ",
+    "meaning": "house",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "家で休みます。",
+      "私の家は大きいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.hitotsuki",
+    "word": "一月",
+    "reading": "ひとつき",
+    "meaning": "one month",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "一月待ちました。",
+      "一月で日本語を覚えます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.atsui",
+    "word": "暑い",
+    "reading": "あつい",
+    "meaning": "hot",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "weather"
+    ],
+    "exampleSentences": [
+      "今日は暑いです。",
+      "夏は暑いですね。"
+    ]
+  },
+  {
+    "id": "vocab.n5.asobu",
+    "word": "遊ぶ",
+    "reading": "あそぶ",
+    "meaning": "to play, to make a visit",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "hobbies",
+      "weekend"
+    ],
+    "exampleSentences": [
+      "週末は友達と遊びます。",
+      "公園で子供が遊んでいます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.toru",
+    "word": "取る",
+    "reading": "とる",
+    "meaning": "to take something",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "塩を取ってください。",
+      "本を棚から取りました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kyuu-ku",
+    "word": "九",
+    "reading": "きゅう / く",
+    "meaning": "nine",
+    "partOfSpeech": "counter",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "九時に起きます。",
+      "九つください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.shimeru",
+    "word": "閉める",
+    "reading": "しめる",
+    "meaning": "to close something",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "ドアを閉めてください。",
+      "窓を閉めました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.taihen",
+    "word": "たいへん",
+    "reading": "たいへん",
+    "meaning": "very",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "たいへんありがとうございます。",
+      "今日はたいへん寒いです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.okusan",
+    "word": "奥さん",
+    "reading": "おくさん",
+    "meaning": "(honorable) wife",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "family",
+      "formal"
+    ],
+    "exampleSentences": [
+      "田中さんの奥さんです。",
+      "奥さんによろしくお伝えください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.sakubun",
+    "word": "作文",
+    "reading": "さくぶん",
+    "meaning": "composition, writing",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "作文を書きました。",
+      "明日作文の宿題があります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.benri",
+    "word": "便利",
+    "reading": "べんり",
+    "meaning": "useful, convenient",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "この駅は便利です。",
+      "便利な道具ですね。"
+    ]
+  },
+  {
+    "id": "vocab.n5.migi",
+    "word": "右",
+    "reading": "みぎ",
+    "meaning": "right side",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "右に曲がってください。",
+      "右の手を上げます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.samui",
+    "word": "寒い",
+    "reading": "さむい",
+    "meaning": "cold",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "weather"
+    ],
+    "exampleSentences": [
+      "今日は寒いです。",
+      "冬は寒いですね。"
+    ]
+  },
+  {
+    "id": "vocab.n5.abiru",
+    "word": "あびる",
+    "reading": "あびる",
+    "meaning": "to bathe, to shower",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "morning",
+      "home"
+    ],
+    "exampleSentences": [
+      "毎朝シャワーをあびます。",
+      "暑いからシャワーをあびたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.juu-tou",
+    "word": "十",
+    "reading": "じゅう  とお",
+    "meaning": "ten",
+    "partOfSpeech": "counter",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "りんごを十個ください。",
+      "十時に会いましょう。"
+    ]
+  },
+  {
+    "id": "vocab.n5.naka",
+    "word": "中",
+    "reading": "なか",
+    "meaning": "middle",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "箱の中にあります。",
+      "部屋の中で待ってください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kesu",
+    "word": "消す",
+    "reading": "けす",
+    "meaning": "to erase, to turn off power",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "電気を消してください。",
+      "テレビを消しました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.chikaku",
+    "word": "近く",
+    "reading": "ちかく",
+    "meaning": "near",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "駅の近くに住んでいます。",
+      "近くにスーパーがあります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.nanatsu",
+    "word": "七つ",
+    "reading": "ななつ",
+    "meaning": "seven",
+    "partOfSpeech": "counter",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "七つ買いました。",
+      "りんごを七つください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.teepurekoudaa",
+    "word": "テープレコーダー",
+    "reading": "テープレコーダー",
+    "meaning": "tape recorder",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "古いテープレコーダーを使います。",
+      "テープレコーダーで音楽を聞きます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.me",
+    "word": "目",
+    "reading": "め",
+    "meaning": "eye",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "目が痛いです。",
+      "彼女の目はきれいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.sora",
+    "word": "空",
+    "reading": "そら",
+    "meaning": "sky",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "weather",
+      "nature"
+    ],
+    "exampleSentences": [
+      "空が青いです。",
+      "空に星が見えます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.muika",
+    "word": "六日",
+    "reading": "むいか",
+    "meaning": "six days, sixth day of the month",
+    "partOfSpeech": "counter",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "六日に会いましょう。",
+      "六日かかりました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.suwaru",
+    "word": "座る",
+    "reading": "すわる",
+    "meaning": "to sit",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "ここに座ってください。",
+      "椅子に座っています。"
+    ]
+  },
+  {
+    "id": "vocab.n5.toshi",
+    "word": "年",
+    "reading": "とし",
+    "meaning": "year",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "今年は2026年です。",
+      "三年待ちました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.otokonoko",
+    "word": "男の子",
+    "reading": "おとこのこ",
+    "meaning": "boy",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "男の子が二人います。",
+      "あの男の子は私の弟です。"
+    ]
+  },
+  {
+    "id": "vocab.n5.semai",
+    "word": "狭い",
+    "reading": "せまい",
+    "meaning": "narrow",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "私の部屋は狭いです。",
+      "この道は狭いですね。"
+    ]
+  },
+  {
+    "id": "vocab.n5.reizouko",
+    "word": "冷蔵庫",
+    "reading": "れいぞうこ",
+    "meaning": "refrigerator",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home",
+      "food"
+    ],
+    "exampleSentences": [
+      "冷蔵庫にビールがあります。",
+      "冷蔵庫を開けてください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kamera",
+    "word": "カメラ",
+    "reading": "カメラ",
+    "meaning": "camera",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "hobbies",
+      "travel"
+    ],
+    "exampleSentences": [
+      "新しいカメラを買いました。",
+      "カメラで写真を撮ります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.genkan",
+    "word": "玄関",
+    "reading": "げんかん",
+    "meaning": "entry hall",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "玄関で靴を脱ぎます。",
+      "玄関に花を置きました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.chigau",
+    "word": "違う",
+    "reading": "ちがう",
+    "meaning": "to differ",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "それは違います。",
+      "答えが違いました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.abunai",
+    "word": "危ない",
+    "reading": "あぶない",
+    "meaning": "dangerous",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "ここは危ないです。",
+      "夜の道は危ないですよ。"
+    ]
+  },
+  {
+    "id": "vocab.n5.wakaru",
+    "word": "分かる",
+    "reading": "わかる",
+    "meaning": "to be understood",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "分かりました。",
+      "意味が分かりません。"
+    ]
+  },
+  {
+    "id": "vocab.n5.iu",
+    "word": "言う",
+    "reading": "いう",
+    "meaning": "to say",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "名前を言ってください。",
+      "もう一度言います。"
+    ]
+  },
+  {
+    "id": "vocab.n5.nomu",
+    "word": "飲む",
+    "reading": "のむ",
+    "meaning": "to drink",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "水を飲みます。",
+      "毎朝コーヒーを飲んでいます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.renshuusuru",
+    "word": "練習",
+    "reading": "れんしゅうする",
+    "meaning": "to practice",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "school",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "毎日日本語を練習します。",
+      "ピアノの練習をしました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.nan-nani",
+    "word": "何",
+    "reading": "なん / なに",
+    "meaning": "what",
+    "partOfSpeech": "pronoun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "これは何ですか。",
+      "何を食べますか。"
+    ]
+  },
+  {
+    "id": "vocab.n5.atsui",
+    "word": "厚い",
+    "reading": "あつい",
+    "meaning": "kind, deep, thick",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "厚い本ですね。",
+      "厚いコートを着ます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.maigetsu-maitsuki",
+    "word": "毎月",
+    "reading": "まいげつ / まいつき",
+    "meaning": "every month",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "毎月家族に会います。",
+      "毎月本を読みます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.shimaru",
+    "word": "閉まる",
+    "reading": "しまる",
+    "meaning": "to close, to be closed",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "ドアが閉まりました。",
+      "店は六時に閉まります。"
+    ]
+  },
+  {
+    "id": "vocab.n5.nugu",
+    "word": "脱ぐ",
+    "reading": "ぬぐ",
+    "meaning": "to take off clothes",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "玄関で靴を脱ぎます。",
+      "暑いからコートを脱ぎました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kuroi",
+    "word": "黒い",
+    "reading": "くろい",
+    "meaning": "black",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "黒い猫がいます。",
+      "黒いコートを買いました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.noboru",
+    "word": "登る",
+    "reading": "のぼる",
+    "meaning": "to climb",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "travel",
+      "nature"
+    ],
+    "exampleSentences": [
+      "山に登ります。",
+      "子供が木に登っています。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kitanai",
+    "word": "汚い",
+    "reading": "きたない",
+    "meaning": "dirty",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "この部屋は汚いです。",
+      "汚い手で食べないでください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.ame",
+    "word": "雨",
+    "reading": "あめ",
+    "meaning": "rain",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "weather"
+    ],
+    "exampleSentences": [
+      "雨が降っています。",
+      "明日も雨ですか。"
+    ]
+  },
+  {
+    "id": "vocab.n5.osara",
+    "word": "お皿",
+    "reading": "おさら",
+    "meaning": "plate, dish",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "home"
+    ],
+    "exampleSentences": [
+      "お皿を洗います。",
+      "新しいお皿を買いました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.hayai",
+    "word": "速い",
+    "reading": "はやい",
+    "meaning": "quick",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "彼は走るのが速いです。",
+      "新幹線は速いですね。"
+    ]
+  },
+  {
+    "id": "vocab.n5.ofuro",
+    "word": "お風呂",
+    "reading": "おふろ",
+    "meaning": "bath",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "お風呂に入ります。",
+      "お風呂は気持ちいいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.atarashii",
+    "word": "新しい",
+    "reading": "あたらしい",
+    "meaning": "new",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "新しい靴を買いました。",
+      "新しい先生は親切です。"
+    ]
+  },
+  {
+    "id": "vocab.n5.rouka",
+    "word": "廊下",
+    "reading": "ろうか",
+    "meaning": "corridor",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "home",
+      "school"
+    ],
+    "exampleSentences": [
+      "廊下を走らないでください。",
+      "廊下で待っています。"
+    ]
+  },
+  {
+    "id": "vocab.n5.chairo",
+    "word": "茶色",
+    "reading": "ちゃいろ",
+    "meaning": "brown",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "茶色のかばんが好きです。",
+      "茶色の犬がいます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kouto",
+    "word": "コート",
+    "reading": "コート",
+    "meaning": "coat, tennis court",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping",
+      "weather"
+    ],
+    "exampleSentences": [
+      "新しいコートを買いました。",
+      "寒いからコートを着ます。"
+    ]
+  },
+  {
+    "id": "vocab.n5.tegami",
+    "word": "手紙",
+    "reading": "てがみ",
+    "meaning": "letter",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "母に手紙を書きます。",
+      "友達から手紙が来ました。"
+    ]
+  },
+  {
+    "id": "vocab.n5.iru",
+    "word": "要る",
+    "reading": "いる",
+    "meaning": "to need",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "お金が要ります。",
+      "辞書が要りますか。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kotchi",
+    "word": "こっち",
+    "reading": "こっち",
+    "meaning": "this person or way",
+    "partOfSpeech": "pronoun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "こっちに来てください。",
+      "こっちのほうが大きいです。"
+    ]
+  },
+  {
+    "id": "vocab.n5.supuun",
+    "word": "スプーン",
+    "reading": "スプーン",
+    "meaning": "spoon",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "スプーンで食べます。",
+      "スプーンをください。"
+    ]
+  },
+  {
+    "id": "vocab.n5.tokidoki",
+    "word": "時々",
+    "reading": "ときどき",
+    "meaning": "sometimes",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "時々日本映画を見ます。",
+      "時々友達と会います。"
+    ]
+  },
+  {
+    "id": "vocab.n5.kasa",
+    "word": "傘",
+    "reading": "かさ",
+    "meaning": "umbrella",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N5",
+    "scenarioTags": [
+      "weather"
+    ],
+    "exampleSentences": [
+      "傘を持って行きます。",
+      "雨だから傘が要ります。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kumo",
+    "word": "雲",
+    "reading": "くも",
+    "meaning": "cloud",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "weather",
+      "nature"
+    ],
+    "exampleSentences": [
+      "今日は雲が多いですね。",
+      "白い雲がきれいに見えます。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sandoitchi",
+    "word": "サンドイッチ",
+    "reading": "サンドイッチ",
+    "meaning": "sandwich",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "朝ご飯にサンドイッチを作りました。",
+      "公園でサンドイッチを食べたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.koshou-suru",
+    "word": "故障",
+    "reading": "こしょう・する",
+    "meaning": "to break-down",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "transport",
+      "home"
+    ],
+    "exampleSentences": [
+      "車が故障してしまいました。",
+      "エアコンが故障したので、修理が必要です。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kowai",
+    "word": "怖い",
+    "reading": "こわい",
+    "meaning": "frightening",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "暗い夜道は一人で歩くと怖いです。",
+      "あの映画は怖かったけど、面白かったです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.esukareetaa",
+    "word": "エスカレーター",
+    "reading": "エスカレーター",
+    "meaning": "escalator",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "shopping",
+      "transport"
+    ],
+    "exampleSentences": [
+      "デパートのエスカレーターで二階に行きます。",
+      "駅のエスカレーターは混んでいました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.hakobu",
+    "word": "運ぶ",
+    "reading": "はこぶ",
+    "meaning": "to transport",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "重い荷物を運びました。",
+      "椅子を二階に運んでください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.ukeru",
+    "word": "受ける",
+    "reading": "うける",
+    "meaning": "to take a lesson or test",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "明日試験を受けます。",
+      "日本語の授業を受けています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.ojousan",
+    "word": "お嬢さん",
+    "reading": "おじょうさん",
+    "meaning": "young lady",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal",
+      "family"
+    ],
+    "exampleSentences": [
+      "あちらは社長のお嬢さんです。",
+      "お嬢さん、お元気ですか。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kubi",
+    "word": "首",
+    "reading": "くび",
+    "meaning": "neck",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "首が痛いから、早く休みたいです。",
+      "首にスカーフを巻きました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.shimin",
+    "word": "市民",
+    "reading": "しみん",
+    "meaning": "citizen",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "全ての市民に投票の権利があります。",
+      "市民のために図書館が建てられました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.tsuku",
+    "word": "付く",
+    "reading": "つく",
+    "meaning": "to be attached",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "シャツにボタンが付いていません。",
+      "新しい本に地図が付いています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.suku",
+    "word": "すく",
+    "reading": "すく",
+    "meaning": "to become empty",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "food",
+      "feelings"
+    ],
+    "exampleSentences": [
+      "お腹がすいたので、何か食べたいです。",
+      "電車が空いていて、座れました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.koto",
+    "word": "こと",
+    "reading": "こと",
+    "meaning": "thing, matter",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そのことを忘れないでください。",
+      "面白いことを話してくれました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.tazuneru",
+    "word": "訪ねる",
+    "reading": "たずねる",
+    "meaning": "to visit",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family",
+      "weekend"
+    ],
+    "exampleSentences": [
+      "週末に祖母を訪ねるつもりです。",
+      "昔の友達を訪ねたいですね。"
+    ]
+  },
+  {
+    "id": "vocab.n4.oiwai",
+    "word": "お祝い",
+    "reading": "おいわい",
+    "meaning": "congratulation",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "誕生日のお祝いをしました。",
+      "結婚のお祝いに花を贈ります。"
+    ]
+  },
+  {
+    "id": "vocab.n4.isshoukenmei",
+    "word": "一生懸命",
+    "reading": "いっしょうけんめい",
+    "meaning": "with utmost effort",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "彼は一生懸命勉強しています。",
+      "一生懸命やったので、結果に満足しています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sumu",
+    "word": "済む",
+    "reading": "すむ",
+    "meaning": "to finish",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "仕事が済んだら、帰ります。",
+      "用事が早く済んでよかったです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.amerika",
+    "word": "アメリカ",
+    "reading": "アメリカ",
+    "meaning": "America",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "去年アメリカへ行きました。",
+      "アメリカに住んでいる友達がいます。"
+    ]
+  },
+  {
+    "id": "vocab.n4.fukushuu",
+    "word": "復習",
+    "reading": "ふくしゅう",
+    "meaning": "revision",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "毎日漢字を復習しています。",
+      "試験の前にしっかり復習しましょう。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kyuu",
+    "word": "急",
+    "reading": "きゅう",
+    "meaning": "urgent, steep",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "急に雨が降り出しました。",
+      "急な仕事が入ってしまいました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.korekara",
+    "word": "これから",
+    "reading": "これから",
+    "meaning": "after this",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "これから何をしますか。",
+      "これから日本語をもっと勉強します。"
+    ]
+  },
+  {
+    "id": "vocab.n4.yubiwa",
+    "word": "指輪",
+    "reading": "ゆびわ",
+    "meaning": "finger ring",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "shopping",
+      "family"
+    ],
+    "exampleSentences": [
+      "母から指輪をもらいました。",
+      "あの店できれいな指輪を見ました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.utsukushii",
+    "word": "美しい",
+    "reading": "うつくしい",
+    "meaning": "beautiful",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "nature"
+    ],
+    "exampleSentences": [
+      "山の景色がとても美しいです。",
+      "美しい花がたくさん咲いています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.naoru",
+    "word": "直る",
+    "reading": "なおる",
+    "meaning": "to be fixed, to be repaired",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "壊れた時計が直りました。",
+      "なかなかこの問題は直らないですね。"
+    ]
+  },
+  {
+    "id": "vocab.n4.suiei",
+    "word": "水泳",
+    "reading": "すいえい",
+    "meaning": "swimming",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "hobbies",
+      "health"
+    ],
+    "exampleSentences": [
+      "夏休みは水泳を習いに行きます。",
+      "水泳は体にいい運動です。"
+    ]
+  },
+  {
+    "id": "vocab.n4.mannaka",
+    "word": "真中",
+    "reading": "まんなか",
+    "meaning": "middle",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "部屋の真中にテーブルがあります。",
+      "公園の真中で待っています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.hatsuon",
+    "word": "発音",
+    "reading": "はつおん",
+    "meaning": "pronunciation",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "日本語の発音は難しいですね。",
+      "発音が上手になりました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.tetsudau",
+    "word": "手伝う",
+    "reading": "てつだう",
+    "meaning": "to assist",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family",
+      "work"
+    ],
+    "exampleSentences": [
+      "母の料理を手伝います。",
+      "引っ越しを手伝ってくれませんか。"
+    ]
+  },
+  {
+    "id": "vocab.n4.oreru",
+    "word": "折れる",
+    "reading": "おれる",
+    "meaning": "to break or be folded",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "鉛筆が折れてしまいました。",
+      "強い風で木の枝が折れました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.ichido",
+    "word": "一度",
+    "reading": "いちど",
+    "meaning": "once",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "一度京都に行ったことがあります。",
+      "もう一度言ってください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.koutougakkou",
+    "word": "高等学校",
+    "reading": "こうとうがっこう",
+    "meaning": "high school",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "息子は高等学校の二年生です。",
+      "高等学校の友達と会います。"
+    ]
+  },
+  {
+    "id": "vocab.n4.arukouru",
+    "word": "アルコール",
+    "reading": "アルコール",
+    "meaning": "alcohol",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "アルコールはあまり飲みません。",
+      "この薬とアルコールは一緒に飲まないでください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.anaunsaa",
+    "word": "アナウンサー",
+    "reading": "アナウンサー",
+    "meaning": "announcer",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "彼女は有名なアナウンサーです。",
+      "アナウンサーになりたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.saisho",
+    "word": "最初",
+    "reading": "さいしょ",
+    "meaning": "beginning, first",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "最初に挨拶をしましょう。",
+      "最初は難しかったけど、慣れました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.nageru",
+    "word": "投げる",
+    "reading": "なげる",
+    "meaning": "to throw or cast away",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "ボールを投げて遊びました。",
+      "ゴミをここに投げないでください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kaeru",
+    "word": "変える",
+    "reading": "かえる",
+    "meaning": "to change",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "予定を変えたいです。",
+      "髪型を変えてみました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.hiruma",
+    "word": "昼間",
+    "reading": "ひるま",
+    "meaning": "daytime, during the day",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "昼間は仕事で忙しいです。",
+      "昼間に電話してください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.jinja",
+    "word": "神社",
+    "reading": "じんじゃ",
+    "meaning": "Shinto shrine",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "travel",
+      "soft-magical"
+    ],
+    "exampleSentences": [
+      "正月に神社へお参りに行きました。",
+      "あの神社は古くて有名です。"
+    ]
+  },
+  {
+    "id": "vocab.n4.shokuryouhin",
+    "word": "食料品",
+    "reading": "しょくりょうひん",
+    "meaning": "groceries",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "shopping",
+      "food"
+    ],
+    "exampleSentences": [
+      "スーパーで食料品を買いました。",
+      "食料品を冷蔵庫にしまってください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.teinei",
+    "word": "丁寧",
+    "reading": "ていねい",
+    "meaning": "polite",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "彼はいつも丁寧に話します。",
+      "丁寧な手紙をいただきました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kisoku",
+    "word": "規則",
+    "reading": "きそく",
+    "meaning": "regulations",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "学校の規則は厳しいです。",
+      "新しい規則ができました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.mousugu",
+    "word": "もうすぐ",
+    "reading": "もうすぐ",
+    "meaning": "soon",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "もうすぐ冬休みが始まります。",
+      "もうすぐ電車が来るでしょう。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kinu",
+    "word": "絹",
+    "reading": "きぬ",
+    "meaning": "silk",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "絹のシャツはとても柔らかいです。",
+      "母から絹のスカーフをもらいました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.okoru",
+    "word": "怒る",
+    "reading": "おこる",
+    "meaning": "to get angry, to be angry",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "父はあまり怒らない人です。",
+      "遅刻したので、先生に怒られました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.you",
+    "word": "用",
+    "reading": "よう",
+    "meaning": "use",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "何か用がありますか。",
+      "急用ができてしまいました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.itasu",
+    "word": "致す",
+    "reading": "いたす",
+    "meaning": "(humble) to do",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "私が致します。",
+      "後でご連絡致します。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kaigan",
+    "word": "海岸",
+    "reading": "かいがん",
+    "meaning": "coast",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "travel",
+      "nature"
+    ],
+    "exampleSentences": [
+      "海岸を散歩しました。",
+      "海岸できれいな貝を拾いました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.keizai",
+    "word": "経済",
+    "reading": "けいざい",
+    "meaning": "finance, economy",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "日本の経済について勉強しています。",
+      "経済の本を読みました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.ijou",
+    "word": "以上",
+    "reading": "いじょう",
+    "meaning": "more than, this is all",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "三十分以上待ちました。",
+      "以上で発表を終わります。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kakeru",
+    "word": "掛ける",
+    "reading": "かける",
+    "meaning": "to hang something",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "壁に絵を掛けました。",
+      "コートをここに掛けてください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.todokeru",
+    "word": "届ける",
+    "reading": "とどける",
+    "meaning": "to reach",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "この手紙を友達に届けます。",
+      "落とし物を届けに来ました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.tekitou",
+    "word": "適当",
+    "reading": "てきとう",
+    "meaning": "suitability",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "適当な場所を選んでください。",
+      "適当に答えないでください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sofu",
+    "word": "祖父",
+    "reading": "そふ",
+    "meaning": "grandfather",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "祖父は元気で農業をしています。",
+      "祖父の家へ遊びに行きました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kenkyuushitsu",
+    "word": "研究室",
+    "reading": "けんきゅうしつ",
+    "meaning": "study room, laboratory",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "先生は研究室にいらっしゃいます。",
+      "研究室で実験をしています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.bungaku",
+    "word": "文学",
+    "reading": "ぶんがく",
+    "meaning": "literature",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "日本文学を専攻しています。",
+      "文学の本が好きです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.ikiru",
+    "word": "生きる",
+    "reading": "いきる",
+    "meaning": "to live",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "祖母は百歳まで生きました。",
+      "一生懸命生きていきます。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sorehodo",
+    "word": "それほど",
+    "reading": "それほど",
+    "meaning": "to that extent",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "それほど寒くないです。",
+      "値段はそれほど高くなかったです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.umai",
+    "word": "うまい",
+    "reading": "うまい",
+    "meaning": "delicious",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "このラーメンはとてもうまいですね。",
+      "うまい寿司を食べました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.zuibun",
+    "word": "ずいぶん",
+    "reading": "ずいぶん",
+    "meaning": "extremely",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "ずいぶん上手になりましたね。",
+      "ずいぶん前に会ったきりです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kanemochi-okanemochi",
+    "word": "お・金持ち",
+    "reading": "かねもち / おかねもち",
+    "meaning": "rich man",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "あの家はお金持ちです。",
+      "お金持ちになりたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.tsuzuku",
+    "word": "続く",
+    "reading": "つづく",
+    "meaning": "to be continued",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "雨が一週間続いています。",
+      "この道はずっと続いています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.uketsuke",
+    "word": "受付",
+    "reading": "うけつけ",
+    "meaning": "receipt",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "受付でお名前を書いてください。",
+      "ホテルの受付で鍵をもらいました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kawari",
+    "word": "代わり",
+    "reading": "かわり",
+    "meaning": "substitute, alternate",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "彼の代わりに私が行きます。",
+      "コーヒーの代わりにお茶を飲みました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.nokoru",
+    "word": "残る",
+    "reading": "のこる",
+    "meaning": "to remain",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "仕事が残っているので、まだ帰れません。",
+      "ケーキが少し残っています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sewa-suru",
+    "word": "世話",
+    "reading": "せわ・する",
+    "meaning": "to look after",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "犬の世話をしています。",
+      "祖父母の世話をするのは大変です。"
+    ]
+  },
+  {
+    "id": "vocab.n4.suutsukeesu",
+    "word": "スーツケース",
+    "reading": "スーツケース",
+    "meaning": "suitcase",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "新しいスーツケースを買いました。",
+      "重いスーツケースを運びました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kureru",
+    "word": "くれる",
+    "reading": "くれる",
+    "meaning": "to give",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "母が手紙をくれました。",
+      "友達がプレゼントをくれました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kaiwa",
+    "word": "会話",
+    "reading": "かいわ",
+    "meaning": "conversation",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "日本人と会話を練習しています。",
+      "面白い会話ができました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.mukau",
+    "word": "向かう",
+    "reading": "むかう",
+    "meaning": "to face",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "今駅に向かっています。",
+      "東京に向かう電車に乗りました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.fueru",
+    "word": "増える",
+    "reading": "ふえる",
+    "meaning": "to increase",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "外国人観光客が増えました。",
+      "宿題がどんどん増えています。"
+    ]
+  },
+  {
+    "id": "vocab.n4.shoukai",
+    "word": "紹介",
+    "reading": "しょうかい",
+    "meaning": "introduction",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "友達を紹介します。",
+      "自分の家族を紹介してください。"
+    ]
+  },
+  {
+    "id": "vocab.n4.dakara",
+    "word": "だから",
+    "reading": "だから",
+    "meaning": "so, therefore",
+    "partOfSpeech": "conjunction",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "雨が降っている。だから傘を持って行く。",
+      "難しい問題だから、もう少し考えたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n4.kisetsu",
+    "word": "季節",
+    "reading": "きせつ",
+    "meaning": "season",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "weather",
+      "nature"
+    ],
+    "exampleSentences": [
+      "好きな季節はいつですか。",
+      "日本には四つの季節があります。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sonnani",
+    "word": "そんなに",
+    "reading": "そんなに",
+    "meaning": "so much, like that",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そんなに心配しないでください。",
+      "そんなに食べたら、お腹を壊しますよ。"
+    ]
+  },
+  {
+    "id": "vocab.n4.konoaida",
+    "word": "このあいだ",
+    "reading": "このあいだ",
+    "meaning": "the other day, recently",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "このあいだ、京都へ行きました。",
+      "このあいだ会った人を覚えていますか。"
+    ]
+  },
+  {
+    "id": "vocab.n4.mushi",
+    "word": "虫",
+    "reading": "むし",
+    "meaning": "insect",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "nature"
+    ],
+    "exampleSentences": [
+      "庭にきれいな虫がいます。",
+      "夏は虫が多くなります。"
+    ]
+  },
+  {
+    "id": "vocab.n4.sobo",
+    "word": "祖母",
+    "reading": "そぼ",
+    "meaning": "grandmother",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "祖母は親切な人です。",
+      "祖母から手紙が届きました。"
+    ]
+  },
+  {
+    "id": "vocab.n4.irassharu",
+    "word": "いらっしゃる",
+    "reading": "いらっしゃる",
+    "meaning": "(respectful) to be, to come or to go",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "先生はいらっしゃいますか。",
+      "明日、社長がいらっしゃいます。"
+    ]
+  },
+  {
+    "id": "vocab.n4.hen",
+    "word": "変",
+    "reading": "へん",
+    "meaning": "strange",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "それは変な話ですね。",
+      "今日は彼の様子が少し変です。"
+    ]
+  },
+  {
+    "id": "vocab.n4.budou",
+    "word": "ぶどう",
+    "reading": "ぶどう",
+    "meaning": "grapes",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N4",
+    "scenarioTags": [
+      "food",
+      "shopping"
+    ],
+    "exampleSentences": [
+      "ぶどうを食べたいです。",
+      "秋になると、ぶどうがおいしくなります。"
+    ]
+  },
+  {
+    "id": "vocab.n3.aizu",
+    "word": "合図",
+    "reading": "あいず",
+    "meaning": "sign, signal",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "車のライトが点滅したのが合図だった。",
+      "目で合図を送ってきました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.seiketsu",
+    "word": "清潔",
+    "reading": "せいけつ",
+    "meaning": "clean",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "health",
+      "home"
+    ],
+    "exampleSentences": [
+      "このホテルの部屋はとても清潔です。",
+      "傷口を清潔に保つことが大切です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.negai",
+    "word": "願い",
+    "reading": "ねがい",
+    "meaning": "desire, wish, request",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "一つだけ願いが叶うなら何を頼みますか。",
+      "彼の願いは家族の幸せだった。"
+    ]
+  },
+  {
+    "id": "vocab.n3.maku",
+    "word": "幕",
+    "reading": "まく",
+    "meaning": "curtain, bunting, act (in play)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "三幕目のシーンが一番感動的だった。",
+      "幕が上がると、観客が一斉に拍手した。"
+    ]
+  },
+  {
+    "id": "vocab.n3.uma",
+    "word": "馬",
+    "reading": "うま",
+    "meaning": "(1) horse, (2) promoted bishop (shogi)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies",
+      "nature"
+    ],
+    "exampleSentences": [
+      "牧場で初めて馬に乗ってみました。",
+      "強い馬がレースに勝ちました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.nozoku",
+    "word": "除く",
+    "reading": "のぞく",
+    "meaning": "to remove, to exclude, to except",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "ノイズを除いてから録音しました。",
+      "週末を除いて毎日働いています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kaori",
+    "word": "香り",
+    "reading": "かおり",
+    "meaning": "aroma, fragrance, scent, smell",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "food",
+      "nature"
+    ],
+    "exampleSentences": [
+      "コーヒーの香りが家中に広がった。",
+      "庭の花の香りが好きです。"
+    ]
+  },
+  {
+    "id": "vocab.n3.hodou",
+    "word": "歩道",
+    "reading": "ほどう",
+    "meaning": "footpath, walkway, sidewalk",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "transport",
+      "directions"
+    ],
+    "exampleSentences": [
+      "歩道を歩いていたら友達に会った。",
+      "歩道が狭いから自転車に注意してください。"
+    ]
+  },
+  {
+    "id": "vocab.n3.souzou",
+    "word": "想像",
+    "reading": "そうぞう",
+    "meaning": "imagination, guess",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そんなことになるとは想像もしなかった。",
+      "想像していたより難しかったです。"
+    ]
+  },
+  {
+    "id": "vocab.n3.sonaeru",
+    "word": "備える",
+    "reading": "そなえる",
+    "meaning": "to furnish, to provide for, to equip, to install",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "地震に備えて水を買っておきました。",
+      "面接に備えてしっかり練習します。"
+    ]
+  },
+  {
+    "id": "vocab.n3.bin",
+    "word": "便",
+    "reading": "びん",
+    "meaning": "way, means",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "成田行きの便を予約しました。",
+      "次の便で書類をお送りします。"
+    ]
+  },
+  {
+    "id": "vocab.n3.raitaa",
+    "word": "ライター",
+    "reading": "ライター",
+    "meaning": "lighter, rider, writer",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "ライターでろうそくに火をつけた。",
+      "あのライターの新しい記事を読みました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.heikin",
+    "word": "平均",
+    "reading": "へいきん",
+    "meaning": "equilibrium, balance, average, mean",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "クラスの平均点が少し上がりました。",
+      "平均すると一日五時間働いています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kawa",
+    "word": "革",
+    "reading": "かわ",
+    "meaning": "leather",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "新しい革のかばんを買いました。",
+      "革のソファは座り心地がいい。"
+    ]
+  },
+  {
+    "id": "vocab.n3.saru",
+    "word": "去る",
+    "reading": "さる",
+    "meaning": "to leave, to go away",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼は何も言わずに去っていった。",
+      "学生時代が去り、社会人になりました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.reigi",
+    "word": "礼儀",
+    "reading": "れいぎ",
+    "meaning": "manners, courtesy, etiquette",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "礼儀正しい人だと評判です。",
+      "礼儀を知らないと社会で困ることがあります。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ishi",
+    "word": "意思",
+    "reading": "いし",
+    "meaning": "intention, purpose",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "本人の意思を尊重します。",
+      "強い意思があれば、必ず実現できます。"
+    ]
+  },
+  {
+    "id": "vocab.n3.mattaku",
+    "word": "全く",
+    "reading": "まったく",
+    "meaning": "really, truly, entirely, completely",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "全く知らない人から手紙が来ました。",
+      "全くその通りだと思います。"
+    ]
+  },
+  {
+    "id": "vocab.n3.chuuou",
+    "word": "中央",
+    "reading": "ちゅうおう",
+    "meaning": "centre, central, center, middle",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "町の中央に大きな噴水があります。",
+      "ステージの中央に立ってください。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kangei",
+    "word": "歓迎",
+    "reading": "かんげい",
+    "meaning": "welcome, reception",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "新しい仲間を心から歓迎します。",
+      "明日歓迎パーティーを開く予定です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.yushutsu",
+    "word": "輸出",
+    "reading": "ゆしゅつ",
+    "meaning": "export",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "日本は車を多く輸出しています。",
+      "海外への輸出が年々増えてきました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.nodo",
+    "word": "喉",
+    "reading": "のど",
+    "meaning": "throat",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "風邪で喉が痛いです。",
+      "歌いすぎて喉がかれてしまいました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ma",
+    "word": "間",
+    "reading": "ま",
+    "meaning": "space, room, time, pause",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "二人の間に少し距離がありました。",
+      "会議の間に資料を準備しておきます。"
+    ]
+  },
+  {
+    "id": "vocab.n3.shuusei",
+    "word": "修正",
+    "reading": "しゅうせい",
+    "meaning": "amendment, correction, revision, modification",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "原稿を少し修正しました。",
+      "プログラムのエラーを修正しています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kinen",
+    "word": "記念",
+    "reading": "きねん",
+    "meaning": "commemoration, memory",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "結婚記念日にレストランを予約した。",
+      "卒業記念に皆で写真を撮りました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.furueru",
+    "word": "震える",
+    "reading": "ふるえる",
+    "meaning": "to shiver, to shake, to quake",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "寒くて手が震えています。",
+      "緊張して声が震えてしまった。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ikka",
+    "word": "一家",
+    "reading": "いっか",
+    "meaning": "a house, a home, a family, a household",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "田中さん一家は仲がいい。",
+      "一家で旅行に出かけました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.katsudou",
+    "word": "活動",
+    "reading": "かつどう",
+    "meaning": "action, activity",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies",
+      "work"
+    ],
+    "exampleSentences": [
+      "ボランティア活動に参加しています。",
+      "クラブ活動が忙しい毎日です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.shounen",
+    "word": "少年",
+    "reading": "しょうねん",
+    "meaning": "boys, juveniles",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "あの少年は将来有望だと言われている。",
+      "少年時代の思い出が蘇りました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.dansu",
+    "word": "ダンス",
+    "reading": "ダンス",
+    "meaning": "dance",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "ダンスを習い始めました。",
+      "彼女のダンスはとても上手だ。"
+    ]
+  },
+  {
+    "id": "vocab.n3.chigai",
+    "word": "違い",
+    "reading": "ちがい",
+    "meaning": "difference, discrepancy",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "二つの製品の違いを比べてみました。",
+      "考え方の違いはあるけど、仲良くやっています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.shuu",
+    "word": "週",
+    "reading": "しゅう",
+    "meaning": "week",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "今週は忙しい一週間でした。",
+      "来週から新しい仕事が始まります。"
+    ]
+  },
+  {
+    "id": "vocab.n3.daga",
+    "word": "だが",
+    "reading": "だが",
+    "meaning": "",
+    "partOfSpeech": "conjunction",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "頑張った。だが結果は失敗だった。",
+      "雨が降りそうだ。だが傘を忘れてしまった。"
+    ]
+  },
+  {
+    "id": "vocab.n3.tekiyou",
+    "word": "適用",
+    "reading": "てきよう",
+    "meaning": "applying",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal",
+      "work"
+    ],
+    "exampleSentences": [
+      "この規則は全員に適用されます。",
+      "新しい法律が来月から適用される。"
+    ]
+  },
+  {
+    "id": "vocab.n3.karu",
+    "word": "刈る",
+    "reading": "かる",
+    "meaning": "to cut (hair), to mow (grass), to harvest",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "home",
+      "nature"
+    ],
+    "exampleSentences": [
+      "庭の芝を刈っているところです。",
+      "髪を短く刈ってもらいました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.hihan",
+    "word": "批判",
+    "reading": "ひはん",
+    "meaning": "criticism, judgement, comment",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings",
+      "work"
+    ],
+    "exampleSentences": [
+      "彼の発言は強く批判された。",
+      "建設的な批判は大事だと思います。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ba",
+    "word": "場",
+    "reading": "ば",
+    "meaning": "place, field (physics)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "会議の場で意見をはっきり述べました。",
+      "学びの場を提供しています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.nanika",
+    "word": "何か",
+    "reading": "なにか",
+    "meaning": "something",
+    "partOfSpeech": "pronoun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "何か飲み物はいかがですか。",
+      "何か困ったことがあれば言ってください。"
+    ]
+  },
+  {
+    "id": "vocab.n3.rikou",
+    "word": "利口",
+    "reading": "りこう",
+    "meaning": "clever, shrewd, bright, sharp, wise, intelligent",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "あの子は利口で、何でもすぐに覚える。",
+      "利口な犬を飼っています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.choudai",
+    "word": "ちょうだい",
+    "reading": "ちょうだい",
+    "meaning": "(1) please do for me (preceded by -te), (2) reception, being given, get",
+    "partOfSpeech": "expression",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "casual",
+      "family"
+    ],
+    "exampleSentences": [
+      "そのお菓子をちょうだい。",
+      "ちょっと手伝ってちょうだい。"
+    ]
+  },
+  {
+    "id": "vocab.n3.mikata",
+    "word": "味方",
+    "reading": "みかた",
+    "meaning": "friend, ally, supporter",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "私はいつもあなたの味方です。",
+      "困った時は味方が必要です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kyoku",
+    "word": "局",
+    "reading": "きょく",
+    "meaning": "court lady, lady in waiting",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "郵便局で切手を買いました。",
+      "テレビ局の前を通りました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.koibito",
+    "word": "恋人",
+    "reading": "こいびと",
+    "meaning": "lover, sweetheart",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "恋人と一緒に映画を見に行った。",
+      "彼女には新しい恋人ができたらしい。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kaa",
+    "word": "カー",
+    "reading": "カー",
+    "meaning": "car",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "中古のスポーツカーを買いました。",
+      "カーレースを見に行きました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.guntai",
+    "word": "軍隊",
+    "reading": "ぐんたい",
+    "meaning": "army, troops",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "彼は若い時に軍隊に入っていた。",
+      "軍隊の訓練は厳しいそうです。"
+    ]
+  },
+  {
+    "id": "vocab.n3.un",
+    "word": "運",
+    "reading": "うん",
+    "meaning": "fortune, luck",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "今日は本当に運が良かった。",
+      "彼は運だけで成功したわけではない。"
+    ]
+  },
+  {
+    "id": "vocab.n3.sekinin",
+    "word": "責任",
+    "reading": "せきにん",
+    "meaning": "duty, responsibility",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "失敗の責任は私にあります。",
+      "親としての責任を感じています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ryougae",
+    "word": "両替",
+    "reading": "りょうがえ",
+    "meaning": "change, money exchange",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "空港でドルを円に両替しました。",
+      "ここで両替してもらえますか。"
+    ]
+  },
+  {
+    "id": "vocab.n3.nobiru",
+    "word": "伸びる",
+    "reading": "のびる",
+    "meaning": "to stretch, to extend, to make progress, to grow (beard, body height)",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "成績が少しずつ伸びてきました。",
+      "髪が長く伸びてきたから切りたい。"
+    ]
+  },
+  {
+    "id": "vocab.n3.heiwa",
+    "word": "平和",
+    "reading": "へいわ",
+    "meaning": "peace, harmony",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "世界中が平和でありますように。",
+      "平和な日々が続いています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.saabisu",
+    "word": "サービス",
+    "reading": "サービス",
+    "meaning": "(1) service, support system, (2) goods or services without charge",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "あの店はサービスがとてもいい。",
+      "サービス料金が含まれています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ukagau",
+    "word": "伺う",
+    "reading": "うかがう",
+    "meaning": "(hon) to visit, to ask, to inquire",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "明日、御社に伺います。",
+      "ちょっと伺ってもよろしいでしょうか。"
+    ]
+  },
+  {
+    "id": "vocab.n3.keiyu",
+    "word": "経由",
+    "reading": "けいゆ",
+    "meaning": "go by the way, via",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "東京経由で大阪へ行きます。",
+      "韓国経由のフライトを予約した。"
+    ]
+  },
+  {
+    "id": "vocab.n3.abiru",
+    "word": "浴びる",
+    "reading": "あびる",
+    "meaning": "to bathe, to bask in the sun, to shower",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "morning",
+      "home"
+    ],
+    "exampleSentences": [
+      "朝シャワーを浴びてから出かけます。",
+      "夏は太陽の光をたくさん浴びるといい。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ureru",
+    "word": "売れる",
+    "reading": "うれる",
+    "meaning": "to be sold",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "shopping",
+      "work"
+    ],
+    "exampleSentences": [
+      "この本はよく売れています。",
+      "新製品が思ったより売れなかった。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kokkyou",
+    "word": "国境",
+    "reading": "こっきょう",
+    "meaning": "national or state border",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "国境を越えて隣の国へ行きました。",
+      "国境付近は厳しく管理されている。"
+    ]
+  },
+  {
+    "id": "vocab.n3.chuushoku",
+    "word": "昼食",
+    "reading": "ちゅうしょく",
+    "meaning": "lunch, midday meal",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "food",
+      "work"
+    ],
+    "exampleSentences": [
+      "昼食はサンドイッチで済ませました。",
+      "会社の近くで昼食をとっています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kurashikku",
+    "word": "クラシック",
+    "reading": "クラシック",
+    "meaning": "classic(s)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "クラシック音楽が好きです。",
+      "クラシックのコンサートに行きました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.bentou",
+    "word": "弁当",
+    "reading": "べんとう",
+    "meaning": "box lunch",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "food",
+      "school"
+    ],
+    "exampleSentences": [
+      "母が毎日お弁当を作ってくれます。",
+      "公園で弁当を食べました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.akiru",
+    "word": "飽きる",
+    "reading": "あきる",
+    "meaning": "to get tired of, to lose interest in, to have enough",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "毎日同じ料理だと飽きてしまいます。",
+      "この仕事に少し飽きてきました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.tema",
+    "word": "手間",
+    "reading": "てま",
+    "meaning": "time, labour",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "この料理は手間がかかります。",
+      "手間を省くために機械を使います。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kiku",
+    "word": "効く",
+    "reading": "きく",
+    "meaning": "to be effective",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "この薬はよく効きます。",
+      "頭痛に効く薬はありますか。"
+    ]
+  },
+  {
+    "id": "vocab.n3.taiho",
+    "word": "逮捕",
+    "reading": "たいほ",
+    "meaning": "arrest, apprehension, capture",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "犯人がついに逮捕されたそうです。",
+      "警察が逮捕に向かっています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.hihyou",
+    "word": "批評",
+    "reading": "ひひょう",
+    "meaning": "criticism, review, commentary",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "映画の批評を読んでから見に行きました。",
+      "新刊の批評が新聞に載りました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.nonbiri",
+    "word": "のんびり",
+    "reading": "のんびり",
+    "meaning": "carefree, at leisure",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "weekend"
+    ],
+    "exampleSentences": [
+      "週末は家でのんびり過ごしたい。",
+      "温泉でのんびりしてきました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kuda",
+    "word": "管",
+    "reading": "くだ",
+    "meaning": "pipe, tube",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "水道の管が壊れて水が漏れた。",
+      "古い管を新しいものに交換した。"
+    ]
+  },
+  {
+    "id": "vocab.n3.mawasu",
+    "word": "回す",
+    "reading": "まわす",
+    "meaning": "to turn, to revolve",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "鍵を右に回してください。",
+      "ハンドルを左に回しました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ita",
+    "word": "板",
+    "reading": "いた",
+    "meaning": "board, plank",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "本棚は木の板で作られています。",
+      "黒板に大きな字を書きました。"
+    ]
+  },
+  {
+    "id": "vocab.n3.bouken",
+    "word": "冒険",
+    "reading": "ぼうけん",
+    "meaning": "risk, venture, adventure",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "travel",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "若い頃にいろいろな冒険をしました。",
+      "新しい挑戦は人生の冒険だ。"
+    ]
+  },
+  {
+    "id": "vocab.n3.shuui",
+    "word": "周囲",
+    "reading": "しゅうい",
+    "meaning": "surroundings, circumference, environs",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "周囲の人の意見も聞きましょう。",
+      "周囲の状況をよく見てから決めてください。"
+    ]
+  },
+  {
+    "id": "vocab.n3.wagamama",
+    "word": "わがまま",
+    "reading": "わがまま",
+    "meaning": "selfishness, egoism, wilfulness, disobedience, whim",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そんなわがままを言わないでください。",
+      "彼はわがままなところがある。"
+    ]
+  },
+  {
+    "id": "vocab.n3.joukyaku",
+    "word": "乗客",
+    "reading": "じょうきゃく",
+    "meaning": "passenger",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "電車には多くの乗客が乗っていた。",
+      "乗客の安全を守るのは大切です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kachi",
+    "word": "勝ち",
+    "reading": "かち",
+    "meaning": "win, victory",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "やっと勝ちが続くようになった。",
+      "勝ちにこだわらず、楽しく試合をしよう。"
+    ]
+  },
+  {
+    "id": "vocab.n3.youbi",
+    "word": "曜日",
+    "reading": "ようび",
+    "meaning": "day of the week",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "今日は何曜日ですか。",
+      "曜日によって予定が違います。"
+    ]
+  },
+  {
+    "id": "vocab.n3.kanshin",
+    "word": "関心",
+    "reading": "かんしん",
+    "meaning": "concern, interest",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "環境問題に関心があります。",
+      "彼女は政治に強い関心を持っている。"
+    ]
+  },
+  {
+    "id": "vocab.n3.bou",
+    "word": "棒",
+    "reading": "ぼう",
+    "meaning": "pole, rod, stick",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "棒で土を少し掘りました。",
+      "魔法の棒みたいに見えるね。"
+    ]
+  },
+  {
+    "id": "vocab.n3.sarani",
+    "word": "更に",
+    "reading": "さらに",
+    "meaning": "furthermore, again, after all, more and more, moreover",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "更に詳しい情報が必要です。",
+      "更に努力することが大切です。"
+    ]
+  },
+  {
+    "id": "vocab.n3.ie",
+    "word": "いえ",
+    "reading": "いえ",
+    "meaning": "TODO same as いいえ?",
+    "partOfSpeech": "interjection",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "いえ、まだ食べていません。",
+      "いえ、それは私のではありません。"
+    ]
+  },
+  {
+    "id": "vocab.n3.chikyuu",
+    "word": "地球",
+    "reading": "ちきゅう",
+    "meaning": "the earth",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "nature"
+    ],
+    "exampleSentences": [
+      "地球を大切にしましょう。",
+      "地球の温暖化が問題になっています。"
+    ]
+  },
+  {
+    "id": "vocab.n3.tantou",
+    "word": "担当",
+    "reading": "たんとう",
+    "meaning": "(in) charge",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N3",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "私がこのプロジェクトを担当しています。",
+      "担当の方を呼んでもらえますか。"
+    ]
+  },
+  {
+    "id": "vocab.n2.daimei",
+    "word": "題名",
+    "reading": "だいめい",
+    "meaning": "title",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "この本の題名は何ですか。",
+      "レポートの題名を決めるのに時間がかかった。"
+    ]
+  },
+  {
+    "id": "vocab.n2.detarame",
+    "word": "でたらめ",
+    "reading": "でたらめ",
+    "meaning": "(1) irresponsible utterance, nonsense, nonsensical, (2) random",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼の話はいつもでたらめで、信用できない。",
+      "でたらめな情報に惑わされないようにしてください。"
+    ]
+  },
+  {
+    "id": "vocab.n2.meue",
+    "word": "目上",
+    "reading": "めうえ",
+    "meaning": "superior(s), senior",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "formal",
+      "work"
+    ],
+    "exampleSentences": [
+      "目上の人には敬語を使うのが常識です。",
+      "彼は目上の人にも自分の意見をはっきり伝える。"
+    ]
+  },
+  {
+    "id": "vocab.n2.seibun",
+    "word": "成分",
+    "reading": "せいぶん",
+    "meaning": "ingredient, component, composition",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food",
+      "health"
+    ],
+    "exampleSentences": [
+      "この食品の成分表を確認してください。",
+      "薬の成分をよく理解してから使用しましょう。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sairen",
+    "word": "サイレン",
+    "reading": "サイレン",
+    "meaning": "siren",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "遠くから救急車のサイレンが聞こえてきた。",
+      "火事のサイレンが鳴り響いた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.keito",
+    "word": "毛糸",
+    "reading": "けいと",
+    "meaning": "knitting wool",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "母が毛糸でセーターを編んでくれた。",
+      "毛糸を買って手袋を編もうと思います。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kumu",
+    "word": "酌む",
+    "reading": "くむ",
+    "meaning": "to serve sake",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food",
+      "formal"
+    ],
+    "exampleSentences": [
+      "上司にお酒を酌んで差し上げました。",
+      "酒を酌み交わしながら昔話に花が咲いた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.chuusei",
+    "word": "中世",
+    "reading": "ちゅうせい",
+    "meaning": "Middle Ages, mediaeval times",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "中世のヨーロッパの歴史を学んでいる。",
+      "中世の城を訪れるのが趣味です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.amado",
+    "word": "雨戸",
+    "reading": "あまど",
+    "meaning": "sliding storm door",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "夜になったら雨戸を閉めてください。",
+      "台風が来る前に雨戸をしっかり閉めた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.yajirushi",
+    "word": "矢印",
+    "reading": "やじるし",
+    "meaning": "directing arrow",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "矢印に従って進んでください。",
+      "出口は矢印の方向にあります。"
+    ]
+  },
+  {
+    "id": "vocab.n2.onchuu",
+    "word": "御中",
+    "reading": "おんちゅう",
+    "meaning": "and Company, Messrs.",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "formal",
+      "work"
+    ],
+    "exampleSentences": [
+      "封筒に「株式会社御中」と書いてください。",
+      "御中は団体宛の手紙に使います。"
+    ]
+  },
+  {
+    "id": "vocab.n2.meyasu",
+    "word": "目安",
+    "reading": "めやす",
+    "meaning": "criterion, aim",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "予算の目安を決めておきましょう。",
+      "完成までの目安は一週間です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kakuu",
+    "word": "架空",
+    "reading": "かくう",
+    "meaning": "aerial, overhead, fiction, fanciful",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "この物語は架空の出来事に基づいている。",
+      "架空の人物が主人公の小説を書いている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.tsumaru",
+    "word": "詰まる",
+    "reading": "つまる",
+    "meaning": "to be blocked, to be packed",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "排水溝が詰まって水が流れない。",
+      "鼻が詰まっていて声が変だ。"
+    ]
+  },
+  {
+    "id": "vocab.n2.ureyuki",
+    "word": "売行き",
+    "reading": "うれゆき",
+    "meaning": "sales",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "新製品の売行きが好調です。",
+      "売行きが伸び悩んでいます。"
+    ]
+  },
+  {
+    "id": "vocab.n2.min-you",
+    "word": "民謡",
+    "reading": "みんよう",
+    "meaning": "folk song, popular song",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "祖父はよく日本の民謡を歌います。",
+      "民謡コンサートに行く予定です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.tatsu",
+    "word": "発つ",
+    "reading": "たつ",
+    "meaning": "to depart (on a plane, train, etc.)",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "明日の朝、京都を発ちます。",
+      "彼は早朝に成田を発った。"
+    ]
+  },
+  {
+    "id": "vocab.n2.makkura",
+    "word": "真っ暗",
+    "reading": "まっくら",
+    "meaning": "total darkness, shortsightedness, pitch dark",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "停電で部屋が真っ暗になった。",
+      "真っ暗な道を一人で歩くのは怖い。"
+    ]
+  },
+  {
+    "id": "vocab.n2.zehitomo",
+    "word": "ぜひとも",
+    "reading": "ぜひとも",
+    "meaning": "by all means (with sense of not taking no for an answer)",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "ぜひとも参加してください。",
+      "ぜひとも一度お会いしたいです。"
+    ]
+  },
+  {
+    "id": "vocab.n2.shougakusei",
+    "word": "小学生",
+    "reading": "しょうがくせい",
+    "meaning": "grade school student",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school",
+      "family"
+    ],
+    "exampleSentences": [
+      "うちの娘は今年小学生になりました。",
+      "小学生の頃の友達と再会した。"
+    ]
+  },
+  {
+    "id": "vocab.n2.teire",
+    "word": "手入れ",
+    "reading": "ていれ",
+    "meaning": "repairs, maintenance",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "庭の手入れに半日かかった。",
+      "靴は定期的に手入れすると長持ちする。"
+    ]
+  },
+  {
+    "id": "vocab.n2.bunken",
+    "word": "文献",
+    "reading": "ぶんけん",
+    "meaning": "literature, books (reference)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "この研究には多くの文献が必要です。",
+      "古い文献を図書館で探しています。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kyuugyou",
+    "word": "休業",
+    "reading": "きゅうぎょう",
+    "meaning": "closed (e.g. store), business suspended, shutdown, holiday",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "本日は臨時休業させていただきます。",
+      "コロナの影響で店を休業した。"
+    ]
+  },
+  {
+    "id": "vocab.n2.yawarakai",
+    "word": "軟らかい",
+    "reading": "やわらかい",
+    "meaning": "soft, tender, limp",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "このパンはふわふわで軟らかい。",
+      "軟らかい肉が好きです。"
+    ]
+  },
+  {
+    "id": "vocab.n2.yobikakeru",
+    "word": "呼び掛ける",
+    "reading": "よびかける",
+    "meaning": "to call out to, to accost, to address (crowd), to appeal",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "市長は市民に節電を呼び掛けた。",
+      "ボランティアへの参加を呼び掛けています。"
+    ]
+  },
+  {
+    "id": "vocab.n2.igi",
+    "word": "意義",
+    "reading": "いぎ",
+    "meaning": "meaning, significance",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "この活動には大きな意義があります。",
+      "意義のある一年を過ごしたい。"
+    ]
+  },
+  {
+    "id": "vocab.n2.mushiatsui",
+    "word": "蒸し暑い",
+    "reading": "むしあつい",
+    "meaning": "humid, sultry",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "weather"
+    ],
+    "exampleSentences": [
+      "今日は蒸し暑くて、たまらない。",
+      "夏の東京は蒸し暑い日が多い。"
+    ]
+  },
+  {
+    "id": "vocab.n2.fueru",
+    "word": "殖える",
+    "reading": "ふえる",
+    "meaning": "to increase, to multiply",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "資産を着実に殖やしていきたい。",
+      "貯金を投資で殖やしている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kijun",
+    "word": "基準",
+    "reading": "きじゅん",
+    "meaning": "standard, basis, criteria, norm",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "新しい安全基準を設けました。",
+      "判断の基準が人によって違います。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sentan",
+    "word": "先端",
+    "reading": "せんたん",
+    "meaning": "pointed end, tip, fine point",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "鉛筆の先端が折れてしまった。",
+      "彼は技術の先端で活躍している。"
+    ]
+  },
+  {
+    "id": "vocab.n2.chuusei",
+    "word": "中性",
+    "reading": "ちゅうせい",
+    "meaning": "neuter gender, neutral (chem.), indifference, sterility",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "この洗剤は中性なので肌に優しい。",
+      "中性の表現を選びました。"
+    ]
+  },
+  {
+    "id": "vocab.n2.hikakuteki",
+    "word": "比較的",
+    "reading": "ひかくてき",
+    "meaning": "comparatively, relatively",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "今日は比較的暖かいですね。",
+      "比較的簡単な仕事だと思います。"
+    ]
+  },
+  {
+    "id": "vocab.n2.shoseki",
+    "word": "書籍",
+    "reading": "しょせき",
+    "meaning": "book, publication",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "shopping",
+      "school"
+    ],
+    "exampleSentences": [
+      "電子書籍を読むのが最近気に入っている。",
+      "新刊の書籍を買いに行った。"
+    ]
+  },
+  {
+    "id": "vocab.n2.shin",
+    "word": "芯",
+    "reading": "しん",
+    "meaning": "core, heart, wick, marrow",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "鉛筆の芯が折れてしまった。",
+      "彼女は心の芯が強い人です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.koto",
+    "word": "琴",
+    "reading": "こと",
+    "meaning": "Koto (Japanese harp)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "祖母は琴を弾くのが上手です。",
+      "正月に琴の音色が聞こえてくる。"
+    ]
+  },
+  {
+    "id": "vocab.n2.okawari",
+    "word": "お代わり",
+    "reading": "おかわり",
+    "meaning": "second helping, another cup",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "ご飯のお代わりはいかがですか。",
+      "コーヒーをお代わりした。"
+    ]
+  },
+  {
+    "id": "vocab.n2.orosu",
+    "word": "卸す",
+    "reading": "おろす",
+    "meaning": "to sell wholesale, grated (vegetables)",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work",
+      "food"
+    ],
+    "exampleSentences": [
+      "大根を卸して大根おろしを作った。",
+      "野菜を市場に卸しています。"
+    ]
+  },
+  {
+    "id": "vocab.n2.burashi",
+    "word": "ブラシ",
+    "reading": "ブラシ",
+    "meaning": "brushy, brush",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "新しい歯ブラシを買いました。",
+      "髪をブラシでとかします。"
+    ]
+  },
+  {
+    "id": "vocab.n2.fuzakeru",
+    "word": "ふざける",
+    "reading": "ふざける",
+    "meaning": "to romp, to gambol, to frolic, to joke",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "ふざけるのもいい加減にしなさい。",
+      "授業中にふざけて先生に叱られた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kiban",
+    "word": "基盤",
+    "reading": "きばん",
+    "meaning": "foundation, basis",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "経済の基盤を強化することが重要です。",
+      "信頼関係が私たちの基盤です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sensenshuu",
+    "word": "先々週",
+    "reading": "せんせんしゅう",
+    "meaning": "",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "先々週、家族と旅行に行きました。",
+      "先々週から風邪をひいています。"
+    ]
+  },
+  {
+    "id": "vocab.n2.hibiku",
+    "word": "響く",
+    "reading": "ひびく",
+    "meaning": "to resound",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼の言葉が心に響いた。",
+      "鐘の音が遠くまで響いている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.makkuro",
+    "word": "真っ黒",
+    "reading": "まっくろ",
+    "meaning": "pitch black",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "夏休みに海で真っ黒に日焼けした。",
+      "煙で部屋が真っ黒になった。"
+    ]
+  },
+  {
+    "id": "vocab.n2.suihei",
+    "word": "水平",
+    "reading": "すいへい",
+    "meaning": "water level, horizon",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "テーブルが水平になるように調整した。",
+      "水平に線を引いてください。"
+    ]
+  },
+  {
+    "id": "vocab.n2.ayaui",
+    "word": "危うい",
+    "reading": "あやうい",
+    "meaning": "dangerous, critical, grave",
+    "partOfSpeech": "i-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "あの会社は経営が危うい。",
+      "命が危ういところだった。"
+    ]
+  },
+  {
+    "id": "vocab.n2.chakuchaku",
+    "word": "着々",
+    "reading": "ちゃくちゃく",
+    "meaning": "steadily",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "計画は着々と進んでいる。",
+      "工事は着々と完成に近づいている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kigou",
+    "word": "記号",
+    "reading": "きごう",
+    "meaning": "symbol, code",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "この記号の意味が分かりません。",
+      "数学の記号を覚えるのは大変です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.saisoku",
+    "word": "催促",
+    "reading": "さいそく",
+    "meaning": "request, demand, claim, urge (action), press for",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "支払いの催促状が届いた。",
+      "レポートの提出を催促されました。"
+    ]
+  },
+  {
+    "id": "vocab.n2.heiki",
+    "word": "平気",
+    "reading": "へいき",
+    "meaning": "coolness, calmness, composure, unconcern",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "そのくらいの寒さなら平気です。",
+      "彼は人前で話すのが平気らしい。"
+    ]
+  },
+  {
+    "id": "vocab.n2.gakkyuu",
+    "word": "学級",
+    "reading": "がっきゅう",
+    "meaning": "grade in school",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "新学期から新しい学級になります。",
+      "学級委員に選ばれました。"
+    ]
+  },
+  {
+    "id": "vocab.n2.seisaku",
+    "word": "制作",
+    "reading": "せいさく",
+    "meaning": "work (film, book)",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "hobbies",
+      "work"
+    ],
+    "exampleSentences": [
+      "短編映画を制作しました。",
+      "番組の制作スタッフをしている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.tokubai",
+    "word": "特売",
+    "reading": "とくばい",
+    "meaning": "special sale",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "今日は野菜の特売日です。",
+      "デパートで特売品を買った。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kyuukou",
+    "word": "休講",
+    "reading": "きゅうこう",
+    "meaning": "lecture cancelled",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "今日の英語の授業は休講です。",
+      "教授が病気で休講になった。"
+    ]
+  },
+  {
+    "id": "vocab.n2.okazu",
+    "word": "おかず",
+    "reading": "おかず",
+    "meaning": "side dish, accompaniment for rice dishes",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "今日のおかずは魚です。",
+      "母のおかずはいつも美味しい。"
+    ]
+  },
+  {
+    "id": "vocab.n2.koubutsu",
+    "word": "鉱物",
+    "reading": "こうぶつ",
+    "meaning": "mineral",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "鉱物の研究をしています。",
+      "この地域では珍しい鉱物が採れる。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sanrin",
+    "word": "山林",
+    "reading": "さんりん",
+    "meaning": "mountain forest, mountains and forest",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "nature"
+    ],
+    "exampleSentences": [
+      "山林を歩いているとリスを見かけた。",
+      "山林の保護が課題となっている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.tsubu",
+    "word": "粒",
+    "reading": "つぶ",
+    "meaning": "grain",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food"
+    ],
+    "exampleSentences": [
+      "この米は粒が大きくて美味しい。",
+      "雨の粒が大きくなってきた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sokutatsu",
+    "word": "速達",
+    "reading": "そくたつ",
+    "meaning": "express, special delivery",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "速達で書類を送ってください。",
+      "速達料金が追加でかかります。"
+    ]
+  },
+  {
+    "id": "vocab.n2.zurari",
+    "word": "ずらり",
+    "reading": "ずらり",
+    "meaning": "",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "本棚に本がずらりと並んでいる。",
+      "店の前にお客さんがずらりと並んでいた。"
+    ]
+  },
+  {
+    "id": "vocab.n2.hitsujuhin",
+    "word": "必需品",
+    "reading": "ひつじゅひん",
+    "meaning": "necessities, necessary article, requisite, essential",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "shopping",
+      "travel"
+    ],
+    "exampleSentences": [
+      "旅行の必需品を準備しました。",
+      "携帯電話は今や生活の必需品だ。"
+    ]
+  },
+  {
+    "id": "vocab.n2.nouyaku",
+    "word": "農薬",
+    "reading": "のうやく",
+    "meaning": "agricultural chemicals",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food",
+      "nature"
+    ],
+    "exampleSentences": [
+      "この野菜は農薬を使っていません。",
+      "農薬の使用には注意が必要です。"
+    ]
+  },
+  {
+    "id": "vocab.n2.narasu",
+    "word": "鳴らす",
+    "reading": "ならす",
+    "meaning": "to ring, to sound, to chime, to beat, to snort (nose)",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "鈴を鳴らして人を呼んだ。",
+      "ピアノを鳴らして演奏した。"
+    ]
+  },
+  {
+    "id": "vocab.n2.onnanohito",
+    "word": "女の人",
+    "reading": "おんなのひと",
+    "meaning": "woman",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "introductions"
+    ],
+    "exampleSentences": [
+      "あの女の人は誰ですか。",
+      "親切な女の人に道を教えてもらった。"
+    ]
+  },
+  {
+    "id": "vocab.n2.yokei",
+    "word": "余計",
+    "reading": "よけい",
+    "meaning": "too much, unnecessary, abundance, surplus, excess, superfluity",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "余計なお世話だ。",
+      "余計に買ってしまったかもしれない。"
+    ]
+  },
+  {
+    "id": "vocab.n2.oudouri",
+    "word": "大通り",
+    "reading": "おおどおり",
+    "meaning": "main street",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "大通りに出ると駅が見えます。",
+      "大通りはいつも混んでいる。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kaizou",
+    "word": "改造",
+    "reading": "かいぞう",
+    "meaning": "(1) remodeling, (2) modding (comp)",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "home",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "古い家を改造して住みやすくした。",
+      "車を改造するのが彼の趣味だ。"
+    ]
+  },
+  {
+    "id": "vocab.n2.daishou",
+    "word": "大小",
+    "reading": "だいしょう",
+    "meaning": "size",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "大小様々なバッグが揃っています。",
+      "服は大小いろいろなサイズがあります。"
+    ]
+  },
+  {
+    "id": "vocab.n2.uuru",
+    "word": "ウール",
+    "reading": "ウール",
+    "meaning": "wool",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "ウールのセーターは暖かい。",
+      "ウール100%のコートを買った。"
+    ]
+  },
+  {
+    "id": "vocab.n2.datou",
+    "word": "妥当",
+    "reading": "だとう",
+    "meaning": "valid, proper, right, appropriate",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "この価格は妥当だと思います。",
+      "妥当な判断だったと評価されている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.seibi",
+    "word": "整備",
+    "reading": "せいび",
+    "meaning": "adjustment, completion, consolidation",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "transport",
+      "work"
+    ],
+    "exampleSentences": [
+      "車の整備を依頼しました。",
+      "道路の整備が進んでいる。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kyokusen",
+    "word": "曲線",
+    "reading": "きょくせん",
+    "meaning": "curve",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "美しい曲線の建物だ。",
+      "グラフが曲線を描いている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.rokkaa",
+    "word": "ロッカー",
+    "reading": "ロッカー",
+    "meaning": "locker",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "ロッカーに荷物を入れました。",
+      "駅のロッカーが満員でした。"
+    ]
+  },
+  {
+    "id": "vocab.n2.shiki",
+    "word": "四季",
+    "reading": "しき",
+    "meaning": "four seasons",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "nature",
+      "weather"
+    ],
+    "exampleSentences": [
+      "日本には美しい四季がある。",
+      "四季の変化を楽しんでいます。"
+    ]
+  },
+  {
+    "id": "vocab.n2.sonoue",
+    "word": "そのうえ",
+    "reading": "そのうえ",
+    "meaning": "in addition, furthermore",
+    "partOfSpeech": "conjunction",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼は頭がいい。そのうえ性格もいい。",
+      "雨が降っている。そのうえ風も強い。"
+    ]
+  },
+  {
+    "id": "vocab.n2.soba",
+    "word": "蕎麦",
+    "reading": "そば",
+    "meaning": "soba (buckwheat noodles)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "年末に蕎麦を食べる習慣があります。",
+      "蕎麦の名店で昼食を取った。"
+    ]
+  },
+  {
+    "id": "vocab.n2.kikansha",
+    "word": "機関車",
+    "reading": "きかんしゃ",
+    "meaning": "locomotive, engine",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "transport"
+    ],
+    "exampleSentences": [
+      "古い機関車が博物館に展示されている。",
+      "蒸気機関車に乗ったことがある。"
+    ]
+  },
+  {
+    "id": "vocab.n2.rusuban",
+    "word": "留守番",
+    "reading": "るすばん",
+    "meaning": "care-taking, caretaker, house-watching",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "family"
+    ],
+    "exampleSentences": [
+      "妹に留守番を頼んだ。",
+      "今日は子供たちが留守番をしている。"
+    ]
+  },
+  {
+    "id": "vocab.n2.biyou",
+    "word": "美容",
+    "reading": "びよう",
+    "meaning": "beauty of figure or form",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "美容のために毎日水を飲んでいる。",
+      "美容院に行ってきました。"
+    ]
+  },
+  {
+    "id": "vocab.n2.taishou",
+    "word": "対照",
+    "reading": "たいしょう",
+    "meaning": "contrast, antithesis, comparison",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "兄弟の性格が対照的だ。",
+      "二つの作品を対照して見比べる。"
+    ]
+  },
+  {
+    "id": "vocab.n2.gakkai",
+    "word": "学会",
+    "reading": "がっかい",
+    "meaning": "scientific society, academic meeting",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N2",
+    "scenarioTags": [
+      "school",
+      "work"
+    ],
+    "exampleSentences": [
+      "来月、学会で発表します。",
+      "学会の論文を書いている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.doukan",
+    "word": "同感",
+    "reading": "どうかん",
+    "meaning": "agreement; same opinion; same feeling; sympathy; concurrence",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "君の意見には全く同感だ。",
+      "彼の主張には深く同感を覚える。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kazaguruma",
+    "word": "風車",
+    "reading": "かざぐるま",
+    "meaning": "1.  windmill; 2.  pinwheel",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "travel",
+      "nature"
+    ],
+    "exampleSentences": [
+      "広大な草原に巨大な風車が立ち並んでいた。",
+      "子供たちが色とりどりの風車を手にしていた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.dokoka",
+    "word": "何処か",
+    "reading": "どこか",
+    "meaning": "somewhere; anywhere; in some respects",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "この小説には何処か物悲しい雰囲気が漂っている。",
+      "彼が言及した場所は、地図には載っていない何処かの秘境らしい。"
+    ]
+  },
+  {
+    "id": "vocab.n1.hayameru",
+    "word": "早める",
+    "reading": "はやめる",
+    "meaning": "to hasten; to quicken; to expedite; to precipitate; to accelerate",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "台風の接近に伴い、開始時刻を早めることにした。",
+      "成功を早めるために、人一倍努力を重ねた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kake",
+    "word": "賭け",
+    "reading": "かけ",
+    "meaning": "betting; gambling; a gamble",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "人生は危険な賭けの連続だと彼は悟っていた。",
+      "彼の大胆な事業計画は、まさに大きな賭けだ。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kyoujiru",
+    "word": "興じる",
+    "reading": "きょうじる",
+    "meaning": "to amuse oneself; to make merry",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "週末は釣りに興じている。",
+      "若い頃はギャンブルに興じてばかりだった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.jiki",
+    "word": "磁気",
+    "reading": "じき",
+    "meaning": "magnetism",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "school"
+    ],
+    "exampleSentences": [
+      "磁気の力で物が動いている。",
+      "磁気カードに不具合が生じた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.moshikashite",
+    "word": "若しかして",
+    "reading": "もしかして",
+    "meaning": "perhaps; possibly",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "若しかして、私の知り合いではありませんか。",
+      "若しかして、お忘れになったのでしょうか。"
+    ]
+  },
+  {
+    "id": "vocab.n1.achikochi",
+    "word": "彼方此方",
+    "reading": "あちこち",
+    "meaning": "here and there",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "travel"
+    ],
+    "exampleSentences": [
+      "あちこちの観光地を巡ってきた。",
+      "彼方此方を探したが、鍵は見つからなかった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shiten",
+    "word": "視点",
+    "reading": "してん",
+    "meaning": "opinion; point of view; visual point",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "新しい視点から問題を考え直してみよう。",
+      "彼の視点はとても独創的だ。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kaihatsu",
+    "word": "開発",
+    "reading": "かいはつ",
+    "meaning": "development; exploitation",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "新製品の開発に成功した。",
+      "途上国の開発が課題となっている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ano",
+    "word": "彼の",
+    "reading": "あの",
+    "meaning": "that over there",
+    "partOfSpeech": "prefix",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "彼の人物が事件の鍵を握っている。",
+      "彼の山の頂上には古い城があった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tainou",
+    "word": "滞納",
+    "reading": "たいのう",
+    "meaning": "non-payment; default",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "家賃の滞納が続いている。",
+      "税金の滞納で督促状が届いた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.hate",
+    "word": "果て",
+    "reading": "はて",
+    "meaning": "the end; the extremity; the limit(s); the result",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "苦労の果てに彼は成功を掴んだ。",
+      "果てしなく続く海原を眺めていた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.nodoka",
+    "word": "長閑",
+    "reading": "のどか",
+    "meaning": "tranquil; calm; quiet",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "nature"
+    ],
+    "exampleSentences": [
+      "田舎の長閑な風景が懐かしい。",
+      "長閑な日々を過ごしている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ou",
+    "word": "負う",
+    "reading": "おう",
+    "meaning": "to bear; to owe",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "全責任を負う覚悟がある。",
+      "彼は重い使命を負って国を出た。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shunou",
+    "word": "首脳",
+    "reading": "しゅのう",
+    "meaning": "head; brains",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "首脳会談がパリで開かれた。",
+      "各国の首脳が集まった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.hitosuki",
+    "word": "一筋",
+    "reading": "ひとすき",
+    "meaning": "a line; earnestly; blindly; straightforwardly",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "学問一筋の人生だった。",
+      "彼は仕事一筋で生きてきた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ochitsuki",
+    "word": "落ち着き",
+    "reading": "おちつき",
+    "meaning": "calm; composure",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼女は若いのに落ち着きがある。",
+      "落ち着きを取り戻すまで時間がかかった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.gyousha",
+    "word": "業者",
+    "reading": "ぎょうしゃ",
+    "meaning": "trader; merchant",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "信頼できる業者に依頼した。",
+      "業者の見積もりを比較している。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tanpakushitsu",
+    "word": "蛋白質",
+    "reading": "たんぱくしつ",
+    "meaning": "protein",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "food",
+      "health"
+    ],
+    "exampleSentences": [
+      "蛋白質をしっかり摂ることが大事だ。",
+      "肉や魚は蛋白質が豊富です。"
+    ]
+  },
+  {
+    "id": "vocab.n1.taimurii",
+    "word": "タイムリー",
+    "reading": "タイムリー",
+    "meaning": "timely; run-batted-in (baseball); RBI",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "タイムリーな話題で記事を書いた。",
+      "タイムリーヒットでチームが勝った。"
+    ]
+  },
+  {
+    "id": "vocab.n1.koukai",
+    "word": "後悔",
+    "reading": "こうかい",
+    "meaning": "regret; repentance",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "あの時の決断を今でも後悔している。",
+      "後悔しても遅い、前を向こう。"
+    ]
+  },
+  {
+    "id": "vocab.n1.koudoku",
+    "word": "購読",
+    "reading": "こうどく",
+    "meaning": "subscription (e.g. magazine)",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "経済誌を毎月購読している。",
+      "新しいオンラインマガジンを購読し始めた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shikou",
+    "word": "嗜好",
+    "reading": "しこう",
+    "meaning": "taste; liking; preference",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼の嗜好は独特だ。",
+      "嗜好品にお金をかけすぎだと言われた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shinryou",
+    "word": "診療",
+    "reading": "しんりょう",
+    "meaning": "medical examination and treatment; diagnosis",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "本日の診療は六時までです。",
+      "オンラインで診療を受けられる時代になった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.han",
+    "word": "班",
+    "reading": "はん",
+    "meaning": "group; party; section (mil)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "school"
+    ],
+    "exampleSentences": [
+      "私たちの班は明日発表する。",
+      "班に分かれて作業を進めた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.hokan",
+    "word": "保管",
+    "reading": "ほかん",
+    "meaning": "charge; custody; safekeeping; deposit; storage",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "貴重品はロッカーに保管してください。",
+      "重要な書類を金庫に保管している。"
+    ]
+  },
+  {
+    "id": "vocab.n1.suchiimu",
+    "word": "スチーム",
+    "reading": "スチーム",
+    "meaning": "steam",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "スチームアイロンでシャツのしわを取った。",
+      "スチームを使って野菜を蒸している。"
+    ]
+  },
+  {
+    "id": "vocab.n1.hairetsu",
+    "word": "配列",
+    "reading": "はいれつ",
+    "meaning": "arrangement; array (programming)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "school"
+    ],
+    "exampleSentences": [
+      "棚に本を美しく配列した。",
+      "プログラムの配列を初期化する。"
+    ]
+  },
+  {
+    "id": "vocab.n1.someru",
+    "word": "染める",
+    "reading": "そめる",
+    "meaning": "to dye; to colour",
+    "partOfSpeech": "ichidan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "髪を茶色に染めてもらった。",
+      "白いシャツを赤く染めてしまった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tojou",
+    "word": "途上",
+    "reading": "とじょう",
+    "meaning": "en route; half way",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "travel",
+      "work"
+    ],
+    "exampleSentences": [
+      "目的地への途上で雨に降られた。",
+      "途上国の支援に取り組んでいる。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ten",
+    "word": "店",
+    "reading": "てん",
+    "meaning": "store; shop; establishment",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "shopping"
+    ],
+    "exampleSentences": [
+      "新しい店が駅前にできた。",
+      "本店は東京にあります。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kei",
+    "word": "刑",
+    "reading": "けい",
+    "meaning": "penalty; sentence; punishment",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "懲役十年の刑が言い渡された。",
+      "刑が確定した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.yatou",
+    "word": "野党",
+    "reading": "やとう",
+    "meaning": "opposition party",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "野党は政府の政策を批判している。",
+      "野党第一党の党首が発言した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.toho",
+    "word": "徒歩",
+    "reading": "とほ",
+    "meaning": "walking; going on foot",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "transport",
+      "directions"
+    ],
+    "exampleSentences": [
+      "駅から徒歩五分のところに家がある。",
+      "徒歩で通勤している。"
+    ]
+  },
+  {
+    "id": "vocab.n1.denrai",
+    "word": "伝来",
+    "reading": "でんらい",
+    "meaning": "ancestral; hereditary; imported; transmitted; handed down",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "school",
+      "formal"
+    ],
+    "exampleSentences": [
+      "代々伝来の家宝を見せていただいた。",
+      "中国から伝来した文化が今も残っている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.toun",
+    "word": "トーン",
+    "reading": "トーン",
+    "meaning": "tone",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼女の声のトーンが急に変わった。",
+      "暗いトーンで話していた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kameraman",
+    "word": "カメラマン",
+    "reading": "カメラマン",
+    "meaning": "cameraman",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "プロのカメラマンに撮影を依頼した。",
+      "彼はカメラマンとして活躍している。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kougi",
+    "word": "抗議",
+    "reading": "こうぎ",
+    "meaning": "protest; objection",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "市民が政府に抗議のデモを行った。",
+      "判定に対して抗議を申し立てた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.unubore",
+    "word": "自惚れ",
+    "reading": "うぬぼれ",
+    "meaning": "pretension; conceit; hubris",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼の自惚れには困ったものだ。",
+      "成功は時に自惚れを生む。"
+    ]
+  },
+  {
+    "id": "vocab.n1.motarasu",
+    "word": "齎らす",
+    "reading": "もたらす",
+    "meaning": "to bring; to take; to bring about",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "技術革新が大きな変化を齎らした。",
+      "幸福を齎らす出会いだった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.yuuetsu",
+    "word": "優越",
+    "reading": "ゆうえつ",
+    "meaning": "supremacy; predominance; being superior to",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "彼は優越感を持っているらしい。",
+      "経済力で他国を優越したい時代もあった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.fufuku",
+    "word": "不服",
+    "reading": "ふふく",
+    "meaning": "dissatisfaction; discontent; disapproval; objection; complaint; protest; disagreement",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "判決に不服があれば控訴できる。",
+      "彼の決定に不服そうな顔をしていた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kaisai",
+    "word": "開催",
+    "reading": "かいさい",
+    "meaning": "holding a meeting; open an exhibition",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "国際会議が東京で開催された。",
+      "毎年お祭りが開催されています。"
+    ]
+  },
+  {
+    "id": "vocab.n1.naikaku",
+    "word": "内閣",
+    "reading": "ないかく",
+    "meaning": "cabinet; (government) ministry",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "新しい内閣が発足した。",
+      "内閣総理大臣が記者会見を開いた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.seitou",
+    "word": "正当",
+    "reading": "せいとう",
+    "meaning": "just; justifiable; right; due; proper; equitable; reasonable; legitimate; lawful",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "正当な権利を主張する。",
+      "彼の行為は正当防衛と認められた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.aka",
+    "word": "垢",
+    "reading": "あか",
+    "meaning": "dirt; filth",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "首の垢を落とすために石鹸でよく洗う。",
+      "鏡に垢がついて見えにくくなった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.sensengetsu",
+    "word": "先先月",
+    "reading": "せんせんげつ",
+    "meaning": "month before last",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "planning"
+    ],
+    "exampleSentences": [
+      "先先月から日本語を勉強し始めた。",
+      "先先月の出来事を思い出した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.taiman",
+    "word": "怠慢",
+    "reading": "たいまん",
+    "meaning": "negligence; procrastination; carelessness",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "業務の怠慢を指摘された。",
+      "彼の怠慢な態度に上司は怒った。"
+    ]
+  },
+  {
+    "id": "vocab.n1.mukuchi",
+    "word": "無口",
+    "reading": "むくち",
+    "meaning": "reticence",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼はとても無口な人だ。",
+      "無口だが優しい性格をしている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.gochisou",
+    "word": "ご馳走",
+    "reading": "ごちそう",
+    "meaning": "feast; treating (someone)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "food",
+      "restaurant"
+    ],
+    "exampleSentences": [
+      "今日のご馳走は何ですか。",
+      "母のご馳走はいつも楽しみだ。"
+    ]
+  },
+  {
+    "id": "vocab.n1.potto",
+    "word": "ポット",
+    "reading": "ポット",
+    "meaning": "pot",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "ポットにお茶を入れた。",
+      "電気ポットでお湯を沸かしている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.etsuran",
+    "word": "閲覧",
+    "reading": "えつらん",
+    "meaning": "inspection; reading",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "資料の閲覧は二階でできます。",
+      "ホームページを閲覧してから判断した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.habamu",
+    "word": "阻む",
+    "reading": "はばむ",
+    "meaning": "to keep someone from doing; to stop; to prevent; to check; to hinder; to obstruct; to oppose; to thwart",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "山が我々の進路を阻んでいた。",
+      "彼の挑戦を阻むものは何もない。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shimei",
+    "word": "使命",
+    "reading": "しめい",
+    "meaning": "mission; errand; message",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "私たちには重要な使命がある。",
+      "使命を果たすために全力を尽くす。"
+    ]
+  },
+  {
+    "id": "vocab.n1.mikazuki",
+    "word": "三日月",
+    "reading": "みかずき",
+    "meaning": "new moon; crescent moon",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "nature",
+      "soft-magical"
+    ],
+    "exampleSentences": [
+      "夜空に三日月が浮かんでいる。",
+      "三日月の形のクッキーを焼いた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.iji",
+    "word": "意地",
+    "reading": "いじ",
+    "meaning": "disposition; spirit; willpower; obstinacy; backbone; appetite",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "意地を張らずに素直に謝ろう。",
+      "彼の意地が成功を生んだ。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ne",
+    "word": "音",
+    "reading": "ね",
+    "meaning": "sound; note",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "美しい音色のヴァイオリンだ。",
+      "夜遅くは音を立てないように。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tsukuri",
+    "word": "造り",
+    "reading": "つくり",
+    "meaning": "make up; structure; physique",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "古い造りの家が好きだ。",
+      "頑丈な造りの建物だった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.chuukoku",
+    "word": "忠告",
+    "reading": "ちゅうこく",
+    "meaning": "advice; warning",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings",
+      "formal"
+    ],
+    "exampleSentences": [
+      "先輩からの忠告を素直に聞いた。",
+      "彼に何度も忠告したが、聞き入れなかった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.myaku",
+    "word": "脈",
+    "reading": "みゃく",
+    "meaning": "pulse",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "医者が脈を測ってくれた。",
+      "緊張で脈が速くなっている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.koujou",
+    "word": "向上",
+    "reading": "こうじょう",
+    "meaning": "elevation; rise; improvement; advancement; progress",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "school"
+    ],
+    "exampleSentences": [
+      "技術の向上を目指して練習している。",
+      "生活水準が大きく向上した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.ninmu",
+    "word": "任務",
+    "reading": "にんむ",
+    "meaning": "duty; function; office; mission; task",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "新しい任務を任された。",
+      "任務を無事に完了した。"
+    ]
+  },
+  {
+    "id": "vocab.n1.seijuku",
+    "word": "成熟",
+    "reading": "せいじゅく",
+    "meaning": "maturity; ripeness",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "彼は精神的に成熟している。",
+      "果実が成熟するまで待った。"
+    ]
+  },
+  {
+    "id": "vocab.n1.yoppodo",
+    "word": "余程",
+    "reading": "よっぽど",
+    "meaning": "very; greatly; much; to a large extent; quite",
+    "partOfSpeech": "adverb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "余程疲れていたらしく、すぐに眠ってしまった。",
+      "余程困っているのだろう、必死に頼んでいる。"
+    ]
+  },
+  {
+    "id": "vocab.n1.matome",
+    "word": "纏め",
+    "reading": "まとめ",
+    "meaning": "settlement; conclusion",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "会議の纏めをしてください。",
+      "資料の纏めに時間がかかった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.channeru",
+    "word": "チャンネル",
+    "reading": "チャンネル",
+    "meaning": "a channel",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "hobbies"
+    ],
+    "exampleSentences": [
+      "チャンネルを変えてもらえますか。",
+      "新しいテレビは多くのチャンネルがある。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kokorogake",
+    "word": "心掛け",
+    "reading": "こころがけ",
+    "meaning": "readiness; intention; aim",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "日頃の心掛けが大事です。",
+      "健康への心掛けを忘れないように。"
+    ]
+  },
+  {
+    "id": "vocab.n1.zatsudan",
+    "word": "雑談",
+    "reading": "ざつだん",
+    "meaning": "chatting; idle talk",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "casual"
+    ],
+    "exampleSentences": [
+      "同僚と雑談しながら昼休みを過ごす。",
+      "雑談から良いアイデアが生まれることもある。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tansu",
+    "word": "箪笥",
+    "reading": "たんす",
+    "meaning": "chest of drawers",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "home"
+    ],
+    "exampleSentences": [
+      "古い箪笥に着物が入っている。",
+      "祖母から箪笥を譲り受けた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shobun",
+    "word": "処分",
+    "reading": "しょぶん",
+    "meaning": "disposal; dealing; punishment",
+    "partOfSpeech": "irregular-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work",
+      "formal"
+    ],
+    "exampleSentences": [
+      "古い書類を処分した。",
+      "規則違反で処分を受けた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.fuushuu",
+    "word": "風習",
+    "reading": "ふうしゅう",
+    "meaning": "custom",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "travel",
+      "formal"
+    ],
+    "exampleSentences": [
+      "地方の風習を尊重したい。",
+      "古くから伝わる風習を守っている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.torihiki",
+    "word": "取り引き",
+    "reading": "とりひき",
+    "meaning": "transactions; dealings; business",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "新しい取り引き先と契約を結んだ。",
+      "現金で取り引きしている。"
+    ]
+  },
+  {
+    "id": "vocab.n1.shiage",
+    "word": "仕上げ",
+    "reading": "しあげ",
+    "meaning": "end; finishing touches; being finished",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "work"
+    ],
+    "exampleSentences": [
+      "仕上げにレモンを絞ってください。",
+      "建物の仕上げが美しい。"
+    ]
+  },
+  {
+    "id": "vocab.n1.baikin",
+    "word": "黴菌",
+    "reading": "ばいきん",
+    "meaning": "bacteria; germ(s)",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "health"
+    ],
+    "exampleSentences": [
+      "手をよく洗って黴菌を落とそう。",
+      "黴菌が増えやすい季節になった。"
+    ]
+  },
+  {
+    "id": "vocab.n1.kawa",
+    "word": "側",
+    "reading": "かわ",
+    "meaning": "side; row; surroundings; part; (watch) case",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "directions"
+    ],
+    "exampleSentences": [
+      "道の右側を歩いてください。",
+      "彼はいつも私の側にいてくれる。"
+    ]
+  },
+  {
+    "id": "vocab.n1.tsuburu",
+    "word": "瞑る",
+    "reading": "つぶる",
+    "meaning": "to close the eyes",
+    "partOfSpeech": "godan-verb",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "feelings"
+    ],
+    "exampleSentences": [
+      "目を瞑って深呼吸した。",
+      "彼は黙って目を瞑っていた。"
+    ]
+  },
+  {
+    "id": "vocab.n1.mangetsu",
+    "word": "満月",
+    "reading": "まんげつ",
+    "meaning": "full moon",
+    "partOfSpeech": "noun",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "nature",
+      "soft-magical"
+    ],
+    "exampleSentences": [
+      "今夜は美しい満月が見られる。",
+      "満月の夜は何か起こる気がする。"
+    ]
+  },
+  {
+    "id": "vocab.n1.futou",
+    "word": "不当",
+    "reading": "ふとう",
+    "meaning": "injustice; impropriety; unreasonableness; undeservedness; unfair; invalid",
+    "partOfSpeech": "na-adjective",
+    "jlptLevel": "N1",
+    "scenarioTags": [
+      "formal"
+    ],
+    "exampleSentences": [
+      "不当な扱いを受けた。",
+      "不当解雇に対して訴えを起こした。"
     ]
   }
 ]

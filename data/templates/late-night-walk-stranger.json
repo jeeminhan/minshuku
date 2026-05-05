@@ -1,0 +1,38 @@
+{
+  "id": "late-night-walk-stranger",
+  "location": "town_outskirts",
+  "characters": [
+    { "id": "stranger", "role": "wandering_figure", "voiceConfig": "ja-soft-ambiguous" }
+  ],
+  "scriptedTurns": [
+    { "turn": 1, "speaker": "coach" },
+    { "turn": 2, "speaker": "stranger" },
+    { "turn": 3, "speaker": "player" },
+    { "turn": 4, "speaker": "stranger" },
+    { "turn": 5, "speaker": "player" },
+    { "turn": 6, "speaker": "stranger" },
+    { "turn": 7, "speaker": "player" },
+    { "turn": 8, "speaker": "coach" }
+  ],
+  "microStakeSkeleton": "Late at night, on the road that leads from the minshuku toward the edge of town. A stranger is leaning against a wooden fence, looking up at the sky. They greet you softly, as if they had been expecting someone — but maybe not you specifically. They ask where you're headed, or whether you've ever noticed something particular about this stretch of road. Their register is hard to place: not formal, not casual — just a little out of time.",
+  "registerTag": "polite",
+  "activeTargetCompatibility": [
+    "tag:soft-magical",
+    "tag:feelings",
+    "tag:weather",
+    "tag:nature",
+    "tag:directions",
+    "tag:travel",
+    "tag:hobbies"
+  ],
+  "passiveScenarioTags": ["soft-magical", "feelings", "weather", "nature"],
+  "allowedNudges": [
+    "If the player goes quiet, the stranger doesn't push — they look back at the sky and say something softer, almost to themselves, that the player can pick up if they want.",
+    "The stranger may slip in a half-question that doesn't quite need an answer, lowering pressure."
+  ],
+  "exitBeat": "The stranger gives a small wave, says you should probably head back before the wind picks up, and turns toward the dark.",
+  "flags": {
+    "mysteryPorous": true,
+    "opensThread": true
+  }
+}

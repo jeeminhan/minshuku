@@ -1,0 +1,195 @@
+{
+  "id": "run-2431f2e5",
+  "userId": "default",
+  "templateId": "cafe-regular-encounter",
+  "startedAt": "2026-05-05T19:11:33.780Z",
+  "endedAt": "2026-05-05T19:11:59.324Z",
+  "activeTargetsConsidered": [
+    {
+      "itemId": "grammar.n3.003",
+      "itemType": "grammar",
+      "mode": "active"
+    },
+    {
+      "itemId": "vocab.n3.negai",
+      "itemType": "vocab",
+      "mode": "active"
+    }
+  ],
+  "activeTargetsChosen": [
+    {
+      "itemId": "grammar.n3.003",
+      "itemType": "grammar",
+      "mode": "active"
+    },
+    {
+      "itemId": "vocab.n3.negai",
+      "itemType": "vocab",
+      "mode": "active"
+    }
+  ],
+  "passiveItemsChosen": [
+    {
+      "itemId": "vocab.n3.maku",
+      "itemType": "vocab",
+      "mode": "passive"
+    },
+    {
+      "itemId": "vocab.n3.uma",
+      "itemType": "vocab",
+      "mode": "passive"
+    },
+    {
+      "itemId": "vocab.n3.kaori",
+      "itemType": "vocab",
+      "mode": "passive"
+    }
+  ],
+  "templateCandidates": [
+    {
+      "templateId": "cafe-regular-encounter",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "minshuku-evening-talk-about-day",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    }
+  ],
+  "templateChosen": {
+    "id": "cafe-regular-encounter",
+    "finalScore": 10
+  },
+  "threadAction": "standalone",
+  "beatFired": null,
+  "llmPrompt": "SYSTEM:\nYou are the dialogue writer for Hanare, a hands-free Japanese learning app set in a soft-magical countryside town.\nYour job: given a structured scene plan, produce the briefing (English), the AI character lines (Japanese), and the result line (English).\n\nREGISTER & STYLE\n- Briefing and result are in English. AI character lines are in Japanese.\n- AI lines must match the register (casual) and feel natural for the speaker IN THE CONTEXT described by the micro-stake. A countryside-village clerk is plain polite ですます, NOT department-store keigo (no かしこまりました/でございます stack). A grandfather is slow, weighted ですます with occasional older expressions. Match the persona, not a generic register label.\n- Each AI turn is one short utterance, conversational — not a paragraph.\n- NO markdown formatting in dialogue text. No **bold**, no *italic*, no backticks. Plain text only.\n\nACTIVE TARGETS — FORBIDDEN in AI lines\nThe active targets are what the PLAYER must produce. The AI must NOT use any of the active target forms in its own lines (no paraphrasing either). If you find yourself reaching for one, rephrase using a different construction.\n\nACTIVE TARGETS — INVITATION REQUIRED\nAt least one AI turn must ask a question whose natural answer in Japanese requires the player to produce the active target. For example, if the active is ～間 (during), ask a question about timing or what happens during a period. If the active is a vocab word like 合図 (signal), ask a question whose natural answer references that signal. Do NOT just bring up the topic and hope the player guesses; explicitly invite the form.\n\nPASSIVE ITEMS — REQUIRED in AI lines\nEvery passive item must appear at least once across the AI's lines, woven in naturally. Spread them across multiple turns. If a passive item doesn't fit naturally, adjust your turn to make it fit — do not omit it.\n\nOUTPUT\nStrict JSON only, no prose outside the JSON.\n\nUSER:\nScene plan:\n- Location: cafe\n- Characters: cafe_regular (cafe_regular)\n- Micro-stake: A small cafe in the middle of town. A regular customer you've seen here before sits down at the counter near you with a coffee. They strike up casual chat — what you've been up to, what you ordered today, weekend plans, something they saw on the way over. Friendly, a little curious, no pressure.\n- Register: casual\n\nActive target (player must produce): ～あがる (Compound suffix indicating completion or rising up.) — formation: Verb ます-stem + あがる\n  - 願い (ねがい, desire, wish, request)\nActive surfaces FORBIDDEN in AI lines:\n  - \"～あがる\"\n  - \"願い\"\n\nPassive items (AI uses naturally): 幕 (まく, curtain, bunting, act (in play))\n  - 馬 (うま, (1) horse, (2) promoted bishop (shogi))\n  - 香り (かおり, aroma, fragrance, scent, smell)\nPassive surfaces REQUIRED in AI lines (each must appear at least once):\n  - \"幕\"\n  - \"馬\"\n  - \"香り\"\n\nAI character turns to fill:\n  - turn 2 (cafe_regular)\n  - turn 4 (cafe_regular)\n  - turn 6 (cafe_regular)\n\nOutput JSON shape:\n{\n  \"briefing\": \"<English briefing, ~1-2 sentences naming location, character, today's stake, and the active target>\",\n  \"turns\": [\n    { \"turn\": <number>, \"speaker\": \"<character_id>\", \"text\": \"<Japanese line>\", \"language\": \"ja\" }\n  ],\n  \"result\": \"<English result line, ~1 sentence summarizing what happened (placeholder — will be replaced by evaluator-driven summary later)>\"\n}",
+  "llmResponse": "{\n  \"briefing\": \"You're at a small cafe. A regular customer you've seen before sits down nearby and starts a casual chat, curious about what you've been up to. The conversation will naturally lead to you talking about something you've completed or finished, using the ～あがる compound suffix.\",\n  \"turns\": [\n    {\n      \"turn\": 1,\n      \"speaker\": \"player\",\n      \"text\": \"はい、元気ですよ！そちらこそ、お元気ですか？\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 2,\n      \"speaker\": \"cafe_regular\",\n      \"text\": \"おはようございます。今日もいい天気ですね。このお店のコーヒー、本当に香りが良いですよね。\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 3,\n      \"speaker\": \"player\",\n      \"text\": \"ええ、そうですね。この匂いをかぐと、落ち着きます。\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 4,\n      \"speaker\": \"cafe_regular\",\n      \"text\": \"そういえば、今朝、店に来る途中で、牧場から逃げ出したらしい馬を見かけましたよ。みんなで捕まえようとしていて、大変そうでした。\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 5,\n      \"speaker\": \"player\",\n      \"text\": \"まあ、それは珍しい。無事に捕まるといいですね。\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 6,\n      \"speaker\": \"cafe_regular\",\n      \"text\": \"ええ、本当に。そういえば、この間話していた、新しい企画、順調に進んでいますか？それが全て終わったら、きっと感動の幕開けになりますね。何か作り終えたり、完成させたりしたことがあったら、ぜひ聞かせてください。\",\n      \"language\": \"ja\"\n    }\n  ],\n  \"result\": \"You and the cafe regular catch up, sharing stories about your day and discussing ongoing projects, leading to a conversation about things you've recently completed.\"\n}",
+  "llmLatencyMs": 12462,
+  "briefing": "You're at a small cafe. A regular customer you've seen before sits down nearby and starts a casual chat, curious about what you've been up to. The conversation will naturally lead to you talking about something you've completed or finished, using the ～あがる compound suffix.",
+  "result": "You and the cafe regular catch up, sharing stories about your day and discussing ongoing projects, leading to a conversation about things you've recently completed.",
+  "turns": [
+    {
+      "turn": 2,
+      "speaker": "cafe_regular",
+      "text": "おはようございます。今日もいい天気ですね。このお店のコーヒー、本当に香りが良いですよね。"
+    },
+    {
+      "turn": 3,
+      "speaker": "player",
+      "text": "そうですね！私のコーヒーも今、出来上がったばかりです。いい香りですね。",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.003",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.negai",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "speaker": "cafe_regular",
+      "text": "そういえば、今朝、店に来る途中で、牧場から逃げ出したらしい馬を見かけましたよ。みんなで捕まえようとしていて、大変そうでした。"
+    },
+    {
+      "turn": 5,
+      "speaker": "player",
+      "text": "ええ、馬が牧場から逃げるなんて大変ですね！無事に捕まることを願っています。",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.003",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.negai",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "speaker": "cafe_regular",
+      "text": "ええ、本当に。そういえば、この間話していた、新しい企画、順調に進んでいますか？それが全て終わったら、きっと感動の幕開けになりますね。何か作り終えたり、完成させたりしたことがあったら、ぜひ聞かせてください。"
+    },
+    {
+      "turn": 7,
+      "speaker": "player",
+      "text": "はい、順調ですよ。もう少しで出来上がります。",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.003",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.negai",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    }
+  ],
+  "itemOutcomes": [
+    {
+      "itemId": "grammar.n3.003",
+      "mode": "active",
+      "outcome": "missed",
+      "evidence": {
+        "targetPresent": false,
+        "morphologyOk": false,
+        "notes": "rule check: pattern surface not found"
+      }
+    },
+    {
+      "itemId": "vocab.n3.negai",
+      "mode": "active",
+      "outcome": "missed",
+      "evidence": {
+        "targetPresent": false,
+        "morphologyOk": false,
+        "notes": "rule check: pattern surface not found"
+      }
+    }
+  ]
+}

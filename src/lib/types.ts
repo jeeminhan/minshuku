@@ -4,13 +4,15 @@
 
 export type ItemType = "vocab" | "grammar";
 
+export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
+
 export interface VocabItem {
   id: string;
   word: string;          // e.g., "窓"
   reading: string;       // e.g., "まど"
   meaning: string;       // English gloss
   partOfSpeech: string;  // e.g., "noun"
-  jlptLevel: "N5" | "N4" | "N3" | "N2" | "N1";
+  jlptLevel: JlptLevel;
   frequencyRank?: number;
   scenarioTags: string[];
   exampleSentences: string[];
@@ -20,7 +22,7 @@ export interface GrammarItem {
   id: string;
   pattern: string;       // e.g., "つもり"
   meaning: string;       // English gloss
-  jlptLevel: "N5" | "N4" | "N3" | "N2" | "N1";
+  jlptLevel: JlptLevel;
   formation: string;     // e.g., "Verb dictionary form + つもりです"
   scenarioTags: string[];
   exampleSentences: string[];

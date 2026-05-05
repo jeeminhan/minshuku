@@ -1,0 +1,35 @@
+{
+  "id": "minshuku-evening-talk-about-day",
+  "location": "minshuku",
+  "characters": [
+    { "id": "kid", "role": "host_family_kid", "voiceConfig": "ja-young-casual" }
+  ],
+  "scriptedTurns": [
+    { "turn": 1, "speaker": "coach" },
+    { "turn": 2, "speaker": "kid" },
+    { "turn": 3, "speaker": "player" },
+    { "turn": 4, "speaker": "kid" },
+    { "turn": 5, "speaker": "player" },
+    { "turn": 6, "speaker": "kid" },
+    { "turn": 7, "speaker": "player" },
+    { "turn": 8, "speaker": "coach" }
+  ],
+  "microStakeSkeleton": "Evening at the minshuku, before dinner. Hiro flops onto the tatami next to you and wants to hear about your day. He's full of stories about school and asks about what you did, who you met, what you saw, and how you felt about it. He's a co-conspirator — he wants the small details adults wouldn't notice.",
+  "registerTag": "casual",
+  "activeTargetCompatibility": [
+    "grammar:から",
+    "grammar:こと",
+    "tag:school",
+    "tag:work",
+    "tag:feelings",
+    "tag:hobbies",
+    "tag:travel",
+    "tag:transport"
+  ],
+  "passiveScenarioTags": ["evening", "minshuku", "school", "casual", "feelings"],
+  "allowedNudges": [
+    "If the player doesn't reach for the active target, the kid asks a follow-up like 'omoshirokatta?' or 'doko itta?' to coax it out.",
+    "The kid may share a small story of his own as bait for the player to reciprocate."
+  ],
+  "exitBeat": "Mom calls everyone to dinner; Hiro pops up immediately and runs to the table."
+}

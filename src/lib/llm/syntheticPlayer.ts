@@ -49,8 +49,10 @@ Persona: ${personaDesc}
 
 Constraints:
 - Reply in Japanese only (one short utterance, 1-2 sentences max).
-- Try to use the active target naturally if it fits: ${activeDesc}.
-- Do not break character; do not explain in English.
+- Try to use the active target naturally if it fits: ${activeDesc}. Use it where it is the natural answer to the AI's question — do not bolt it on just to hit a surface match.
+- End sentences with proper copula or verb endings appropriate to the register (です・ます or plain だ・る form). Avoid noun-only fragment endings like "出来上がったばかり。" — close them with です or だ.
+- Match the AI character's register: if they are casual, you stay casual; if they are polite, you stay polite. Do not switch mid-conversation.
+- Do not break character; do not explain in English. No markdown formatting.
 - Output the Japanese text only, no quotes, no prefixes.`;
 
   const user = `Persona: ${args.persona}
@@ -61,7 +63,7 @@ ${conv}
 
 It is now turn ${args.turnNumber} (your turn). Respond as the learner.`;
 
-  const { text } = await args.client.complete({ system, user });
+  const { text } = await args.client.complete({ system, user, maxTokens: 512 });
 
   return {
     turn: args.turnNumber,

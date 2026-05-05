@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`scoreRuns > scores the captured fixture logs deterministically 1`] = `
+[
+  {
+    "activeLeakage": 0,
+    "missingTurns": 0,
+    "passiveMisses": 0,
+    "qualHigh": 0,
+    "qualLow": 0,
+    "qualMedium": 0,
+  },
+  {
+    "activeLeakage": 0,
+    "missingTurns": 0,
+    "passiveMisses": 0,
+    "qualHigh": 0,
+    "qualLow": 0,
+    "qualMedium": 0,
+  },
+  {
+    "activeLeakage": 0,
+    "missingTurns": 0,
+    "passiveMisses": 0,
+    "qualHigh": 0,
+    "qualLow": 0,
+    "qualMedium": 0,
+  },
+]
+`;

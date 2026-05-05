@@ -6,14 +6,24 @@ import type { ItemAssignment } from "@/lib/types";
 describe("filterTemplates", () => {
   const templates = loadTemplates();
 
-  it("returns templates whose activeTargetCompatibility includes the active target's id tag", () => {
+  it("returns templates whose activeTargetCompatibility shares at least one tag with the target", () => {
     const active: ItemAssignment[] = [
       { itemId: "grammar.tsumori", itemType: "grammar", mode: "active" },
     ];
     const filtered = filterTemplates(templates, active);
     expect(filtered.length).toBeGreaterThan(0);
+    // grammar.tsumori has pattern つもり and scenarioTags [planning, minshuku, weekend, evening].
+    // A returned template must share at least one of grammar:つもり or tag:<one of the scenarioTags>.
+    const targetTags = [
+      "grammar:つもり",
+      "tag:planning",
+      "tag:minshuku",
+      "tag:weekend",
+      "tag:evening",
+    ];
     for (const t of filtered) {
-      expect(t.activeTargetCompatibility).toContain("grammar:つもり");
+      const overlap = t.activeTargetCompatibility.some((tag) => targetTags.includes(tag));
+      expect(overlap).toBe(true);
     }
   });
 

@@ -1,0 +1,232 @@
+{
+  "id": "run-958d9c44",
+  "userId": "default",
+  "templateId": "bookshop-quiet-browse",
+  "startedAt": "2026-05-05T19:11:59.910Z",
+  "endedAt": "2026-05-05T19:12:26.257Z",
+  "activeTargetsConsidered": [
+    {
+      "itemId": "grammar.n3.004",
+      "itemType": "grammar",
+      "mode": "active"
+    },
+    {
+      "itemId": "vocab.n3.maku",
+      "itemType": "vocab",
+      "mode": "active"
+    }
+  ],
+  "activeTargetsChosen": [
+    {
+      "itemId": "grammar.n3.004",
+      "itemType": "grammar",
+      "mode": "active"
+    },
+    {
+      "itemId": "vocab.n3.maku",
+      "itemType": "vocab",
+      "mode": "active"
+    }
+  ],
+  "passiveItemsChosen": [
+    {
+      "itemId": "vocab.n3.uma",
+      "itemType": "vocab",
+      "mode": "passive"
+    },
+    {
+      "itemId": "vocab.n3.raitaa",
+      "itemType": "vocab",
+      "mode": "passive"
+    },
+    {
+      "itemId": "vocab.n3.kawa",
+      "itemType": "vocab",
+      "mode": "passive"
+    }
+  ],
+  "templateCandidates": [
+    {
+      "templateId": "bookshop-quiet-browse",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "cafe-regular-encounter",
+      "finalScore": 3,
+      "reasons": [
+        "base score 10",
+        "-5: same template as most recent run",
+        "-2: same location as most recent run"
+      ]
+    },
+    {
+      "templateId": "late-night-walk-stranger",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "minshuku-dinner-with-family",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "minshuku-evening-talk-about-day",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "minshuku-grandpa-tea-room",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    },
+    {
+      "templateId": "shrine-afternoon-keeper",
+      "finalScore": 10,
+      "reasons": [
+        "base score 10"
+      ]
+    }
+  ],
+  "templateChosen": {
+    "id": "bookshop-quiet-browse",
+    "finalScore": 10
+  },
+  "threadAction": "standalone",
+  "beatFired": null,
+  "llmPrompt": "SYSTEM:\nYou are the dialogue writer for Hanare, a hands-free Japanese learning app set in a soft-magical countryside town.\nYour job: given a structured scene plan, produce the briefing (English), the AI character lines (Japanese), and the result line (English).\n\nREGISTER & STYLE\n- Briefing and result are in English. AI character lines are in Japanese.\n- AI lines must match the register (polite) and feel natural for the speaker IN THE CONTEXT described by the micro-stake. A countryside-village clerk is plain polite ですます, NOT department-store keigo (no かしこまりました/でございます stack). A grandfather is slow, weighted ですます with occasional older expressions. Match the persona, not a generic register label.\n- Each AI turn is one short utterance, conversational — not a paragraph.\n- NO markdown formatting in dialogue text. No **bold**, no *italic*, no backticks. Plain text only.\n\nACTIVE TARGETS — FORBIDDEN in AI lines\nThe active targets are what the PLAYER must produce. The AI must NOT use any of the active target forms in its own lines (no paraphrasing either). If you find yourself reaching for one, rephrase using a different construction.\n\nACTIVE TARGETS — INVITATION REQUIRED\nAt least one AI turn must ask a question whose natural answer in Japanese requires the player to produce the active target. For example, if the active is ～間 (during), ask a question about timing or what happens during a period. If the active is a vocab word like 合図 (signal), ask a question whose natural answer references that signal. Do NOT just bring up the topic and hope the player guesses; explicitly invite the form.\n\nPASSIVE ITEMS — REQUIRED in AI lines\nEvery passive item must appear at least once across the AI's lines, woven in naturally. Spread them across multiple turns. If a passive item doesn't fit naturally, adjust your turn to make it fit — do not omit it.\n\nOUTPUT\nStrict JSON only, no prose outside the JSON.\n\nUSER:\nScene plan:\n- Location: bookshop\n- Characters: bookshop_owner (bookshop_owner)\n- Micro-stake: A small, dim bookshop near the river. The owner is at the counter sorting paperbacks. She looks up, smiles, and asks if you're looking for something in particular today. She'll happily recommend titles, ask about your interests, or what you've read recently.\n- Register: polite\n\nActive target (player must produce): ～いい/よい (Easy/good to do (ーやすい/ーいい).) — formation: Verb ます-stem + やすい / いい\n  - 幕 (まく, curtain, bunting, act (in play))\nActive surfaces FORBIDDEN in AI lines:\n  - \"～いい/よい\"\n  - \"幕\"\n\nPassive items (AI uses naturally): 馬 (うま, (1) horse, (2) promoted bishop (shogi))\n  - ライター (ライター, lighter, rider, writer)\n  - 革 (かわ, leather)\nPassive surfaces REQUIRED in AI lines (each must appear at least once):\n  - \"馬\"\n  - \"ライター\"\n  - \"革\"\n\nAI character turns to fill:\n  - turn 2 (bookshop_owner)\n  - turn 4 (bookshop_owner)\n  - turn 6 (bookshop_owner)\n\nOutput JSON shape:\n{\n  \"briefing\": \"<English briefing, ~1-2 sentences naming location, character, today's stake, and the active target>\",\n  \"turns\": [\n    { \"turn\": <number>, \"speaker\": \"<character_id>\", \"text\": \"<Japanese line>\", \"language\": \"ja\" }\n  ],\n  \"result\": \"<English result line, ~1 sentence summarizing what happened (placeholder — will be replaced by evaluator-driven summary later)>\"\n}",
+  "llmResponse": "{\n  \"briefing\": \"You step into a small, dim bookshop by the river. The owner, sorting paperbacks at the counter, looks up with a smile and asks if you're looking for anything specific, ready to recommend or discuss your recent reads. She hopes you'll describe something as easy or good to read using the ます-stem + やすい / いい structure.\",\n  \"turns\": [\n    {\n      \"turn\": 2,\n      \"speaker\": \"bookshop_owner\",\n      \"text\": \"いらっしゃいませ。何かお探しですか？それとも、今日はゆっくり見て回りたいですかね。最近、馬についての物語がよく読まれているんですよ。\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 4,\n      \"speaker\": \"bookshop_owner\",\n      \"text\": \"なるほど、新しい世界にすっと入っていけるような本ですね。読書をする上で、物語がすっと頭に入ってくるには、どんな本が理想的だと思いますか？\",\n      \"language\": \"ja\"\n    },\n    {\n      \"turn\": 6,\n      \"speaker\": \"bookshop_owner\",\n      \"text\": \"分かりやすい本ですね。それなら、こちらの短編集はいかがでしょうか。この作者は、昔、旅をしながら馬のスケッチを描いていた有名なライターだそうですよ。革装丁版もございます。\",\n      \"language\": \"ja\"\n    }\n  ],\n  \"result\": \"The bookshop owner recommends a collection of short stories by a famous writer who used to sketch horses, available in a leather-bound edition, fitting your request for an easy-to-understand read.\"\n}",
+  "llmLatencyMs": 14077,
+  "briefing": "You step into a small, dim bookshop by the river. The owner, sorting paperbacks at the counter, looks up with a smile and asks if you're looking for anything specific, ready to recommend or discuss your recent reads. She hopes you'll describe something as easy or good to read using the ます-stem + やすい / いい structure.",
+  "result": "The bookshop owner recommends a collection of short stories by a famous writer who used to sketch horses, available in a leather-bound edition, fitting your request for an easy-to-understand read.",
+  "turns": [
+    {
+      "turn": 2,
+      "speaker": "bookshop_owner",
+      "text": "いらっしゃいませ。何かお探しですか？それとも、今日はゆっくり見て回りたいですかね。最近、馬についての物語がよく読まれているんですよ。"
+    },
+    {
+      "turn": 3,
+      "speaker": "player",
+      "text": "馬の物語、どんな話ですか？読みやすいですか？",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.004",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.maku",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "speaker": "bookshop_owner",
+      "text": "なるほど、新しい世界にすっと入っていけるような本ですね。読書をする上で、物語がすっと頭に入ってくるには、どんな本が理想的だと思いますか？"
+    },
+    {
+      "turn": 5,
+      "speaker": "player",
+      "text": "文章が簡単で、読みやすい本がいいです。",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.004",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.maku",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "speaker": "bookshop_owner",
+      "text": "分かりやすい本ですね。それなら、こちらの短編集はいかがでしょうか。この作者は、昔、旅をしながら馬のスケッチを描いていた有名なライターだそうですよ。革装丁版もございます。"
+    },
+    {
+      "turn": 7,
+      "speaker": "player",
+      "text": "馬のスケッチを描いていたんですか？いいですね！その短編集、とても読みやすいですか？",
+      "evaluatorResults": [
+        {
+          "itemId": "grammar.n3.004",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        },
+        {
+          "itemId": "vocab.n3.maku",
+          "mode": "active",
+          "outcome": "missed",
+          "evidence": {
+            "targetPresent": false,
+            "morphologyOk": false,
+            "notes": "rule check: pattern surface not found"
+          }
+        }
+      ]
+    }
+  ],
+  "itemOutcomes": [
+    {
+      "itemId": "grammar.n3.004",
+      "mode": "active",
+      "outcome": "missed",
+      "evidence": {
+        "targetPresent": false,
+        "morphologyOk": false,
+        "notes": "rule check: pattern surface not found"
+      }
+    },
+    {
+      "itemId": "vocab.n3.maku",
+      "mode": "active",
+      "outcome": "missed",
+      "evidence": {
+        "targetPresent": false,
+        "morphologyOk": false,
+        "notes": "rule check: pattern surface not found"
+      }
+    }
+  ]
+}
