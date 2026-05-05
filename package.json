@@ -6,6 +6,7 @@
   "scripts": {
     "scene": "tsx scripts/run-scene.ts",
     "render-log": "tsx scripts/render-log.ts",
+    "audit-logs": "tsx scripts/audit-logs.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
