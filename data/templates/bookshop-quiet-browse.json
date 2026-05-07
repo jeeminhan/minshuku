@@ -27,6 +27,7 @@
     "tag:soft-magical"
   ],
   "passiveScenarioTags": ["hobbies", "shopping", "soft-magical"],
+  "acceptedDomains": ["abstract", "emotional", "social", "commercial"],
   "allowedNudges": [
     "If the player is uncertain, the owner pulls a book off the shelf and uses it to invite the player into a more concrete answer.",
     "The owner may ask follow-up questions about specific genres or authors to help the player narrow down."

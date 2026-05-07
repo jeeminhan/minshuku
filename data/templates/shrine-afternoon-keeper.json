@@ -2,17 +2,45 @@
   "id": "shrine-afternoon-keeper",
   "location": "shrine",
   "characters": [
-    { "id": "shrine_keeper", "role": "shrine_keeper", "voiceConfig": "ja-elder-male" }
+    {
+      "id": "shrine_keeper",
+      "role": "shrine_keeper",
+      "voiceConfig": "ja-elder-male"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "shrine_keeper" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "shrine_keeper" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "shrine_keeper" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "shrine_keeper"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "shrine_keeper"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "shrine_keeper"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "Late afternoon at the shrine on the hill above town. The keeper is sweeping the stone path. He notices you and asks, with quiet curiosity, what brought you up here today. He may share a small fragment of the shrine's history or a half-told story about something that happened here long ago.",
   "registerTag": "elder",
@@ -26,7 +54,19 @@
     "tag:weather",
     "tag:directions"
   ],
-  "passiveScenarioTags": ["soft-magical", "nature", "feelings", "formal"],
+  "passiveScenarioTags": [
+    "soft-magical",
+    "nature",
+    "feelings",
+    "formal"
+  ],
+  "acceptedDomains": [
+    "ritual",
+    "abstract",
+    "social",
+    "emotional",
+    "temporal"
+  ],
   "allowedNudges": [
     "If the player is hesitant, the keeper turns slightly back to his sweeping and rephrases the question more gently.",
     "The keeper may offer a sentence-starter like 'もしよければ…' to lower the bar for the player."

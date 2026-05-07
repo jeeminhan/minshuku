@@ -2,17 +2,45 @@
   "id": "minshuku-laundry-help",
   "location": "minshuku",
   "characters": [
-    { "id": "mom", "role": "host_family_mom", "voiceConfig": "ja-warm-female" }
+    {
+      "id": "mom",
+      "role": "host_family_mom",
+      "voiceConfig": "ja-warm-female"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "mom" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "mom" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "mom" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "mom"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "mom"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "mom"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "Afternoon at the minshuku. Mom is taking laundry off the line because the weather has shifted and clouds are moving in. She hands you a basket. She asks about your morning, what you're planning later, and whether you can swing by the shop on the way back for a few small things.",
   "registerTag": "polite",
@@ -26,7 +54,18 @@
     "tag:planning",
     "tag:everyday"
   ],
-  "passiveScenarioTags": ["home", "minshuku", "weather", "family", "everyday"],
+  "passiveScenarioTags": [
+    "home",
+    "minshuku",
+    "weather",
+    "family",
+    "everyday"
+  ],
+  "acceptedDomains": [
+    "physical",
+    "social",
+    "temporal"
+  ],
   "allowedNudges": [
     "If the player doesn't reach for the active target, mom asks a more concrete question tied to what they're folding or what's needed at the shop.",
     "Mom can shift to slightly more casual phrasing if the player seems uncertain."

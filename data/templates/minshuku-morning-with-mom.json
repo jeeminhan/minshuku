@@ -2,17 +2,45 @@
   "id": "minshuku-morning-with-mom",
   "location": "minshuku",
   "characters": [
-    { "id": "mom", "role": "host_family_mom", "voiceConfig": "ja-warm-female" }
+    {
+      "id": "mom",
+      "role": "host_family_mom",
+      "voiceConfig": "ja-warm-female"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "mom" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "mom" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "mom" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "mom"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "mom"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "mom"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "It's morning at the minshuku. Mom is making breakfast and asks gently about how you slept and what you're up to today.",
   "registerTag": "polite",
@@ -25,7 +53,18 @@
     "tag:everyday",
     "tag:morning"
   ],
-  "passiveScenarioTags": ["morning", "weather", "minshuku", "everyday"],
+  "passiveScenarioTags": [
+    "morning",
+    "weather",
+    "minshuku",
+    "everyday"
+  ],
+  "acceptedDomains": [
+    "social",
+    "temporal",
+    "physical",
+    "emotional"
+  ],
   "allowedNudges": [
     "If the player doesn't reach for the active target, mom rephrases warmly."
   ],

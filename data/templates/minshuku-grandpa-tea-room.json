@@ -2,17 +2,45 @@
   "id": "minshuku-grandpa-tea-room",
   "location": "minshuku",
   "characters": [
-    { "id": "grandpa", "role": "host_family_grandpa", "voiceConfig": "ja-elder-male" }
+    {
+      "id": "grandpa",
+      "role": "host_family_grandpa",
+      "voiceConfig": "ja-elder-male"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "grandpa" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "grandpa" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "grandpa" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "grandpa"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "grandpa"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "grandpa"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "Grandfather is in the back tea room slowly preparing matcha. He gestures for you to sit. He often shares old stories. Tonight he asks something quiet — about your hometown, an interest of yours, or a feeling you might not have words for yet. He listens longer than he speaks.",
   "registerTag": "elder",
@@ -25,7 +53,19 @@
     "tag:nature",
     "tag:home"
   ],
-  "passiveScenarioTags": ["minshuku", "evening", "soft-magical", "feelings"],
+  "passiveScenarioTags": [
+    "minshuku",
+    "evening",
+    "soft-magical",
+    "feelings"
+  ],
+  "acceptedDomains": [
+    "ritual",
+    "social",
+    "emotional",
+    "temporal",
+    "abstract"
+  ],
   "allowedNudges": [
     "If the player struggles, grandpa pauses, sips tea, and reframes the question more simply. He never rushes.",
     "Grandpa may share a fragment of his own past as a way to invite the player back into the conversation."

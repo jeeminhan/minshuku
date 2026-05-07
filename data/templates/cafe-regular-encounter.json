@@ -2,17 +2,45 @@
   "id": "cafe-regular-encounter",
   "location": "cafe",
   "characters": [
-    { "id": "cafe_regular", "role": "cafe_regular", "voiceConfig": "ja-friendly-young-adult" }
+    {
+      "id": "cafe_regular",
+      "role": "cafe_regular",
+      "voiceConfig": "ja-friendly-young-adult"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "cafe_regular" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "cafe_regular" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "cafe_regular" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "cafe_regular"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "cafe_regular"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "cafe_regular"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "A small cafe in the middle of town. A regular customer you've seen here before sits down at the counter near you with a coffee. They strike up casual chat — what you've been up to, what you ordered today, weekend plans, something they saw on the way over. Friendly, a little curious, no pressure.",
   "registerTag": "casual",
@@ -26,7 +54,18 @@
     "tag:school",
     "tag:weather"
   ],
-  "passiveScenarioTags": ["food", "casual", "hobbies"],
+  "passiveScenarioTags": [
+    "food",
+    "casual",
+    "hobbies"
+  ],
+  "acceptedDomains": [
+    "social",
+    "emotional",
+    "temporal",
+    "abstract",
+    "physical"
+  ],
   "allowedNudges": [
     "If the player is unsure, the regular takes a sip of coffee and offers a smaller, more concrete version of the question.",
     "The regular may share a small story of their own to invite the player to reciprocate."

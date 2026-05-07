@@ -2,17 +2,45 @@
   "id": "station-asking-directions",
   "location": "station",
   "characters": [
-    { "id": "station_clerk", "role": "station_clerk", "voiceConfig": "ja-formal-female" }
+    {
+      "id": "station_clerk",
+      "role": "station_clerk",
+      "voiceConfig": "ja-formal-female"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "station_clerk" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "station_clerk" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "station_clerk" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "station_clerk"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "station_clerk"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "station_clerk"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "The small countryside station. The clerk is behind the ticket window. You need to clarify a route, a transfer, or a time — possibly because a sign isn't clear, or a bus has been rerouted. The clerk speaks in keigo and is patient but precise.",
   "registerTag": "keigo",
@@ -24,7 +52,18 @@
     "tag:planning",
     "tag:weather"
   ],
-  "passiveScenarioTags": ["transport", "directions", "formal", "travel"],
+  "passiveScenarioTags": [
+    "transport",
+    "directions",
+    "formal",
+    "travel"
+  ],
+  "acceptedDomains": [
+    "physical",
+    "social",
+    "temporal",
+    "commercial"
+  ],
   "allowedNudges": [
     "If the player struggles, the clerk slows down, pulls out a printed timetable, and rephrases using simpler keigo.",
     "The clerk may break the question into smaller parts, asking only one piece of information at a time."
