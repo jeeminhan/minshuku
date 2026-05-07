@@ -13,6 +13,7 @@ const Domain = z.enum([
   "temporal",
   "commercial",
   "ritual",
+  "craft",
 ]);
 
 const VocabItemSchema = z.object({

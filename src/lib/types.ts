@@ -18,7 +18,8 @@ export type Domain =
   | "social"
   | "temporal"
   | "commercial"
-  | "ritual";
+  | "ritual"
+  | "craft";
 
 export interface VocabItem {
   id: string;

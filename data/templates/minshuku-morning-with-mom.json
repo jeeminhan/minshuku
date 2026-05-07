@@ -63,7 +63,8 @@
     "social",
     "temporal",
     "physical",
-    "emotional"
+    "emotional",
+    "craft"
   ],
   "allowedNudges": [
     "If the player doesn't reach for the active target, mom rephrases warmly."

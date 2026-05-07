@@ -61,7 +61,8 @@
     "abstract",
     "emotional",
     "social",
-    "commercial"
+    "commercial",
+    "craft"
   ],
   "allowedNudges": [
     "If the player is uncertain, the owner pulls a book off the shelf and uses it to invite the player into a more concrete answer.",
