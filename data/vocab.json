@@ -15,6 +15,10 @@
     "exampleSentences": [
       "窓の外を見てください。",
       "窓の近くの席でもいいですか？"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -32,6 +36,11 @@
     "exampleSentences": [
       "明日の約束、覚えてる？",
       "約束ね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -50,6 +59,11 @@
     "exampleSentences": [
       "ちょっと不思議なんだけど。",
       "不思議な話を聞いた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -68,6 +82,10 @@
     "exampleSentences": [
       "明日、雨だって。",
       "雨が降ってる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -85,6 +103,11 @@
     "exampleSentences": [
       "傘を持って行く。",
       "誰が持ってる？"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -100,6 +123,10 @@
     "exampleSentences": [
       "毎朝コーヒーを飲みます。",
       "毎朝公園を散歩します。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -116,6 +143,11 @@
     "exampleSentences": [
       "この問題は難しいです。",
       "何か問題がありますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -132,6 +164,10 @@
     "exampleSentences": [
       "お茶を飲みましょう。",
       "日本のお茶は美味しいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -147,6 +183,10 @@
     "exampleSentences": [
       "私の車は黒です。",
       "黒のペンを使います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -162,6 +202,10 @@
     "exampleSentences": [
       "台所で料理をします。",
       "台所はあそこです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -177,6 +221,11 @@
     "exampleSentences": [
       "友達に葉書を書きます。",
       "京都から葉書が来ました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -192,6 +241,10 @@
     "exampleSentences": [
       "黒いペンを使います。",
       "ペンを貸してください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -207,6 +260,11 @@
     "exampleSentences": [
       "毎晩ニュースを見ます。",
       "ニュースで知りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -222,6 +280,10 @@
     "exampleSentences": [
       "花瓶に花を入れます。",
       "テーブルの上に花瓶があります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -238,6 +300,10 @@
     "exampleSentences": [
       "フォークでパスタを食べます。",
       "フォークとスプーンをください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -253,6 +319,10 @@
     "exampleSentences": [
       "ドアを引いてください。",
       "椅子を引きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -268,6 +338,10 @@
     "exampleSentences": [
       "新しいフィルムを買います。",
       "フィルムで写真を撮ります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -284,6 +358,10 @@
     "exampleSentences": [
       "毎朝歯を磨きます。",
       "靴を磨きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -299,6 +377,10 @@
     "exampleSentences": [
       "ボタンを押してください。",
       "ドアを押します。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -314,6 +396,10 @@
     "exampleSentences": [
       "本を売ります。",
       "あの店で野菜を売っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -329,6 +415,10 @@
     "exampleSentences": [
       "電気を消してください。",
       "電気をつけます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -345,6 +435,11 @@
     "exampleSentences": [
       "レストランの前に並びました。",
       "学生が一列に並んでいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -360,6 +455,11 @@
     "exampleSentences": [
       "病気で学校を休みました。",
       "弟は病気です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -375,6 +475,10 @@
     "exampleSentences": [
       "ポケットに鍵があります。",
       "コートのポケットを使います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -390,6 +494,10 @@
     "exampleSentences": [
       "頭が痛いです。",
       "頭を洗います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -406,6 +514,10 @@
     "exampleSentences": [
       "はしでご飯を食べます。",
       "新しいはしを買いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -421,6 +533,11 @@
     "exampleSentences": [
       "英語を勉強しています。",
       "英語の本を読みます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -436,6 +553,10 @@
     "exampleSentences": [
       "家で休みます。",
       "私の家は大きいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -451,6 +572,10 @@
     "exampleSentences": [
       "一月待ちました。",
       "一月で日本語を覚えます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -466,6 +591,12 @@
     "exampleSentences": [
       "今日は暑いです。",
       "夏は暑いですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional",
+      "social"
     ]
   },
   {
@@ -482,6 +613,11 @@
     "exampleSentences": [
       "週末は友達と遊びます。",
       "公園で子供が遊んでいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -497,6 +633,10 @@
     "exampleSentences": [
       "塩を取ってください。",
       "本を棚から取りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -512,6 +652,10 @@
     "exampleSentences": [
       "九時に起きます。",
       "九つください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -527,6 +671,10 @@
     "exampleSentences": [
       "ドアを閉めてください。",
       "窓を閉めました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -542,6 +690,11 @@
     "exampleSentences": [
       "たいへんありがとうございます。",
       "今日はたいへん寒いです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -558,6 +711,10 @@
     "exampleSentences": [
       "田中さんの奥さんです。",
       "奥さんによろしくお伝えください。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -573,6 +730,11 @@
     "exampleSentences": [
       "作文を書きました。",
       "明日作文の宿題があります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -588,6 +750,10 @@
     "exampleSentences": [
       "この駅は便利です。",
       "便利な道具ですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -603,6 +769,10 @@
     "exampleSentences": [
       "右に曲がってください。",
       "右の手を上げます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -618,6 +788,10 @@
     "exampleSentences": [
       "今日は寒いです。",
       "冬は寒いですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -634,6 +808,10 @@
     "exampleSentences": [
       "毎朝シャワーをあびます。",
       "暑いからシャワーをあびたいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -649,6 +827,10 @@
     "exampleSentences": [
       "りんごを十個ください。",
       "十時に会いましょう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -664,6 +846,10 @@
     "exampleSentences": [
       "箱の中にあります。",
       "部屋の中で待ってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -679,6 +865,11 @@
     "exampleSentences": [
       "電気を消してください。",
       "テレビを消しました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -694,6 +885,10 @@
     "exampleSentences": [
       "駅の近くに住んでいます。",
       "近くにスーパーがあります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -709,6 +904,10 @@
     "exampleSentences": [
       "七つ買いました。",
       "りんごを七つください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -724,6 +923,10 @@
     "exampleSentences": [
       "古いテープレコーダーを使います。",
       "テープレコーダーで音楽を聞きます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -739,6 +942,10 @@
     "exampleSentences": [
       "目が痛いです。",
       "彼女の目はきれいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -755,6 +962,10 @@
     "exampleSentences": [
       "空が青いです。",
       "空に星が見えます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -770,6 +981,10 @@
     "exampleSentences": [
       "六日に会いましょう。",
       "六日かかりました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -786,6 +1001,10 @@
     "exampleSentences": [
       "ここに座ってください。",
       "椅子に座っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -801,6 +1020,10 @@
     "exampleSentences": [
       "今年は2026年です。",
       "三年待ちました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -816,6 +1039,10 @@
     "exampleSentences": [
       "男の子が二人います。",
       "あの男の子は私の弟です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -831,6 +1058,10 @@
     "exampleSentences": [
       "私の部屋は狭いです。",
       "この道は狭いですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -847,6 +1078,10 @@
     "exampleSentences": [
       "冷蔵庫にビールがあります。",
       "冷蔵庫を開けてください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -863,6 +1098,10 @@
     "exampleSentences": [
       "新しいカメラを買いました。",
       "カメラで写真を撮ります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -878,6 +1117,10 @@
     "exampleSentences": [
       "玄関で靴を脱ぎます。",
       "玄関に花を置きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -893,6 +1136,11 @@
     "exampleSentences": [
       "それは違います。",
       "答えが違いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -908,6 +1156,11 @@
     "exampleSentences": [
       "ここは危ないです。",
       "夜の道は危ないですよ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "physical"
     ]
   },
   {
@@ -923,6 +1176,10 @@
     "exampleSentences": [
       "分かりました。",
       "意味が分かりません。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -938,6 +1195,11 @@
     "exampleSentences": [
       "名前を言ってください。",
       "もう一度言います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -954,6 +1216,10 @@
     "exampleSentences": [
       "水を飲みます。",
       "毎朝コーヒーを飲んでいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -970,6 +1236,11 @@
     "exampleSentences": [
       "毎日日本語を練習します。",
       "ピアノの練習をしました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -985,6 +1256,11 @@
     "exampleSentences": [
       "これは何ですか。",
       "何を食べますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -1000,6 +1276,12 @@
     "exampleSentences": [
       "厚い本ですね。",
       "厚いコートを着ます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional",
+      "social"
     ]
   },
   {
@@ -1015,6 +1297,10 @@
     "exampleSentences": [
       "毎月家族に会います。",
       "毎月本を読みます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1030,6 +1316,10 @@
     "exampleSentences": [
       "ドアが閉まりました。",
       "店は六時に閉まります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1045,6 +1335,10 @@
     "exampleSentences": [
       "玄関で靴を脱ぎます。",
       "暑いからコートを脱ぎました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1060,6 +1354,10 @@
     "exampleSentences": [
       "黒い猫がいます。",
       "黒いコートを買いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1076,6 +1374,10 @@
     "exampleSentences": [
       "山に登ります。",
       "子供が木に登っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1091,6 +1393,10 @@
     "exampleSentences": [
       "この部屋は汚いです。",
       "汚い手で食べないでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1106,6 +1412,10 @@
     "exampleSentences": [
       "雨が降っています。",
       "明日も雨ですか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1122,6 +1432,10 @@
     "exampleSentences": [
       "お皿を洗います。",
       "新しいお皿を買いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1137,6 +1451,11 @@
     "exampleSentences": [
       "彼は走るのが速いです。",
       "新幹線は速いですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "temporal"
     ]
   },
   {
@@ -1152,6 +1471,10 @@
     "exampleSentences": [
       "お風呂に入ります。",
       "お風呂は気持ちいいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1167,6 +1490,12 @@
     "exampleSentences": [
       "新しい靴を買いました。",
       "新しい先生は親切です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -1183,6 +1512,10 @@
     "exampleSentences": [
       "廊下を走らないでください。",
       "廊下で待っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1198,6 +1531,10 @@
     "exampleSentences": [
       "茶色のかばんが好きです。",
       "茶色の犬がいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1214,6 +1551,10 @@
     "exampleSentences": [
       "新しいコートを買いました。",
       "寒いからコートを着ます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1229,6 +1570,11 @@
     "exampleSentences": [
       "母に手紙を書きます。",
       "友達から手紙が来ました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "physical"
     ]
   },
   {
@@ -1244,6 +1590,11 @@
     "exampleSentences": [
       "お金が要ります。",
       "辞書が要りますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -1259,6 +1610,11 @@
     "exampleSentences": [
       "こっちに来てください。",
       "こっちのほうが大きいです。"
+    ],
+    "register": "casual",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -1275,6 +1631,10 @@
     "exampleSentences": [
       "スプーンで食べます。",
       "スプーンをください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1290,6 +1650,10 @@
     "exampleSentences": [
       "時々日本映画を見ます。",
       "時々友達と会います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1305,6 +1669,10 @@
     "exampleSentences": [
       "傘を持って行きます。",
       "雨だから傘が要ります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1321,6 +1689,10 @@
     "exampleSentences": [
       "今日は雲が多いですね。",
       "白い雲がきれいに見えます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1336,6 +1708,10 @@
     "exampleSentences": [
       "朝ご飯にサンドイッチを作りました。",
       "公園でサンドイッチを食べたいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1352,6 +1728,10 @@
     "exampleSentences": [
       "車が故障してしまいました。",
       "エアコンが故障したので、修理が必要です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1367,6 +1747,10 @@
     "exampleSentences": [
       "暗い夜道は一人で歩くと怖いです。",
       "あの映画は怖かったけど、面白かったです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -1383,6 +1767,10 @@
     "exampleSentences": [
       "デパートのエスカレーターで二階に行きます。",
       "駅のエスカレーターは混んでいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1398,6 +1786,10 @@
     "exampleSentences": [
       "重い荷物を運びました。",
       "椅子を二階に運んでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1413,6 +1805,11 @@
     "exampleSentences": [
       "明日試験を受けます。",
       "日本語の授業を受けています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1429,6 +1826,10 @@
     "exampleSentences": [
       "あちらは社長のお嬢さんです。",
       "お嬢さん、お元気ですか。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -1444,6 +1845,10 @@
     "exampleSentences": [
       "首が痛いから、早く休みたいです。",
       "首にスカーフを巻きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1459,6 +1864,10 @@
     "exampleSentences": [
       "全ての市民に投票の権利があります。",
       "市民のために図書館が建てられました。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -1474,6 +1883,10 @@
     "exampleSentences": [
       "シャツにボタンが付いていません。",
       "新しい本に地図が付いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1490,6 +1903,11 @@
     "exampleSentences": [
       "お腹がすいたので、何か食べたいです。",
       "電車が空いていて、座れました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional"
     ]
   },
   {
@@ -1505,6 +1923,10 @@
     "exampleSentences": [
       "そのことを忘れないでください。",
       "面白いことを話してくれました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1521,6 +1943,10 @@
     "exampleSentences": [
       "週末に祖母を訪ねるつもりです。",
       "昔の友達を訪ねたいですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -1536,6 +1962,12 @@
     "exampleSentences": [
       "誕生日のお祝いをしました。",
       "結婚のお祝いに花を贈ります。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "emotional",
+      "ritual"
     ]
   },
   {
@@ -1552,6 +1984,11 @@
     "exampleSentences": [
       "彼は一生懸命勉強しています。",
       "一生懸命やったので、結果に満足しています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1567,6 +2004,11 @@
     "exampleSentences": [
       "仕事が済んだら、帰ります。",
       "用事が早く済んでよかったです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -1582,6 +2024,10 @@
     "exampleSentences": [
       "去年アメリカへ行きました。",
       "アメリカに住んでいる友達がいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1597,6 +2043,10 @@
     "exampleSentences": [
       "毎日漢字を復習しています。",
       "試験の前にしっかり復習しましょう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1612,6 +2062,12 @@
     "exampleSentences": [
       "急に雨が降り出しました。",
       "急な仕事が入ってしまいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -1627,6 +2083,10 @@
     "exampleSentences": [
       "これから何をしますか。",
       "これから日本語をもっと勉強します。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1643,6 +2103,11 @@
     "exampleSentences": [
       "母から指輪をもらいました。",
       "あの店できれいな指輪を見ました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -1658,6 +2123,11 @@
     "exampleSentences": [
       "山の景色がとても美しいです。",
       "美しい花がたくさん咲いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "physical"
     ]
   },
   {
@@ -1673,6 +2143,11 @@
     "exampleSentences": [
       "壊れた時計が直りました。",
       "なかなかこの問題は直らないですね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -1689,6 +2164,10 @@
     "exampleSentences": [
       "夏休みは水泳を習いに行きます。",
       "水泳は体にいい運動です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1704,6 +2183,11 @@
     "exampleSentences": [
       "部屋の真中にテーブルがあります。",
       "公園の真中で待っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -1719,6 +2203,11 @@
     "exampleSentences": [
       "日本語の発音は難しいですね。",
       "発音が上手になりました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1735,6 +2224,11 @@
     "exampleSentences": [
       "母の料理を手伝います。",
       "引っ越しを手伝ってくれませんか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "physical"
     ]
   },
   {
@@ -1750,6 +2244,10 @@
     "exampleSentences": [
       "鉛筆が折れてしまいました。",
       "強い風で木の枝が折れました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1765,6 +2263,10 @@
     "exampleSentences": [
       "一度京都に行ったことがあります。",
       "もう一度言ってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1780,6 +2282,11 @@
     "exampleSentences": [
       "息子は高等学校の二年生です。",
       "高等学校の友達と会います。"
+    ],
+    "register": "formal",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -1795,6 +2302,10 @@
     "exampleSentences": [
       "アルコールはあまり飲みません。",
       "この薬とアルコールは一緒に飲まないでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1810,6 +2321,11 @@
     "exampleSentences": [
       "彼女は有名なアナウンサーです。",
       "アナウンサーになりたいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -1825,6 +2341,10 @@
     "exampleSentences": [
       "最初に挨拶をしましょう。",
       "最初は難しかったけど、慣れました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1840,6 +2360,10 @@
     "exampleSentences": [
       "ボールを投げて遊びました。",
       "ゴミをここに投げないでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1855,6 +2379,12 @@
     "exampleSentences": [
       "予定を変えたいです。",
       "髪型を変えてみました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical",
+      "temporal"
     ]
   },
   {
@@ -1870,6 +2400,10 @@
     "exampleSentences": [
       "昼間は仕事で忙しいです。",
       "昼間に電話してください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1886,6 +2420,11 @@
     "exampleSentences": [
       "正月に神社へお参りに行きました。",
       "あの神社は古くて有名です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "ritual"
     ]
   },
   {
@@ -1902,6 +2441,11 @@
     "exampleSentences": [
       "スーパーで食料品を買いました。",
       "食料品を冷蔵庫にしまってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "commercial"
     ]
   },
   {
@@ -1917,6 +2461,10 @@
     "exampleSentences": [
       "彼はいつも丁寧に話します。",
       "丁寧な手紙をいただきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -1933,6 +2481,11 @@
     "exampleSentences": [
       "学校の規則は厳しいです。",
       "新しい規則ができました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1948,6 +2501,10 @@
     "exampleSentences": [
       "もうすぐ冬休みが始まります。",
       "もうすぐ電車が来るでしょう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1963,6 +2520,10 @@
     "exampleSentences": [
       "絹のシャツはとても柔らかいです。",
       "母から絹のスカーフをもらいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -1978,6 +2539,10 @@
     "exampleSentences": [
       "父はあまり怒らない人です。",
       "遅刻したので、先生に怒られました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -1993,6 +2558,11 @@
     "exampleSentences": [
       "何か用がありますか。",
       "急用ができてしまいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -2008,6 +2578,11 @@
     "exampleSentences": [
       "私が致します。",
       "後でご連絡致します。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -2024,6 +2599,10 @@
     "exampleSentences": [
       "海岸を散歩しました。",
       "海岸できれいな貝を拾いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2039,6 +2618,11 @@
     "exampleSentences": [
       "日本の経済について勉強しています。",
       "経済の本を読みました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "abstract"
     ]
   },
   {
@@ -2054,6 +2638,10 @@
     "exampleSentences": [
       "三十分以上待ちました。",
       "以上で発表を終わります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2069,6 +2657,10 @@
     "exampleSentences": [
       "壁に絵を掛けました。",
       "コートをここに掛けてください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2084,6 +2676,11 @@
     "exampleSentences": [
       "この手紙を友達に届けます。",
       "落とし物を届けに来ました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -2099,6 +2696,10 @@
     "exampleSentences": [
       "適当な場所を選んでください。",
       "適当に答えないでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2114,6 +2715,10 @@
     "exampleSentences": [
       "祖父は元気で農業をしています。",
       "祖父の家へ遊びに行きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2129,6 +2734,11 @@
     "exampleSentences": [
       "先生は研究室にいらっしゃいます。",
       "研究室で実験をしています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -2145,6 +2755,10 @@
     "exampleSentences": [
       "日本文学を専攻しています。",
       "文学の本が好きです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2160,6 +2774,11 @@
     "exampleSentences": [
       "祖母は百歳まで生きました。",
       "一生懸命生きていきます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional"
     ]
   },
   {
@@ -2175,6 +2794,11 @@
     "exampleSentences": [
       "それほど寒くないです。",
       "値段はそれほど高くなかったです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -2190,6 +2814,11 @@
     "exampleSentences": [
       "このラーメンはとてもうまいですね。",
       "うまい寿司を食べました。"
+    ],
+    "register": "casual",
+    "domain": [
+      "physical",
+      "emotional"
     ]
   },
   {
@@ -2205,6 +2834,10 @@
     "exampleSentences": [
       "ずいぶん上手になりましたね。",
       "ずいぶん前に会ったきりです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2220,6 +2853,11 @@
     "exampleSentences": [
       "あの家はお金持ちです。",
       "お金持ちになりたいです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -2235,6 +2873,11 @@
     "exampleSentences": [
       "雨が一週間続いています。",
       "この道はずっと続いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -2251,6 +2894,12 @@
     "exampleSentences": [
       "受付でお名前を書いてください。",
       "ホテルの受付で鍵をもらいました。"
+    ],
+    "register": "polite",
+    "domain": [
+      "physical",
+      "social",
+      "commercial"
     ]
   },
   {
@@ -2266,6 +2915,12 @@
     "exampleSentences": [
       "彼の代わりに私が行きます。",
       "コーヒーの代わりにお茶を飲みました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social",
+      "physical"
     ]
   },
   {
@@ -2281,6 +2936,12 @@
     "exampleSentences": [
       "仕事が残っているので、まだ帰れません。",
       "ケーキが少し残っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -2296,6 +2957,11 @@
     "exampleSentences": [
       "犬の世話をしています。",
       "祖父母の世話をするのは大変です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -2311,6 +2977,10 @@
     "exampleSentences": [
       "新しいスーツケースを買いました。",
       "重いスーツケースを運びました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2326,6 +2996,10 @@
     "exampleSentences": [
       "母が手紙をくれました。",
       "友達がプレゼントをくれました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2341,6 +3015,10 @@
     "exampleSentences": [
       "日本人と会話を練習しています。",
       "面白い会話ができました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2356,6 +3034,10 @@
     "exampleSentences": [
       "今駅に向かっています。",
       "東京に向かう電車に乗りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2371,6 +3053,10 @@
     "exampleSentences": [
       "外国人観光客が増えました。",
       "宿題がどんどん増えています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2386,6 +3072,10 @@
     "exampleSentences": [
       "友達を紹介します。",
       "自分の家族を紹介してください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2401,6 +3091,10 @@
     "exampleSentences": [
       "雨が降っている。だから傘を持って行く。",
       "難しい問題だから、もう少し考えたいです。"
+    ],
+    "register": "casual",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2417,6 +3111,11 @@
     "exampleSentences": [
       "好きな季節はいつですか。",
       "日本には四つの季節があります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -2432,6 +3131,10 @@
     "exampleSentences": [
       "そんなに心配しないでください。",
       "そんなに食べたら、お腹を壊しますよ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2447,6 +3150,10 @@
     "exampleSentences": [
       "このあいだ、京都へ行きました。",
       "このあいだ会った人を覚えていますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -2462,6 +3169,10 @@
     "exampleSentences": [
       "庭にきれいな虫がいます。",
       "夏は虫が多くなります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2477,6 +3188,10 @@
     "exampleSentences": [
       "祖母は親切な人です。",
       "祖母から手紙が届きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2492,6 +3207,11 @@
     "exampleSentences": [
       "先生はいらっしゃいますか。",
       "明日、社長がいらっしゃいます。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "physical"
     ]
   },
   {
@@ -2507,6 +3227,10 @@
     "exampleSentences": [
       "それは変な話ですね。",
       "今日は彼の様子が少し変です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -2523,6 +3247,10 @@
     "exampleSentences": [
       "ぶどうを食べたいです。",
       "秋になると、ぶどうがおいしくなります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2538,6 +3266,11 @@
     "exampleSentences": [
       "車のライトが点滅したのが合図だった。",
       "目で合図を送ってきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -2554,6 +3287,10 @@
     "exampleSentences": [
       "このホテルの部屋はとても清潔です。",
       "傷口を清潔に保つことが大切です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2569,6 +3306,11 @@
     "exampleSentences": [
       "一つだけ願いが叶うなら何を頼みますか。",
       "彼の願いは家族の幸せだった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -2584,6 +3326,10 @@
     "exampleSentences": [
       "三幕目のシーンが一番感動的だった。",
       "幕が上がると、観客が一斉に拍手した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2600,6 +3346,10 @@
     "exampleSentences": [
       "牧場で初めて馬に乗ってみました。",
       "強い馬がレースに勝ちました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2615,6 +3365,10 @@
     "exampleSentences": [
       "ノイズを除いてから録音しました。",
       "週末を除いて毎日働いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2631,6 +3385,10 @@
     "exampleSentences": [
       "コーヒーの香りが家中に広がった。",
       "庭の花の香りが好きです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2647,6 +3405,10 @@
     "exampleSentences": [
       "歩道を歩いていたら友達に会った。",
       "歩道が狭いから自転車に注意してください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2662,6 +3424,10 @@
     "exampleSentences": [
       "そんなことになるとは想像もしなかった。",
       "想像していたより難しかったです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2677,6 +3443,10 @@
     "exampleSentences": [
       "地震に備えて水を買っておきました。",
       "面接に備えてしっかり練習します。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2692,6 +3462,10 @@
     "exampleSentences": [
       "成田行きの便を予約しました。",
       "次の便で書類をお送りします。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2707,6 +3481,10 @@
     "exampleSentences": [
       "ライターでろうそくに火をつけた。",
       "あのライターの新しい記事を読みました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2723,6 +3501,10 @@
     "exampleSentences": [
       "クラスの平均点が少し上がりました。",
       "平均すると一日五時間働いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2738,6 +3520,10 @@
     "exampleSentences": [
       "新しい革のかばんを買いました。",
       "革のソファは座り心地がいい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2753,6 +3539,10 @@
     "exampleSentences": [
       "彼は何も言わずに去っていった。",
       "学生時代が去り、社会人になりました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2768,6 +3558,10 @@
     "exampleSentences": [
       "礼儀正しい人だと評判です。",
       "礼儀を知らないと社会で困ることがあります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2784,6 +3578,10 @@
     "exampleSentences": [
       "本人の意思を尊重します。",
       "強い意思があれば、必ず実現できます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -2799,6 +3597,11 @@
     "exampleSentences": [
       "全く知らない人から手紙が来ました。",
       "全くその通りだと思います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -2814,6 +3617,11 @@
     "exampleSentences": [
       "町の中央に大きな噴水があります。",
       "ステージの中央に立ってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -2829,6 +3637,11 @@
     "exampleSentences": [
       "新しい仲間を心から歓迎します。",
       "明日歓迎パーティーを開く予定です。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -2844,6 +3657,10 @@
     "exampleSentences": [
       "日本は車を多く輸出しています。",
       "海外への輸出が年々増えてきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -2859,6 +3676,10 @@
     "exampleSentences": [
       "風邪で喉が痛いです。",
       "歌いすぎて喉がかれてしまいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -2874,6 +3695,11 @@
     "exampleSentences": [
       "二人の間に少し距離がありました。",
       "会議の間に資料を準備しておきます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "temporal"
     ]
   },
   {
@@ -2889,6 +3715,11 @@
     "exampleSentences": [
       "原稿を少し修正しました。",
       "プログラムのエラーを修正しています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -2904,6 +3735,12 @@
     "exampleSentences": [
       "結婚記念日にレストランを予約した。",
       "卒業記念に皆で写真を撮りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional",
+      "social"
     ]
   },
   {
@@ -2919,6 +3756,11 @@
     "exampleSentences": [
       "寒くて手が震えています。",
       "緊張して声が震えてしまった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional"
     ]
   },
   {
@@ -2934,6 +3776,10 @@
     "exampleSentences": [
       "田中さん一家は仲がいい。",
       "一家で旅行に出かけました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2950,6 +3796,12 @@
     "exampleSentences": [
       "ボランティア活動に参加しています。",
       "クラブ活動が忙しい毎日です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "commercial",
+      "abstract"
     ]
   },
   {
@@ -2965,6 +3817,10 @@
     "exampleSentences": [
       "あの少年は将来有望だと言われている。",
       "少年時代の思い出が蘇りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -2980,6 +3836,11 @@
     "exampleSentences": [
       "ダンスを習い始めました。",
       "彼女のダンスはとても上手だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -2995,6 +3856,11 @@
     "exampleSentences": [
       "二つの製品の違いを比べてみました。",
       "考え方の違いはあるけど、仲良くやっています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -3010,6 +3876,10 @@
     "exampleSentences": [
       "今週は忙しい一週間でした。",
       "来週から新しい仕事が始まります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -3025,6 +3895,10 @@
     "exampleSentences": [
       "頑張った。だが結果は失敗だった。",
       "雨が降りそうだ。だが傘を忘れてしまった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -3041,6 +3915,11 @@
     "exampleSentences": [
       "この規則は全員に適用されます。",
       "新しい法律が来月から適用される。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -3057,6 +3936,10 @@
     "exampleSentences": [
       "庭の芝を刈っているところです。",
       "髪を短く刈ってもらいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3073,6 +3956,12 @@
     "exampleSentences": [
       "彼の発言は強く批判された。",
       "建設的な批判は大事だと思います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social",
+      "emotional"
     ]
   },
   {
@@ -3088,6 +3977,11 @@
     "exampleSentences": [
       "会議の場で意見をはっきり述べました。",
       "学びの場を提供しています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -3103,6 +3997,11 @@
     "exampleSentences": [
       "何か飲み物はいかがですか。",
       "何か困ったことがあれば言ってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -3118,6 +4017,11 @@
     "exampleSentences": [
       "あの子は利口で、何でもすぐに覚える。",
       "利口な犬を飼っています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -3134,6 +4038,11 @@
     "exampleSentences": [
       "そのお菓子をちょうだい。",
       "ちょっと手伝ってちょうだい。"
+    ],
+    "register": "casual",
+    "domain": [
+      "social",
+      "physical"
     ]
   },
   {
@@ -3149,6 +4058,11 @@
     "exampleSentences": [
       "私はいつもあなたの味方です。",
       "困った時は味方が必要です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -3164,6 +4078,10 @@
     "exampleSentences": [
       "郵便局で切手を買いました。",
       "テレビ局の前を通りました。"
+    ],
+    "register": "literary",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -3179,6 +4097,11 @@
     "exampleSentences": [
       "恋人と一緒に映画を見に行った。",
       "彼女には新しい恋人ができたらしい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -3194,6 +4117,10 @@
     "exampleSentences": [
       "中古のスポーツカーを買いました。",
       "カーレースを見に行きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3209,6 +4136,12 @@
     "exampleSentences": [
       "彼は若い時に軍隊に入っていた。",
       "軍隊の訓練は厳しいそうです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -3224,6 +4157,11 @@
     "exampleSentences": [
       "今日は本当に運が良かった。",
       "彼は運だけで成功したわけではない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -3239,6 +4177,12 @@
     "exampleSentences": [
       "失敗の責任は私にあります。",
       "親としての責任を感じています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social",
+      "commercial"
     ]
   },
   {
@@ -3254,6 +4198,10 @@
     "exampleSentences": [
       "空港でドルを円に両替しました。",
       "ここで両替してもらえますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -3269,6 +4217,11 @@
     "exampleSentences": [
       "成績が少しずつ伸びてきました。",
       "髪が長く伸びてきたから切りたい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -3284,6 +4237,12 @@
     "exampleSentences": [
       "世界中が平和でありますように。",
       "平和な日々が続いています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract",
+      "social"
     ]
   },
   {
@@ -3300,6 +4259,11 @@
     "exampleSentences": [
       "あの店はサービスがとてもいい。",
       "サービス料金が含まれています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -3315,6 +4279,11 @@
     "exampleSentences": [
       "明日、御社に伺います。",
       "ちょっと伺ってもよろしいでしょうか。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -3330,6 +4299,11 @@
     "exampleSentences": [
       "東京経由で大阪へ行きます。",
       "韓国経由のフライトを予約した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "commercial"
     ]
   },
   {
@@ -3346,6 +4320,10 @@
     "exampleSentences": [
       "朝シャワーを浴びてから出かけます。",
       "夏は太陽の光をたくさん浴びるといい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3362,6 +4340,10 @@
     "exampleSentences": [
       "この本はよく売れています。",
       "新製品が思ったより売れなかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -3377,6 +4359,11 @@
     "exampleSentences": [
       "国境を越えて隣の国へ行きました。",
       "国境付近は厳しく管理されている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -3393,6 +4380,11 @@
     "exampleSentences": [
       "昼食はサンドイッチで済ませました。",
       "会社の近くで昼食をとっています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "temporal"
     ]
   },
   {
@@ -3408,6 +4400,10 @@
     "exampleSentences": [
       "クラシック音楽が好きです。",
       "クラシックのコンサートに行きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -3424,6 +4420,10 @@
     "exampleSentences": [
       "母が毎日お弁当を作ってくれます。",
       "公園で弁当を食べました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3439,6 +4439,10 @@
     "exampleSentences": [
       "毎日同じ料理だと飽きてしまいます。",
       "この仕事に少し飽きてきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -3454,6 +4458,11 @@
     "exampleSentences": [
       "この料理は手間がかかります。",
       "手間を省くために機械を使います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "commercial"
     ]
   },
   {
@@ -3469,6 +4478,11 @@
     "exampleSentences": [
       "この薬はよく効きます。",
       "頭痛に効く薬はありますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -3484,6 +4498,11 @@
     "exampleSentences": [
       "犯人がついに逮捕されたそうです。",
       "警察が逮捕に向かっています。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -3499,6 +4518,11 @@
     "exampleSentences": [
       "映画の批評を読んでから見に行きました。",
       "新刊の批評が新聞に載りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -3514,6 +4538,11 @@
     "exampleSentences": [
       "週末は家でのんびり過ごしたい。",
       "温泉でのんびりしてきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "temporal"
     ]
   },
   {
@@ -3529,6 +4558,10 @@
     "exampleSentences": [
       "水道の管が壊れて水が漏れた。",
       "古い管を新しいものに交換した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3544,6 +4577,10 @@
     "exampleSentences": [
       "鍵を右に回してください。",
       "ハンドルを左に回しました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3559,6 +4596,10 @@
     "exampleSentences": [
       "本棚は木の板で作られています。",
       "黒板に大きな字を書きました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3575,6 +4616,11 @@
     "exampleSentences": [
       "若い頃にいろいろな冒険をしました。",
       "新しい挑戦は人生の冒険だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -3590,6 +4636,11 @@
     "exampleSentences": [
       "周囲の人の意見も聞きましょう。",
       "周囲の状況をよく見てから決めてください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -3605,6 +4656,11 @@
     "exampleSentences": [
       "そんなわがままを言わないでください。",
       "彼はわがままなところがある。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -3620,6 +4676,11 @@
     "exampleSentences": [
       "電車には多くの乗客が乗っていた。",
       "乗客の安全を守るのは大切です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -3635,6 +4696,11 @@
     "exampleSentences": [
       "やっと勝ちが続くようになった。",
       "勝ちにこだわらず、楽しく試合をしよう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -3650,6 +4716,10 @@
     "exampleSentences": [
       "今日は何曜日ですか。",
       "曜日によって予定が違います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -3665,6 +4735,11 @@
     "exampleSentences": [
       "環境問題に関心があります。",
       "彼女は政治に強い関心を持っている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -3680,6 +4755,10 @@
     "exampleSentences": [
       "棒で土を少し掘りました。",
       "魔法の棒みたいに見えるね。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3695,6 +4774,10 @@
     "exampleSentences": [
       "更に詳しい情報が必要です。",
       "更に努力することが大切です。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -3710,6 +4793,10 @@
     "exampleSentences": [
       "いえ、まだ食べていません。",
       "いえ、それは私のではありません。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -3725,6 +4812,10 @@
     "exampleSentences": [
       "地球を大切にしましょう。",
       "地球の温暖化が問題になっています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3740,6 +4831,11 @@
     "exampleSentences": [
       "私がこのプロジェクトを担当しています。",
       "担当の方を呼んでもらえますか。"
+    ],
+    "register": "polite",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -3756,6 +4852,11 @@
     "exampleSentences": [
       "この本の題名は何ですか。",
       "レポートの題名を決めるのに時間がかかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -3771,6 +4872,11 @@
     "exampleSentences": [
       "彼の話はいつもでたらめで、信用できない。",
       "でたらめな情報に惑わされないようにしてください。"
+    ],
+    "register": "casual",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -3787,6 +4893,11 @@
     "exampleSentences": [
       "目上の人には敬語を使うのが常識です。",
       "彼は目上の人にも自分の意見をはっきり伝える。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -3803,6 +4914,10 @@
     "exampleSentences": [
       "この食品の成分表を確認してください。",
       "薬の成分をよく理解してから使用しましょう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3818,6 +4933,10 @@
     "exampleSentences": [
       "遠くから救急車のサイレンが聞こえてきた。",
       "火事のサイレンが鳴り響いた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3833,6 +4952,10 @@
     "exampleSentences": [
       "母が毛糸でセーターを編んでくれた。",
       "毛糸を買って手袋を編もうと思います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3849,6 +4972,11 @@
     "exampleSentences": [
       "上司にお酒を酌んで差し上げました。",
       "酒を酌み交わしながら昔話に花が咲いた。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "ritual"
     ]
   },
   {
@@ -3864,6 +4992,11 @@
     "exampleSentences": [
       "中世のヨーロッパの歴史を学んでいる。",
       "中世の城を訪れるのが趣味です。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -3879,6 +5012,10 @@
     "exampleSentences": [
       "夜になったら雨戸を閉めてください。",
       "台風が来る前に雨戸をしっかり閉めた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3894,6 +5031,10 @@
     "exampleSentences": [
       "矢印に従って進んでください。",
       "出口は矢印の方向にあります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3910,6 +5051,11 @@
     "exampleSentences": [
       "封筒に「株式会社御中」と書いてください。",
       "御中は団体宛の手紙に使います。"
+    ],
+    "register": "formal",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -3925,6 +5071,11 @@
     "exampleSentences": [
       "予算の目安を決めておきましょう。",
       "完成までの目安は一週間です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -3940,6 +5091,10 @@
     "exampleSentences": [
       "この物語は架空の出来事に基づいている。",
       "架空の人物が主人公の小説を書いている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -3955,6 +5110,10 @@
     "exampleSentences": [
       "排水溝が詰まって水が流れない。",
       "鼻が詰まっていて声が変だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -3970,6 +5129,10 @@
     "exampleSentences": [
       "新製品の売行きが好調です。",
       "売行きが伸び悩んでいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -3985,6 +5148,11 @@
     "exampleSentences": [
       "祖父はよく日本の民謡を歌います。",
       "民謡コンサートに行く予定です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "ritual"
     ]
   },
   {
@@ -4000,6 +5168,11 @@
     "exampleSentences": [
       "明日の朝、京都を発ちます。",
       "彼は早朝に成田を発った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -4015,6 +5188,11 @@
     "exampleSentences": [
       "停電で部屋が真っ暗になった。",
       "真っ暗な道を一人で歩くのは怖い。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional"
     ]
   },
   {
@@ -4030,6 +5208,11 @@
     "exampleSentences": [
       "ぜひとも参加してください。",
       "ぜひとも一度お会いしたいです。"
+    ],
+    "register": "polite",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -4046,6 +5229,10 @@
     "exampleSentences": [
       "うちの娘は今年小学生になりました。",
       "小学生の頃の友達と再会した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -4061,6 +5248,10 @@
     "exampleSentences": [
       "庭の手入れに半日かかった。",
       "靴は定期的に手入れすると長持ちする。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4077,6 +5268,11 @@
     "exampleSentences": [
       "この研究には多くの文献が必要です。",
       "古い文献を図書館で探しています。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -4092,6 +5288,11 @@
     "exampleSentences": [
       "本日は臨時休業させていただきます。",
       "コロナの影響で店を休業した。"
+    ],
+    "register": "polite",
+    "domain": [
+      "commercial",
+      "temporal"
     ]
   },
   {
@@ -4107,6 +5308,10 @@
     "exampleSentences": [
       "このパンはふわふわで軟らかい。",
       "軟らかい肉が好きです。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4122,6 +5327,10 @@
     "exampleSentences": [
       "市長は市民に節電を呼び掛けた。",
       "ボランティアへの参加を呼び掛けています。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -4138,6 +5347,10 @@
     "exampleSentences": [
       "この活動には大きな意義があります。",
       "意義のある一年を過ごしたい。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4153,6 +5366,10 @@
     "exampleSentences": [
       "今日は蒸し暑くて、たまらない。",
       "夏の東京は蒸し暑い日が多い。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4168,6 +5385,10 @@
     "exampleSentences": [
       "資産を着実に殖やしていきたい。",
       "貯金を投資で殖やしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4184,6 +5405,10 @@
     "exampleSentences": [
       "新しい安全基準を設けました。",
       "判断の基準が人によって違います。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4199,6 +5424,10 @@
     "exampleSentences": [
       "鉛筆の先端が折れてしまった。",
       "彼は技術の先端で活躍している。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4214,6 +5443,11 @@
     "exampleSentences": [
       "この洗剤は中性なので肌に優しい。",
       "中性の表現を選びました。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -4229,6 +5463,10 @@
     "exampleSentences": [
       "今日は比較的暖かいですね。",
       "比較的簡単な仕事だと思います。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4245,6 +5483,10 @@
     "exampleSentences": [
       "電子書籍を読むのが最近気に入っている。",
       "新刊の書籍を買いに行った。"
+    ],
+    "register": "formal",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4260,6 +5502,10 @@
     "exampleSentences": [
       "鉛筆の芯が折れてしまった。",
       "彼女は心の芯が強い人です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4275,6 +5521,11 @@
     "exampleSentences": [
       "祖母は琴を弾くのが上手です。",
       "正月に琴の音色が聞こえてくる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "ritual"
     ]
   },
   {
@@ -4291,6 +5542,11 @@
     "exampleSentences": [
       "ご飯のお代わりはいかがですか。",
       "コーヒーをお代わりした。"
+    ],
+    "register": "polite",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -4307,6 +5563,11 @@
     "exampleSentences": [
       "大根を卸して大根おろしを作った。",
       "野菜を市場に卸しています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "physical"
     ]
   },
   {
@@ -4322,6 +5583,10 @@
     "exampleSentences": [
       "新しい歯ブラシを買いました。",
       "髪をブラシでとかします。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4337,6 +5602,11 @@
     "exampleSentences": [
       "ふざけるのもいい加減にしなさい。",
       "授業中にふざけて先生に叱られた。"
+    ],
+    "register": "casual",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -4353,6 +5623,10 @@
     "exampleSentences": [
       "経済の基盤を強化することが重要です。",
       "信頼関係が私たちの基盤です。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4368,6 +5642,10 @@
     "exampleSentences": [
       "先々週、家族と旅行に行きました。",
       "先々週から風邪をひいています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -4383,6 +5661,11 @@
     "exampleSentences": [
       "彼の言葉が心に響いた。",
       "鐘の音が遠くまで響いている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -4398,6 +5681,10 @@
     "exampleSentences": [
       "夏休みに海で真っ黒に日焼けした。",
       "煙で部屋が真っ黒になった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4413,6 +5700,10 @@
     "exampleSentences": [
       "テーブルが水平になるように調整した。",
       "水平に線を引いてください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4428,6 +5719,11 @@
     "exampleSentences": [
       "あの会社は経営が危うい。",
       "命が危ういところだった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -4443,6 +5739,11 @@
     "exampleSentences": [
       "計画は着々と進んでいる。",
       "工事は着々と完成に近づいている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -4458,6 +5759,11 @@
     "exampleSentences": [
       "この記号の意味が分かりません。",
       "数学の記号を覚えるのは大変です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -4474,6 +5780,11 @@
     "exampleSentences": [
       "支払いの催促状が届いた。",
       "レポートの提出を催促されました。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -4489,6 +5800,10 @@
     "exampleSentences": [
       "そのくらいの寒さなら平気です。",
       "彼は人前で話すのが平気らしい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -4504,6 +5819,11 @@
     "exampleSentences": [
       "新学期から新しい学級になります。",
       "学級委員に選ばれました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -4520,6 +5840,11 @@
     "exampleSentences": [
       "短編映画を制作しました。",
       "番組の制作スタッフをしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -4535,6 +5860,10 @@
     "exampleSentences": [
       "今日は野菜の特売日です。",
       "デパートで特売品を買った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -4550,6 +5879,11 @@
     "exampleSentences": [
       "今日の英語の授業は休講です。",
       "教授が病気で休講になった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "social"
     ]
   },
   {
@@ -4565,6 +5899,10 @@
     "exampleSentences": [
       "今日のおかずは魚です。",
       "母のおかずはいつも美味しい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4580,6 +5918,10 @@
     "exampleSentences": [
       "鉱物の研究をしています。",
       "この地域では珍しい鉱物が採れる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4595,6 +5937,10 @@
     "exampleSentences": [
       "山林を歩いているとリスを見かけた。",
       "山林の保護が課題となっている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4610,6 +5956,10 @@
     "exampleSentences": [
       "この米は粒が大きくて美味しい。",
       "雨の粒が大きくなってきた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4625,6 +5975,11 @@
     "exampleSentences": [
       "速達で書類を送ってください。",
       "速達料金が追加でかかります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "temporal"
     ]
   },
   {
@@ -4640,6 +5995,10 @@
     "exampleSentences": [
       "本棚に本がずらりと並んでいる。",
       "店の前にお客さんがずらりと並んでいた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4656,6 +6015,11 @@
     "exampleSentences": [
       "旅行の必需品を準備しました。",
       "携帯電話は今や生活の必需品だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "commercial"
     ]
   },
   {
@@ -4672,6 +6036,10 @@
     "exampleSentences": [
       "この野菜は農薬を使っていません。",
       "農薬の使用には注意が必要です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4687,6 +6055,10 @@
     "exampleSentences": [
       "鈴を鳴らして人を呼んだ。",
       "ピアノを鳴らして演奏した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4702,6 +6074,10 @@
     "exampleSentences": [
       "あの女の人は誰ですか。",
       "親切な女の人に道を教えてもらった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -4717,6 +6093,11 @@
     "exampleSentences": [
       "余計なお世話だ。",
       "余計に買ってしまったかもしれない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -4732,6 +6113,10 @@
     "exampleSentences": [
       "大通りに出ると駅が見えます。",
       "大通りはいつも混んでいる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4748,6 +6133,10 @@
     "exampleSentences": [
       "古い家を改造して住みやすくした。",
       "車を改造するのが彼の趣味だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4763,6 +6152,10 @@
     "exampleSentences": [
       "大小様々なバッグが揃っています。",
       "服は大小いろいろなサイズがあります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4778,6 +6171,10 @@
     "exampleSentences": [
       "ウールのセーターは暖かい。",
       "ウール100%のコートを買った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4794,6 +6191,10 @@
     "exampleSentences": [
       "この価格は妥当だと思います。",
       "妥当な判断だったと評価されている。"
+    ],
+    "register": "polite",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4810,6 +6211,11 @@
     "exampleSentences": [
       "車の整備を依頼しました。",
       "道路の整備が進んでいる。"
+    ],
+    "register": "polite",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -4825,6 +6231,11 @@
     "exampleSentences": [
       "美しい曲線の建物だ。",
       "グラフが曲線を描いている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -4841,6 +6252,10 @@
     "exampleSentences": [
       "ロッカーに荷物を入れました。",
       "駅のロッカーが満員でした。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4857,6 +6272,11 @@
     "exampleSentences": [
       "日本には美しい四季がある。",
       "四季の変化を楽しんでいます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -4872,6 +6292,10 @@
     "exampleSentences": [
       "彼は頭がいい。そのうえ性格もいい。",
       "雨が降っている。そのうえ風も強い。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4888,6 +6312,10 @@
     "exampleSentences": [
       "年末に蕎麦を食べる習慣があります。",
       "蕎麦の名店で昼食を取った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4903,6 +6331,10 @@
     "exampleSentences": [
       "古い機関車が博物館に展示されている。",
       "蒸気機関車に乗ったことがある。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4918,6 +6350,11 @@
     "exampleSentences": [
       "妹に留守番を頼んだ。",
       "今日は子供たちが留守番をしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "physical"
     ]
   },
   {
@@ -4933,6 +6370,10 @@
     "exampleSentences": [
       "美容のために毎日水を飲んでいる。",
       "美容院に行ってきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -4948,6 +6389,10 @@
     "exampleSentences": [
       "兄弟の性格が対照的だ。",
       "二つの作品を対照して見比べる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -4964,6 +6409,11 @@
     "exampleSentences": [
       "来月、学会で発表します。",
       "学会の論文を書いている。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -4979,6 +6429,11 @@
     "exampleSentences": [
       "君の意見には全く同感だ。",
       "彼の主張には深く同感を覚える。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -4995,6 +6450,10 @@
     "exampleSentences": [
       "広大な草原に巨大な風車が立ち並んでいた。",
       "子供たちが色とりどりの風車を手にしていた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5010,6 +6469,10 @@
     "exampleSentences": [
       "この小説には何処か物悲しい雰囲気が漂っている。",
       "彼が言及した場所は、地図には載っていない何処かの秘境らしい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5025,6 +6488,10 @@
     "exampleSentences": [
       "台風の接近に伴い、開始時刻を早めることにした。",
       "成功を早めるために、人一倍努力を重ねた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -5040,6 +6507,11 @@
     "exampleSentences": [
       "人生は危険な賭けの連続だと彼は悟っていた。",
       "彼の大胆な事業計画は、まさに大きな賭けだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "emotional"
     ]
   },
   {
@@ -5055,6 +6527,10 @@
     "exampleSentences": [
       "週末は釣りに興じている。",
       "若い頃はギャンブルに興じてばかりだった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -5070,6 +6546,11 @@
     "exampleSentences": [
       "磁気の力で物が動いている。",
       "磁気カードに不具合が生じた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -5085,6 +6566,10 @@
     "exampleSentences": [
       "若しかして、私の知り合いではありませんか。",
       "若しかして、お忘れになったのでしょうか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -5100,6 +6585,10 @@
     "exampleSentences": [
       "あちこちの観光地を巡ってきた。",
       "彼方此方を探したが、鍵は見つからなかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5116,6 +6605,10 @@
     "exampleSentences": [
       "新しい視点から問題を考え直してみよう。",
       "彼の視点はとても独創的だ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -5131,6 +6624,11 @@
     "exampleSentences": [
       "新製品の開発に成功した。",
       "途上国の開発が課題となっている。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -5146,6 +6644,10 @@
     "exampleSentences": [
       "彼の人物が事件の鍵を握っている。",
       "彼の山の頂上には古い城があった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5161,6 +6663,11 @@
     "exampleSentences": [
       "家賃の滞納が続いている。",
       "税金の滞納で督促状が届いた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -5176,6 +6683,11 @@
     "exampleSentences": [
       "苦労の果てに彼は成功を掴んだ。",
       "果てしなく続く海原を眺めていた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -5191,6 +6703,11 @@
     "exampleSentences": [
       "田舎の長閑な風景が懐かしい。",
       "長閑な日々を過ごしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "physical"
     ]
   },
   {
@@ -5206,6 +6723,11 @@
     "exampleSentences": [
       "全責任を負う覚悟がある。",
       "彼は重い使命を負って国を出た。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -5221,6 +6743,10 @@
     "exampleSentences": [
       "首脳会談がパリで開かれた。",
       "各国の首脳が集まった。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -5236,6 +6762,11 @@
     "exampleSentences": [
       "学問一筋の人生だった。",
       "彼は仕事一筋で生きてきた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -5251,6 +6782,10 @@
     "exampleSentences": [
       "彼女は若いのに落ち着きがある。",
       "落ち着きを取り戻すまで時間がかかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -5266,6 +6801,11 @@
     "exampleSentences": [
       "信頼できる業者に依頼した。",
       "業者の見積もりを比較している。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -5282,6 +6822,10 @@
     "exampleSentences": [
       "蛋白質をしっかり摂ることが大事だ。",
       "肉や魚は蛋白質が豊富です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5297,6 +6841,10 @@
     "exampleSentences": [
       "タイムリーな話題で記事を書いた。",
       "タイムリーヒットでチームが勝った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -5312,6 +6860,10 @@
     "exampleSentences": [
       "あの時の決断を今でも後悔している。",
       "後悔しても遅い、前を向こう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -5327,6 +6879,10 @@
     "exampleSentences": [
       "経済誌を毎月購読している。",
       "新しいオンラインマガジンを購読し始めた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial"
     ]
   },
   {
@@ -5342,6 +6898,11 @@
     "exampleSentences": [
       "彼の嗜好は独特だ。",
       "嗜好品にお金をかけすぎだと言われた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -5357,6 +6918,10 @@
     "exampleSentences": [
       "本日の診療は六時までです。",
       "オンラインで診療を受けられる時代になった。"
+    ],
+    "register": "polite",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5373,6 +6938,10 @@
     "exampleSentences": [
       "私たちの班は明日発表する。",
       "班に分かれて作業を進めた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -5389,6 +6958,11 @@
     "exampleSentences": [
       "貴重品はロッカーに保管してください。",
       "重要な書類を金庫に保管している。"
+    ],
+    "register": "formal",
+    "domain": [
+      "physical",
+      "commercial"
     ]
   },
   {
@@ -5404,6 +6978,10 @@
     "exampleSentences": [
       "スチームアイロンでシャツのしわを取った。",
       "スチームを使って野菜を蒸している。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5420,6 +6998,11 @@
     "exampleSentences": [
       "棚に本を美しく配列した。",
       "プログラムの配列を初期化する。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -5435,6 +7018,10 @@
     "exampleSentences": [
       "髪を茶色に染めてもらった。",
       "白いシャツを赤く染めてしまった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5451,6 +7038,11 @@
     "exampleSentences": [
       "目的地への途上で雨に降られた。",
       "途上国の支援に取り組んでいる。"
+    ],
+    "register": "formal",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -5466,6 +7058,11 @@
     "exampleSentences": [
       "新しい店が駅前にできた。",
       "本店は東京にあります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "commercial"
     ]
   },
   {
@@ -5481,6 +7078,11 @@
     "exampleSentences": [
       "懲役十年の刑が言い渡された。",
       "刑が確定した。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -5496,6 +7098,10 @@
     "exampleSentences": [
       "野党は政府の政策を批判している。",
       "野党第一党の党首が発言した。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -5512,6 +7118,10 @@
     "exampleSentences": [
       "駅から徒歩五分のところに家がある。",
       "徒歩で通勤している。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5528,6 +7138,11 @@
     "exampleSentences": [
       "代々伝来の家宝を見せていただいた。",
       "中国から伝来した文化が今も残っている。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "ritual"
     ]
   },
   {
@@ -5543,6 +7158,11 @@
     "exampleSentences": [
       "彼女の声のトーンが急に変わった。",
       "暗いトーンで話していた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -5559,6 +7179,11 @@
     "exampleSentences": [
       "プロのカメラマンに撮影を依頼した。",
       "彼はカメラマンとして活躍している。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -5574,6 +7199,11 @@
     "exampleSentences": [
       "市民が政府に抗議のデモを行った。",
       "判定に対して抗議を申し立てた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -5589,6 +7219,10 @@
     "exampleSentences": [
       "彼の自惚れには困ったものだ。",
       "成功は時に自惚れを生む。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -5604,6 +7238,10 @@
     "exampleSentences": [
       "技術革新が大きな変化を齎らした。",
       "幸福を齎らす出会いだった。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -5620,6 +7258,11 @@
     "exampleSentences": [
       "彼は優越感を持っているらしい。",
       "経済力で他国を優越したい時代もあった。"
+    ],
+    "register": "formal",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -5635,6 +7278,11 @@
     "exampleSentences": [
       "判決に不服があれば控訴できる。",
       "彼の決定に不服そうな顔をしていた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -5651,6 +7299,11 @@
     "exampleSentences": [
       "国際会議が東京で開催された。",
       "毎年お祭りが開催されています。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "commercial"
     ]
   },
   {
@@ -5666,6 +7319,10 @@
     "exampleSentences": [
       "新しい内閣が発足した。",
       "内閣総理大臣が記者会見を開いた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -5681,6 +7338,10 @@
     "exampleSentences": [
       "正当な権利を主張する。",
       "彼の行為は正当防衛と認められた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -5696,6 +7357,10 @@
     "exampleSentences": [
       "首の垢を落とすために石鹸でよく洗う。",
       "鏡に垢がついて見えにくくなった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5711,6 +7376,10 @@
     "exampleSentences": [
       "先先月から日本語を勉強し始めた。",
       "先先月の出来事を思い出した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -5727,6 +7396,11 @@
     "exampleSentences": [
       "業務の怠慢を指摘された。",
       "彼の怠慢な態度に上司は怒った。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -5742,6 +7416,11 @@
     "exampleSentences": [
       "彼はとても無口な人だ。",
       "無口だが優しい性格をしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "social"
     ]
   },
   {
@@ -5758,6 +7437,11 @@
     "exampleSentences": [
       "今日のご馳走は何ですか。",
       "母のご馳走はいつも楽しみだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -5773,6 +7457,10 @@
     "exampleSentences": [
       "ポットにお茶を入れた。",
       "電気ポットでお湯を沸かしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5789,6 +7477,11 @@
     "exampleSentences": [
       "資料の閲覧は二階でできます。",
       "ホームページを閲覧してから判断した。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -5804,6 +7497,11 @@
     "exampleSentences": [
       "山が我々の進路を阻んでいた。",
       "彼の挑戦を阻むものは何もない。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -5820,6 +7518,11 @@
     "exampleSentences": [
       "私たちには重要な使命がある。",
       "使命を果たすために全力を尽くす。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -5836,6 +7539,10 @@
     "exampleSentences": [
       "夜空に三日月が浮かんでいる。",
       "三日月の形のクッキーを焼いた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5851,6 +7558,10 @@
     "exampleSentences": [
       "意地を張らずに素直に謝ろう。",
       "彼の意地が成功を生んだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -5866,6 +7577,10 @@
     "exampleSentences": [
       "美しい音色のヴァイオリンだ。",
       "夜遅くは音を立てないように。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5881,6 +7596,10 @@
     "exampleSentences": [
       "古い造りの家が好きだ。",
       "頑丈な造りの建物だった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5897,6 +7616,11 @@
     "exampleSentences": [
       "先輩からの忠告を素直に聞いた。",
       "彼に何度も忠告したが、聞き入れなかった。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -5912,6 +7636,10 @@
     "exampleSentences": [
       "医者が脈を測ってくれた。",
       "緊張で脈が速くなっている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -5928,6 +7656,10 @@
     "exampleSentences": [
       "技術の向上を目指して練習している。",
       "生活水準が大きく向上した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -5944,6 +7676,11 @@
     "exampleSentences": [
       "新しい任務を任された。",
       "任務を無事に完了した。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "commercial"
     ]
   },
   {
@@ -5959,6 +7696,11 @@
     "exampleSentences": [
       "彼は精神的に成熟している。",
       "果実が成熟するまで待った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -5974,6 +7716,11 @@
     "exampleSentences": [
       "余程疲れていたらしく、すぐに眠ってしまった。",
       "余程困っているのだろう、必死に頼んでいる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -5989,6 +7736,12 @@
     "exampleSentences": [
       "会議の纏めをしてください。",
       "資料の纏めに時間がかかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social",
+      "commercial"
     ]
   },
   {
@@ -6004,6 +7757,11 @@
     "exampleSentences": [
       "チャンネルを変えてもらえますか。",
       "新しいテレビは多くのチャンネルがある。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -6019,6 +7777,11 @@
     "exampleSentences": [
       "日頃の心掛けが大事です。",
       "健康への心掛けを忘れないように。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -6035,6 +7798,10 @@
     "exampleSentences": [
       "同僚と雑談しながら昼休みを過ごす。",
       "雑談から良いアイデアが生まれることもある。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -6050,6 +7817,10 @@
     "exampleSentences": [
       "古い箪笥に着物が入っている。",
       "祖母から箪笥を譲り受けた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -6066,6 +7837,12 @@
     "exampleSentences": [
       "古い書類を処分した。",
       "規則違反で処分を受けた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social",
+      "commercial"
     ]
   },
   {
@@ -6082,6 +7859,11 @@
     "exampleSentences": [
       "地方の風習を尊重したい。",
       "古くから伝わる風習を守っている。"
+    ],
+    "register": "formal",
+    "domain": [
+      "ritual",
+      "social"
     ]
   },
   {
@@ -6097,6 +7879,11 @@
     "exampleSentences": [
       "新しい取り引き先と契約を結んだ。",
       "現金で取り引きしている。"
+    ],
+    "register": "polite",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -6112,6 +7899,11 @@
     "exampleSentences": [
       "仕上げにレモンを絞ってください。",
       "建物の仕上げが美しい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -6127,6 +7919,10 @@
     "exampleSentences": [
       "手をよく洗って黴菌を落とそう。",
       "黴菌が増えやすい季節になった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -6142,6 +7938,10 @@
     "exampleSentences": [
       "道の右側を歩いてください。",
       "彼はいつも私の側にいてくれる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -6157,6 +7957,10 @@
     "exampleSentences": [
       "目を瞑って深呼吸した。",
       "彼は黙って目を瞑っていた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -6173,6 +7977,10 @@
     "exampleSentences": [
       "今夜は美しい満月が見られる。",
       "満月の夜は何か起こる気がする。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -6188,6 +7996,11 @@
     "exampleSentences": [
       "不当な扱いを受けた。",
       "不当解雇に対して訴えを起こした。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   }
 ]

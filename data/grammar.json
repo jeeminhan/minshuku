@@ -17,6 +17,11 @@
     ],
     "commonMistakes": [
       "Using past-tense verb (e.g., 行ったつもり) — that means 'pretended to', not 'plan to'."
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -32,6 +37,11 @@
     "exampleSentences": [
       "見てもいいですか？",
       "ここで待ってもいい？"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -47,6 +57,10 @@
     "exampleSentences": [
       "雨だから、傘を持って行く。",
       "寒いから、窓を閉めよう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -65,6 +79,11 @@
     ],
     "commonMistakes": [
       "Don't confuse with この/その/あの/どの, which modify nouns directly."
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -82,6 +101,11 @@
     ],
     "commonMistakes": [
       "Cannot stand alone — they require a following noun."
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -96,6 +120,10 @@
     "exampleSentences": [
       "ここに座ってください。",
       "トイレはどこですか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical"
     ]
   },
   {
@@ -110,6 +138,10 @@
     "exampleSentences": [
       "こうしてください。",
       "どう思いますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -125,6 +157,11 @@
     "exampleSentences": [
       "こちらへどうぞ。",
       "あちらが入り口です。"
+    ],
+    "register": "polite",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -139,6 +176,12 @@
     "exampleSentences": [
       "こんな本を探していました。",
       "どんな映画が好きですか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -153,6 +196,11 @@
     "exampleSentences": [
       "りんごを三つください。",
       "今、五時です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -167,6 +215,11 @@
     "exampleSentences": [
       "私は二番目に着きました。",
       "第一の問題は時間です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -181,6 +234,11 @@
     "exampleSentences": [
       "学生が三人います。",
       "ペンを二本買いました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -195,6 +253,11 @@
     "exampleSentences": [
       "りんごを四つください。",
       "本が三冊あります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -209,6 +272,10 @@
     "exampleSentences": [
       "「飲む」は一類動詞です。",
       "「食べる」は二類動詞です。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -223,6 +290,10 @@
     "exampleSentences": [
       "ドアを開けます。",
       "ドアが開きました。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -238,6 +309,11 @@
     "exampleSentences": [
       "毎朝シャワーを浴びます。",
       "昨日学校へ行きました。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -253,6 +329,12 @@
     "exampleSentences": [
       "辞書を見て漢字を覚えます。",
       "ちょっと待ってください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal",
+      "social"
     ]
   },
   {
@@ -267,6 +349,11 @@
     "exampleSentences": [
       "これは去年買ったカメラです。",
       "昨日映画を見た。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -281,6 +368,10 @@
     "exampleSentences": [
       "明日は学校に行かない。",
       "私はお酒を飲まない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -296,6 +387,11 @@
     "exampleSentences": [
       "私は学生です。",
       "私は学生だ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -310,6 +406,12 @@
     "exampleSentences": [
       "運動をしてもいいですか。",
       "毎日日本語を勉強します。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract",
+      "social"
     ]
   },
   {
@@ -324,6 +426,12 @@
     "exampleSentences": [
       "宿題をやりました。",
       "犬に水をやってください。"
+    ],
+    "register": "casual",
+    "domain": [
+      "physical",
+      "abstract",
+      "social"
     ]
   },
   {
@@ -338,6 +446,10 @@
     "exampleSentences": [
       "辞書を使わずに新聞を読むことができますか。",
       "私はピアノができます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -357,6 +469,10 @@
     "commonMistakes": [
       "Don't forget the irregular: する → せずに.",
       "Confused with ～ないで; ずに sounds more written/formal."
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -374,6 +490,10 @@
     ],
     "commonMistakes": [
       "Use ～たい for first person. ～たがる is for describing another person's desire."
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -388,6 +508,10 @@
     "exampleSentences": [
       "妹は最初は嫌がっていたが、今は楽しんでいる。",
       "彼は寒がっています。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -406,6 +530,13 @@
     ],
     "commonMistakes": [
       "Hearsay そうだ attaches to plain form; appearance そうだ attaches to ます-stem."
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional",
+      "abstract",
+      "social"
     ]
   },
   {
@@ -420,6 +551,12 @@
     "exampleSentences": [
       "母は子供のように喜んだ。",
       "彼は疲れているようだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -434,6 +571,11 @@
     "exampleSentences": [
       "二人は来年結婚するらしい。",
       "今日は春らしい天気です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -449,6 +591,12 @@
     "exampleSentences": [
       "誰か教室にいるみたいだ。",
       "彼は子供みたいだ。"
+    ],
+    "register": "casual",
+    "domain": [
+      "physical",
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -463,6 +611,10 @@
     "exampleSentences": [
       "この店で日本のお金が使えますか。",
       "刺身が食べられますか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -478,6 +630,10 @@
     "exampleSentences": [
       "母は私に野菜を食べさせる。",
       "先生は生徒に本を読ませた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social"
     ]
   },
   {
@@ -492,6 +648,11 @@
     "exampleSentences": [
       "今日先生に褒められました。",
       "雨に降られて困りました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -507,6 +668,11 @@
     "exampleSentences": [
       "病院で1時間も待たされた。",
       "親に勉強させられた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -522,6 +688,11 @@
     "exampleSentences": [
       "急げ！電車に遅れる。",
       "早く起きろ。"
+    ],
+    "register": "casual",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -536,6 +707,11 @@
     "exampleSentences": [
       "「ここにごみを捨てるな！」と書いてある。",
       "嘘をつくな。"
+    ],
+    "register": "casual",
+    "domain": [
+      "social",
+      "emotional"
     ]
   },
   {
@@ -550,6 +726,11 @@
     "exampleSentences": [
       "あとで捨てるから、ごみを集めておいてください。",
       "ビールを冷やしておきます。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -564,6 +745,11 @@
     "exampleSentences": [
       "これからも日本語を勉強していきます。",
       "傘を持っていきましょう。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -578,6 +764,11 @@
     "exampleSentences": [
       "ちょっと手紙を出してきます。",
       "雨が降ってきました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -593,6 +784,11 @@
     "exampleSentences": [
       "急いで来たから財布を忘れちゃった。",
       "宿題を全部やってしまいました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -607,6 +803,10 @@
     "exampleSentences": [
       "新しいレストランに行ってみよう。",
       "この服を着てみてもいいですか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -621,6 +821,11 @@
     "exampleSentences": [
       "メニューの中から好きなものを一つ選んでください。",
       "若い時の苦労は買ってでもするものだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "abstract"
     ]
   },
   {
@@ -635,6 +840,10 @@
     "exampleSentences": [
       "銀行の名前が変わったことを知りませんでした。",
       "毎朝走ることが趣味です。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -652,6 +861,10 @@
     ],
     "commonMistakes": [
       "Often confused with ～間に, which means 'at some point during', not the entire duration."
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -666,6 +879,10 @@
     "exampleSentences": [
       "赤ちゃんが寝ている間に、洗濯をしました。",
       "夏休みの間に北海道へ行った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -680,6 +897,11 @@
     "exampleSentences": [
       "最新の企画書ができあがりました。",
       "晴れあがった空がきれいだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "physical"
     ]
   },
   {
@@ -694,6 +916,11 @@
     "exampleSentences": [
       "この町は住みよいです。",
       "この本は読みやすい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -708,6 +935,10 @@
     "exampleSentences": [
       "彼は自分は何もしない一方で、他人に文句を言う。",
       "都会は便利な一方で、人が多すぎる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -722,6 +953,11 @@
     "exampleSentences": [
       "物価は上がる一方だ。",
       "彼の人気は高まる一方だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -737,6 +973,11 @@
     "exampleSentences": [
       "皆様のご意見を伺った上で、ご報告いたします。",
       "確認の上で連絡します。"
+    ],
+    "register": "formal",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -752,6 +993,10 @@
     "exampleSentences": [
       "仕事の上では別に問題はない。",
       "計画を立てる上での注意点を説明します。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -766,6 +1011,10 @@
     "exampleSentences": [
       "そのスポーツクラブは入会金が要らない上に、家から近い。",
       "彼は親切な上に頭もいい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -780,6 +1029,10 @@
     "exampleSentences": [
       "膝に痛みがあるうちは、運動しないでください。",
       "若いうちはたくさん旅行をしたい。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -794,6 +1047,11 @@
     "exampleSentences": [
       "風邪を引かないのは、毎朝のジョギングのおかげだ。",
       "先生のおかげで合格できました。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -808,6 +1066,11 @@
     "exampleSentences": [
       "この道には5メートルおきに木が植えてある。",
       "薬は4時間おきに飲んでください。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -823,6 +1086,11 @@
     "exampleSentences": [
       "今晩、大型の台風がこの地方へ近づく恐れがあります。",
       "この製品は故障する恐れがある。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -837,6 +1105,11 @@
     "exampleSentences": [
       "3年がかりの調査の結果がやっと出た。",
       "10人がかりで荷物を運んだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -852,6 +1125,11 @@
     "exampleSentences": [
       "税金を上げようとするのは、国民には理解しがたい。",
       "彼の決断は信じがたい。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -866,6 +1144,10 @@
     "exampleSentences": [
       "風で紙が飛んでしまうので、本か何か重いものを載せておこう。",
       "コーヒーか何か飲みませんか。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -880,6 +1162,10 @@
     "exampleSentences": [
       "経済の観点から言うと、この計画はいい。",
       "親の立場から言って、心配だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -894,6 +1180,10 @@
     "exampleSentences": [
       "あの雲の様子からすると、明日は雨だろう。",
       "彼の話し方からすれば、学生のようだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -909,6 +1199,11 @@
     "exampleSentences": [
       "あの鳥が日本で見られるのは、11月から3月にかけてです。",
       "東京から京都にかけて雪が降った。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "physical"
     ]
   },
   {
@@ -923,6 +1218,10 @@
     "exampleSentences": [
       "私から見ると、彼女はあらゆる才能に恵まれている。",
       "外国人から見ると、日本のマナーは独特だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -942,6 +1241,11 @@
     "commonMistakes": [
       "Used only for negative or undesirable outcomes — never for positive ones.",
       "Implies exhaustion or futility after a long process."
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -956,6 +1260,11 @@
     "exampleSentences": [
       "完全にやろうと思うあまりに、体を壊す人がいる。",
       "驚きのあまり、声も出なかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -971,6 +1280,10 @@
     "exampleSentences": [
       "問題がこれほど深刻になった以上、対策をたてるべきだ。",
       "約束した以上、必ず守ります。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -985,6 +1298,10 @@
     "exampleSentences": [
       "事態がこうなった上は、もう彼一人に任せてはおけない。",
       "引き受けた上は、最後までやり抜きます。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1000,6 +1317,11 @@
     "exampleSentences": [
       "困っている人たちに、できる限りの援助をしようではないか。",
       "みんなで力を合わせて頑張ろうじゃないか。"
+    ],
+    "register": "polite",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -1015,6 +1337,10 @@
     "exampleSentences": [
       "海面の上昇が続けば、島々が沈んでしまうこともありうる。",
       "そんなことはあり得ない。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1029,6 +1355,11 @@
     "exampleSentences": [
       "3時間待った甲斐があって、美しい景色を見ることができた。",
       "毎日勉強した甲斐があって、合格できた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1043,6 +1374,10 @@
     "exampleSentences": [
       "子どもたちの姿を見たのがきっかけで、この活動を始めた。",
       "病気をきっかけに、健康を意識するようになった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1058,6 +1393,10 @@
     "exampleSentences": [
       "父は働ける限りは働きたいと言っている。",
       "私の知る限りでは、彼は信頼できる人だ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1073,6 +1412,11 @@
     "exampleSentences": [
       "入院生活を契機に、健康に気をつけて生活しようと決心した。",
       "結婚が契機で、転職した。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "temporal"
     ]
   },
   {
@@ -1087,6 +1431,10 @@
     "exampleSentences": [
       "テーブルの上に食べかけのケーキがおいてある。",
       "言いかけて、やめた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1101,6 +1449,11 @@
     "exampleSentences": [
       "つい思ってしまいがちだが、相手が嫌がる場合もある。",
       "忙しいと食事を忘れがちになる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1115,6 +1468,10 @@
     "exampleSentences": [
       "文章がうまければ作家になれるかというと、そんなことはない。",
       "好きかといえば、そうでもない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1130,6 +1487,11 @@
     "exampleSentences": [
       "9月になって涼しくなったかと思えば、また急に暑くなった。",
       "泣いていたかと思えば、笑い出した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -1144,6 +1506,10 @@
     "exampleSentences": [
       "「いってきます」と言い終わるか終わらないかのうちに、玄関を飛び出した。",
       "授業が始まるか始まらないかのうちに、寝てしまった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal"
     ]
   },
   {
@@ -1159,6 +1525,11 @@
     "exampleSentences": [
       "そのようなことを聞かれてもちょっと答えかねる。",
       "このまま放置すれば事故になりかねない。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1173,6 +1544,10 @@
     "exampleSentences": [
       "もう秋なのに、今日は真夏に戻ったかのような暑さだ。",
       "彼は何も知らないかのような顔をしていた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1187,6 +1562,11 @@
     "exampleSentences": [
       "資料が見つかったからいいようなものの、紛失したらどうするんだ。",
       "怪我が軽かったからいいようなものの、危なかった。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -1201,6 +1581,10 @@
     "exampleSentences": [
       "電子メールが普及している今だからこそ、手書きの手紙に温かさを感じる。",
       "あなただからこそ任せられる。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1215,6 +1599,10 @@
     "exampleSentences": [
       "彼の話し方や服装からしてがまんならない。",
       "名前からして高そうなレストランだ。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1230,6 +1618,10 @@
     "exampleSentences": [
       "今の私があるのも、恩師の指導あってのことだ。",
       "会社の発展は、社員の努力あってのものだ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1245,6 +1637,10 @@
     "exampleSentences": [
       "彼女を悩ませているのは仕事のストレス以外のなにものでもない。",
       "あれは事故以外の何ものでもなかった。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1259,6 +1655,10 @@
     "exampleSentences": [
       "出席状況・成績のいかんでは、奨学金の支給を停止することもある。",
       "結果のいかんで、計画を見直す。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1273,6 +1673,10 @@
     "exampleSentences": [
       "出席欠席のいかんによらず、葉書にてお返事ください。",
       "結果のいかんを問わず、最後まで戦う。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract"
     ]
   },
   {
@@ -1287,6 +1691,11 @@
     "exampleSentences": [
       "いざ買うとなると、なかなか決心がつかなかった。",
       "いざとなれば、私が責任を取ります。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "abstract"
     ]
   },
   {
@@ -1301,6 +1710,11 @@
     "exampleSentences": [
       "話題の映画を見たが、今ひとつ迫力が足りない気がした。",
       "今ひとつピンとこない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "emotional",
+      "abstract"
     ]
   },
   {
@@ -1315,6 +1729,11 @@
     "exampleSentences": [
       "腹が立ったので、つい言わずもがなのことを言ってしまった。",
       "経験は言わずもがな、人柄も大切だ。"
+    ],
+    "register": "literary",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -1330,6 +1749,11 @@
     "exampleSentences": [
       "たとえ相手が誰であろうと、全力を尽くす。",
       "何が起ころうが、彼は冷静だ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1344,6 +1768,11 @@
     "exampleSentences": [
       "タバコの値段が上がろうと下がろうと、私には関係ない。",
       "勝とうが負けようが、最後まで戦う。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1359,6 +1788,11 @@
     "exampleSentences": [
       "周囲の人が反対しようとしまいと、私の気持ちは変わらない。",
       "彼が来ようが来まいが、会議は始める。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1374,6 +1808,11 @@
     "exampleSentences": [
       "周囲からどのような批判を浴びようとも、自分の考えを貫く。",
       "どんなに難しくとも、諦めない。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1388,6 +1827,11 @@
     "exampleSentences": [
       "風邪で喉が痛くて、声を出そうにも出せない。",
       "雨で出かけようにも出かけられない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1402,6 +1846,11 @@
     "exampleSentences": [
       "新たな雇用対策が有効であるか否か、結果はまだ先だ。",
       "成功するか否かは、努力次第だ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "abstract",
+      "social"
     ]
   },
   {
@@ -1417,6 +1866,10 @@
     "exampleSentences": [
       "自分の作品が大勢に評価されるとは、嬉しい限りだ。",
       "誰も来てくれないとは、寂しい限りだ。"
+    ],
+    "register": "formal",
+    "domain": [
+      "emotional"
     ]
   },
   {
@@ -1431,6 +1884,11 @@
     "exampleSentences": [
       "信用というものは、いったん失ったが最後、取り戻すのは難しい。",
       "彼が話し始めたら最後、止まらない。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "abstract",
+      "emotional"
     ]
   },
   {
@@ -1445,6 +1903,11 @@
     "exampleSentences": [
       "近くに用事があったので、先日のお礼かたがた伺いました。",
       "散歩かたがた郵便局へ行ってきた。"
+    ],
+    "register": "formal",
+    "domain": [
+      "social",
+      "abstract"
     ]
   },
   {
@@ -1460,6 +1923,11 @@
     "exampleSentences": [
       "彼は歌手としての活動のかたわら、小説家としても活躍している。",
       "仕事のかたわら、ボランティアをしている。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "commercial",
+      "social"
     ]
   },
   {
@@ -1475,6 +1943,11 @@
     "exampleSentences": [
       "週末にはドライブがてら、新しい博物館まで行こうと思う。",
       "散歩がてら、買い物に出かけた。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "physical",
+      "social"
     ]
   },
   {
@@ -1489,6 +1962,11 @@
     "exampleSentences": [
       "授業終了のベルを聞くが早いか、生徒たちは教室を飛び出した。",
       "ドアが開くが早いか、犬が走り出した。"
+    ],
+    "register": "neutral",
+    "domain": [
+      "temporal",
+      "emotional"
     ]
   },
   {
@@ -1503,6 +1981,12 @@
     "exampleSentences": [
       "100キロからある荷物を3階まで運ぶには、3人は必要だ。",
       "100万円からする時計を買った。"
+    ],
+    "register": "formal",
+    "domain": [
+      "physical",
+      "commercial",
+      "abstract"
     ]
   }
 ]

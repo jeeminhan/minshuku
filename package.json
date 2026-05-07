@@ -11,6 +11,7 @@
     "audit-logs": "tsx scripts/audit-logs.ts",
     "attribute": "tsx scripts/attribute-findings.ts",
     "trends": "tsx scripts/review-trends.ts",
+    "enrich-rd": "tsx scripts/enrich-register-domain.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
