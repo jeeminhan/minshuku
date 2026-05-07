@@ -12,7 +12,8 @@ import { join, relative } from "node:path";
 import { z } from "zod";
 import { auditSceneRunLogs } from "../src/lib/log/auditSceneRunLogs.js";
 import { readAllSceneRunLogs } from "../src/lib/log/sceneRunLog.js";
-import { loadGrammar, loadVocab } from "../src/lib/content.js";
+import { loadGrammar, loadVocab, loadTemplates } from "../src/lib/content.js";
+import type { GrammarItem, SceneTemplate, VocabItem } from "../src/lib/types.js";
 import {
   scoreRuns,
   type QualitativeFinding,
@@ -268,6 +269,126 @@ function renderTranscriptMarkdown(log: SceneRunLog, items: ItemLookup): string {
   return lines.join("\n");
 }
 
+// Lightweight ASCII bar chart for a 0–100 score.
+function scoreBar(score: number, width = 20): string {
+  const filled = Math.round((Math.max(0, Math.min(100, score)) / 100) * width);
+  return "█".repeat(filled) + "░".repeat(width - filled);
+}
+
+// Per-run breakdown table with inline bar chart for the score.
+function renderPerRunTable(scores: ReviewScore): string {
+  const lines: string[] = [];
+  lines.push("| run | score |    | missing | leakage | passive_miss | qual H/M/L |");
+  lines.push("|---|---:|---|---:|---:|---:|---|");
+  for (const r of scores.perRun) {
+    lines.push(
+      `| \`${r.runId}\` | **${r.score}** | \`${scoreBar(r.score, 16)}\` | ${r.signals.missingTurns} | ${r.signals.activeLeakage} | ${r.signals.passiveMisses} | ${r.signals.qualHigh}/${r.signals.qualMedium}/${r.signals.qualLow} |`,
+    );
+  }
+  return lines.join("\n");
+}
+
+interface DiagnosisInputs {
+  attribution: AttributionReport;
+  runs: readonly SceneRunLog[];
+  findings: Review["findings"];
+  items: ItemLookup;
+  templates: readonly SceneTemplate[];
+  grammar: ReadonlyMap<string, GrammarItem>;
+  vocab: ReadonlyMap<string, VocabItem>;
+}
+
+function buildDiagnosis(input: DiagnosisInputs): string {
+  const worst = input.attribution.templates.find((t) => t.totalFindings > 0);
+  if (!worst) return "_no template-level issues to diagnose this session_";
+  const tpl = input.templates.find((t) => t.id === worst.templateId);
+  if (!tpl) {
+    return `_worst template \`${worst.templateId}\` was not found in content; cannot diagnose._`;
+  }
+  const flaggedRunIds = new Set(input.findings.map((f) => f.run_id));
+  const runsForTemplate = input.runs.filter((r) => r.templateId === tpl.id || r.templateChosen?.id === tpl.id);
+  const flaggedRuns = runsForTemplate.filter((r) => flaggedRunIds.has(r.id));
+  const findingsForTemplate = input.findings.filter((f) =>
+    runsForTemplate.some((r) => r.id === f.run_id),
+  );
+
+  const lines: string[] = [];
+  lines.push(
+    `**Worst template:** \`${tpl.id}\`  —  **${worst.totalFindings} findings** across ${worst.runs} run(s) (rate **${worst.findingRate}**)`,
+  );
+  lines.push("");
+  lines.push(`**Edit at:** \`data/templates/${tpl.id}.json\``);
+  lines.push("");
+  lines.push("**Template summary**");
+  lines.push("");
+  lines.push(`- **Location:** ${tpl.location}`);
+  lines.push(`- **Register:** ${tpl.registerTag}`);
+  lines.push(`- **Characters:** ${tpl.characters.map((c) => `\`${c.role}\``).join(", ")}`);
+  lines.push(`- **Active target compatibility:** ${tpl.activeTargetCompatibility.map((t) => `\`${t}\``).join(", ") || "_none_"}`);
+  lines.push(`- **Passive scenario tags:** ${tpl.passiveScenarioTags.map((t) => `\`${t}\``).join(", ") || "_none_"}`);
+  lines.push("");
+
+  // Item-tag mismatch table — only shown if there's tag data to compare.
+  if (flaggedRuns.length > 0) {
+    const allItems = new Map<string, { mode: "active" | "passive"; tags: readonly string[] }>();
+    for (const r of flaggedRuns) {
+      for (const a of r.activeTargetsChosen) {
+        const tags =
+          input.grammar.get(a.itemId)?.scenarioTags ??
+          input.vocab.get(a.itemId)?.scenarioTags ??
+          [];
+        allItems.set(a.itemId, { mode: "active", tags });
+      }
+      for (const p of r.passiveItemsChosen) {
+        const tags =
+          input.grammar.get(p.itemId)?.scenarioTags ??
+          input.vocab.get(p.itemId)?.scenarioTags ??
+          [];
+        if (!allItems.has(p.itemId)) allItems.set(p.itemId, { mode: "passive", tags });
+      }
+    }
+    const passiveTagSet = new Set(tpl.passiveScenarioTags);
+    lines.push("**Items assigned in flagged runs** (✓ = item has at least one tag matching the template's passive tags)");
+    lines.push("");
+    lines.push("| item | mode | item tags | matches template passive tags? |");
+    lines.push("|---|---|---|:---:|");
+    for (const [id, info] of allItems) {
+      const overlap = info.tags.some((t) => passiveTagSet.has(t));
+      const match = info.mode === "passive" ? (overlap ? "✓" : "✗") : "—";
+      const tagDisplay = info.tags.length === 0 ? "_(none)_" : info.tags.map((t) => `\`${t}\``).join(", ");
+      lines.push(`| \`${input.items.shortLabel(id)}\` | ${info.mode} | ${tagDisplay} | ${match} |`);
+    }
+    lines.push("");
+  }
+
+  if (findingsForTemplate.length > 0) {
+    lines.push(`**Findings touching this template (${findingsForTemplate.length})**`);
+    lines.push("");
+    const sevRank = { high: 0, medium: 1, low: 2 } as const;
+    const sorted = [...findingsForTemplate].sort((a, b) => sevRank[a.severity] - sevRank[b.severity]);
+    for (const f of sorted) {
+      lines.push(findingLineWithLink(f, input.items));
+    }
+    lines.push("");
+  }
+
+  // Heuristic next-step suggestion based on the dominant category.
+  const cat = { architecture: 0, prompt: 0, data: 0, "llm-quality": 0 };
+  for (const f of findingsForTemplate) cat[f.category]++;
+  const dominant = (Object.entries(cat) as [keyof typeof cat, number][])
+    .sort((a, b) => b[1] - a[1])[0];
+  if (dominant && dominant[1] > 0) {
+    const where: Record<keyof typeof cat, string> = {
+      architecture: "`src/lib/generator/` (template scoring or item selection)",
+      prompt: "`src/lib/llm/` (dialogue or synthetic-player prompt)",
+      data: `\`data/templates/${tpl.id}.json\` (tags, scriptedTurns) or the items' \`scenarioTags\``,
+      "llm-quality": "_(usually skip — generic LLM noise)_",
+    };
+    lines.push(`**Where to start:** dominant category is \`${dominant[0]}\` (${dominant[1]}/${findingsForTemplate.length}) → look in ${where[dominant[0]]}`);
+  }
+  return lines.join("\n");
+}
+
 function findingLineWithLink(f: Review["findings"][number], items: ItemLookup): string {
   // GitHub/markdown auto-anchor: "### run-abc" → "#run-abc"
   const desc = items.enrichText(f.description);
@@ -278,21 +399,24 @@ function findingLineWithLink(f: Review["findings"][number], items: ItemLookup): 
   );
 }
 
-const HOW_TO_READ = `> **How to read this report**
->
-> 1. **Score** is the headline — 100 is perfect, points come off for missing turns, leakage, missed passives, and qualitative findings. Watch the delta vs baseline.
-> 2. **Action items** is the auto-extracted "what to fix first" list, derived from the highest-severity findings.
-> 3. **Qualitative findings** is what the LLM reviewer flagged. Categories:
->    - \`architecture\` → generator/scoring logic (\`src/lib/generator/\`)
->    - \`prompt\` → dialogue or synthetic-player prompt (\`src/lib/llm/\`)
->    - \`data\` → template content or item tags (\`public/templates/\`, \`data/*.json\`)
->    - \`llm-quality\` → noise; usually ignore unless recurring
-> 4. **Attribution** ranks templates/items by finding rate across this session. \`grammar.n3.009 (rate 1.3)\` means it picked up 1.3 findings per run on average.
-> 5. **Auto-detected** is the deterministic audit (no LLM) — these are mechanical issues like missing scripted turns or items that didn't appear.
-> 6. **Scene transcripts** at the bottom embeds the full dialogue for every run that had findings — click any \`(run-XXXX)\` link in the findings to jump there.
->
-> To see trends across multiple sessions, run \`npm run trends\`.
-`;
+const HOW_TO_READ = `<details>
+<summary><strong>How to read this report</strong></summary>
+
+1. **TL;DR** is the 5-second summary: score, verdict, top 3 things to do.
+2. **Diagnosis** auto-analyzes the worst template — its tags, the items the picker assigned to it, and exactly which tags don't match. This is where you go to actually fix something.
+3. **Score breakdown** — per-run scores with mini bar charts. \`missing\` = scripted AI turns that never fired, \`leakage\` = AI said the active target (it shouldn't), \`passive_miss\` = passive items that never appeared in AI speech.
+4. **Findings** is what the LLM reviewer flagged. Categories:
+   - \`architecture\` → generator/scoring logic (\`src/lib/generator/\`)
+   - \`prompt\` → dialogue or synthetic-player prompt (\`src/lib/llm/\`)
+   - \`data\` → template content or item tags (\`data/templates/*.json\`, \`data/*.json\`)
+   - \`llm-quality\` → noise; usually ignore unless recurring
+5. **Attribution** ranks templates and items by finding rate (findings per run) so recurring problems surface above one-offs.
+6. **Auto-detected audit** is the deterministic check (no LLM) — mechanical issues like missing scripted turns.
+7. **Scene transcripts** (collapsed) embeds the full dialogue for every flagged run. Click any \`(run-XXXX)\` link anywhere in the report to jump there.
+
+To see trends across sessions, run \`npm run trends\`.
+
+</details>`;
 
 function buildActionItems(review: Review, attribution: AttributionReport, items: ItemLookup): string {
   const highFindings = review.findings.filter((f) => f.severity === "high");
@@ -404,50 +528,66 @@ function buildReportMarkdown(
 - Halt threshold: ${verdict.shouldHalt ? "**TRIGGERED**" : "not reached"}`;
   const counts = { high: 0, medium: 0, low: 0 };
   for (const f of review.findings) counts[f.severity]++;
+  const grammar = new Map(loadGrammar().map((g) => [g.id, g]));
+  const vocab = new Map(loadVocab().map((v) => [v.id, v]));
+  const templates = loadTemplates();
+  const diagnosis = buildDiagnosis({
+    attribution,
+    runs,
+    findings: review.findings,
+    items,
+    templates,
+    grammar,
+    vocab,
+  });
+  const verdict_arrow =
+    verdict.delta === null ? "•" : verdict.delta < 0 ? "↓" : verdict.delta > 0 ? "↑" : "→";
+  const verdict_line =
+    verdict.baselineAvg === null
+      ? `seeding baseline`
+      : `vs baseline ${verdict.baselineAvg} (${verdict.delta! >= 0 ? "+" : ""}${verdict.delta})`;
+
   return `# Review report
 
-- **Scenes:** ${opts.scenes}
-- **Level:** ${opts.level ?? "(unchanged)"}
-- **Generated:** ${new Date().toISOString()}
-- **Findings:** ${review.findings.length} qualitative (${counts.high} high / ${counts.medium} medium / ${counts.low} low)
+\`${opts.scenes} scenes\` · \`${opts.level ?? "level unchanged"}\` · \`${new Date().toISOString().split("T")[0]}\`
+
+---
+
+## TL;DR
+
+> **Score:** **${scores.avg} / 100**  \`${scoreBar(scores.avg)}\`  ${verdict_arrow} ${verdict_line}
+>
+> **Findings:** ${review.findings.length} (${counts.high} high / ${counts.medium} medium / ${counts.low} low)
+
+**${review.summary}**
+
+${buildActionItems(review, attribution, items)}
+
+→ Jump to: [Diagnosis](#diagnosis) · [Score breakdown](#score-breakdown) · [Findings](#findings-${review.findings.length}) · [Attribution](#attribution) · [Audit](#auto-detected-audit)
 
 ${HOW_TO_READ}
 
 ---
 
-## Score
+## Diagnosis
 
-**${scores.avg} / 100** (avg across ${scores.perRun.length} runs)
+Auto-analysis of this session's worst template. Open the file path below to fix.
 
-Per-run breakdown — \`missing\` = scripted AI turns that never fired, \`leakage\` = AI said the active target (it shouldn't), \`passive_miss\` = passive items that never appeared in AI speech, \`qual H/M/L\` = qualitative findings by severity.
-
-${scoreLines}
+${diagnosis}
 
 ---
 
-## Action items
+## Score breakdown
 
-${buildActionItems(review, attribution, items)}
+${renderPerRunTable(scores)}
 
----
-
-## Circuit breaker
-
-The loop halts if the score drops more than ${REGRESSION_DELTA} points below baseline for ${REGRESSION_STREAK_LIMIT} sessions in a row.
+**Circuit breaker** — the loop halts if the score drops more than ${REGRESSION_DELTA} points below baseline for ${REGRESSION_STREAK_LIMIT} sessions in a row.
 
 ${breakerSection}
 
 ---
 
-## Overall summary
-
-${review.summary}
-
----
-
-## Qualitative findings (${review.findings.length})
-
-LLM-reviewer findings, grouped by category and sorted by severity (high first). Each line carries the \`run-XXXX\` id — pass that to \`npm run render-log -- --id <run-id>\` to see the dialogue.
+## Findings (${review.findings.length})
 
 ${sections}
 
@@ -455,17 +595,17 @@ ${sections}
 
 ## Attribution
 
-Ranks templates and items by **finding rate** (findings per run). High rates mean a template/item is repeatedly causing problems and is a good target for content fixes.
+Templates and items ranked by **finding rate** (findings per run). High rates mean recurring problems, not one-offs.
 
-The breakdown columns mean: \`arch/prompt/data/llm\` = qualitative finding category counts, \`warn/fail/H/M/L\` = audit warns/fails plus qualitative high/medium/low.
+Column legend: \`arch/prompt/data/llm\` = qualitative finding categories, \`warn/fail/H/M/L\` = audit warn/fail counts, then qualitative high/medium/low.
 
 ${renderAttributionMarkdown(attribution, 10, items)}
 
 ---
 
-## Auto-detected (deterministic audit)
+## Auto-detected audit
 
-Mechanical issues caught by code (no LLM involved): missing scripted turns, active-target leakage, passive items that never appeared, missing scoring penalties, and so on.
+Deterministic checks (no LLM): missing scripted turns, active-target leakage, passive items that never appeared, missing scoring penalties.
 
 \`\`\`
 ${auditOut.trim()}
@@ -473,11 +613,12 @@ ${auditOut.trim()}
 
 ---
 
-## Scene transcripts
-
-Embedded dialogue for every run that had at least one finding. Each \`(run-XXXX)\` link in the Action items / Qualitative findings sections jumps here.
+<details>
+<summary><strong>Scene transcripts</strong> — full dialogue for every flagged run (${runs.filter((r) => flaggedRunIds.has(r.id)).length})</summary>
 
 ${transcripts || "_no flagged runs in this session_"}
+
+</details>
 `;
 }
 
