@@ -90,7 +90,10 @@ describe("runScene end-to-end (mocked LLM)", () => {
     // Aggregate produces ONE outcome per active target — not duplicated per player turn.
     const tsumoriOutcomes = log.itemOutcomes.filter((o) => o.itemId === "grammar.tsumori");
     expect(tsumoriOutcomes.length).toBe(1);
-    expect(tsumoriOutcomes[0].outcome).toBe("produced");
+    // The mocked AI turn includes "つもり" before the player's reply, so the
+    // v1 evaluator correctly classifies this as scaffolded production rather
+    // than a clean unprompted "produced".
+    expect(tsumoriOutcomes[0].outcome).toBe("produced_with_help");
     // Per-turn results still attached to player turns.
     const playerTurns = log.turns.filter((t) => t.speaker === "player");
     expect(

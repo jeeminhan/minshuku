@@ -41,4 +41,34 @@ describe("evaluatePlayerTurn", () => {
     expect(results.length).toBe(2);
     expect(results.every((r) => r.outcome === "produced")).toBe(true);
   });
+
+  it("returns 'produced_with_help' when target also appeared in priorContext", async () => {
+    // Mirrors the LLM-flagged case: AI used つもり in its setup turn, then the
+    // player echoed it. The surface is present, but the player was scaffolded.
+    const results = await evaluatePlayerTurn(
+      "明日、教会に行くつもりです。",
+      [active],
+      { priorContext: "Setup: ask about plans. AI turn: 何をするつもりですか？" },
+    );
+    expect(results[0].outcome).toBe("produced_with_help");
+    expect(results[0].evidence.targetPresent).toBe(true);
+  });
+
+  it("returns 'produced' when priorContext does not contain the target", async () => {
+    const results = await evaluatePlayerTurn(
+      "明日、教会に行くつもりです。",
+      [active],
+      { priorContext: "AI turn: 明日は何の予定ですか？" },
+    );
+    expect(results[0].outcome).toBe("produced");
+  });
+
+  it("returns 'missed' regardless of priorContext when target is absent in player text", async () => {
+    const results = await evaluatePlayerTurn(
+      "明日、教会に行きます。",
+      [active],
+      { priorContext: "AI turn: 何をするつもりですか？" },
+    );
+    expect(results[0].outcome).toBe("missed");
+  });
 });

@@ -39,8 +39,11 @@ export interface RunSceneSkipped {
 export type RunSceneResult = RunSceneCompleted | RunSceneSkipped;
 
 // Aggregate per-turn results into one outcome per active target.
-// Order of preference: produced > recognized > produced_with_help > missed.
-// (v0 only emits "produced" or "missed", but the comparator handles future v1 outcomes.)
+// Rules:
+//   - Take the best per-turn outcome by rank.
+//   - Promote to "mastered" when the target is produced UNPROMPTED in
+//     2+ turns (no scaffolding) — that's a stronger signal than a single
+//     unprompted production and feeds the SRS as a longer-interval review.
 function aggregateOutcomes(
   perTurnResults: EvaluatorResult[][],
   activeTargets: { itemId: string; itemType: "vocab" | "grammar"; mode: "active" | "passive" }[],
@@ -57,7 +60,19 @@ function aggregateOutcomes(
     const flat = perTurnResults.flat().filter((r) => r.itemId === target.itemId);
     if (flat.length === 0) continue;
     const best = flat.reduce((a, b) => (RANK[b.outcome] > RANK[a.outcome] ? b : a));
-    aggregated.push(best);
+    const cleanProductions = flat.filter((r) => r.outcome === "produced").length;
+    if (cleanProductions >= 2) {
+      aggregated.push({
+        ...best,
+        outcome: "mastered",
+        evidence: {
+          ...best.evidence,
+          notes: `aggregated: produced unprompted in ${cleanProductions} turns → mastered`,
+        },
+      });
+    } else {
+      aggregated.push(best);
+    }
   }
   return aggregated;
 }
@@ -124,7 +139,11 @@ export async function runScene(args: RunSceneArgs): Promise<RunSceneResult> {
       });
       conversation.push(playerLine);
 
-      const evalResults = await evaluatePlayerTurn(playerLine.text, built.plan.activeTargets);
+      // priorContext = briefing + every AI/coach utterance the player saw before this turn.
+      // Player turns are excluded — we only care about scaffolding *to* the player, not from them.
+      const priorAiTurns = conversation.filter((c) => c.speaker !== "player").map((c) => c.text);
+      const priorContext = [dialogue.briefing, ...priorAiTurns].filter((s) => s && s.length > 0).join("\n");
+      const evalResults = await evaluatePlayerTurn(playerLine.text, built.plan.activeTargets, { priorContext });
       perTurnResults.set(playerLine.turn, evalResults);
       continue;
     }
