@@ -140,11 +140,18 @@ scripts/
 
 ## Testing
 
-Two layers: fast unit/integration tests, and a slower review-loop pipeline that catches quality regressions.
+Testing an LLM-driven app is different from testing a normal app. Most of the system is deterministic (SRS, template scoring, conjugation rules, log writing) — but the part that produces user-facing output is a model, and models drift. The architecture has two layers because no single layer can catch both kinds of bugs.
 
-### Unit + integration
+### The problem
 
-21 files, 101 tests under `tests/`:
+- **Code regressions** — a refactor breaks template scoring, an evaluator rule starts mismatching `つもり`, the SRS interval math drifts. These are cheap to catch with unit tests.
+- **Quality regressions** — the LLM starts writing stilted dialogue, a template picks an item that doesn't fit its register, the synthetic player stops sounding like a learner. Unit tests can't see these. Hand-reading transcripts works once and then stops happening.
+
+So we run two layers, with very different speed/cost profiles, and don't pretend one replaces the other.
+
+### Layer 1 — Deterministic tests (`npm test`)
+
+21 files, 101 tests. Runs in seconds, no LLM calls, free. This is the floor: it gates every commit and proves the code-shaped parts of the system still work.
 
 | Area | Files | What it covers |
 |---|---|---|
@@ -162,16 +169,55 @@ npm run test:watch  # watch mode
 npm run code-check  # typecheck + tests
 ```
 
-### Review loop
+The integration test mocks the LLM — it proves the pipeline wires up correctly, not that the LLM produces good output. That's what Layer 2 is for.
 
-The higher layer on top of unit tests:
+### Layer 2 — Review loop (qualitative regression)
+
+The review loop runs real scenes through the real LLM and grades them. It exists because:
+
+> Code can pass every unit test and still produce dialogue that no human would call good Japanese.
+
+Pipeline:
 
 ```
-scene runs → deterministic audit → review prompt
-          → finding attribution → multi-session trends
+scene runs  →  deterministic audit  →  Claude review (rubric)
+            →  finding attribution  →  multi-session trends
 ```
 
-See `docs/testing-workflow.md` for the full flow, `docs/BACKLOG.md` for deferred work (e.g. A/B prompt eval harness).
+1. **Scene runs** — generate N scenes against the live LLM, log everything.
+2. **Deterministic audit** — rule-based checks: log completeness, target placement, evaluator coverage, scoring rationale. Cheap, no LLM.
+3. **Claude review** — sends the audit + rendered transcripts to a local `claude -p` session with a structured rubric. Produces a 0–100 score per run plus categorized findings.
+4. **Attribution** — maps each finding to its upstream cause: template, generator, LLM, or evaluator. Tells you *where* to fix, not just *what* broke.
+5. **Trends** — tracks score and finding categories across sessions in `logs/review-baseline.json`. Trips a circuit breaker if 3 consecutive runs drop >15 points below baseline.
+
+Commands:
+
+```bash
+npm run scene-review     # 5 scenes at N3, full review (~3–5 min)
+npm run variance-check   # re-review existing logs, no new scenes
+npm run trends           # dashboard across recent sessions
+npm run attribute        # finding → root cause map
+```
+
+### Variance testing
+
+LLM-graded output is noisy. The same logs reviewed twice won't get the exact same score. So before treating a score change as a real regression, you run `variance-check` to measure the noise floor — typically ~3 points. Score deltas under that are noise; deltas over ~7 points are real signal.
+
+This matters because without it, every prompt tweak looks like an improvement or a regression depending on the dice roll. Variance-check forces honesty.
+
+### Why both layers
+
+| Question | Answered by |
+|---|---|
+| Did I break the code? | Layer 1 (`npm test`) |
+| Did I break quality? | Layer 2 (`scene-review`) |
+| Is the score change real or noise? | `variance-check` |
+| Where is the regression coming from? | `attribute` |
+| Is quality drifting over time? | `trends` |
+
+Layer 1 is the gate. Layer 2 is the radar. Neither replaces the other.
+
+For full operational details — flags, scoring weights, failure categories, recommended routines — see `docs/testing-workflow.md`. Deferred work (e.g. A/B prompt eval harness) lives in `docs/BACKLOG.md`.
 
 ---
 
