@@ -18,6 +18,7 @@ import {
   type ReviewScore,
   type RunScore,
 } from "../src/lib/log/scoreReview.js";
+import { attributeFindings, type AttributionReport } from "../src/lib/log/attribution.js";
 
 const REPORTS_DIR = join(process.cwd(), "logs", "review-reports");
 const LATEST_LINK = join(REPORTS_DIR, "latest.md");
@@ -182,12 +183,44 @@ function checkBreaker(
   };
 }
 
+function renderAttributionMarkdown(report: AttributionReport, topN: number): string {
+  if (report.templates.length === 0 && report.items.length === 0) return "_no attribution data_";
+  const lines: string[] = [];
+  const tplRows = report.templates.slice(0, topN);
+  if (tplRows.length > 0) {
+    lines.push("**Top templates by finding rate**");
+    lines.push("");
+    lines.push("| template | runs | findings | rate | arch/prompt/data/llm | warn/fail/H/M/L |");
+    lines.push("|---|---:|---:|---:|---|---|");
+    for (const t of tplRows) {
+      const cat = `${t.byCategory.architecture}/${t.byCategory.prompt}/${t.byCategory.data}/${t.byCategory["llm-quality"]}`;
+      const sev = `${t.bySeverity.auditWarn}/${t.bySeverity.auditFail}/${t.bySeverity.qualHigh}/${t.bySeverity.qualMedium}/${t.bySeverity.qualLow}`;
+      lines.push(`| \`${t.templateId}\` | ${t.runs} | ${t.totalFindings} | ${t.findingRate} | ${cat} | ${sev} |`);
+    }
+    lines.push("");
+  }
+  const itemRows = report.items.filter((i) => i.totalFindings > 0).slice(0, topN);
+  if (itemRows.length > 0) {
+    lines.push("**Top items by finding rate** (zero-finding items hidden)");
+    lines.push("");
+    lines.push("| item | type | role | runs | findings | rate | arch/prompt/data/llm | warn/fail/H/M/L |");
+    lines.push("|---|---|---|---:|---:|---:|---|---|");
+    for (const it of itemRows) {
+      const cat = `${it.byCategory.architecture}/${it.byCategory.prompt}/${it.byCategory.data}/${it.byCategory["llm-quality"]}`;
+      const sev = `${it.bySeverity.auditWarn}/${it.bySeverity.auditFail}/${it.bySeverity.qualHigh}/${it.bySeverity.qualMedium}/${it.bySeverity.qualLow}`;
+      lines.push(`| \`${it.itemId}\` | ${it.itemType} | ${it.role} | ${it.runs} | ${it.totalFindings} | ${it.findingRate} | ${cat} | ${sev} |`);
+    }
+  }
+  return lines.join("\n");
+}
+
 function buildReportMarkdown(
   opts: CliOptions,
   auditOut: string,
   review: Review,
   scores: ReviewScore,
   verdict: BreakerVerdict,
+  attribution: AttributionReport,
 ): string {
   const byCat = new Map<string, typeof review.findings>();
   for (const f of review.findings) {
@@ -251,6 +284,10 @@ ${auditOut.trim()}
 ## Qualitative findings (${review.findings.length})
 
 ${sections}
+
+## Attribution
+
+${renderAttributionMarkdown(attribution, 10)}
 `;
 }
 
@@ -328,7 +365,12 @@ async function main(): Promise<void> {
   const verdict = checkBreaker(scores.avg, baseline, opts.level);
   saveBaseline(baseline);
 
-  const md = buildReportMarkdown(opts, auditOut, review, scores, verdict);
+  const attribution = attributeFindings(
+    lastN,
+    auditReport,
+    review.findings as QualitativeFinding[],
+  );
+  const md = buildReportMarkdown(opts, auditOut, review, scores, verdict, attribution);
   writeFileSync(opts.reportPath, md);
   // If the report ended up in our default reports directory, also refresh
   // the "latest.md" symlink so you can always cat logs/review-reports/latest.md.

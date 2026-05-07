@@ -9,6 +9,7 @@
     "review-loop": "tsx scripts/review-loop.ts",
     "render-log": "tsx scripts/render-log.ts",
     "audit-logs": "tsx scripts/audit-logs.ts",
+    "attribute": "tsx scripts/attribute-findings.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
