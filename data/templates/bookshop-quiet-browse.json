@@ -2,17 +2,45 @@
   "id": "bookshop-quiet-browse",
   "location": "bookshop",
   "characters": [
-    { "id": "bookshop_owner", "role": "bookshop_owner", "voiceConfig": "ja-warm-middle-aged" }
+    {
+      "id": "bookshop_owner",
+      "role": "bookshop_owner",
+      "voiceConfig": "ja-warm-middle-aged"
+    }
   ],
   "scriptedTurns": [
-    { "turn": 1, "speaker": "coach" },
-    { "turn": 2, "speaker": "bookshop_owner" },
-    { "turn": 3, "speaker": "player" },
-    { "turn": 4, "speaker": "bookshop_owner" },
-    { "turn": 5, "speaker": "player" },
-    { "turn": 6, "speaker": "bookshop_owner" },
-    { "turn": 7, "speaker": "player" },
-    { "turn": 8, "speaker": "coach" }
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "bookshop_owner"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "bookshop_owner"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "bookshop_owner"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
   ],
   "microStakeSkeleton": "A small, dim bookshop near the river. The owner is at the counter sorting paperbacks. She looks up, smiles, and asks if you're looking for something in particular today. She'll happily recommend titles, ask about your interests, or what you've read recently.",
   "registerTag": "polite",
@@ -22,12 +50,19 @@
     "tag:feelings",
     "tag:formal",
     "tag:shopping",
-    "tag:planning",
-    "tag:home",
     "tag:soft-magical"
   ],
-  "passiveScenarioTags": ["hobbies", "shopping", "soft-magical"],
-  "acceptedDomains": ["abstract", "emotional", "social", "commercial"],
+  "passiveScenarioTags": [
+    "hobbies",
+    "shopping",
+    "soft-magical"
+  ],
+  "acceptedDomains": [
+    "abstract",
+    "emotional",
+    "social",
+    "commercial"
+  ],
   "allowedNudges": [
     "If the player is uncertain, the owner pulls a book off the shelf and uses it to invite the player into a more concrete answer.",
     "The owner may ask follow-up questions about specific genres or authors to help the player narrow down."

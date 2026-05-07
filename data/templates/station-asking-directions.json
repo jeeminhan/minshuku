@@ -49,8 +49,7 @@
     "tag:directions",
     "tag:travel",
     "tag:formal",
-    "tag:planning",
-    "tag:weather"
+    "tag:planning"
   ],
   "passiveScenarioTags": [
     "transport",
