@@ -9,11 +9,16 @@ import type { Domain, Register, SceneTemplate, VocabItem, GrammarItem } from "..
 // Default register acceptances when a template doesn't declare its own.
 // Derived from the template's registerTag — a casual scene shouldn't host
 // formal/literary words; a keigo scene shouldn't host casual.
+// `literary` is intentionally excluded from keigo's defaults: existing keigo
+// templates (package-delivery, station-directions) are service-register, not
+// speech/ceremony. Items tagged `literary` (e.g. ～ようではないか, a rallying
+// exhortation) are un-hostable until a speech/ceremony template exists; that
+// scope gap is preferable to forcing them into service interactions.
 const DEFAULT_ACCEPTED_REGISTERS: Record<SceneTemplate["registerTag"], Register[]> = {
   casual: ["casual", "neutral"],
   polite: ["neutral", "polite"],
   elder: ["polite", "formal"],
-  keigo: ["polite", "formal", "literary"],
+  keigo: ["polite", "formal"],
 };
 
 export type ItemWithFit = (VocabItem | GrammarItem) & { register?: Register; domain?: Domain[] };

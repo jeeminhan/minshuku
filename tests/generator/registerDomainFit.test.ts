@@ -40,7 +40,7 @@ function vocab(overrides: Partial<VocabItem> = {}): VocabItem {
 describe("registerDomainFit", () => {
   it("acceptedRegisters defaults from registerTag when not declared", () => {
     expect(acceptedRegisters(tpl({ registerTag: "casual" }))).toEqual(["casual", "neutral"]);
-    expect(acceptedRegisters(tpl({ registerTag: "keigo" }))).toEqual(["polite", "formal", "literary"]);
+    expect(acceptedRegisters(tpl({ registerTag: "keigo" }))).toEqual(["polite", "formal"]);
   });
 
   it("acceptedRegisters honors explicit override", () => {
