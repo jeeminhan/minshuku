@@ -102,3 +102,22 @@ acceptedRegisters?: string[];     // optional override; defaults derived from re
 5. Append `{label, beforeScore, afterScore, delta, timestamp}` to `logs/fix-trials.jsonl`
 
 **Why deferred.** Nice-to-have. Can hand-track for now.
+
+---
+
+## A/B prompt eval harness
+
+**Problem.** When tuning the dialogue generator or synthetic-player prompt, we eyeball whether the change improved things. With LLM stochasticity that's unreliable — a 2-point swing across 5 scenes is easily noise.
+
+**Proposed.** `npm run ab-test -- --variant-a path/to/promptA.ts --variant-b path/to/promptB.ts --scenes 10` runs N scenes with each variant, scores both via the existing review-loop pipeline, and reports:
+
+- Mean score per variant
+- Distribution overlap (boxplot or simple summary stats)
+- Per-category finding rate per variant
+- Verdict: which wins, with rough confidence (e.g., "B wins by 6.2 pts; gap > variance, fairly confident")
+
+Reuses the existing `runScene` + `auditSceneRunLogs` + `scoreReview` + `attribution` modules — the harness just runs two cohorts and diffs them.
+
+**Why deferred.** Premature. The eval system already surfaces concrete content/code fixes (bookshop tag taxonomy, missing scripted turns) — those should land before we need an A/B framework. A/B becomes valuable once we're tuning specific prompts and want a rigorous "did my change help" signal.
+
+**Estimate.** 1–2 hours: a thin orchestrator script + a comparison report renderer.
