@@ -2,50 +2,16 @@
 
 Deferred work, in priority order. Not blocking anything that's been built; queue items here when they come up so they don't get lost.
 
-## Domain + register tagging on vocab/grammar
+## ✅ Domain + register tagging on vocab/grammar (DONE 2026-05-07)
 
-**Problem.** Every item has `scenarioTags` (a bag of tags about *where the word might come up*), but two dimensions are invisible to the planner:
+Shipped in 4 phases on 2026-05-07:
 
-- **Register** — is this word casual, neutral, polite, formal, or literary?
-- **Domain** — does this word belong to physical, emotional, abstract, social, temporal, commercial, or ritual semantic space?
+- **Phase A** (`72d719b`) — schema + fit logic with graceful degradation
+- **Phase B** (`09d0a15`) — tagged all 12 templates with `acceptedDomains`
+- **Phase C** (`9d06c8f`) — LLM-enriched all 508 items with `register` + `domain` via `npm run enrich-rd`
+- **Phase D** (`3801147`) — wired the gate into active-target template filtering
 
-Without these, the planner forces words into incompatible templates. Examples the review loop has caught:
-
-- `清潔` ("physically clean") got dropped into a bookshop chat about a "clean novel feeling" — wrong domain (physical → emotional/aesthetic).
-- `願う` ("wish/hope" — formal/written) got forced into a casual cafe chat — wrong register.
-
-**Proposed schema additions.**
-
-`VocabItem` and `GrammarItem`:
-
-```ts
-register: "casual" | "neutral" | "polite" | "formal" | "literary";
-domain: ("physical" | "emotional" | "abstract" | "social" | "temporal" | "commercial" | "ritual")[];
-```
-
-`SceneTemplate`:
-
-```ts
-acceptedDomains: string[];        // domains that fit this scene-shape
-acceptedRegisters?: string[];     // optional override; defaults derived from registerTag
-```
-
-**Filter logic.** In `src/lib/generator/filterTemplates.ts`, two new gates after the existing tag check:
-
-1. `template.acceptedRegisters` (or default: registers compatible with `template.registerTag`) must include `item.register`
-2. At least one `item.domain` must overlap with `template.acceptedDomains`
-
-**Work involved.**
-
-- Schema migration: extend zod schemas in `src/lib/content.ts`, add fields to types
-- Re-tag all 508 items: probably an LLM-assisted import similar to the original enrichment, run once
-- Add `acceptedDomains` (and optional `acceptedRegisters`) to all 12 templates
-- Update `filterTemplates` with the new gates + tests
-- Update `pickActiveTargets` / `pickPassiveItems` if they need awareness
-
-**Estimate.** 1–2 hours of focused work plus the LLM enrichment pass for re-tagging.
-
-**Why deferred.** Real architectural work; not urgent until the review loop keeps flagging item-context mismatches as a top finding pattern.
+**Result**: 5-scene review-loop dropped from 11 → 7 findings, score 81.4 → 84.7, bookshop-quiet-browse off the worst-template list. Original tag-coarseness issue resolved. New top issues are item-tag bugs (e.g., `vocab.n3.taiho` eligible for keigo templates) and prompt scaffolding — separate items.
 
 ---
 
