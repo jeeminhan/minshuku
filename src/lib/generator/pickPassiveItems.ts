@@ -1,4 +1,5 @@
 import { loadGrammar, loadVocab } from "../content";
+import { fitsTemplate, type ItemWithFit } from "./registerDomainFit";
 import type {
   ReviewItem,
   SceneTemplate,
@@ -7,13 +8,11 @@ import type {
 
 const DEFAULT_PASSIVE_COUNT = 3;
 
-function tagsForReviewItem(it: ReviewItem): string[] {
+function lookupItem(it: ReviewItem): ItemWithFit | null {
   if (it.itemType === "grammar") {
-    const found = loadGrammar().find((g) => g.id === it.itemId);
-    return found?.scenarioTags ?? [];
+    return loadGrammar().find((g) => g.id === it.itemId) ?? null;
   }
-  const found = loadVocab().find((v) => v.id === it.itemId);
-  return found?.scenarioTags ?? [];
+  return loadVocab().find((v) => v.id === it.itemId) ?? null;
 }
 
 function overlapCount(a: string[], b: string[]): number {
@@ -28,12 +27,18 @@ export function pickPassiveItems(
   count: number = DEFAULT_PASSIVE_COUNT,
 ): ItemAssignment[] {
   const activeIds = new Set(active.map((a) => a.itemId));
-  const candidates = due.filter((d) => !activeIds.has(d.itemId));
+  const candidates = due
+    .filter((d) => !activeIds.has(d.itemId))
+    .map((d) => ({ item: d, full: lookupItem(d) }))
+    // Drop candidates whose register/domain don't fit. Items missing from
+    // the content registry pass through (treated as untagged → graceful);
+    // tagged items must satisfy register + domain.
+    .filter((c) => c.full === null || fitsTemplate(c.full, template));
 
   const ranked = candidates
     .map((c) => ({
-      item: c,
-      overlap: overlapCount(tagsForReviewItem(c), template.passiveScenarioTags),
+      item: c.item,
+      overlap: overlapCount(c.full?.scenarioTags ?? [], template.passiveScenarioTags),
     }))
     .sort((a, b) => b.overlap - a.overlap)
     .slice(0, count);

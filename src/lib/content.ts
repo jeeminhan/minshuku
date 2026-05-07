@@ -4,6 +4,16 @@ import { z } from "zod";
 import type { VocabItem, GrammarItem, SceneTemplate } from "./types";
 
 const JlptLevel = z.enum(["N5", "N4", "N3", "N2", "N1"]);
+const Register = z.enum(["casual", "neutral", "polite", "formal", "literary"]);
+const Domain = z.enum([
+  "physical",
+  "emotional",
+  "abstract",
+  "social",
+  "temporal",
+  "commercial",
+  "ritual",
+]);
 
 const VocabItemSchema = z.object({
   id: z.string(),
@@ -15,6 +25,8 @@ const VocabItemSchema = z.object({
   frequencyRank: z.number().optional(),
   scenarioTags: z.array(z.string()),
   exampleSentences: z.array(z.string()),
+  register: Register.optional(),
+  domain: z.array(Domain).optional(),
 });
 
 const GrammarItemSchema = z.object({
@@ -26,6 +38,8 @@ const GrammarItemSchema = z.object({
   scenarioTags: z.array(z.string()),
   exampleSentences: z.array(z.string()),
   commonMistakes: z.array(z.string()).optional(),
+  register: Register.optional(),
+  domain: z.array(Domain).optional(),
 });
 
 const SceneTemplateSchema = z.object({
@@ -48,6 +62,8 @@ const SceneTemplateSchema = z.object({
   registerTag: z.enum(["casual", "polite", "elder", "keigo"]),
   activeTargetCompatibility: z.array(z.string()),
   passiveScenarioTags: z.array(z.string()),
+  acceptedDomains: z.array(Domain).optional(),
+  acceptedRegisters: z.array(Register).optional(),
   allowedNudges: z.array(z.string()),
   exitBeat: z.string(),
   flags: z

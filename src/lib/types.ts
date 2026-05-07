@@ -6,6 +6,20 @@ export type ItemType = "vocab" | "grammar";
 
 export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 
+// Speech register an item belongs to. Drives template register-fit gating.
+export type Register = "casual" | "neutral" | "polite" | "formal" | "literary";
+
+// Semantic domain an item operates in. Multi-valued: a word like 願う might
+// span ["emotional", "ritual"]. Drives passive-item domain-fit gating.
+export type Domain =
+  | "physical"
+  | "emotional"
+  | "abstract"
+  | "social"
+  | "temporal"
+  | "commercial"
+  | "ritual";
+
 export interface VocabItem {
   id: string;
   word: string;          // e.g., "窓"
@@ -16,6 +30,8 @@ export interface VocabItem {
   frequencyRank?: number;
   scenarioTags: string[];
   exampleSentences: string[];
+  register?: Register;
+  domain?: Domain[];
 }
 
 export interface GrammarItem {
@@ -27,6 +43,8 @@ export interface GrammarItem {
   scenarioTags: string[];
   exampleSentences: string[];
   commonMistakes?: string[];
+  register?: Register;
+  domain?: Domain[];
 }
 
 export interface CharacterRef {
@@ -51,6 +69,11 @@ export interface SceneTemplate {
   activeTargetCompatibility: string[];
   // Tags drawn on for passive items. e.g., ["evening", "weather"].
   passiveScenarioTags: string[];
+  // Domains this scene-shape can host. Items must overlap by ≥1 domain.
+  // Optional during the Phase A→C migration; treated as "no constraint" when missing.
+  acceptedDomains?: Domain[];
+  // Registers this scene-shape can host. When omitted, derived from registerTag.
+  acceptedRegisters?: Register[];
   allowedNudges: string[];
   exitBeat: string;
   flags?: {
