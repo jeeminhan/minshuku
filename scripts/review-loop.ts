@@ -19,6 +19,7 @@ import {
   type RunScore,
 } from "../src/lib/log/scoreReview.js";
 import { attributeFindings, type AttributionReport } from "../src/lib/log/attribution.js";
+import type { ReviewSnapshot } from "../src/lib/log/trends.js";
 
 const REPORTS_DIR = join(process.cwd(), "logs", "review-reports");
 const LATEST_LINK = join(REPORTS_DIR, "latest.md");
@@ -372,6 +373,19 @@ async function main(): Promise<void> {
   );
   const md = buildReportMarkdown(opts, auditOut, review, scores, verdict, attribution);
   writeFileSync(opts.reportPath, md);
+  // Sidecar JSON snapshot — feeds the trends CLI without re-parsing markdown.
+  if (opts.reportPath.endsWith(".md")) {
+    const snapshot: ReviewSnapshot = {
+      timestamp: new Date().toISOString(),
+      scenes: opts.scenes,
+      level: opts.level,
+      avgScore: scores.avg,
+      qualitativeFindingCount: review.findings.length,
+      attribution,
+    };
+    const sidecarPath = opts.reportPath.replace(/\.md$/, ".json");
+    writeFileSync(sidecarPath, JSON.stringify(snapshot, null, 2) + "\n");
+  }
   // If the report ended up in our default reports directory, also refresh
   // the "latest.md" symlink so you can always cat logs/review-reports/latest.md.
   if (opts.reportPath.startsWith(REPORTS_DIR)) {
