@@ -48,7 +48,8 @@ function parseArgs(argv: readonly string[]): CliOptions {
 //   - **[{severity}]** ({run_id}) {description}
 //     - _fix:_ {suggested_fix}
 const CATEGORY_HEADER = /^###\s+(architecture|prompt|data|llm-quality)\s+\(\d+\)/;
-const FINDING_LINE = /^-\s+\*\*\[(high|medium|low)\]\*\*\s+\(([^)]+)\)\s+(.*)$/;
+// Matches both legacy `(run-XXXX)` and new `[(run-XXXX)](#run-XXXX)` link forms.
+const FINDING_LINE = /^-\s+\*\*\[(high|medium|low)\]\*\*\s+\[?\(([^)]+)\)\]?(?:\(#[^)]+\))?\s+(.*)$/;
 
 export function parseFindingsFromReport(markdown: string): QualitativeFinding[] {
   const findings: QualitativeFinding[] = [];
