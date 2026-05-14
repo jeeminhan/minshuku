@@ -48,9 +48,22 @@ function extractText(raw: string): string {
   const escapedParse = tryParse(escaped);
   if (escapedParse !== null) return escapedParse;
 
-  // Last resort: regex-extract the value of "text".
+  // Regex-extract the value of "text" when it's well-terminated.
   const textField = fenced.match(/"text"\s*:\s*"([\s\S]*?)"\s*[,}]/);
   if (textField) return textField[1].replace(/\\n/g, "\n").replace(/\\"/g, '"');
+
+  // Truncation fallback: Gemini occasionally cuts off mid-string and returns
+  // something like `{"text":"...どうぞ` with no closing quote or brace. Take
+  // whatever follows `"text":"` and treat it as the line.
+  const unterminated = fenced.match(/"text"\s*:\s*"([\s\S]+)$/);
+  if (unterminated) {
+    const trailing = unterminated[1]
+      .replace(/[}"]+\s*$/, "")
+      .replace(/\\n/g, "\n")
+      .replace(/\\"/g, '"')
+      .trim();
+    if (trailing) return trailing;
+  }
 
   // Bare-text fallback: if the model returned plain Japanese, use it as-is.
   if (fenced && !fenced.includes("{")) return fenced;
