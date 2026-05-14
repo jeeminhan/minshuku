@@ -5,31 +5,37 @@ const modes = [
     id: "voice",
     name: "Voice",
     jp: "声",
-    blurb:
-      "The host mom speaks to you. You reply out loud. The room is quiet, the conversation isn't.",
-    detail:
-      "Audio-first interaction with Japanese TTS and your microphone. No typing.",
-    status: "preview",
+    blurb: "Speak. Be spoken to.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7">
+        <path d="M12 2v10M8 6v6M16 6v6M5 9v3M19 9v3M12 16v6M9 22h6" strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
     id: "visual-novel",
     name: "Visual novel",
     jp: "場面",
-    blurb:
-      "A portrait, a room, a line of dialogue. You write your reply. It feels like reading a book you're inside.",
-    detail:
-      "Illustrated scene with character art. Typed Japanese replies. Closest to a game.",
-    status: "preview",
+    blurb: "A room. A face. A line.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7">
+        <rect x="3" y="4" width="18" height="14" rx="1.5" />
+        <circle cx="9" cy="11" r="2" />
+        <path d="M14 10h4M14 13h3" strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
     id: "choice",
     name: "Choice",
     jp: "選択",
-    blurb:
-      "Three Japanese replies are offered. You pick one. The conversation moves on. Low friction, fast clarity.",
-    detail:
-      "Pick from prewritten options. Good for low confidence or first contact with the language.",
-    status: "preview",
+    blurb: "Three replies. Pick one.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7">
+        <path d="M4 7h16M4 12h16M4 17h10" strokeLinecap="round" />
+        <circle cx="19" cy="17" r="1.5" fill="currentColor" />
+      </svg>
+    ),
   },
 ] as const;
 
@@ -37,10 +43,9 @@ export default function Home() {
   return (
     <main className="flex-1">
       <Hero />
-      <Pitch />
-      <HowItRemembers />
+      <LoopSection />
       <ModeSection />
-      <GuidanceSection />
+      <GuidanceStrip />
       <AuthoringTeaser />
       <FeedbackInvite />
       <Footer />
@@ -50,148 +55,185 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="mx-auto max-w-3xl px-6 pt-24 pb-12 sm:pt-32">
-      <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
-        minshuku · 民宿
-      </p>
-      <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-[color:var(--foreground)] sm:text-6xl">
-        Live inside a Japanese story
-        <span className="block text-[color:var(--accent)]">
-          to learn the language.
-        </span>
-      </h1>
-      <p className="mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--foreground)]/80">
-        Step into a small countryside guesthouse. Meet the family who runs
-        it. Have a conversation with them in Japanese. The words you&apos;re
-        due to review tonight show up in tonight&apos;s conversation —
-        because there&apos;s a spaced-repetition engine quietly choosing what
-        you need to see, and where it fits.
-      </p>
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--muted)]">
-        This page is a research demo. Try each mode, then tell us what worked.
-      </p>
-    </section>
-  );
-}
-
-function Pitch() {
-  return (
-    <section className="border-y border-[color:var(--rule)] bg-[color:var(--surface)]">
-      <div className="mx-auto grid max-w-3xl gap-10 px-6 py-16 sm:grid-cols-3">
-        <Pillar
-          label="01"
-          title="SRS, but as a conversation"
-          body="Spaced repetition picks what you need to review. A scene surfaces it where it fits. You use it instead of just recalling it."
-        />
-        <Pillar
-          label="02"
-          title="Pick your scaffolding"
-          body="Open-ended, target words shown, or step-by-step coaching — whichever your day needs."
-        />
-        <Pillar
-          label="03"
-          title="Anyone can write one"
-          body="Authors don't tag specific words. They sketch a scene; the engine routes your due items into it."
-        />
+    <section className="mx-auto grid max-w-5xl gap-12 px-6 pt-20 pb-16 sm:pt-28 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+      <div>
+        <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
+          minshuku · 民宿
+        </p>
+        <h1 className="mt-5 font-serif text-5xl leading-[1.05] tracking-tight text-[color:var(--foreground)] sm:text-6xl">
+          Learn Japanese
+          <span className="block text-[color:var(--accent)]">
+            inside a story.
+          </span>
+        </h1>
+        <p className="mt-6 max-w-md text-lg leading-snug text-[color:var(--foreground)]/80">
+          Spaced repetition, but the words you&apos;re due to review show up
+          in tonight&apos;s conversation.
+        </p>
       </div>
+      <HeroIllustration />
     </section>
   );
 }
 
-function Pillar({
-  label,
-  title,
-  body,
-}: {
-  label: string;
-  title: string;
-  body: string;
-}) {
+function HeroIllustration() {
   return (
-    <div>
-      <p className="font-serif text-xs tracking-[0.2em] text-[color:var(--accent)]">
-        {label}
-      </p>
-      <h3 className="mt-3 font-serif text-xl text-[color:var(--foreground)]">
-        {title}
-      </h3>
-      <p className="mt-3 text-sm leading-relaxed text-[color:var(--foreground)]/75">
-        {body}
-      </p>
+    <div className="relative aspect-[5/4] overflow-hidden rounded-xl border border-[color:var(--rule)] bg-[color:var(--surface)]">
+      <svg
+        viewBox="0 0 500 400"
+        className="absolute inset-0 h-full w-full"
+        aria-hidden="true"
+      >
+        {/* sky wash */}
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#fbf7ee" />
+            <stop offset="100%" stopColor="#f0e6cf" />
+          </linearGradient>
+          <linearGradient id="lantern" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#f5b674" />
+            <stop offset="100%" stopColor="#c95f3b" />
+          </linearGradient>
+        </defs>
+        <rect width="500" height="400" fill="url(#sky)" />
+
+        {/* distant hill */}
+        <path
+          d="M0,260 Q120,210 250,240 T500,230 L500,400 L0,400 Z"
+          fill="#d9d1bd"
+          opacity="0.7"
+        />
+        {/* nearer hill */}
+        <path
+          d="M0,300 Q150,260 280,290 T500,290 L500,400 L0,400 Z"
+          fill="#c2b794"
+          opacity="0.8"
+        />
+
+        {/* minshuku building */}
+        <g transform="translate(120, 200)">
+          {/* roof */}
+          <path
+            d="M-20,40 L130,-30 L280,40 Z"
+            fill="#1c1a14"
+          />
+          <path
+            d="M-20,40 L130,-30 L280,40 L130,30 Z"
+            fill="#3a342a"
+          />
+          {/* walls */}
+          <rect x="0" y="40" width="260" height="120" fill="#f5efde" />
+          {/* doorway */}
+          <rect x="100" y="80" width="60" height="80" fill="#3a342a" />
+          {/* shoji windows */}
+          <g stroke="#1c1a14" strokeWidth="1.5" fill="#fbf7ee">
+            <rect x="20" y="65" width="55" height="55" />
+            <rect x="185" y="65" width="55" height="55" />
+            <line x1="47" y1="65" x2="47" y2="120" />
+            <line x1="20" y1="92" x2="75" y2="92" />
+            <line x1="212" y1="65" x2="212" y2="120" />
+            <line x1="185" y1="92" x2="240" y2="92" />
+          </g>
+        </g>
+
+        {/* lantern */}
+        <g transform="translate(110, 220)">
+          <line x1="0" y1="0" x2="0" y2="20" stroke="#1c1a14" strokeWidth="1.5" />
+          <ellipse cx="0" cy="32" rx="14" ry="18" fill="url(#lantern)" />
+          <line x1="-14" y1="32" x2="14" y2="32" stroke="#1c1a14" strokeWidth="1.2" />
+          <line x1="-12" y1="22" x2="12" y2="22" stroke="#1c1a14" strokeWidth="1" />
+          <line x1="-12" y1="42" x2="12" y2="42" stroke="#1c1a14" strokeWidth="1" />
+        </g>
+
+        {/* floating Japanese characters as motif */}
+        <g
+          fill="#1c1a14"
+          opacity="0.18"
+          fontFamily="serif"
+          fontSize="22"
+        >
+          <text x="380" y="100">こ</text>
+          <text x="420" y="140">ん</text>
+          <text x="395" y="180">ば</text>
+          <text x="430" y="220">ん</text>
+          <text x="400" y="260">は</text>
+        </g>
+      </svg>
     </div>
   );
 }
 
-function HowItRemembers() {
+function LoopSection() {
   const steps = [
     {
-      number: "01",
-      title: "It picks what you're due to review.",
-      body: "Behind every session is a quiet engine called spaced repetition — the same idea Anki, WaniKani, and language tutors have used for decades. Each item you've learned has a due date that gets longer every time you get it right, and shorter when you slip.",
+      title: "What you're due",
+      body: "The engine picks the words and grammar you're closest to forgetting.",
+      icon: (
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8">
+          <circle cx="16" cy="16" r="11" />
+          <path d="M16 9v7l4 3" strokeLinecap="round" />
+        </svg>
+      ),
     },
     {
-      number: "02",
-      title: "It picks a scene that can host it.",
-      body: "Due to review 包丁 (kitchen knife)? The cook needs help in the kitchen tonight. Due for the polite request form? The shrine keeper has a favor to ask. The conversation isn't random — it's the engine putting the right word in the right mouth.",
+      title: "A scene that fits",
+      body: "It surfaces inside a real conversation — the cook hands you a 包丁.",
+      icon: (
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8">
+          <path d="M5 26 V12 L16 5 L27 12 V26" strokeLinejoin="round" />
+          <path d="M12 26 V18 H20 V26" />
+        </svg>
+      ),
     },
     {
-      number: "03",
-      title: "You use it, not just recognize it.",
-      body: "A flashcard asks: do you remember this? A scene asks: can you use it? You speak or type your reply in Japanese, and the system watches for whether the target words and grammar actually appeared, in the right form.",
+      title: "You use it",
+      body: "You speak or type your reply. The system watches if you used the target.",
+      icon: (
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8">
+          <path d="M6 8 H26 V22 H12 L6 27 Z" strokeLinejoin="round" />
+        </svg>
+      ),
     },
     {
-      number: "04",
-      title: "Your review schedule updates.",
-      body: "Used it correctly? You won't see it again for days. Missed it? It comes back tomorrow. The schedule is yours alone — every learner's due list is different, so two people playing the same story have completely different conversations.",
+      title: "Your schedule updates",
+      body: "Got it right? Days from now. Missed it? Tomorrow.",
+      icon: (
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8">
+          <path d="M25 16 a9 9 0 1 1 -2.5 -6.3" strokeLinecap="round" />
+          <path d="M25 8 V13 H20" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
     },
   ];
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-24">
-      <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
-        How it remembers
-      </p>
-      <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)]">
-        It’s spaced repetition. But you’re inside the deck.
-      </h2>
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--foreground)]/80">
-        Spaced repetition is a 60-year-old idea: show someone a word right
-        before they’d forget it, and they keep it forever. Anki and WaniKani
-        built whole apps around it — but they put the engine behind a
-        flashcard. We put it behind a conversation.
-      </p>
+    <section className="border-y border-[color:var(--rule)] bg-[color:var(--surface)]/60">
+      <div className="mx-auto max-w-5xl px-6 py-20">
+        <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
+          The loop
+        </p>
+        <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)] sm:text-4xl">
+          It&apos;s Anki, but you&apos;re inside the deck.
+        </h2>
 
-      <ol className="mt-16 space-y-12">
-        {steps.map((s) => (
-          <li
-            key={s.number}
-            className="grid gap-4 sm:grid-cols-[6rem_1fr] sm:gap-8"
-          >
-            <p className="font-serif text-3xl text-[color:var(--accent)]/60">
-              {s.number}
-            </p>
-            <div>
-              <h3 className="font-serif text-xl text-[color:var(--foreground)]">
+        <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <li key={s.title} className="relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--accent)]/40 text-[color:var(--accent)]">
+                {s.icon}
+              </div>
+              <p className="mt-5 font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
+                Step {i + 1}
+              </p>
+              <h3 className="mt-2 font-serif text-lg text-[color:var(--foreground)]">
                 {s.title}
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-[color:var(--foreground)]/75">
+              <p className="mt-2 text-sm leading-relaxed text-[color:var(--foreground)]/70">
                 {s.body}
               </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      <div className="mt-16 rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/50 p-6 sm:p-8">
-        <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
-          What this means in practice
-        </p>
-        <p className="mt-4 text-base leading-relaxed text-[color:var(--foreground)]/85">
-          You never have to decide what to study. The engine knows what
-          you’ve seen, what you’re close to forgetting, and what you’ve
-          mastered. You just show up and talk to someone — and tonight’s
-          conversation is the one your memory needed.
-        </p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -199,20 +241,15 @@ function HowItRemembers() {
 
 function ModeSection() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-20">
-      <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
+    <section className="mx-auto max-w-5xl px-6 py-20">
+      <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
         Try the same scene three ways
       </p>
-      <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)]">
-        Same dialogue. Same person. Three different ways to be in the room.
+      <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)] sm:text-4xl">
+        Pick how you want to be in the room.
       </h2>
-      <p className="mt-6 text-base leading-relaxed text-[color:var(--foreground)]/75">
-        You&apos;ve just arrived at the minshuku after a long trip. Tanaka-san,
-        the host mom, meets you at the entrance. Pick a mode below and play
-        the four-turn opener. Then try another. We want to know which one
-        felt like it was made for you.
-      </p>
-      <ul className="mt-12 grid gap-6">
+
+      <ul className="mt-12 grid gap-6 sm:grid-cols-3">
         {modes.map((m) => (
           <li key={m.id}>
             <ModeCard {...m} />
@@ -228,126 +265,134 @@ function ModeCard({
   name,
   jp,
   blurb,
-  detail,
+  icon,
 }: {
   id: string;
   name: string;
   jp: string;
   blurb: string;
-  detail: string;
+  icon: React.ReactNode;
 }) {
   return (
     <Link
       href={`/${id}`}
-      className="group block rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/40 p-8 transition-all hover:border-[color:var(--accent)] hover:bg-[color:var(--surface)]"
+      className="group block h-full rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/40 p-6 transition-all hover:border-[color:var(--accent)] hover:bg-[color:var(--surface)]"
     >
-      <div className="flex items-baseline justify-between gap-6">
-        <h3 className="font-serif text-2xl text-[color:var(--foreground)]">
-          {name}
-        </h3>
-        <span className="font-serif text-3xl text-[color:var(--accent)]/60 transition-colors group-hover:text-[color:var(--accent)]">
+      <div className="flex items-center justify-between">
+        <div className="text-[color:var(--accent)]">{icon}</div>
+        <span className="font-serif text-2xl text-[color:var(--accent)]/40 transition-colors group-hover:text-[color:var(--accent)]">
           {jp}
         </span>
       </div>
-      <p className="mt-4 font-serif text-lg italic leading-snug text-[color:var(--foreground)]/85">
+      <h3 className="mt-6 font-serif text-xl text-[color:var(--foreground)]">
+        {name}
+      </h3>
+      <p className="mt-2 font-serif italic text-base leading-snug text-[color:var(--foreground)]/75">
         {blurb}
       </p>
-      <p className="mt-4 text-sm leading-relaxed text-[color:var(--muted)]">
-        {detail}
-      </p>
       <p className="mt-6 text-sm font-medium text-[color:var(--accent)]">
-        Play this mode →
+        Try it →
       </p>
     </Link>
   );
 }
 
-function GuidanceSection() {
+function GuidanceStrip() {
+  const levels = ["Open", "Targets shown", "Step-by-step"];
   return (
-    <section className="border-t border-[color:var(--rule)] bg-[color:var(--surface)]/60">
-      <div className="mx-auto max-w-3xl px-6 py-20">
-        <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
-          How much help do you want?
-        </p>
-        <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)]">
-          A toggle, inside each mode. Three levels of guidance.
-        </h2>
-        <div className="mt-12 grid gap-8 sm:grid-cols-3">
-          <Guidance
-            level="Open"
-            body="Just the briefing. You bring whatever Japanese you have."
-          />
-          <Guidance
-            level="Targets shown"
-            body="A short list of words and grammar to weave in. The rest is up to you."
-          />
-          <Guidance
-            level="Step-by-step"
-            body="Each player turn comes with a suggested phrasing. You can use it or stray."
-          />
+    <section className="border-t border-[color:var(--rule)]">
+      <div className="mx-auto max-w-5xl px-6 py-14">
+        <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-serif text-xl text-[color:var(--foreground)]">
+            How much help do you want?
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {levels.map((l) => (
+              <span
+                key={l}
+                className="rounded-full border border-[color:var(--rule)] bg-[color:var(--surface)]/50 px-4 py-2 text-sm text-[color:var(--foreground)]/80"
+              >
+                {l}
+              </span>
+            ))}
+          </div>
         </div>
+        <p className="mt-4 text-sm text-[color:var(--muted)]">
+          Pick a level inside each mode. Open = bring whatever you have.
+          Step-by-step = suggested phrasing.
+        </p>
       </div>
     </section>
   );
 }
 
-function Guidance({ level, body }: { level: string; body: string }) {
+function AuthoringTeaser() {
   return (
-    <div className="border-l-2 border-[color:var(--accent)]/40 pl-5">
-      <p className="font-serif text-lg text-[color:var(--foreground)]">
-        {level}
-      </p>
-      <p className="mt-2 text-sm leading-relaxed text-[color:var(--foreground)]/75">
-        {body}
-      </p>
-    </div>
+    <section className="border-t border-[color:var(--rule)] bg-[color:var(--surface)]/60">
+      <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div>
+          <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
+            For authors
+          </p>
+          <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)] sm:text-4xl">
+            Every story is a few text files.
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-[color:var(--foreground)]/80">
+            Teachers, fans, students — anyone can write one. You sketch the
+            scene. The engine picks which review items to drop in.
+          </p>
+          <p className="mt-4 text-base text-[color:var(--foreground)]/80">
+            Would you write one?{" "}
+            <Link
+              href="/feedback"
+              className="font-medium text-[color:var(--accent)] hover:underline"
+            >
+              Tell us in the form.
+            </Link>
+          </p>
+        </div>
+        <AuthoringDiagram />
+      </div>
+    </section>
   );
 }
 
-function AuthoringTeaser() {
+function AuthoringDiagram() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-20">
-      <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
-        The big idea
-      </p>
-      <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)]">
-        Every story here is just a few text files. You could write the next one.
-      </h2>
-      <p className="mt-6 text-base leading-relaxed text-[color:var(--foreground)]/80">
-        Behind every scene is a small JSON file describing the people, the
-        place, and the moment. We&apos;re building the tools so a teacher, a
-        fan of a show, or a student finishing a unit can write their own
-        story — and someone else can step inside it tomorrow.
-      </p>
-      <pre className="mt-8 overflow-x-auto rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/60 p-6 text-xs leading-relaxed text-[color:var(--foreground)]/80">
+    <div className="rounded-xl border border-[color:var(--rule)] bg-[color:var(--background)] p-6 shadow-sm">
+      <div className="flex items-center gap-3 border-b border-[color:var(--rule)] pb-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]" />
+        <span className="font-mono text-xs text-[color:var(--muted)]">
+          minshuku-arrival.json
+        </span>
+      </div>
+      <pre className="mt-4 overflow-x-auto font-mono text-xs leading-relaxed text-[color:var(--foreground)]/80">
         {`{
-  "npc": "tanaka-san",
-  "location": "minshuku-entrance",
-  "moment": "first arrival, polite stranger meeting",
-  "targets": ["polite ます-form", "self-introduction"],
-  "want_to_teach": ["お世話になります", "よろしくお願いします"]
+  "npc":      "tanaka-san",
+  "place":    "minshuku-entrance",
+  "moment":   "first arrival, polite",
+  "wants":    ["self-intro", "ます-form"]
 }`}
       </pre>
-      <p className="mt-6 text-base leading-relaxed text-[color:var(--foreground)]/80">
-        Would you write one? Tell us in the form below.
-      </p>
-    </section>
+      <div className="mt-4 flex items-center gap-3 text-xs text-[color:var(--muted)]">
+        <svg viewBox="0 0 16 16" className="h-4 w-4 text-[color:var(--accent)]" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M2 8h12M10 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <span className="font-serif italic">engine writes the rest</span>
+      </div>
+    </div>
   );
 }
 
 function FeedbackInvite() {
   return (
-    <section className="border-t border-[color:var(--rule)] bg-[color:var(--foreground)] text-[color:var(--background)]">
-      <div className="mx-auto max-w-3xl px-6 py-20">
-        <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--background)]/60">
-          We need 5 minutes of your honest reactions
-        </p>
-        <h2 className="mt-4 font-serif text-3xl leading-tight">
-          Tell us what worked, what didn&apos;t, and what you&apos;d want next.
+    <section className="bg-[color:var(--foreground)] text-[color:var(--background)]">
+      <div className="mx-auto max-w-5xl px-6 py-16 text-center">
+        <h2 className="font-serif text-3xl leading-tight sm:text-4xl">
+          Five minutes. Six questions.
         </h2>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--background)]/80">
-          Six short questions. No email required. Your answers shape what we
-          build next.
+        <p className="mt-4 text-base text-[color:var(--background)]/75">
+          Your reactions decide what we build next.
         </p>
         <Link
           href="/feedback"
@@ -362,12 +407,11 @@ function FeedbackInvite() {
 
 function Footer() {
   return (
-    <footer className="border-t border-[color:var(--rule)] py-10">
-      <div className="mx-auto max-w-3xl px-6 text-sm text-[color:var(--muted)]">
+    <footer className="border-t border-[color:var(--rule)] py-8">
+      <div className="mx-auto max-w-5xl px-6 text-xs text-[color:var(--muted)]">
         <p className="font-serif">
-          minshuku is a research prototype, not a product. The Japanese
-          language is the wedge; the platform is for anything you can learn
-          by being there.
+          A research prototype. Japanese is the wedge — the engine is for
+          anything you can learn by being there.
         </p>
       </div>
     </footer>
