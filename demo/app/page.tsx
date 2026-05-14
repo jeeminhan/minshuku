@@ -38,6 +38,7 @@ export default function Home() {
     <main className="flex-1">
       <Hero />
       <Pitch />
+      <HowItRemembers />
       <ModeSection />
       <GuidanceSection />
       <AuthoringTeaser />
@@ -60,9 +61,11 @@ function Hero() {
         </span>
       </h1>
       <p className="mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--foreground)]/80">
-        Step into a small countryside guesthouse. Meet the family who runs it.
-        Have a conversation with them in Japanese, in whichever way feels
-        right for you today. We&apos;re prototyping three of them.
+        Step into a small countryside guesthouse. Meet the family who runs
+        it. Have a conversation with them in Japanese. The words you&apos;re
+        due to review tonight show up in tonight&apos;s conversation —
+        because there&apos;s a spaced-repetition engine quietly choosing what
+        you need to see, and where it fits.
       </p>
       <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--muted)]">
         This page is a research demo. Try each mode, then tell us what worked.
@@ -77,8 +80,8 @@ function Pitch() {
       <div className="mx-auto grid max-w-3xl gap-10 px-6 py-16 sm:grid-cols-3">
         <Pillar
           label="01"
-          title="Stories, not flashcards"
-          body="The unit isn't a word. It's a moment in someone's house. You learn by being there."
+          title="SRS, but as a conversation"
+          body="Spaced repetition picks what you need to review. A scene surfaces it where it fits. You use it instead of just recalling it."
         />
         <Pillar
           label="02"
@@ -88,7 +91,7 @@ function Pitch() {
         <Pillar
           label="03"
           title="Anyone can write one"
-          body="The story you're about to play could've been written by a teacher, a fan, or you."
+          body="Authors don't tag specific words. They sketch a scene; the engine routes your due items into it."
         />
       </div>
     </section>
@@ -116,6 +119,81 @@ function Pillar({
         {body}
       </p>
     </div>
+  );
+}
+
+function HowItRemembers() {
+  const steps = [
+    {
+      number: "01",
+      title: "It picks what you're due to review.",
+      body: "Behind every session is a quiet engine called spaced repetition — the same idea Anki, WaniKani, and language tutors have used for decades. Each item you've learned has a due date that gets longer every time you get it right, and shorter when you slip.",
+    },
+    {
+      number: "02",
+      title: "It picks a scene that can host it.",
+      body: "Due to review 包丁 (kitchen knife)? The cook needs help in the kitchen tonight. Due for the polite request form? The shrine keeper has a favor to ask. The conversation isn't random — it's the engine putting the right word in the right mouth.",
+    },
+    {
+      number: "03",
+      title: "You use it, not just recognize it.",
+      body: "A flashcard asks: do you remember this? A scene asks: can you use it? You speak or type your reply in Japanese, and the system watches for whether the target words and grammar actually appeared, in the right form.",
+    },
+    {
+      number: "04",
+      title: "Your review schedule updates.",
+      body: "Used it correctly? You won't see it again for days. Missed it? It comes back tomorrow. The schedule is yours alone — every learner's due list is different, so two people playing the same story have completely different conversations.",
+    },
+  ];
+
+  return (
+    <section className="mx-auto max-w-3xl px-6 py-24">
+      <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
+        How it remembers
+      </p>
+      <h2 className="mt-4 font-serif text-3xl leading-tight text-[color:var(--foreground)]">
+        It’s spaced repetition. But you’re inside the deck.
+      </h2>
+      <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--foreground)]/80">
+        Spaced repetition is a 60-year-old idea: show someone a word right
+        before they’d forget it, and they keep it forever. Anki and WaniKani
+        built whole apps around it — but they put the engine behind a
+        flashcard. We put it behind a conversation.
+      </p>
+
+      <ol className="mt-16 space-y-12">
+        {steps.map((s) => (
+          <li
+            key={s.number}
+            className="grid gap-4 sm:grid-cols-[6rem_1fr] sm:gap-8"
+          >
+            <p className="font-serif text-3xl text-[color:var(--accent)]/60">
+              {s.number}
+            </p>
+            <div>
+              <h3 className="font-serif text-xl text-[color:var(--foreground)]">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-[color:var(--foreground)]/75">
+                {s.body}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div className="mt-16 rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/50 p-6 sm:p-8">
+        <p className="font-serif text-sm tracking-[0.18em] uppercase text-[color:var(--muted)]">
+          What this means in practice
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[color:var(--foreground)]/85">
+          You never have to decide what to study. The engine knows what
+          you’ve seen, what you’re close to forgetting, and what you’ve
+          mastered. You just show up and talk to someone — and tonight’s
+          conversation is the one your memory needed.
+        </p>
+      </div>
+    </section>
   );
 }
 
