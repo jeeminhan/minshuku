@@ -5,6 +5,12 @@
   "type": "module",
   "scripts": {
     "scene": "tsx scripts/run-scene.ts",
+    "preview-asset": "tsx scripts/preview-asset.ts",
+    "music": "tsx scripts/generate-music.ts",
+    "tts": "tsx scripts/generate-tts.ts",
+    "tts:repl": "tsx scripts/tts-repl.ts",
+    "tts:tour": "tsx scripts/tts-voices-tour.ts",
+    "scene:play": "tsx scripts/scene-interactive.ts",
     "import-jlpt": "tsx scripts/import-jlpt.ts",
     "review-loop": "tsx scripts/review-loop.ts",
     "render-log": "tsx scripts/render-log.ts",
