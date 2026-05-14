@@ -2,6 +2,16 @@
 
 Deferred work, in priority order. Not blocking anything that's been built; queue items here when they come up so they don't get lost.
 
+## Canonical NPC + multi-story architecture (DEFERRED — phase 2)
+
+Agreed 2026-05-08. Four layers: `data/npcs/`, `data/locations/`, `data/stories/<id>/`, plus per-story `relationships.json` overlay. Governing rule: canonical state is monotonic and additive (no character death). Estimated ~25–30 hrs refactor (zod types, extract 12 templates → ~12 NPCs + ~6 locations, package current content as one "minshuku life" story, player state load/save, story router, generator updates, calibration entrypoint).
+
+**Why deferred.** Phase 1 first: ship one story to Tier 1 (8 scenes) on the current architecture to validate the loop. Refactor only after the loop is proven fun. Platform/UGC tiers (schema-as-contract → bundles → author UI → registry → canon governance) come after this refactor.
+
+Full design saved as memory: `canonical-npc-architecture`, `path-1-strategy`, `platform-vision`.
+
+---
+
 ## ✅ Domain + register tagging on vocab/grammar (DONE 2026-05-07)
 
 Shipped in 4 phases on 2026-05-07:

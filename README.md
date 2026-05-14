@@ -6,6 +6,69 @@ Text-based Japanese conversation practice. Step into a small guesthouse (民宿)
 
 ---
 
+## Vision
+
+**The best learning platform** — where the community writes interactive stories that teach. Japanese is the wedge; the engine is subject-agnostic and could host math, history, music, or anything with discrete learnable items.
+
+Three load-bearing principles:
+
+1. **Learning is primary.** Stories are the vehicle, but the goal is mastery. Pedagogy (SRS, target tracking, evaluator) is non-negotiable infrastructure.
+2. **Community authors content.** The schema is the authoring contract. Anyone can write an NPC or a story; the engine guarantees pedagogical integrity.
+3. **Subject-agnostic core, pluggable packs.** The core (`Npc`, `Scene`, `Story`, SRS) doesn't know about Japanese. A "JP pack" supplies the evaluator, prompts, renderer, and target schema. A future "math pack" plugs in alongside.
+
+### Target architecture (not yet built)
+
+Four layers, decoupling content from characters from progress:
+
+```
+data/
+  packs/jp/
+    targets/vocab.json, grammar.json   canonical registry of learnable items
+    evaluator/, generator/, renderer/  JP-specific modules
+  npcs/<id>.json                       canonical NPCs (one per character)
+  locations/<id>.json                  canonical locations
+  stories/<story-id>/
+    manifest.json                      declares pack, arc, companion
+    relationships.json                 thin per-story overlay on canonical NPCs
+    scenes/                            scene files referencing npcId
+```
+
+**Governing rule:** canonical state is *monotonic and additive*. Characters can age, gain memories, develop relationships — they never die, retire, or get re-cast. This is what makes NPCs reusable across stories.
+
+### Authoring contract — tag-first, pin when needed
+
+Authors describe the *shape* of a conversation; the engine routes pedagogy.
+
+| Mode | Author writes | Engine does |
+|---|---|---|
+| **Tag-based** (default) | `domains`, `acceptedRegisters`, `difficultyRange` | Pick SRS-due targets that fit. Same scene adapts across learner levels. |
+| **Pinned** (power mode) | `mustInclude: ["vocab.n3.houchou"]` | Force-include when scene fiction depends on a specific word. |
+| **Flavor** | `flavorWords: ["佐藤"]` | Render with reading hint; no SRS impact. |
+
+One scene, written once, plays differently for an N5 learner and an N2 learner. That's how a small author base scales to a large learner base.
+
+### Progress tracking — three separate state layers
+
+Mastery never lives on a story. Three stores, never mixed:
+
+| Layer | Scope | Example |
+|---|---|---|
+| **Target mastery** | per pack, shared across all stories | `jp.targets["vocab.n3.houchou"] = { ease, dueAt, ... }` |
+| **Story progress** | per story per user | `stories["sora-no-hi"] = { scenesPlayed, flags }` |
+| **NPC familiarity** | per NPC per user, pack-scoped | `npcs["ori-da"] = { encounters: 7, ... }` |
+
+Playing five community stories that all touch N3 keigo grows N3 keigo mastery monotonically — not five separate progress bars.
+
+### Build order
+
+1. **Phase 1 (current):** Ship one story to ~8 scenes on the existing architecture. Validate the loop before refactoring.
+2. **Phase 2:** Refactor to canonical NPCs + locations + stories + relationship overlays. ~25–30 hrs.
+3. **Phase 3+:** Open authoring (CLI validator → bundles → web editor → registry → governance).
+
+Don't build the platform before the loop is proven fun. Don't refactor before content shape is known.
+
+---
+
 ## How it works
 
 1. **SRS picks what's due** — vocab and grammar items you need to review next.
