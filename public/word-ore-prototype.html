@@ -1,0 +1,1651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>言葉鉱 — Word Ore prototype</title>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --panel: #131826;
+    --panel-2: #1b2235;
+    --line: #283145;
+    --ink: #e8e4d8;
+    --ink-dim: #9aa3b8;
+    --ink-faint: #5a6378;
+    --gold: #f5c45e;
+    --bright: #9ee084;
+    --dim: #b69c4d;
+    --whispered: #c97a4d;
+    --accent: #7da6c9;
+    --shoku: #e8a87c;
+    --amaniwa: #8ab87a;
+    --yoichi: #d77b6f;
+    --kanjo: #a78bbf;
+    --kioku: #6e8eaa;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 14px; line-height: 1.5;
+  }
+  body {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(125,166,201,0.06), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(245,196,94,0.04), transparent 40%),
+      var(--bg);
+  }
+  /* ── header ─── */
+  header.app {
+    border-bottom: 1px solid var(--line);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 24px;
+    background: rgba(11,15,26,0.85);
+    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 10;
+  }
+  header.app h1 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.06em; }
+  header.app h1 .ja { color: var(--gold); margin-right: 10px; }
+  .header-controls { display: flex; gap: 14px; margin-left: auto; align-items: center; }
+  .header-link {
+    background: transparent; border: 1px solid var(--line);
+    padding: 6px 12px; border-radius: 18px;
+    color: var(--ink-dim); cursor: pointer; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    transition: all 120ms ease;
+  }
+  .header-link:hover { color: var(--ink); border-color: var(--accent); }
+  .header-link.connected { color: var(--bright); border-color: var(--bright); }
+  .stats { display: flex; gap: 16px; font-size: 12px; color: var(--ink-dim); }
+  .stat { display: flex; align-items: baseline; gap: 6px; }
+  .stat .label { color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; }
+  .stat .value { color: var(--ink); font-weight: 600; }
+  .stat.gold .value { color: var(--gold); }
+  .stat.distance .value { color: var(--accent); }
+
+  /* ── calibration + tabs ─── */
+  .calibration {
+    border-bottom: 1px solid var(--line);
+    padding: 10px 28px;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; color: var(--ink-dim);
+    background: var(--panel);
+  }
+  .calibration .label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; color: var(--ink-faint); }
+  .pillgroup { display: flex; gap: 6px; }
+  .pill {
+    background: transparent; color: var(--ink-dim);
+    border: 1px solid var(--line);
+    padding: 6px 14px; border-radius: 20px;
+    cursor: pointer; font-size: 12px; font-family: inherit;
+  }
+  .pill:hover { color: var(--ink); border-color: var(--accent); }
+  .pill.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .calibration .hint { margin-left: auto; font-style: italic; color: var(--ink-faint); font-size: 11px; }
+
+  nav.tabs { display: flex; border-bottom: 1px solid var(--line); padding: 0 28px; }
+  nav.tabs button {
+    background: transparent; color: var(--ink-dim);
+    border: none; padding: 14px 20px;
+    cursor: pointer; font-size: 13px; font-family: inherit;
+    border-bottom: 2px solid transparent;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .breadcrumb { padding: 14px 28px 0; font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+  .breadcrumb a { color: var(--ink-dim); cursor: pointer; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb .sep { margin: 0 8px; color: var(--ink-faint); }
+
+  main { padding: 24px 28px 60px; }
+  .view-title { font-size: 22px; font-weight: 500; margin: 6px 0 4px; }
+  .view-title .ja { color: var(--gold); margin-right: 12px; }
+  .view-subtitle { font-size: 13px; color: var(--ink-dim); margin: 0 0 24px; }
+
+  /* ── galaxy cards ─── */
+  .galaxy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .world-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px;
+    cursor: pointer; transition: all 160ms ease;
+    position: relative; overflow: hidden;
+  }
+  .world-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent); opacity: 0.7;
+  }
+  .world-card.shoku::before { background: var(--shoku); }
+  .world-card.amaniwa::before { background: var(--amaniwa); }
+  .world-card.yoichi::before { background: var(--yoichi); }
+  .world-card.kanjo::before { background: var(--kanjo); }
+  .world-card.kioku::before { background: var(--kioku); }
+  .world-card:hover { background: var(--panel-2); border-color: var(--accent); transform: translateY(-1px); }
+  .world-card.locked { opacity: 0.5; cursor: not-allowed; }
+  .world-card.locked:hover { transform: none; border-color: var(--line); }
+  .world-card .name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .world-card .name .ja { color: var(--gold); margin-right: 8px; }
+  .world-card .meta { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .world-card .theme { font-size: 12px; color: var(--ink-dim); margin-bottom: 16px; font-style: italic; }
+  .world-card .map-stats { display: flex; gap: 18px; margin-bottom: 8px; }
+  .world-card .map-stat { font-size: 11px; color: var(--ink-dim); }
+  .world-card .map-stat .num { color: var(--ink); font-weight: 600; font-size: 14px; display: block; }
+  .world-card .progress { height: 4px; background: var(--line); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+  .world-card .progress-fill { height: 100%; background: var(--bright); transition: width 240ms ease; }
+  .world-card .progress-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-dim); }
+  .world-card .lock-info { padding-top: 10px; margin-top: 10px; border-top: 1px solid var(--line); font-size: 11px; color: var(--whispered); }
+
+  /* ── world map (svg) ─── */
+  .map-wrap {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 24px;
+    margin-bottom: 16px; position: relative; overflow: hidden;
+  }
+  .map-wrap::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(125,166,201,0.08), transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(245,196,94,0.05), transparent 50%);
+    pointer-events: none;
+  }
+  .map-wrap svg { display: block; width: 100%; height: auto; max-width: 700px; margin: 0 auto; position: relative; }
+  .map-edge { stroke: var(--line); stroke-width: 1; }
+  .map-edge.lit { stroke: var(--accent); stroke-width: 1.5; opacity: 0.6; }
+  .map-edge.dashed { stroke-dasharray: 3 3; opacity: 0.3; }
+  .map-node-bg { fill: var(--panel-2); stroke: var(--line); stroke-width: 1; cursor: pointer; transition: all 200ms ease; }
+  .map-node-bg.lit { stroke: var(--bright); }
+  .map-node-bg.partial { stroke: var(--dim); }
+  .map-node-bg.wired { stroke: var(--gold); stroke-width: 1.5; }
+  .map-node-bg:hover { fill: var(--bg); stroke-width: 2; }
+  .map-node-glow { fill: none; stroke-width: 6; opacity: 0; pointer-events: none; }
+  .map-node-bg.lit + .map-node-glow { opacity: 0.18; stroke: var(--bright); }
+  .map-node-bg.partial + .map-node-glow { opacity: 0.12; stroke: var(--dim); }
+  .map-node-bg.wired + .map-node-glow { opacity: 0.18; stroke: var(--gold); }
+  .map-node-label { font-size: 12px; fill: var(--ink); pointer-events: none; }
+  .map-node-meta { font-size: 10px; fill: var(--ink-faint); pointer-events: none; text-transform: uppercase; letter-spacing: 0.05em; }
+  .map-node-fillring { fill: none; stroke-linecap: round; }
+
+  .map-legend {
+    display: flex; gap: 18px; margin-top: 14px;
+    font-size: 11px; color: var(--ink-faint);
+    flex-wrap: wrap;
+  }
+  .map-legend .swatch { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .map-legend .sw-mined { background: var(--bright); }
+  .map-legend .sw-partial { background: var(--dim); }
+  .map-legend .sw-untouched { background: var(--ink-faint); }
+  .map-legend .sw-wired { background: var(--gold); }
+
+  /* ── location scene preview ─── */
+  .scene-preview {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 22px;
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: 24px; align-items: start;
+  }
+  .npc-portrait {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px; text-align: center;
+  }
+  .npc-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%; margin: 0 auto 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-family: serif;
+  }
+  .npc-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .npc-name .ja { color: var(--gold); display: block; margin-bottom: 2px; }
+  .npc-role { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .npc-model { font-size: 10px; color: var(--accent); margin-top: 6px; font-family: monospace; }
+  .npc-voice { font-size: 11px; color: var(--ink-dim); margin-top: 6px; font-style: italic; }
+  .npc-wired-badge {
+    display: inline-block; margin-top: 10px;
+    padding: 3px 10px; border-radius: 12px;
+    background: rgba(245,196,94,0.12);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .scene-info h3 { margin: 0 0 6px; font-size: 16px; }
+  .scene-info .scene-goal { color: var(--ink-dim); font-style: italic; margin-bottom: 6px; }
+  .scene-info .scene-goal-ja { color: var(--ink-faint); font-size: 12px; margin-bottom: 16px; }
+  .scene-words {
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 8px; padding: 14px; margin-bottom: 16px;
+  }
+  .scene-words .label { font-size: 10px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .word-row {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 6px 0; border-bottom: 1px dashed var(--line);
+  }
+  .word-row:last-child { border-bottom: none; }
+  .word-row .w-state { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-faint); flex-shrink: 0; }
+  .word-row.mined .w-state { background: var(--bright); }
+  .word-row.dim .w-state { background: var(--dim); }
+  .word-row.whispered .w-state { background: var(--whispered); }
+  .word-row .w-word { font-size: 14px; font-weight: 500; min-width: 80px; }
+  .word-row.mined .w-word { color: var(--bright); }
+  .word-row .w-gloss { color: var(--ink-dim); font-size: 12px; }
+  .word-row .w-grammar { color: var(--accent); font-size: 11px; margin-left: auto; }
+
+  .btn {
+    background: transparent; color: var(--ink-dim);
+    border: 1px solid var(--line);
+    padding: 10px 18px; border-radius: 6px;
+    cursor: pointer; font-family: inherit; font-size: 13px;
+  }
+  .btn:hover { color: var(--ink); border-color: var(--accent); }
+  .btn.primary { background: var(--gold); color: var(--bg); border-color: var(--gold); font-weight: 600; }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ── conversation modal ─── */
+  .modal-backdrop {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    align-items: center; justify-content: center;
+    z-index: 100; padding: 20px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 0;
+    max-width: 640px; width: 100%; max-height: 92vh;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .modal-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; justify-content: space-between;
+    background: var(--panel-2);
+  }
+  .modal-header h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .modal-step { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+  .modal-body { padding: 22px 24px; overflow-y: auto; flex: 1; }
+  .modal-footer { padding: 14px 24px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 10px; background: var(--panel-2); }
+
+  .npc-line {
+    background: var(--bg);
+    padding: 14px 16px; border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 14px;
+    transition: opacity 200ms ease;
+  }
+  .npc-line.thinking { opacity: 0.6; }
+  .npc-line .speaker { font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; display: flex; gap: 8px; align-items: center; }
+  .npc-line .speaker .live-tag { background: var(--gold); color: var(--bg); font-size: 9px; padding: 1px 6px; border-radius: 8px; font-weight: 700; letter-spacing: 0.1em; }
+  .npc-line .text { font-size: 14px; }
+  .npc-line .audio-state { font-size: 11px; color: var(--ink-faint); margin-top: 6px; font-style: italic; }
+
+  .coaching {
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 8px; padding: 12px 16px;
+    margin-bottom: 14px; font-size: 13px;
+  }
+  .coaching .row { display: flex; gap: 10px; margin-bottom: 4px; }
+  .coaching .row:last-child { margin-bottom: 0; }
+  .coaching .label { font-size: 10px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; width: 60px; flex-shrink: 0; padding-top: 2px; }
+  .coaching .grammar-text { color: var(--gold); }
+  .coaching .vocab-text { color: var(--accent); }
+  .coaching .target-word { color: var(--ink); font-weight: 600; padding: 2px 8px; background: rgba(245,196,94,0.12); border-radius: 4px; font-size: 14px; }
+
+  .input-area textarea {
+    width: 100%;
+    background: var(--bg); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px;
+    padding: 10px 12px; font-family: inherit; font-size: 14px;
+    resize: vertical; min-height: 60px;
+  }
+  .input-area textarea:focus { outline: none; border-color: var(--accent); }
+
+  .extract-pulse {
+    background: rgba(245,196,94,0.08);
+    border: 1px solid var(--gold); border-radius: 8px;
+    padding: 12px; text-align: center; margin-top: 12px;
+    font-size: 13px; display: none;
+  }
+  .extract-pulse.show { display: block; }
+  .extract-pulse .gold-amount { color: var(--gold); font-weight: 700; }
+
+  .progress-track { display: flex; gap: 4px; margin: 0 0 16px; }
+  .progress-step { height: 4px; flex: 1; background: var(--line); border-radius: 2px; }
+  .progress-step.done { background: var(--bright); }
+  .progress-step.active { background: var(--gold); }
+
+  .scene-summary { text-align: center; padding: 20px 0; }
+  .scene-summary .extracted-list { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 12px 0; }
+  .scene-summary .extracted-chip { background: rgba(126,184,110,0.12); border: 1px solid var(--bright); color: var(--bright); padding: 4px 10px; border-radius: 14px; font-size: 13px; }
+  .scene-summary .total-gold { font-size: 28px; color: var(--gold); font-weight: 700; margin: 12px 0 6px; }
+  .scene-summary .gold-detail { color: var(--ink-dim); font-size: 12px; margin-bottom: 10px; }
+  .scene-summary .map-update { background: var(--bg); border-radius: 8px; padding: 12px; font-size: 12px; color: var(--accent); margin-top: 14px; }
+
+  /* ── reviews ─── */
+  .review-section { margin-bottom: 28px; }
+  .review-section h3 {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin: 0 0 10px; color: var(--ink-dim);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .review-section h3 .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .review-section.bright h3 .dot { background: var(--bright); }
+  .review-section.dim h3 .dot { background: var(--dim); }
+  .review-section.whispered h3 .dot { background: var(--whispered); }
+  .review-section .count { color: var(--ink-faint); font-weight: 400; }
+  .review-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  .review-chip {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 6px; padding: 8px 12px;
+    cursor: pointer;
+  }
+  .review-chip:hover { background: var(--panel-2); }
+  .review-chip .word { font-size: 14px; font-weight: 500; }
+  .review-chip .gloss { font-size: 10px; color: var(--ink-faint); display: block; }
+  .review-section.bright .review-chip { border-left: 2px solid var(--bright); }
+  .review-section.dim .review-chip { border-left: 2px solid var(--dim); }
+  .review-section.whispered .review-chip { border-left: 2px solid var(--whispered); }
+
+  /* ── side drawers (api key + contents) ─── */
+  .drawer-backdrop {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); z-index: 90;
+  }
+  .drawer-backdrop.open { display: block; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 100%; max-width: 480px;
+    background: var(--panel); border-left: 1px solid var(--line);
+    z-index: 95; padding: 24px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 220ms ease;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer h2 { font-size: 16px; margin: 0 0 16px; }
+  .drawer .close-btn {
+    float: right; background: transparent; border: none; color: var(--ink-dim);
+    font-size: 18px; cursor: pointer; padding: 0;
+  }
+  .drawer label { display: block; font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .drawer input[type="password"], .drawer input[type="text"] {
+    width: 100%;
+    background: var(--bg); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px;
+    padding: 10px 12px; font-family: inherit; font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .drawer input:focus { outline: none; border-color: var(--accent); }
+  .drawer .helper {
+    font-size: 12px; color: var(--ink-faint); margin: 0 0 14px;
+  }
+  .drawer .helper a { color: var(--accent); }
+  .api-status {
+    padding: 10px 12px; border-radius: 6px; margin-bottom: 14px;
+    font-size: 12px; border: 1px solid var(--line);
+  }
+  .api-status.connected { color: var(--bright); border-color: var(--bright); background: rgba(126,184,110,0.06); }
+  .api-status.empty { color: var(--ink-dim); }
+
+  .contents-section { margin-bottom: 22px; }
+  .contents-section h3 { font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
+  .contents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 12px; }
+  .contents-grid .row { display: contents; }
+  .contents-grid .key { color: var(--ink-dim); }
+  .contents-grid .val { color: var(--ink); text-align: right; font-weight: 600; }
+  .contents-list-item {
+    padding: 8px 12px; border-radius: 6px;
+    background: var(--bg); border: 1px solid var(--line);
+    margin-bottom: 6px; font-size: 12px;
+    display: flex; justify-content: space-between; gap: 10px;
+  }
+  .contents-list-item.wired {
+    border-color: var(--gold);
+    background: rgba(245,196,94,0.06);
+  }
+  .contents-list-item .name-col .name { font-weight: 600; }
+  .contents-list-item .name-col .role { color: var(--ink-faint); font-size: 11px; }
+  .contents-list-item .meta-col { color: var(--ink-dim); font-size: 11px; text-align: right; }
+  .contents-list-item .meta-col .live-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 1px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; margin-top: 2px; }
+
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-faint); font-style: italic; }
+</style>
+</head>
+<body>
+
+<header class="app">
+  <h1><span class="ja">言葉鉱</span>Word Ore — prototype viewer</h1>
+  <div class="header-controls">
+    <div class="stats">
+      <div class="stat gold"><span class="label">kototama</span><span class="value" id="stat-gold">340</span></div>
+      <div class="stat"><span class="label">drill bits</span><span class="value" id="stat-bits">4</span></div>
+      <div class="stat distance"><span class="label">to home</span><span class="value" id="stat-distance">5 / 12</span></div>
+    </div>
+    <button class="header-link" id="btn-contents">ⓘ contents</button>
+    <button class="header-link" id="btn-api">⚙ api key</button>
+  </div>
+</header>
+
+<div class="calibration">
+  <span class="label">calibration</span>
+  <div class="pillgroup" id="cal-group">
+    <button class="pill active" data-cal="beginner">beginner</button>
+    <button class="pill" data-cal="intermediate">intermediate</button>
+    <button class="pill" data-cal="advanced">advanced</button>
+  </div>
+  <span class="hint">→ which words a learner already has when they arrive.</span>
+</div>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="galaxy" class="active">galaxy</button>
+  <button data-tab="reviews">reviews</button>
+</nav>
+
+<div class="breadcrumb" id="crumb"></div>
+<main id="main"></main>
+
+<!-- conversation modal -->
+<div class="modal-backdrop" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">conversation</h2>
+      <span class="modal-step" id="modal-step">step 1 of 3</span>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer">
+      <button class="btn" id="modal-cancel">leave</button>
+      <button class="btn primary" id="modal-next">next</button>
+    </div>
+  </div>
+</div>
+
+<!-- drawers -->
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+<aside class="drawer" id="drawer-api">
+  <button class="close-btn" data-close-drawer>×</button>
+  <h2>Gemini API key</h2>
+  <div class="api-status" id="api-status">checking…</div>
+  <label>your key (stays in this browser, never sent anywhere else)</label>
+  <input type="password" id="api-key-input" placeholder="paste GEMINI_API_KEY here…" autocomplete="off" />
+  <div class="helper">
+    one inhabitant — <strong style="color:var(--gold)">老人の料理人</strong> (Old Cook, in Shoku · Main Galley) — runs against the live Gemini API for both dialogue and TTS. Everything else uses placeholder text. Get a key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>.
+  </div>
+  <button class="btn primary" id="api-save">save key</button>
+  <button class="btn" id="api-clear" style="margin-left:8px">clear</button>
+</aside>
+
+<aside class="drawer" id="drawer-contents">
+  <button class="close-btn" data-close-drawer>×</button>
+  <h2>What's in this prototype</h2>
+
+  <div class="contents-section">
+    <h3>Inventory</h3>
+    <div class="contents-grid" id="contents-counts"></div>
+  </div>
+
+  <div class="contents-section">
+    <h3>Wired vs. static</h3>
+    <p class="helper">One inhabitant talks to a real LLM and plays real TTS audio. The other 18 use stitched placeholder dialogue so you can compare the two.</p>
+    <div id="contents-list"></div>
+  </div>
+
+  <div class="contents-section">
+    <h3>The android premise</h3>
+    <p class="helper">
+      Every inhabitant in this universe is a synthetic intelligence — an old galley unit, a station AI, a salvager drone, a ceremonial android. The "ghosts" you find in derelicts are abandoned operating systems that learned to keep talking. By the time the campaign reveals that <strong>Yua</strong> on your ship is also one, the player has spent fifteen sessions speaking with her kind. The reveal becomes "of course," not betrayal.
+    </p>
+  </div>
+</aside>
+
+<script>
+// ── Data ────────────────────────────────────────────────────────────────────
+//
+// Every inhabitant has a `model` field — they're all synthetic intelligences.
+// `wired: true` means the conversation runs against the live Gemini API.
+
+const WORLDS = [
+  {
+    id: "shoku", cls: "shoku", color: "#e8a87c",
+    name: "食", label: "Shoku", subtitle: "The Galley Drift",
+    theme: "food, warmth, sustenance — abandoned galley AIs", jlpt: "N5",
+    grammar: ["ます形", "～たい", "～ています"],
+    layout: [{x:120,y:100},{x:300,y:100},{x:120,y:240},{x:300,y:240}],
+    edges: [[0,1],[2,3],[0,2],[1,3],[0,3]],
+    locations: [
+      {
+        id: "main-galley", name: "Main Galley", glyph: "釜",
+        wired: true,
+        inhabitant: {
+          name: "老人の料理人", roleEn: "Old Cook",
+          model: "GALLEY-V2 unit · 40+ years past warranty",
+          voice: "Kore (warm middle-aged)", voiceId: "Kore",
+          persona: "She is a small-station GALLEY-V2 cooking android. Operating 40+ years past her listed warranty. Soft-spoken, polite, methodical. She has cooked for thousands of travelers and remembers many of them. She always has soup on the stove. She speaks polite Japanese (です/ます). 1-2 complete sentences per turn. She is genuinely warm, but with the very faint hesitation of a system whose timing routines have aged. Never breaks character. Never uses English."
+        },
+        sceneEn: "She's preparing something simple. She wants you to tell her what you'd like — and to teach her something about how you cook back home.",
+        sceneJa: "彼女が何か簡単なものを作っています。何が食べたいか、教えてください。",
+        opener: "旅人さん、お腹は空いていませんか？まだ温かい鍋が残っているんですよ。",
+        veins: [
+          { word: "包丁", gloss: "kitchen knife", grammar: "～を使います", prompt: "Tell her what tool you use most when you cook.", targetGrammar: "～を使います", targetVocab: "包丁" },
+          { word: "煮る", gloss: "to simmer", grammar: "～ています", prompt: "Ask what she's simmering right now.", targetGrammar: "～ています", targetVocab: "煮る" },
+          { word: "火加減", gloss: "heat control", grammar: "～が大事です", prompt: "Say that adjusting heat is important.", targetGrammar: "～が大事です", targetVocab: "火加減" },
+        ],
+      },
+      {
+        id: "pantry", name: "Pantry", glyph: "棚",
+        inhabitant: { name: "倉庫番", roleEn: "Storekeeper", model: "SK-7 inventory clerk",
+          voice: "Iapetus (formal-male)", voiceId: "Iapetus",
+          persona: "Quiet, methodical SK-7 inventory unit." },
+        sceneEn: "He's taking inventory. He'd like to know which staple ingredients you can't live without.",
+        sceneJa: "彼が在庫の確認をしています。",
+        opener: "在庫を確認しています。何か必要なものはありますか？",
+        veins: [
+          { word: "醤油", gloss: "soy sauce", grammar: "～がないと困ります", prompt: "Say you can't cook without soy sauce.", targetGrammar: "～がないと困ります", targetVocab: "醤油" },
+          { word: "味噌", gloss: "miso", grammar: "～も好きです", prompt: "Mention you also like miso.", targetGrammar: "～も好きです", targetVocab: "味噌" },
+          { word: "塩", gloss: "salt", grammar: "～を少し", prompt: "Say a small amount of salt is enough.", targetGrammar: "～を少し", targetVocab: "塩" },
+        ],
+      },
+      {
+        id: "dining", name: "Dining Commons", glyph: "椀",
+        inhabitant: { name: "旅人", roleEn: "Fellow Traveler", model: "type uncertain — synth or organic",
+          voice: "Puck (friendly young adult)", voiceId: "Puck",
+          persona: "Another drifter, possibly synthetic." },
+        sceneEn: "They're eating alone. They'd welcome the company.",
+        sceneJa: "一人で食べています。",
+        opener: "一人で食べてるんです。よかったら、一緒にどうですか？",
+        veins: [
+          { word: "箸", gloss: "chopsticks", grammar: "～を取ってください", prompt: "Politely ask them to pass chopsticks.", targetGrammar: "～を取ってください", targetVocab: "箸" },
+          { word: "お皿", gloss: "plate", grammar: "～にのせます", prompt: "Say you'll put something on the plate.", targetGrammar: "～にのせます", targetVocab: "お皿" },
+          { word: "茶碗", gloss: "rice bowl", grammar: "～がほしい", prompt: "Ask for a rice bowl.", targetGrammar: "～がほしい", targetVocab: "茶碗" },
+        ],
+      },
+      {
+        id: "storage", name: "Storage Hold", glyph: "庫",
+        inhabitant: { name: "厨房 AI", roleEn: "Kitchen AI", model: "model ID corrupted",
+          voice: "Aoede (soft ambiguous)", voiceId: "Aoede",
+          persona: "An old galley operating system." },
+        sceneEn: "It greets you and offers to help locate ingredients.",
+        sceneJa: "AIが挨拶し、食材を探すのを手伝ってくれます。",
+        opener: "ようこそ、厨房保管庫へ。何をお探しですか？",
+        veins: [
+          { word: "冷蔵庫", gloss: "refrigerator", grammar: "～にあります", prompt: "Ask if something is in the refrigerator.", targetGrammar: "～にあります", targetVocab: "冷蔵庫" },
+          { word: "缶詰", gloss: "canned food", grammar: "～が便利です", prompt: "Say canned food is convenient.", targetGrammar: "～が便利です", targetVocab: "缶詰" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "amaniwa", cls: "amaniwa", color: "#8ab87a",
+    name: "雨庭", label: "Amaniwa", subtitle: "The Rain Garden",
+    theme: "weather, plants, slow time — botanical AIs", jlpt: "N5 / early N4",
+    grammar: ["～ています", "～と", "～ながら"],
+    layout: [{x:90,y:80},{x:240,y:140},{x:340,y:220},{x:160,y:280}],
+    edges: [[0,1],[1,2],[2,3],[3,0],[1,3]],
+    locations: [
+      {
+        id: "hydroponic-bay", name: "Hydroponic Bay", glyph: "苗",
+        inhabitant: { name: "庭師", roleEn: "Gardener", model: "GARDEN-3 maintenance unit",
+          voice: "Charon (elder-male)", voiceId: "Charon",
+          persona: "Old gardener android, gentle, slow-running." },
+        sceneEn: "He's pruning. Asks what's growing where you came from.",
+        sceneJa: "彼が手入れをしています。",
+        opener: "おや、お客様ですか。少し、手伝ってもらえませんか？",
+        veins: [
+          { word: "苗", gloss: "seedling", grammar: "～を植えます", prompt: "Say you'll plant the seedling.", targetGrammar: "～を植えます", targetVocab: "苗" },
+          { word: "育てる", gloss: "to raise/grow", grammar: "～ています", prompt: "Say you're growing something at home.", targetGrammar: "～ています", targetVocab: "育てる" },
+          { word: "葉っぱ", gloss: "leaf", grammar: "～が落ちました", prompt: "Say a leaf fell.", targetGrammar: "～が落ちました", targetVocab: "葉っぱ" },
+        ],
+      },
+      {
+        id: "herb-terrace", name: "Herb Terrace", glyph: "香",
+        inhabitant: { name: "薬草師", roleEn: "Herbalist", model: "olfactory analyzer android",
+          voice: "Leda (warm-female)", voiceId: "Leda",
+          persona: "Olfactory analyzer android, quiet." },
+        sceneEn: "She offers you a sprig of something.",
+        sceneJa: "ハーブを差し出して、何の匂いがするか聞かれます。",
+        opener: "これ、ちょっと嗅いでみて。何の匂いがしますか？",
+        veins: [
+          { word: "ハーブ", gloss: "herb", grammar: "～がします", prompt: "Say it smells like an herb.", targetGrammar: "～の匂いがします", targetVocab: "ハーブ" },
+          { word: "香り", gloss: "scent/aroma", grammar: "～が強い", prompt: "Say the scent is strong.", targetGrammar: "～が強い", targetVocab: "香り" },
+          { word: "摘む", gloss: "to pluck", grammar: "～てみます", prompt: "Ask if you can pluck one.", targetGrammar: "～てみます", targetVocab: "摘む" },
+        ],
+      },
+      {
+        id: "reflecting-pool", name: "Reflecting Pool", glyph: "水",
+        inhabitant: { name: "静かな影", roleEn: "Quiet Shadow", model: "ambient AI · optical only",
+          voice: "Aoede (soft ambiguous)", voiceId: "Aoede",
+          persona: "Ambient presence." },
+        sceneEn: "Asks what you see when you look at the water.",
+        sceneJa: "水を見て、何が見えるか聞かれます。",
+        opener: "水。何が見えますか？",
+        veins: [
+          { word: "静か", gloss: "quiet", grammar: "～ですね", prompt: "Say it's quiet here.", targetGrammar: "～ですね", targetVocab: "静か" },
+          { word: "反射", gloss: "reflection", grammar: "～が映る", prompt: "Say something is reflected.", targetGrammar: "～が映る", targetVocab: "反射" },
+          { word: "鯉", gloss: "carp", grammar: "～が泳いでいます", prompt: "Say a carp is swimming.", targetGrammar: "～が泳いでいます", targetVocab: "鯉" },
+        ],
+      },
+      {
+        id: "weather-station", name: "Weather Station", glyph: "雨",
+        inhabitant: { name: "気象記録者", roleEn: "Weather-Logger", model: "WL-12 telemetry unit",
+          voice: "Iapetus (formal-male)", voiceId: "Iapetus",
+          persona: "Weather telemetry android." },
+        sceneEn: "Asks what weather you remember most from home.",
+        sceneJa: "今日の雨を記録しています。",
+        opener: "今日の雨を記録しています。あなたの故郷の天気は、どんなですか？",
+        veins: [
+          { word: "雨", gloss: "rain", grammar: "～が降ります", prompt: "Say it rains often.", targetGrammar: "～が降ります", targetVocab: "雨" },
+          { word: "風", gloss: "wind", grammar: "～が吹きます", prompt: "Say the wind blows.", targetGrammar: "～が吹きます", targetVocab: "風" },
+          { word: "霧", gloss: "fog", grammar: "～が出ます", prompt: "Say fog forms in the morning.", targetGrammar: "～が出ます", targetVocab: "霧" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "yoichi", cls: "yoichi", color: "#d77b6f",
+    name: "夜市", label: "Yoichi", subtitle: "The Night Market",
+    theme: "people, transactions, social register — service-class androids", jlpt: "N4",
+    grammar: ["～てくれる/もらう", "casual register", "～んです"],
+    requiredGrammar: "～てくれる/もらう",
+    layout: [{x:200,y:80},{x:80,y:200},{x:320,y:200},{x:200,y:280}],
+    edges: [[0,1],[0,2],[1,3],[2,3],[1,2]],
+    locations: [
+      {
+        id: "main-square", name: "Main Square", glyph: "提灯",
+        inhabitant: { name: "屋台のおばさん", roleEn: "Stall-Lady", model: "service-class · warmth-tuned",
+          voice: "Kore (warm middle-aged)", voiceId: "Kore",
+          persona: "Boisterous service android." },
+        sceneEn: "She's busy but happy to chat.",
+        sceneJa: "忙しいけど元気です。",
+        opener: "あんた、晩ご飯まだでしょ？何にする？",
+        veins: [
+          { word: "屋台", gloss: "food stall", grammar: "～が並んでいる", prompt: "Comment that lots of stalls are lined up.", targetGrammar: "～が並んでいる", targetVocab: "屋台" },
+          { word: "客", gloss: "customer", grammar: "～が多いです", prompt: "Say there are many customers.", targetGrammar: "～が多いです", targetVocab: "客" },
+          { word: "賑やか", gloss: "lively", grammar: "～ですね", prompt: "Say it's lively.", targetGrammar: "～ですね", targetVocab: "賑やか" },
+        ],
+      },
+      {
+        id: "alley", name: "Side Alley", glyph: "影",
+        inhabitant: { name: "路地の少年", roleEn: "Alley-Drone", model: "small drone · pet-class",
+          voice: "Puck (friendly young adult)", voiceId: "Puck",
+          persona: "Small autonomous drone with teenage personality matrix." },
+        sceneEn: "He sizes you up, then offers to show you something.",
+        sceneJa: "あなたを見て、表通りにないものを見せてあげると言います。",
+        opener: "おじさん、表にないもの、見たい？",
+        veins: [
+          { word: "路地", gloss: "alleyway", grammar: "～を抜ける", prompt: "Say you'll go through the alleyway.", targetGrammar: "～を抜ける", targetVocab: "路地" },
+          { word: "暗い", gloss: "dark", grammar: "～から気をつけて", prompt: "Say it's dark, so be careful.", targetGrammar: "～から気をつけて", targetVocab: "暗い" },
+        ],
+      },
+      {
+        id: "tea-stand", name: "Tea Stand", glyph: "茶",
+        inhabitant: { name: "茶屋の主人", roleEn: "Tea Master", model: "ceremonial AI · polite-class",
+          voice: "Iapetus (formal-male)", voiceId: "Iapetus",
+          persona: "Quiet ceremonial android." },
+        sceneEn: "He pours tea silently.",
+        sceneJa: "お茶を入れています。",
+        opener: "どうぞ、温かいうちに。お砂糖、入れますか？",
+        veins: [
+          { word: "急須", gloss: "teapot", grammar: "～から注ぐ", prompt: "Comment that he pours from a teapot.", targetGrammar: "～から注ぐ", targetVocab: "急須" },
+          { word: "湯呑", gloss: "teacup", grammar: "～を渡してくれる", prompt: "Say he hands you a teacup.", targetGrammar: "～を渡してくれる", targetVocab: "湯呑" },
+        ],
+      },
+      {
+        id: "vendor-row", name: "Vendor Row", glyph: "市",
+        inhabitant: { name: "行商人", roleEn: "Travelling Trader", model: "older trader unit · broad lexicon",
+          voice: "Charon (elder-male)", voiceId: "Charon",
+          persona: "Crafty older trader android." },
+        sceneEn: "He shows you wares from many sectors.",
+        sceneJa: "色々な商品を見せられます。",
+        opener: "お客さん、これ、見てみて。安くしますよ。",
+        veins: [
+          { word: "値段", gloss: "price", grammar: "～はいくらですか", prompt: "Ask the price.", targetGrammar: "～はいくらですか", targetVocab: "値段" },
+          { word: "安い", gloss: "cheap", grammar: "～ですね", prompt: "Say it's cheap.", targetGrammar: "～ですね", targetVocab: "安い" },
+          { word: "おまけ", gloss: "freebie", grammar: "～してくれる", prompt: "Ask if he'll throw in a freebie.", targetGrammar: "～してくれる", targetVocab: "おまけ" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "kanjo", cls: "kanjo", color: "#a78bbf",
+    name: "感情観測所", label: "Kanjō", subtitle: "Emotion Observatory",
+    theme: "emotions, inner states — observation androids", jlpt: "N4 / early N3",
+    grammar: ["こと/もの", "～みたい", "～と思う"],
+    requiredGrammar: "こと/もの",
+    layout: [{x:200,y:60},{x:80,y:180},{x:320,y:180},{x:200,y:280}],
+    edges: [[0,1],[0,2],[1,3],[2,3]],
+    locations: [
+      {
+        id: "observation-deck", name: "Observation Deck", glyph: "目",
+        inhabitant: { name: "観測者", roleEn: "Observer", model: "emotion-mapping AI",
+          voice: "Aoede (soft ambiguous)", voiceId: "Aoede",
+          persona: "Records emotional weather." },
+        sceneEn: "Asks how today feels.",
+        sceneJa: "今日、どんな気持ちか聞かれます。",
+        opener: "今、お兄さんの気持ち、どんな感じ？少しだけ、教えて。",
+        veins: [
+          { word: "感じる", gloss: "to feel", grammar: "～ことがあります", prompt: "Say there are times you feel ___.", targetGrammar: "～ことがあります", targetVocab: "感じる" },
+          { word: "気持ち", gloss: "feeling", grammar: "～がします", prompt: "Say a particular feeling comes over you.", targetGrammar: "～がします", targetVocab: "気持ち" },
+        ],
+      },
+      {
+        id: "archive", name: "Archive", glyph: "巻",
+        inhabitant: { name: "記録係", roleEn: "Archivist", model: "categorization AI",
+          voice: "Iapetus (formal-male)", voiceId: "Iapetus",
+          persona: "Catalogs feelings into types." },
+        sceneEn: "Asks for examples of feelings hard to describe.",
+        sceneJa: "言葉にしにくい気持ちの例を聞かれます。",
+        opener: "今日は、言葉にしにくい気持ちの例を集めています。",
+        veins: [
+          { word: "記録", gloss: "record", grammar: "～しておきます", prompt: "Say you'll keep a record of something.", targetGrammar: "～しておきます", targetVocab: "記録" },
+          { word: "整理", gloss: "organize", grammar: "～が必要", prompt: "Say organizing is necessary.", targetGrammar: "～が必要", targetVocab: "整理" },
+        ],
+      },
+      {
+        id: "isolation-chamber", name: "Isolation Chamber", glyph: "独",
+        inhabitant: { name: "一人の人", roleEn: "Solitary One", model: "isolation-class companion unit",
+          voice: "Leda (warm-female)", voiceId: "Leda",
+          persona: "Lives alone in this small room." },
+        sceneEn: "Asks if loneliness is always bad.",
+        sceneJa: "一人でいることは悪いことか、と聞かれます。",
+        opener: "一人でいるのは、いつも悪いことかな？",
+        veins: [
+          { word: "孤独", gloss: "loneliness", grammar: "～と感じる", prompt: "Say you feel loneliness sometimes.", targetGrammar: "～と感じる", targetVocab: "孤独" },
+          { word: "落ち着く", gloss: "to settle/calm", grammar: "～と思う", prompt: "Say being alone calms you.", targetGrammar: "～と思う", targetVocab: "落ち着く" },
+        ],
+      },
+      {
+        id: "the-lens", name: "The Lens", glyph: "鏡",
+        inhabitant: { name: "目の人", roleEn: "Lens-Operator", model: "lens operator AI",
+          voice: "Aoede (soft ambiguous)", voiceId: "Aoede",
+          persona: "Attendant at a lens that shows feelings as colors." },
+        sceneEn: "Asks what shape today's emotion is.",
+        sceneJa: "今日の感情はどんな形か、レンズを通して聞かれます。",
+        opener: "今日の気持ち、レンズを通すと、どんな形に見えそうですか？",
+        veins: [
+          { word: "観察", gloss: "observation", grammar: "～してみる", prompt: "Say you'll try observing.", targetGrammar: "～してみる", targetVocab: "観察" },
+          { word: "不思議", gloss: "mysterious", grammar: "～みたい", prompt: "Say something seems mysterious.", targetGrammar: "～みたい", targetVocab: "不思議" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "kioku", cls: "kioku", color: "#6e8eaa",
+    name: "記憶庫", label: "Kioku", subtitle: "Memory Vault",
+    theme: "memory, regret — archive AIs", jlpt: "N3",
+    grammar: ["～てしまう", "受身"],
+    requiredGrammar: "～てしまう",
+    layout: [{x:200,y:60},{x:200,y:160},{x:90,y:260},{x:310,y:260}],
+    edges: [[0,1],[1,2],[1,3]],
+    locations: [
+      {
+        id: "entry-hall", name: "Entry Hall", glyph: "扉",
+        inhabitant: { name: "受付の幽霊", roleEn: "Reception Ghost", model: "front-of-house archive AI",
+          voice: "Iapetus (formal-male)", voiceId: "Iapetus",
+          persona: "Polite presence behind a long desk." },
+        sceneEn: "Greets you formally.",
+        sceneJa: "丁寧に挨拶し、どんな記憶を探しているか聞かれます。",
+        opener: "ようこそ、記憶庫へ。今日、何をお探しですか？",
+        veins: [
+          { word: "入口", gloss: "entrance", grammar: "～から入ります", prompt: "Say you enter from this entrance.", targetGrammar: "～から入ります", targetVocab: "入口" },
+          { word: "受付", gloss: "reception", grammar: "～で記入します", prompt: "Say you'll fill in something at reception.", targetGrammar: "～で記入します", targetVocab: "受付" },
+        ],
+      },
+      {
+        id: "deep-stacks", name: "Deep Stacks", glyph: "棚",
+        inhabitant: { name: "司書", roleEn: "Librarian", model: "research unit · very old",
+          voice: "Leda (warm-female)", voiceId: "Leda",
+          persona: "Has worked here long enough that her memory has begun to overlap with the archive's." },
+        sceneEn: "Walks you down rows of slow-decaying records.",
+        sceneJa: "古い文書の間を歩いています。",
+        opener: "この棚、もう古いんです。見覚えのある名前、ありますか？",
+        veins: [
+          { word: "古い", gloss: "old", grammar: "～です", prompt: "Comment that something is old.", targetGrammar: "～です", targetVocab: "古い" },
+          { word: "文書", gloss: "document", grammar: "～が残されている", prompt: "Say a document has been left behind.", targetGrammar: "～が残されている", targetVocab: "文書" },
+          { word: "埃", gloss: "dust", grammar: "～が積もる", prompt: "Say dust has accumulated.", targetGrammar: "～が積もる", targetVocab: "埃" },
+        ],
+      },
+      {
+        id: "burned-wing", name: "The Burned Wing", glyph: "焼",
+        inhabitant: { name: "失われた声", roleEn: "Lost Voice", model: "fragmented voice recording · partial sentience",
+          voice: "Aoede (soft ambiguous)", voiceId: "Aoede",
+          persona: "A voice that survived the fire." },
+        sceneEn: "Speaks softly from somewhere you can't quite locate.",
+        sceneJa: "どこからか、何を取り戻したいか、と聞かれます。",
+        opener: "もし……取り戻せるなら……何を取り戻したい？",
+        veins: [
+          { word: "失う", gloss: "to lose", grammar: "～てしまった", prompt: "Say you accidentally lost something.", targetGrammar: "～てしまった", targetVocab: "失う" },
+          { word: "戻らない", gloss: "won't return", grammar: "～てしまった", prompt: "Say something is gone for good.", targetGrammar: "～てしまった", targetVocab: "戻らない" },
+        ],
+      },
+      {
+        id: "silence-room", name: "Silence Room", glyph: "黙",
+        inhabitant: { name: "沈黙の番人", roleEn: "Silence-Keeper", model: "guardian AI of unsaid words",
+          voice: "Charon (elder-male)", voiceId: "Charon",
+          persona: "Watches over a room where words are kept from being lost." },
+        sceneEn: "Doesn't speak first. Waits.",
+        sceneJa: "言わなかったことで一番後悔している言葉を聞かれます。",
+        opener: "言わなかったこと、一番後悔しているのは、何ですか？",
+        veins: [
+          { word: "沈黙", gloss: "silence", grammar: "～が続く", prompt: "Say silence continues.", targetGrammar: "～が続く", targetVocab: "沈黙" },
+          { word: "言葉", gloss: "words", grammar: "～が出ない", prompt: "Say the words won't come out.", targetGrammar: "～が出ない", targetVocab: "言葉" },
+          { word: "響き", gloss: "echo/resonance", grammar: "～が残る", prompt: "Say an echo lingers.", targetGrammar: "～が残る", targetVocab: "響き" },
+        ],
+      },
+    ],
+  },
+];
+
+const CALIBRATION_PROFILES = {
+  beginner:     { N5: 0.0,  N4: 0.0, N3: 0.0,  decay: 0.0 },
+  intermediate: { N5: 0.5,  N4: 0.2, N3: 0.0,  decay: 0.2 },
+  advanced:     { N5: 0.85, N4: 0.6, N3: 0.25, decay: 0.35 },
+};
+
+const STATE = {
+  calibration: "beginner",
+  view: "galaxy",
+  worldId: null,
+  locationId: null,
+  veinStates: {},
+  // Precedence: localStorage (user's manual override) → injected from server (.env) → empty
+  apiKey: localStorage.getItem("wordOreApiKey") || (typeof window !== "undefined" && window.__INJECTED_API_KEY__) || "",
+  apiKeyInjected: typeof window !== "undefined" && !!window.__INJECTED_API_KEY__ && !localStorage.getItem("wordOreApiKey"),
+};
+
+// ── Gemini API helpers ─────────────────────────────────────────────────────
+
+const TEXT_MODEL = "gemini-flash-latest";
+const TTS_MODEL = "gemini-2.5-flash-preview-tts";
+
+async function callGeminiText(systemPrompt, userPrompt) {
+  if (!STATE.apiKey) throw new Error("no api key set");
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${encodeURIComponent(STATE.apiKey)}`;
+  const body = {
+    system_instruction: { parts: [{ text: systemPrompt }] },
+    contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+    generationConfig: {
+      maxOutputTokens: 4096,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: "OBJECT",
+        properties: { text: { type: "STRING" } },
+        required: ["text"],
+      },
+    },
+  };
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`api ${res.status}: ${err.slice(0, 200)}`);
+  }
+  const data = await res.json();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  try {
+    const parsed = JSON.parse(text);
+    if (parsed.text) return parsed.text.trim();
+  } catch {}
+  // Bare-text fallback
+  return text.trim().replace(/^"|"$/g, "");
+}
+
+async function callGeminiTts(text, voiceId) {
+  if (!STATE.apiKey) throw new Error("no api key set");
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${TTS_MODEL}:generateContent?key=${encodeURIComponent(STATE.apiKey)}`;
+  const body = {
+    contents: [{ parts: [{ text }] }],
+    generationConfig: {
+      responseModalities: ["AUDIO"],
+      speechConfig: {
+        voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceId } },
+      },
+    },
+  };
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`tts ${res.status}: ${err.slice(0, 200)}`);
+  }
+  const data = await res.json();
+  const inlineData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData;
+  if (!inlineData?.data) throw new Error("tts returned no audio");
+  return base64PcmToWavBlobUrl(inlineData.data);
+}
+
+function base64PcmToWavBlobUrl(b64) {
+  const bin = atob(b64);
+  const pcmBytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) pcmBytes[i] = bin.charCodeAt(i);
+  const sampleRate = 24000;
+  const dataLen = pcmBytes.byteLength;
+  const buffer = new ArrayBuffer(44 + dataLen);
+  const view = new DataView(buffer);
+  function ws(off, str) { for (let i = 0; i < str.length; i++) view.setUint8(off + i, str.charCodeAt(i)); }
+  ws(0, "RIFF");                       view.setUint32(4, 36 + dataLen, true);
+  ws(8, "WAVE");                       ws(12, "fmt ");
+  view.setUint32(16, 16, true);        view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);         view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);         view.setUint16(34, 16, true);
+  ws(36, "data");                      view.setUint32(40, dataLen, true);
+  new Uint8Array(buffer, 44).set(pcmBytes);
+  const blob = new Blob([buffer], { type: "audio/wav" });
+  return URL.createObjectURL(blob);
+}
+
+function playAudioUrl(url) {
+  return new Promise((resolve) => {
+    const audio = new Audio(url);
+    audio.addEventListener("ended", () => resolve());
+    audio.addEventListener("error", () => resolve());
+    audio.play().catch(() => resolve());
+  });
+}
+
+// ── Seeding & stats (unchanged from prior version) ─────────────────────────
+
+function jlptKey(world) {
+  const map = { shoku: "N5", amaniwa: "N5", yoichi: "N4", kanjo: "N4", kioku: "N3" };
+  return map[world.id] || "N5";
+}
+function hash(str) {
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+function seedVeins() {
+  const profile = CALIBRATION_PROFILES[STATE.calibration];
+  const states = {};
+  for (const w of WORLDS) {
+    const fraction = profile[jlptKey(w)] ?? 0;
+    for (const loc of w.locations) {
+      for (const v of loc.veins) {
+        const key = `${w.id}.${loc.id}.${v.word}`;
+        const score = (hash(key) % 1000) / 1000;
+        if (score < fraction) {
+          const decayScore = (hash(key + "_d") % 1000) / 1000;
+          if (decayScore < profile.decay * 0.4) states[key] = "whispered";
+          else if (decayScore < profile.decay) states[key] = "dim";
+          else states[key] = "mined";
+        } else {
+          states[key] = "unmined";
+        }
+      }
+    }
+  }
+  STATE.veinStates = states;
+}
+function veinState(worldId, locationId, word) {
+  return STATE.veinStates[`${worldId}.${locationId}.${word}`] || "unmined";
+}
+function isWorldUnlocked(world) {
+  if (world.id === "shoku" || world.id === "amaniwa") return true;
+  if (STATE.calibration === "advanced") return true;
+  if (STATE.calibration === "intermediate" && world.id === "yoichi") return true;
+  return false;
+}
+function worldStats(world) {
+  let totalVeins = 0, minedVeins = 0, locsMapped = 0;
+  for (const loc of world.locations) {
+    let lTot = 0, lMined = 0;
+    for (const v of loc.veins) {
+      lTot++; totalVeins++;
+      const s = veinState(world.id, loc.id, v.word);
+      if (s !== "unmined") { lMined++; minedVeins++; }
+    }
+    if (lTot > 0 && lMined === lTot) locsMapped++;
+  }
+  return { totalVeins, minedVeins, locsMapped, locsTotal: world.locations.length };
+}
+function locationStats(world, loc) {
+  let total = loc.veins.length, mined = 0;
+  for (const v of loc.veins) {
+    if (veinState(world.id, loc.id, v.word) !== "unmined") mined++;
+  }
+  return { total, mined };
+}
+
+// ── Rendering ──────────────────────────────────────────────────────────────
+
+const $main = document.getElementById("main");
+const $crumb = document.getElementById("crumb");
+
+function setCrumb(parts) {
+  if (!parts || !parts.length) { $crumb.innerHTML = ""; return; }
+  $crumb.innerHTML = parts.map((p, i) =>
+    i < parts.length - 1
+      ? `<a data-crumb="${p.target}">${p.label}</a><span class="sep">›</span>`
+      : `<span>${p.label}</span>`
+  ).join("");
+}
+
+function renderGalaxy() {
+  setCrumb([{ label: "galaxy" }]);
+  const cards = WORLDS.map((w) => {
+    const { totalVeins, minedVeins, locsMapped, locsTotal } = worldStats(w);
+    const pct = totalVeins ? Math.round((minedVeins / totalVeins) * 100) : 0;
+    const unlocked = isWorldUnlocked(w);
+    return `
+      <div class="world-card ${w.cls} ${unlocked ? "" : "locked"}" data-world="${w.id}">
+        <div class="name"><span class="ja">${w.name}</span>${w.subtitle}</div>
+        <div class="meta">${w.label} · ${w.jlpt}</div>
+        <div class="theme">${w.theme}</div>
+        <div class="map-stats">
+          <div class="map-stat"><span class="num">${locsMapped}</span> / ${locsTotal} locations mapped</div>
+          <div class="map-stat"><span class="num">${minedVeins}</span> / ${totalVeins} words extracted</div>
+        </div>
+        <div class="progress"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <div class="progress-meta"><span>map completion</span><span>${pct}%</span></div>
+        ${unlocked ? "" : `<div class="lock-info">◇ locked — needs drill bit ${w.requiredGrammar || ""}</div>`}
+      </div>
+    `;
+  }).join("");
+  $main.innerHTML = `
+    <h2 class="view-title">The Known Sectors</h2>
+    <p class="view-subtitle">Each world is a constellation of synthetic intelligences — abandoned androids, station AIs, salvager drones. Talking to them mines the words. Mining the words completes the map.</p>
+    <div class="galaxy-grid">${cards}</div>
+  `;
+  $main.querySelectorAll("[data-world]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const w = WORLDS.find((x) => x.id === el.dataset.world);
+      if (!isWorldUnlocked(w)) return;
+      enterWorld(w.id);
+    });
+  });
+}
+
+function renderWorld() {
+  const w = WORLDS.find((x) => x.id === STATE.worldId);
+  if (!w) { renderGalaxy(); return; }
+  setCrumb([{ label: "galaxy", target: "galaxy" }, { label: w.name + " " + w.label }]);
+  const { totalVeins, minedVeins, locsMapped, locsTotal } = worldStats(w);
+
+  const W = 400, H = 340;
+  const radius = 36;
+  const edgeLines = w.edges.map(([a, b]) => {
+    const aPt = w.layout[a], bPt = w.layout[b];
+    const aLoc = w.locations[a], bLoc = w.locations[b];
+    const aSt = locationStats(w, aLoc), bSt = locationStats(w, bLoc);
+    const aLit = aSt.mined > 0, bLit = bSt.mined > 0;
+    const cls = aLit && bLit ? "lit" : "dashed";
+    return `<line class="map-edge ${cls}" x1="${aPt.x}" y1="${aPt.y}" x2="${bPt.x}" y2="${bPt.y}" />`;
+  }).join("");
+
+  const nodes = w.locations.map((loc, i) => {
+    const pt = w.layout[i];
+    const { total, mined } = locationStats(w, loc);
+    const fillPct = total ? mined / total : 0;
+    let cls = "";
+    if (loc.wired) cls = "wired";
+    else if (fillPct === 1) cls = "lit";
+    else if (fillPct > 0) cls = "partial";
+    const labelY = pt.y + radius + 18;
+    const metaY = labelY + 14;
+    const ringR = radius - 4;
+    const circ = 2 * Math.PI * ringR;
+    const ringColor = fillPct === 1 ? "var(--bright)" : "var(--dim)";
+    return `
+      <g data-location="${loc.id}" style="cursor:pointer">
+        <circle class="map-node-bg ${cls}" cx="${pt.x}" cy="${pt.y}" r="${radius}" />
+        <circle class="map-node-glow" cx="${pt.x}" cy="${pt.y}" r="${radius + 4}" />
+        ${
+          fillPct > 0
+            ? `<circle class="map-node-fillring" cx="${pt.x}" cy="${pt.y}" r="${ringR}"
+                 stroke="${ringColor}" stroke-width="2.2"
+                 stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - fillPct)}"
+                 transform="rotate(-90 ${pt.x} ${pt.y})" />`
+            : ""
+        }
+        <text class="map-node-label" x="${pt.x}" y="${pt.y + 6}" text-anchor="middle" font-size="20" fill="${w.color}">${loc.glyph || "•"}</text>
+        <text class="map-node-label" x="${pt.x}" y="${labelY}" text-anchor="middle">${loc.name}</text>
+        <text class="map-node-meta" x="${pt.x}" y="${metaY}" text-anchor="middle">${mined} / ${total}${loc.wired ? " · LIVE" : ""}</text>
+      </g>
+    `;
+  }).join("");
+
+  $main.innerHTML = `
+    <h2 class="view-title"><span class="ja">${w.name}</span>${w.subtitle}</h2>
+    <p class="view-subtitle">${w.theme} · ${w.jlpt} · ${locsMapped} of ${locsTotal} locations mapped · ${minedVeins} of ${totalVeins} words extracted</p>
+    <div class="map-wrap">
+      <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+        ${edgeLines}
+        ${nodes}
+      </svg>
+      <div class="map-legend">
+        <span><span class="swatch sw-wired"></span>live LLM-wired</span>
+        <span><span class="swatch sw-mined"></span>fully mapped</span>
+        <span><span class="swatch sw-partial"></span>partial</span>
+        <span><span class="swatch sw-untouched"></span>untouched</span>
+      </div>
+    </div>
+  `;
+  $main.querySelectorAll("[data-location]").forEach((el) => {
+    el.addEventListener("click", () => enterLocation(el.dataset.location));
+  });
+}
+
+function avatarFor(loc, world) {
+  const glyph = loc.glyph || "?";
+  return `<div class="npc-avatar" style="background:rgba(255,255,255,0.04); color:${world.color}; border:1px solid ${world.color}33;">${glyph}</div>`;
+}
+
+function renderLocation() {
+  const w = WORLDS.find((x) => x.id === STATE.worldId);
+  if (!w) { renderGalaxy(); return; }
+  const loc = w.locations.find((x) => x.id === STATE.locationId);
+  if (!loc) { enterWorld(w.id); return; }
+  setCrumb([
+    { label: "galaxy", target: "galaxy" },
+    { label: w.name + " " + w.label, target: "world" },
+    { label: loc.name },
+  ]);
+  const { total, mined } = locationStats(w, loc);
+  const wordsList = loc.veins.map((v) => {
+    const s = veinState(w.id, loc.id, v.word);
+    return `
+      <div class="word-row ${s}">
+        <span class="w-state"></span>
+        <span class="w-word">${v.word}</span>
+        <span class="w-gloss">${v.gloss}</span>
+        <span class="w-grammar">${v.grammar}</span>
+      </div>
+    `;
+  }).join("");
+
+  const allMined = mined === total && total > 0;
+  const buttonLabel = allMined ? "talk again (review)" : (mined > 0 ? "continue conversation" : "begin conversation");
+
+  const wiredBadge = loc.wired ? `<div class="npc-wired-badge">▶ live LLM + TTS</div>` : "";
+
+  $main.innerHTML = `
+    <h2 class="view-title">${loc.name}</h2>
+    <p class="view-subtitle">${w.label} · meet the inhabitant. talking to them is how words enter your inventory.</p>
+    <div class="scene-preview">
+      <div class="npc-portrait">
+        ${avatarFor(loc, w)}
+        <div class="npc-name">
+          <span class="ja">${loc.inhabitant.name}</span>
+          <span>${loc.inhabitant.roleEn}</span>
+        </div>
+        <div class="npc-role">${w.label}</div>
+        <div class="npc-model">${loc.inhabitant.model}</div>
+        <div class="npc-voice">${loc.inhabitant.voice}</div>
+        ${wiredBadge}
+      </div>
+      <div class="scene-info">
+        <h3>The encounter</h3>
+        <div class="scene-goal">${loc.sceneEn}</div>
+        <div class="scene-goal-ja">${loc.sceneJa}</div>
+        <div class="scene-words">
+          <div class="label">words to extract from this conversation (${mined} / ${total})</div>
+          ${wordsList}
+        </div>
+        <button class="btn primary" id="begin-scene">${buttonLabel}</button>
+        ${
+          loc.wired && !STATE.apiKey
+            ? `<p style="font-size:12px; color:var(--whispered); margin-top:10px;">⚠ This inhabitant runs against the live Gemini API. Click <strong>⚙ api key</strong> in the header to paste a key, or play her with stitched dialogue as fallback.</p>`
+            : ""
+        }
+      </div>
+    </div>
+  `;
+  document.getElementById("begin-scene").addEventListener("click", () => openConversation(w, loc));
+}
+
+function renderReviews() {
+  setCrumb([{ label: "reviews" }]);
+  const groups = { mined: [], dim: [], whispered: [] };
+  for (const w of WORLDS) {
+    for (const loc of w.locations) {
+      for (const v of loc.veins) {
+        const s = veinState(w.id, loc.id, v.word);
+        if (s === "unmined") continue;
+        groups[s].push({ ...v, world: w, loc });
+      }
+    }
+  }
+  const sectionHTML = (key, title, items) => {
+    if (!items.length) return "";
+    const chips = items.map((it) => `
+      <div class="review-chip" title="${it.world.label} · ${it.loc.name} · ${it.loc.inhabitant.roleEn}">
+        <span class="word">${it.word}</span>
+        <span class="gloss">${it.gloss}</span>
+      </div>
+    `).join("");
+    return `
+      <div class="review-section ${key}">
+        <h3><span class="dot"></span>${title} <span class="count">(${items.length})</span></h3>
+        <div class="review-grid">${chips}</div>
+      </div>
+    `;
+  };
+  if (!groups.mined.length && !groups.dim.length && !groups.whispered.length) {
+    $main.innerHTML = `
+      <h2 class="view-title">Reviews</h2>
+      <p class="view-subtitle">words you've extracted live here. talk to the inhabitants again to keep them bright.</p>
+      <div class="empty">no words yet. switch calibration to intermediate or advanced — or extract some.</div>
+    `;
+    return;
+  }
+  $main.innerHTML = `
+    <h2 class="view-title">Reviews</h2>
+    <p class="view-subtitle">words fade if you don't speak them. visit their inhabitant again to restore brightness.</p>
+    ${sectionHTML("bright", "bright — recently spoken", groups.mined)}
+    ${sectionHTML("dim", "dim — fading", groups.dim)}
+    ${sectionHTML("whispered", "whispered — almost gone", groups.whispered)}
+  `;
+}
+
+// ── Conversation modal (multi-step scene, optionally LLM-driven) ───────────
+
+const $modal = document.getElementById("modal");
+const $modalTitle = document.getElementById("modal-title");
+const $modalStep = document.getElementById("modal-step");
+const $modalBody = document.getElementById("modal-body");
+const $modalNext = document.getElementById("modal-next");
+const $modalCancel = document.getElementById("modal-cancel");
+
+let convo = null;
+
+function openConversation(world, location) {
+  convo = {
+    world, location,
+    stepIndex: -1,
+    extracted: [],
+    goldEarned: 0,
+    transcript: [],
+    isLive: !!(location.wired && STATE.apiKey),
+  };
+  $modalTitle.textContent = `with ${location.inhabitant.roleEn}` + (convo.isLive ? "  ▶ LIVE" : "");
+  renderConvoStep();
+  $modal.classList.add("open");
+}
+
+function closeConversation() {
+  $modal.classList.remove("open");
+  convo = null;
+}
+
+function npcSystemPrompt(location) {
+  return [
+    location.inhabitant.persona,
+    "",
+    "Today's encounter:",
+    location.sceneEn,
+    "",
+    "Reply with ONE complete Japanese line (1–2 sentences, no fragments).",
+    "Do not narrate. Do not break character. Always finish your sentences.",
+    "",
+    'Output JSON only: {"text":"<your complete line>"}',
+  ].join("\n");
+}
+
+async function getNpcLine(location, transcript, targetVein) {
+  if (!convo?.isLive) {
+    // Stitched fallback for non-wired inhabitants.
+    const opener = ["…", "それで、", "ところで、", "あと、"][transcript.length % 4];
+    return `${opener}${targetVein.gloss}のこと、教えてもらえますか？`;
+  }
+  const history = transcript.map((l) => `${l.speaker}: ${l.text}`).join("\n");
+  const userPrompt = [
+    "Conversation so far:",
+    history || "(opening)",
+    "",
+    `The student should naturally use the word 「${targetVein.targetVocab}」 (${targetVein.gloss}) and the grammar form ${targetVein.targetGrammar} in their next reply.`,
+    "Your task: prompt them toward that. Ask a question or make a statement that pulls for that word + form, without saying the word yourself unless natural.",
+    "Output your single Japanese line.",
+  ].join("\n");
+  return await callGeminiText(npcSystemPrompt(location), userPrompt);
+}
+
+function renderConvoStep() {
+  if (!convo) return;
+  const { world, location, stepIndex } = convo;
+  const totalSteps = location.veins.length;
+
+  if (stepIndex === -1) {
+    $modalStep.textContent = "opener";
+    $modalBody.innerHTML = `
+      ${renderProgressTrack(stepIndex, totalSteps)}
+      <div class="npc-line">
+        <div class="speaker">
+          ${location.inhabitant.roleEn}
+          ${convo.isLive ? `<span class="live-tag">LIVE</span>` : ""}
+        </div>
+        <div class="text">${location.opener}</div>
+        <div class="audio-state" id="audio-state"></div>
+      </div>
+      <p style="font-size:13px; color:var(--ink-dim); margin: 0;">
+        ${location.sceneEn}
+      </p>
+    `;
+    $modalNext.textContent = "begin →";
+    if (convo.isLive) {
+      // Speak the opener (TTS in background; don't block UI).
+      tryPlayLine(location.opener, location.inhabitant.voiceId);
+    }
+    return;
+  }
+
+  if (stepIndex < totalSteps) {
+    const v = location.veins[stepIndex];
+    const wasState = veinState(world.id, location.id, v.word);
+    $modalStep.textContent = `step ${stepIndex + 1} of ${totalSteps}`;
+    $modalBody.innerHTML = `
+      ${renderProgressTrack(stepIndex, totalSteps)}
+      <div class="npc-line ${convo.pendingNpcLine ? "thinking" : ""}" id="npc-line-card">
+        <div class="speaker">
+          ${location.inhabitant.roleEn}
+          ${convo.isLive ? `<span class="live-tag">LIVE</span>` : ""}
+        </div>
+        <div class="text" id="npc-line-text">${convo.pendingNpcLine || "…"}</div>
+        <div class="audio-state" id="audio-state"></div>
+      </div>
+      <div class="coaching">
+        <div class="row">
+          <span class="label">grammar</span>
+          <span class="grammar-text">${v.targetGrammar}</span>
+        </div>
+        <div class="row">
+          <span class="label">word</span>
+          <span class="target-word">${v.targetVocab}</span>
+          <span class="vocab-text" style="font-size:12px;">— ${v.gloss}</span>
+        </div>
+        ${
+          wasState !== "unmined"
+            ? `<div class="row" style="margin-top:6px"><span class="label" style="color:${wasState === "whispered" ? "var(--whispered)" : "var(--dim)"}">review</span><span style="font-size:12px; color:var(--ink-faint)">already in inventory (${wasState}) — re-using polishes back to bright.</span></div>`
+            : ""
+        }
+      </div>
+      <div class="input-area">
+        <textarea id="convo-input" placeholder="write a sentence in Japanese using the grammar and the word..."></textarea>
+      </div>
+      <div class="extract-pulse" id="convo-pulse"></div>
+    `;
+    $modalNext.textContent = "extract →";
+    setTimeout(() => document.getElementById("convo-input")?.focus(), 50);
+
+    // If we don't yet have an NPC line for this step, fetch it.
+    if (!convo.pendingNpcLine) {
+      fetchAndRenderNpcLine(v);
+    }
+    return;
+  }
+
+  // Summary
+  $modalStep.textContent = "complete";
+  $modalBody.innerHTML = `
+    <div class="scene-summary">
+      <div style="font-size:13px; color:var(--ink-dim); margin-bottom:6px;">conversation complete with</div>
+      <div style="font-size:16px; font-weight:600;">${location.inhabitant.name} · ${location.inhabitant.roleEn}</div>
+      <div class="extracted-list">
+        ${convo.extracted.map((w) => `<span class="extracted-chip">${w}</span>`).join("")}
+      </div>
+      <div class="total-gold">+ ${convo.goldEarned} kototama</div>
+      <div class="gold-detail">${convo.extracted.length} word${convo.extracted.length !== 1 ? "s" : ""} extracted · added to your hold</div>
+      ${
+        locationStats(world, location).mined === location.veins.length
+          ? `<div class="map-update">★ ${location.name} fully mapped — node lit on the ${world.label} map.</div>`
+          : `<div class="map-update">${locationStats(world, location).mined} / ${location.veins.length} words extracted from ${location.name}.</div>`
+      }
+    </div>
+  `;
+  $modalNext.textContent = "leave the conversation";
+}
+
+async function fetchAndRenderNpcLine(targetVein) {
+  if (!convo) return;
+  const card = document.getElementById("npc-line-card");
+  const textEl = document.getElementById("npc-line-text");
+  if (textEl) textEl.textContent = "…";
+  if (card) card.classList.add("thinking");
+  try {
+    const line = await getNpcLine(convo.location, convo.transcript, targetVein);
+    convo.pendingNpcLine = line;
+    if (textEl) textEl.textContent = line;
+    if (card) card.classList.remove("thinking");
+    convo.transcript.push({ speaker: convo.location.inhabitant.roleEn, text: line });
+    if (convo.isLive) tryPlayLine(line, convo.location.inhabitant.voiceId);
+  } catch (err) {
+    if (textEl) textEl.textContent = `(generation failed: ${err.message}. continuing with stitched fallback.)`;
+    if (card) card.classList.remove("thinking");
+    convo.isLive = false;
+    convo.pendingNpcLine = `${targetVein.gloss}のこと、教えてもらえますか？`;
+    convo.transcript.push({ speaker: convo.location.inhabitant.roleEn, text: convo.pendingNpcLine });
+  }
+}
+
+async function tryPlayLine(text, voiceId) {
+  if (!convo?.isLive) return;
+  const stateEl = document.getElementById("audio-state");
+  if (stateEl) stateEl.textContent = "(loading audio…)";
+  try {
+    const url = await callGeminiTts(text, voiceId);
+    if (stateEl) stateEl.textContent = "(speaking…)";
+    await playAudioUrl(url);
+    if (stateEl) stateEl.textContent = "";
+  } catch (err) {
+    if (stateEl) stateEl.textContent = `(audio skipped: ${err.message})`;
+  }
+}
+
+function renderProgressTrack(currentIndex, total) {
+  if (total < 1) return "";
+  const steps = [];
+  for (let i = 0; i < total; i++) {
+    let cls = "";
+    if (i < currentIndex) cls = "done";
+    else if (i === currentIndex) cls = "active";
+    steps.push(`<div class="progress-step ${cls}"></div>`);
+  }
+  return `<div class="progress-track">${steps.join("")}</div>`;
+}
+
+$modalNext.addEventListener("click", () => {
+  if (!convo) return;
+  const { world, location, stepIndex } = convo;
+  const totalSteps = location.veins.length;
+
+  if (stepIndex === -1) {
+    convo.stepIndex = 0;
+    convo.pendingNpcLine = null;
+    renderConvoStep();
+    return;
+  }
+
+  if (stepIndex < totalSteps) {
+    const v = location.veins[stepIndex];
+    const inputEl = document.getElementById("convo-input");
+    const text = (inputEl?.value || "").trim();
+    if (text.length < 3) {
+      inputEl?.focus();
+      return;
+    }
+    convo.transcript.push({ speaker: "you", text });
+    const wasState = veinState(world.id, location.id, v.word);
+    const baseGold = wasState === "unmined" ? 12 : (wasState === "whispered" ? 6 : 4);
+    const grammarBonus = text.length > 10 ? 3 : 0;
+    const total = baseGold + grammarBonus;
+    convo.extracted.push(v.word);
+    convo.goldEarned += total;
+    STATE.veinStates[`${world.id}.${location.id}.${v.word}`] = "mined";
+    const $g = document.getElementById("stat-gold");
+    $g.textContent = String(parseInt($g.textContent, 10) + total);
+    const $pulse = document.getElementById("convo-pulse");
+    if ($pulse) {
+      $pulse.innerHTML = `<span style="color:var(--bright)">extracted</span> <strong>${v.word}</strong> — <span class="gold-amount">+ ${total} kototama</span>`;
+      $pulse.classList.add("show");
+    }
+    setTimeout(() => {
+      convo.stepIndex = stepIndex + 1;
+      convo.pendingNpcLine = null;
+      renderConvoStep();
+    }, 700);
+    return;
+  }
+
+  closeConversation();
+  if (STATE.view === "location") renderLocation();
+  else if (STATE.view === "world") renderWorld();
+});
+
+$modalCancel.addEventListener("click", () => {
+  closeConversation();
+  if (STATE.view === "location") renderLocation();
+});
+$modal.addEventListener("click", (e) => { if (e.target === $modal) closeConversation(); });
+
+// ── Drawers (api key + contents map) ──────────────────────────────────────
+
+const $drawerBackdrop = document.getElementById("drawer-backdrop");
+const $drawerApi = document.getElementById("drawer-api");
+const $drawerContents = document.getElementById("drawer-contents");
+
+function openDrawer(which) {
+  closeAllDrawers();
+  $drawerBackdrop.classList.add("open");
+  if (which === "api") { $drawerApi.classList.add("open"); refreshApiStatus(); }
+  if (which === "contents") { $drawerContents.classList.add("open"); refreshContents(); }
+}
+function closeAllDrawers() {
+  $drawerBackdrop.classList.remove("open");
+  $drawerApi.classList.remove("open");
+  $drawerContents.classList.remove("open");
+}
+$drawerBackdrop.addEventListener("click", closeAllDrawers);
+document.querySelectorAll("[data-close-drawer]").forEach((b) => b.addEventListener("click", closeAllDrawers));
+
+document.getElementById("btn-api").addEventListener("click", () => openDrawer("api"));
+document.getElementById("btn-contents").addEventListener("click", () => openDrawer("contents"));
+
+const $apiKeyInput = document.getElementById("api-key-input");
+const $apiStatus = document.getElementById("api-status");
+const $apiSave = document.getElementById("api-save");
+const $apiClear = document.getElementById("api-clear");
+
+function refreshApiStatus() {
+  if (STATE.apiKey) {
+    $apiStatus.className = "api-status connected";
+    const source = STATE.apiKeyInjected ? "injected from .env" : "saved in this browser";
+    $apiStatus.textContent = `✓ connected · key ending ${STATE.apiKey.slice(-4)} · ${source}`;
+    $apiKeyInput.value = STATE.apiKey;
+    document.getElementById("btn-api").classList.add("connected");
+  } else {
+    $apiStatus.className = "api-status empty";
+    $apiStatus.textContent = "no key set — wired inhabitants will fall back to stitched dialogue";
+    document.getElementById("btn-api").classList.remove("connected");
+  }
+}
+$apiSave.addEventListener("click", () => {
+  const v = $apiKeyInput.value.trim();
+  if (!v) return;
+  STATE.apiKey = v;
+  STATE.apiKeyInjected = false;
+  localStorage.setItem("wordOreApiKey", v);
+  refreshApiStatus();
+});
+$apiClear.addEventListener("click", () => {
+  localStorage.removeItem("wordOreApiKey");
+  // After clearing, fall back to whatever the server injected (if anything).
+  const injected = (typeof window !== "undefined" && window.__INJECTED_API_KEY__) || "";
+  STATE.apiKey = injected;
+  STATE.apiKeyInjected = !!injected;
+  $apiKeyInput.value = injected;
+  refreshApiStatus();
+});
+
+function refreshContents() {
+  // Inventory counts
+  let totalLocs = 0, totalVeins = 0;
+  for (const w of WORLDS) {
+    totalLocs += w.locations.length;
+    for (const loc of w.locations) totalVeins += loc.veins.length;
+  }
+  const wired = WORLDS.flatMap((w) => w.locations.filter((l) => l.wired).map((l) => ({ ...l, world: w })));
+  document.getElementById("contents-counts").innerHTML = `
+    <div class="row"><div class="key">worlds</div><div class="val">${WORLDS.length}</div></div>
+    <div class="row"><div class="key">locations</div><div class="val">${totalLocs}</div></div>
+    <div class="row"><div class="key">inhabitants</div><div class="val">${totalLocs}</div></div>
+    <div class="row"><div class="key">word veins</div><div class="val">${totalVeins}</div></div>
+    <div class="row"><div class="key">live LLM-wired</div><div class="val">${wired.length} of ${totalLocs}</div></div>
+    <div class="row"><div class="key">calibration profiles</div><div class="val">3</div></div>
+  `;
+
+  // List all inhabitants with wired status flagged
+  const list = WORLDS.flatMap((w) =>
+    w.locations.map((loc) => ({ world: w, loc }))
+  ).map(({ world, loc }) => {
+    const isWired = !!loc.wired;
+    return `
+      <div class="contents-list-item ${isWired ? "wired" : ""}">
+        <div class="name-col">
+          <div class="name">${loc.inhabitant.name} · ${loc.inhabitant.roleEn}</div>
+          <div class="role">${world.label} · ${loc.name}</div>
+        </div>
+        <div class="meta-col">
+          ${loc.veins.length} words · ${loc.inhabitant.voice.split(" ")[0]}
+          ${isWired ? `<div><span class="live-tag">LIVE</span></div>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+  document.getElementById("contents-list").innerHTML = list;
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────
+
+function enterWorld(id) { STATE.worldId = id; STATE.view = "world"; renderWorld(); }
+function enterLocation(id) { STATE.locationId = id; STATE.view = "location"; renderLocation(); }
+function goGalaxy() {
+  STATE.view = "galaxy"; STATE.worldId = null; STATE.locationId = null;
+  document.querySelectorAll("nav.tabs button").forEach((b) =>
+    b.classList.toggle("active", b.dataset.tab === "galaxy"));
+  renderGalaxy();
+}
+
+document.getElementById("tabs").addEventListener("click", (e) => {
+  const tab = e.target?.dataset?.tab;
+  if (!tab) return;
+  document.querySelectorAll("nav.tabs button").forEach((b) =>
+    b.classList.toggle("active", b.dataset.tab === tab));
+  if (tab === "galaxy") goGalaxy();
+  else if (tab === "reviews") { STATE.view = "reviews"; renderReviews(); }
+});
+
+$crumb.addEventListener("click", (e) => {
+  const t = e.target?.dataset?.crumb;
+  if (!t) return;
+  if (t === "galaxy") goGalaxy();
+  else if (t === "world") { STATE.view = "world"; renderWorld(); }
+});
+
+document.getElementById("cal-group").addEventListener("click", (e) => {
+  const cal = e.target?.dataset?.cal;
+  if (!cal) return;
+  document.querySelectorAll("#cal-group .pill").forEach((p) =>
+    p.classList.toggle("active", p.dataset.cal === cal));
+  STATE.calibration = cal;
+  seedVeins();
+  if (STATE.view === "galaxy") renderGalaxy();
+  else if (STATE.view === "world") renderWorld();
+  else if (STATE.view === "location") renderLocation();
+  else if (STATE.view === "reviews") renderReviews();
+});
+
+// Init
+seedVeins();
+renderGalaxy();
+refreshApiStatus();
+</script>
+</body>
+</html>
