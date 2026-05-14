@@ -1,0 +1,73 @@
+{
+  "id": "minshuku-arrival-with-mom",
+  "location": "minshuku",
+  "characters": [
+    {
+      "id": "mom",
+      "role": "host_family_mom",
+      "voiceConfig": "ja-warm-female"
+    }
+  ],
+  "scriptedTurns": [
+    {
+      "turn": 1,
+      "speaker": "coach"
+    },
+    {
+      "turn": 2,
+      "speaker": "mom"
+    },
+    {
+      "turn": 3,
+      "speaker": "player"
+    },
+    {
+      "turn": 4,
+      "speaker": "mom"
+    },
+    {
+      "turn": 5,
+      "speaker": "player"
+    },
+    {
+      "turn": 6,
+      "speaker": "mom"
+    },
+    {
+      "turn": 7,
+      "speaker": "player"
+    },
+    {
+      "turn": 8,
+      "speaker": "coach"
+    }
+  ],
+  "microStakeSkeleton": "You've just arrived at the minshuku after a long trip. Mom meets you at the genkan, welcomes you warmly, and exchanges first introductions before showing you inside. She speaks politely — you've never met before. Suitcase at your feet, you're tired but trying to make a good first impression.",
+  "registerTag": "polite",
+  "activeTargetCompatibility": [
+    "tag:introductions",
+    "tag:travel",
+    "tag:minshuku",
+    "tag:formal"
+  ],
+  "passiveScenarioTags": [
+    "introductions",
+    "travel",
+    "minshuku"
+  ],
+  "acceptedDomains": [
+    "social",
+    "temporal",
+    "physical"
+  ],
+  "acceptedRegisters": [
+    "polite",
+    "neutral",
+    "formal"
+  ],
+  "allowedNudges": [
+    "If the player doesn't introduce themselves naturally, mom gently asks where they came from.",
+    "If the player skips a polite form, mom's reply quietly models it."
+  ],
+  "exitBeat": "Mom offers to show you to your room and asks if you'd like tea first."
+}
