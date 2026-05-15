@@ -43,6 +43,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       <Hero />
+      <RecommendationSection />
       <LoopSection />
       <ModeSection />
       <GuidanceStrip />
@@ -159,6 +160,159 @@ function HeroIllustration() {
           <text x="400" y="260">は</text>
         </g>
       </svg>
+    </div>
+  );
+}
+
+function RecommendationSection() {
+  const recs = [
+    {
+      label: "Continue",
+      title: "Summer at the minshuku",
+      scene: "Scene 2 · First morning with mom",
+      minutes: "15 min",
+      coverage: "covers 6 of today's 9 due items",
+      reason: "Picks up where you left off yesterday.",
+      progressFilled: 1,
+      progressTotal: 8,
+      cta: "Continue →",
+      accent: true,
+    },
+    {
+      label: "New story",
+      title: "The cook's kitchen",
+      scene: "Pilot scene · Meeting the cook",
+      minutes: "10 min",
+      coverage: "covers 4 of today's 9 due items",
+      reason: "Lighter register, lighter on grammar. A gentle start.",
+      progressFilled: 0,
+      progressTotal: 6,
+      cta: "Start →",
+      accent: false,
+    },
+    {
+      label: "Single scene",
+      title: "At the bookshop",
+      scene: "Standalone · 10 minutes",
+      minutes: "8 min",
+      coverage: "drills the 3 items you missed yesterday",
+      reason: "No story commitment. In and out.",
+      progressFilled: 0,
+      progressTotal: 1,
+      cta: "Play →",
+      accent: false,
+    },
+  ];
+
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-8">
+      <div className="flex items-baseline justify-between gap-6 border-b border-[color:var(--rule)] pb-4">
+        <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
+          Tonight, we'd recommend
+        </p>
+        <Link
+          href="/library"
+          className="text-xs font-medium text-[color:var(--accent)] hover:underline"
+        >
+          Browse the library →
+        </Link>
+      </div>
+      <ul className="mt-6 grid gap-4 lg:grid-cols-3">
+        {recs.map((r) => (
+          <li key={r.title}>
+            <RecommendationCard {...r} />
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-xs text-[color:var(--muted)]">
+        The engine picks these for you based on what you&apos;re due to
+        review. You can always{" "}
+        <Link
+          href="/library"
+          className="text-[color:var(--accent)] hover:underline"
+        >
+          browse the full library
+        </Link>{" "}
+        instead.
+      </p>
+    </section>
+  );
+}
+
+function RecommendationCard({
+  label,
+  title,
+  scene,
+  minutes,
+  coverage,
+  reason,
+  progressFilled,
+  progressTotal,
+  cta,
+  accent,
+}: {
+  label: string;
+  title: string;
+  scene: string;
+  minutes: string;
+  coverage: string;
+  reason: string;
+  progressFilled: number;
+  progressTotal: number;
+  cta: string;
+  accent: boolean;
+}) {
+  const borderClass = accent
+    ? "border-[color:var(--accent)]/60 bg-[color:var(--surface)]"
+    : "border-[color:var(--rule)] bg-[color:var(--surface)]/40";
+
+  return (
+    <div
+      className={`group h-full rounded-lg border ${borderClass} p-5 transition-colors hover:border-[color:var(--accent)]`}
+    >
+      <div className="flex items-center justify-between">
+        <span
+          className={`rounded-full px-2.5 py-1 text-[10px] font-medium tracking-[0.15em] uppercase ${
+            accent
+              ? "bg-[color:var(--accent)] text-[color:var(--background)]"
+              : "border border-[color:var(--rule)] text-[color:var(--muted)]"
+          }`}
+        >
+          {label}
+        </span>
+        <span className="text-xs text-[color:var(--muted)]">{minutes}</span>
+      </div>
+
+      <h3 className="mt-4 font-serif text-lg leading-snug text-[color:var(--foreground)]">
+        {title}
+      </h3>
+      <p className="mt-1 text-xs text-[color:var(--muted)]">{scene}</p>
+
+      {progressTotal > 1 && (
+        <div className="mt-4 flex gap-1">
+          {Array.from({ length: progressTotal }).map((_, i) => (
+            <span
+              key={i}
+              className={`h-1.5 flex-1 rounded-full ${
+                i < progressFilled
+                  ? "bg-[color:var(--accent)]"
+                  : "bg-[color:var(--rule)]"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+
+      <p className="mt-4 font-serif text-sm italic text-[color:var(--foreground)]/80">
+        {coverage}
+      </p>
+      <p className="mt-2 text-sm text-[color:var(--foreground)]/65">
+        {reason}
+      </p>
+
+      <p className="mt-5 text-sm font-medium text-[color:var(--accent)]">
+        {cta}
+      </p>
     </div>
   );
 }
