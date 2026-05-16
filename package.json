@@ -11,6 +11,7 @@
     "tts:repl": "tsx scripts/tts-repl.ts",
     "tts:tour": "tsx scripts/tts-voices-tour.ts",
     "scene:play": "tsx scripts/scene-interactive.ts",
+    "gen-demo-audio": "tsx scripts/gen-demo-audio.ts",
     "mine": "tsx demos/mine-poc.ts",
     "day": "tsx demos/day-poc.ts",
     "day-demo": "tsx demos/day-demo.ts",
