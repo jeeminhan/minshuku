@@ -168,38 +168,41 @@ function RecommendationSection() {
   const recs = [
     {
       label: "Continue",
+      type: "Learning story",
       title: "Summer at the minshuku",
       scene: "Scene 2 · First morning with mom",
       minutes: "15 min",
       coverage: "covers 6 of today's 9 due items",
-      reason: "Picks up where you left off yesterday.",
+      reason: "Advances your story. Mom remembers you.",
       progressFilled: 1,
       progressTotal: 8,
       cta: "Continue →",
       accent: true,
     },
     {
-      label: "New story",
-      title: "The cook's kitchen",
-      scene: "Pilot scene · Meeting the cook",
+      label: "Stay in this world",
+      type: "Side-episode",
+      title: "Evening tea with Tanaka-san",
+      scene: "Side-episode · Summer at the minshuku",
       minutes: "10 min",
-      coverage: "covers 4 of today's 9 due items",
-      reason: "Lighter register, lighter on grammar. A gentle start.",
-      progressFilled: 0,
-      progressTotal: 6,
-      cta: "Start →",
-      accent: false,
-    },
-    {
-      label: "Single scene",
-      title: "At the bookshop",
-      scene: "Standalone · 10 minutes",
-      minutes: "8 min",
-      coverage: "drills the 3 items you missed yesterday",
-      reason: "No story commitment. In and out.",
+      coverage: "covers 5 of today's 9 due items",
+      reason: "Same people, no plot. Pure review in a familiar place.",
       progressFilled: 0,
       progressTotal: 1,
       cta: "Play →",
+      accent: false,
+    },
+    {
+      label: "Quick session",
+      type: "Drill",
+      title: "3 items you missed yesterday",
+      scene: "Drill · 包丁 · 紹介 · から",
+      minutes: "3 min",
+      coverage: "targets only what slipped",
+      reason: "No story. In and out. For short windows.",
+      progressFilled: 0,
+      progressTotal: 1,
+      cta: "Drill →",
       accent: false,
     },
   ];
@@ -217,6 +220,11 @@ function RecommendationSection() {
           Browse the library →
         </Link>
       </div>
+      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[color:var(--foreground)]/70">
+        Three ways to spend tonight, ranked by how much story you want.
+        Advance your arc, stay in the same world without moving the plot,
+        or just drill what slipped.
+      </p>
       <ul className="mt-6 grid gap-4 lg:grid-cols-3">
         {recs.map((r) => (
           <li key={r.title}>
@@ -241,6 +249,7 @@ function RecommendationSection() {
 
 function RecommendationCard({
   label,
+  type,
   title,
   scene,
   minutes,
@@ -252,6 +261,7 @@ function RecommendationCard({
   accent,
 }: {
   label: string;
+  type: string;
   title: string;
   scene: string;
   minutes: string;
@@ -283,7 +293,10 @@ function RecommendationCard({
         <span className="text-xs text-[color:var(--muted)]">{minutes}</span>
       </div>
 
-      <h3 className="mt-4 font-serif text-lg leading-snug text-[color:var(--foreground)]">
+      <p className="mt-4 text-[10px] font-medium tracking-[0.18em] uppercase text-[color:var(--accent)]/80">
+        {type}
+      </p>
+      <h3 className="mt-1.5 font-serif text-lg leading-snug text-[color:var(--foreground)]">
         {title}
       </h3>
       <p className="mt-1 text-xs text-[color:var(--muted)]">{scene}</p>
