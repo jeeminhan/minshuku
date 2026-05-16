@@ -5,10 +5,21 @@
 
 export type GuidanceLevel = "open" | "targets" | "step";
 
+// A run of Japanese text. `r` is the furigana reading for the kanji in
+// `t` (omitted for kana/punctuation runs). Hand-annotated because the
+// scene is fixed — no runtime tokenizer needed.
+export interface Ruby {
+  t: string;
+  r?: string;
+}
+
+const p = (t: string): Ruby => ({ t });
+const r = (t: string, reading: string): Ruby => ({ t, r: reading });
+
 export interface NpcLine {
   kind: "npc";
   speaker: string;
-  ja: string;
+  ja: Ruby[];
   en: string;
   audio: string; // path under /public
 }
@@ -19,10 +30,10 @@ export interface PlayerTurn {
   guidance: {
     open: string;
     targets: string[];
-    step: { ja: string; en: string };
+    step: { ja: Ruby[]; en: string };
   };
   choices: {
-    ja: string;
+    ja: Ruby[];
     en: string;
     note: string;
     good: boolean;
@@ -42,7 +53,15 @@ export const scene: SceneStep[] = [
   {
     kind: "npc",
     speaker: NPC_NAME,
-    ja: "いらっしゃいませ。遠いところ、よくいらっしゃいました。田中と申します。",
+    ja: [
+      p("いらっしゃいませ。"),
+      r("遠", "とお"),
+      p("いところ、よくいらっしゃいました。"),
+      r("田中", "たなか"),
+      p("と"),
+      r("申", "もう"),
+      p("します。"),
+    ],
     en: "Welcome. Thank you for coming all this way. My name is Tanaka.",
     audio: "/audio/mom-1.wav",
   },
@@ -53,25 +72,37 @@ export const scene: SceneStep[] = [
       open: "Introduce yourself. Be polite — you've only just met.",
       targets: ["申します — humble “my name is”", "お世話になります — “thank you for having me”"],
       step: {
-        ja: "はじめまして。ジョンと申します。お世話になります。",
+        ja: [
+          p("はじめまして。ジョンと"),
+          r("申", "もう"),
+          p("します。お"),
+          r("世話", "せわ"),
+          p("になります。"),
+        ],
         en: "Nice to meet you. My name is John. Thank you for having me.",
       },
     },
     choices: [
       {
-        ja: "はじめまして。ジョンと申します。お世話になります。",
+        ja: [
+          p("はじめまして。ジョンと"),
+          r("申", "もう"),
+          p("します。お"),
+          r("世話", "せわ"),
+          p("になります。"),
+        ],
         en: "Nice to meet you. My name is John. Thank you for having me.",
         note: "Polite and warm — exactly right for a first meeting.",
         good: true,
       },
       {
-        ja: "どうも。ジョンです。",
+        ja: [p("どうも。ジョンです。")],
         en: "Hey. I'm John.",
         note: "Too casual for meeting a host for the first time.",
         good: false,
       },
       {
-        ja: "こんにちは。元気ですか？",
+        ja: [p("こんにちは。"), r("元気", "げんき"), p("ですか？")],
         en: "Hello. How are you?",
         note: "Friendly, but skips the introduction she just offered.",
         good: false,
@@ -81,7 +112,21 @@ export const scene: SceneStep[] = [
   {
     kind: "npc",
     speaker: NPC_NAME,
-    ja: "まあ、ご丁寧に。お疲れでしょう。お部屋にご案内しますね。お荷物、お持ちしましょうか。",
+    ja: [
+      p("まあ、ご"),
+      r("丁寧", "ていねい"),
+      p("に。お"),
+      r("疲", "つか"),
+      p("れでしょう。お"),
+      r("部屋", "へや"),
+      p("にご"),
+      r("案内", "あんない"),
+      p("しますね。お"),
+      r("荷物", "にもつ"),
+      p("、お"),
+      r("持", "も"),
+      p("ちしましょうか。"),
+    ],
     en: "Oh, how polite. You must be tired. Let me show you to your room. Shall I carry your luggage?",
     audio: "/audio/mom-2.wav",
   },
@@ -92,25 +137,41 @@ export const scene: SceneStep[] = [
       open: "She offered to carry your luggage. Accept or decline — politely.",
       targets: ["大丈夫です — “I'm fine / no need”", "お願いします — “yes, please”"],
       step: {
-        ja: "ありがとうございます。でも、大丈夫です。自分で持てます。",
+        ja: [
+          p("ありがとうございます。でも、"),
+          r("大丈夫", "だいじょうぶ"),
+          p("です。"),
+          r("自分", "じぶん"),
+          p("で"),
+          r("持", "も"),
+          p("てます。"),
+        ],
         en: "Thank you. But I'm fine — I can carry it myself.",
       },
     },
     choices: [
       {
-        ja: "ありがとうございます。お願いします。",
+        ja: [
+          p("ありがとうございます。お"),
+          r("願", "ねが"),
+          p("いします。"),
+        ],
         en: "Thank you. Yes, please.",
         note: "Gracious acceptance. Perfectly natural.",
         good: true,
       },
       {
-        ja: "ありがとうございます。でも、大丈夫です。",
+        ja: [
+          p("ありがとうございます。でも、"),
+          r("大丈夫", "だいじょうぶ"),
+          p("です。"),
+        ],
         en: "Thank you, but I'm okay.",
         note: "A polite, common way to decline a kind offer.",
         good: true,
       },
       {
-        ja: "いや、いい。",
+        ja: [p("いや、いい。")],
         en: "Nah, it's fine.",
         note: "Far too blunt for this register.",
         good: false,
@@ -120,7 +181,13 @@ export const scene: SceneStep[] = [
   {
     kind: "npc",
     speaker: NPC_NAME,
-    ja: "では、こちらへどうぞ。お茶を入れますね。ゆっくりしてください。",
+    ja: [
+      p("では、こちらへどうぞ。お"),
+      r("茶", "ちゃ"),
+      p("を"),
+      r("入", "い"),
+      p("れますね。ゆっくりしてください。"),
+    ],
     en: "Then, this way please. I'll make some tea. Please make yourself at home.",
     audio: "/audio/mom-3.wav",
   },

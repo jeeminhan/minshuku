@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
 import {
   scene,
@@ -11,9 +18,34 @@ import {
   type GuidanceLevel,
   type PlayerTurn,
   type NpcLine,
+  type Ruby,
 } from "@/lib/scene";
 
 export type Mode = "voice" | "visual-novel" | "choice";
+
+const FuriganaContext = createContext(false);
+
+function plain(tokens: Ruby[]): string {
+  return tokens.map((tk) => tk.t).join("");
+}
+
+function JA({ t, className }: { t: Ruby[]; className?: string }) {
+  const furigana = useContext(FuriganaContext);
+  return (
+    <span className={className}>
+      {t.map((tk, i) =>
+        furigana && tk.r ? (
+          <ruby key={i}>
+            {tk.t}
+            <rt className="text-[0.5em] text-[color:var(--muted)]">{tk.r}</rt>
+          </ruby>
+        ) : (
+          <span key={i}>{tk.t}</span>
+        ),
+      )}
+    </span>
+  );
+}
 
 const MODE_LABEL: Record<Mode, string> = {
   voice: "Voice",
@@ -25,6 +57,7 @@ export function ScenePlayer({ mode }: { mode: Mode }) {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const [guidance, setGuidance] = useState<GuidanceLevel>("targets");
+  const [furigana, setFurigana] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const current = scene[step];
@@ -51,45 +84,60 @@ export function ScenePlayer({ mode }: { mode: Mode }) {
   };
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col px-6 py-10">
-      <audio ref={audioRef} className="hidden" />
+    <FuriganaContext.Provider value={furigana}>
+      <main className="mx-auto flex min-h-screen max-w-2xl flex-col px-6 py-10">
+        <audio ref={audioRef} className="hidden" />
 
-      <header className="flex items-center justify-between border-b border-[color:var(--rule)] pb-4">
-        <Link
-          href="/"
-          className="text-sm text-[color:var(--accent)] hover:underline"
-        >
-          ← Back
-        </Link>
-        <span className="rounded-full border border-[color:var(--rule)] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[color:var(--muted)]">
-          {MODE_LABEL[mode]} mode
-        </span>
-      </header>
-
-      {!started ? (
-        <StartCard onBegin={() => setStarted(true)} />
-      ) : finished ? (
-        <EndCard mode={mode} onRestart={restart} />
-      ) : (
-        <div className="flex flex-1 flex-col py-8">
-          <SceneStage mode={mode} step={current} guidance={guidance} />
-          <div className="mt-auto">
-            {current?.kind === "player" && (
-              <GuidanceToggle value={guidance} onChange={setGuidance} />
-            )}
-            <Interaction
-              mode={mode}
-              step={current}
-              guidance={guidance}
-              onAdvance={advance}
-              onReplayAudio={() =>
-                current?.kind === "npc" && playAudio(current.audio)
-              }
-            />
+        <header className="flex items-center justify-between gap-4 border-b border-[color:var(--rule)] pb-4">
+          <Link
+            href="/"
+            className="text-sm text-[color:var(--accent)] hover:underline"
+          >
+            ← Back
+          </Link>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setFurigana((f) => !f)}
+              aria-pressed={furigana}
+              className={`rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] transition-colors ${
+                furigana
+                  ? "border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--background)]"
+                  : "border-[color:var(--rule)] text-[color:var(--muted)] hover:border-[color:var(--accent)]"
+              }`}
+            >
+              ふりがな {furigana ? "on" : "off"}
+            </button>
+            <span className="rounded-full border border-[color:var(--rule)] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[color:var(--muted)]">
+              {MODE_LABEL[mode]} mode
+            </span>
           </div>
-        </div>
-      )}
-    </main>
+        </header>
+
+        {!started ? (
+          <StartCard onBegin={() => setStarted(true)} />
+        ) : finished ? (
+          <EndCard mode={mode} onRestart={restart} />
+        ) : (
+          <div className="flex flex-1 flex-col py-8">
+            <SceneStage mode={mode} step={current} guidance={guidance} />
+            <div className="mt-auto">
+              {current?.kind === "player" && (
+                <GuidanceToggle value={guidance} onChange={setGuidance} />
+              )}
+              <Interaction
+                mode={mode}
+                step={current}
+                guidance={guidance}
+                onAdvance={advance}
+                onReplayAudio={() =>
+                  current?.kind === "npc" && playAudio(current.audio)
+                }
+              />
+            </div>
+          </div>
+        )}
+      </main>
+    </FuriganaContext.Provider>
   );
 }
 
@@ -139,9 +187,10 @@ function SceneStage({
         <p className="font-serif text-xs tracking-[0.22em] uppercase text-[color:var(--muted)]">
           {step.speaker}
         </p>
-        <p className="mt-4 font-serif text-2xl leading-relaxed text-[color:var(--foreground)]">
-          {step.ja}
-        </p>
+        <JA
+          t={step.ja}
+          className="mt-4 block font-serif text-2xl leading-relaxed text-[color:var(--foreground)]"
+        />
         <p className="mt-3 text-sm text-[color:var(--muted)]">{step.en}</p>
       </section>
     );
@@ -175,9 +224,10 @@ function VisualNovelStage({ step }: { step: NpcLine | PlayerTurn }) {
             <p className="font-serif text-xs tracking-[0.2em] uppercase text-[color:var(--background)]/60">
               {step.speaker}
             </p>
-            <p className="mt-3 font-serif text-xl leading-relaxed">
-              {step.ja}
-            </p>
+            <JA
+              t={step.ja}
+              className="mt-3 block font-serif text-xl leading-relaxed"
+            />
             <p className="mt-2 text-sm text-[color:var(--background)]/70">
               {step.en}
             </p>
@@ -269,9 +319,10 @@ function GuidanceBody({
       <p className="text-xs uppercase tracking-[0.15em] text-[color:var(--muted)]">
         Try saying
       </p>
-      <p className="mt-2 font-serif text-lg text-[color:var(--foreground)]">
-        {step.guidance.step.ja}
-      </p>
+      <JA
+        t={step.guidance.step.ja}
+        className="mt-2 block font-serif text-lg text-[color:var(--foreground)]"
+      />
       <p className="mt-1 text-sm text-[color:var(--muted)]">
         {step.guidance.step.en}
       </p>
@@ -340,9 +391,10 @@ function ChoiceInput({
               : "border-[color:var(--rule)] bg-[color:var(--surface)]/40"
           }`}
         >
-          <p className="font-serif text-lg text-[color:var(--foreground)]">
-            {c.ja}
-          </p>
+          <JA
+            t={c.ja}
+            className="block font-serif text-lg text-[color:var(--foreground)]"
+          />
           <p className="mt-1 text-sm text-[color:var(--muted)]">{c.en}</p>
           <p className="mt-3 text-sm text-[color:var(--foreground)]/75">
             {c.good ? "✓ " : "→ "}
@@ -362,14 +414,15 @@ function ChoiceInput({
   return (
     <ul className="mt-6 space-y-3">
       {step.choices.map((c, i) => (
-        <li key={c.ja}>
+        <li key={i}>
           <button
             onClick={() => setPicked(i)}
             className="w-full rounded-lg border border-[color:var(--rule)] bg-[color:var(--surface)]/40 p-4 text-left transition-colors hover:border-[color:var(--accent)] hover:bg-[color:var(--surface)]"
           >
-            <p className="font-serif text-lg text-[color:var(--foreground)]">
-              {c.ja}
-            </p>
+            <JA
+              t={c.ja}
+              className="block font-serif text-lg text-[color:var(--foreground)]"
+            />
             <p className="mt-1 text-sm text-[color:var(--muted)]">{c.en}</p>
           </button>
         </li>
@@ -405,7 +458,9 @@ function VoiceInput({
       // No browser STT — simulate after a beat so the feel still lands.
       setTimeout(() => {
         setHeard(
-          guidance === "step" ? step.guidance.step.ja : "（your spoken reply）",
+          guidance === "step"
+            ? plain(step.guidance.step.ja)
+            : "（your spoken reply）",
         );
         setState("heard");
       }, 1200);
