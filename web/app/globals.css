@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+/* ——— 民宿 design tokens — guesthouse evening warmth on washi paper ———
+   Palette cues from public/art/style-bible.md: washi cream, persimmon (柿),
+   indigo (藍), moss, warm umber. Tokens live here per HARNESS convention. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-reveal: 480ms;
+  --shadow-card: 0 1px 2px rgb(90 70 50 / 0.08), 0 4px 18px rgb(90 70 50 / 0.07);
+}
+
+@theme {
+  /* paper + ink */
+  --color-washi: #f4ecdc;
+  --color-washi-deep: #e7dbc1;
+  --color-shoji: #fcf8ee;
+  --color-ink: #322e38;
+  --color-ink-soft: #75695a;
+  /* accents */
+  --color-kaki: #b5491f; /* 柿 persimmon */
+  --color-kaki-deep: #8e3514;
+  --color-kaki-wash: #f5e0cd;
+  --color-aizome: #41506e; /* 藍 indigo cloth */
+  --color-aizome-wash: #e5e6eb;
+  --color-moss: #4f6b36;
+  --color-moss-wash: #e2ead0;
+  --color-seiji-wash: #ddeae2; /* 青磁 celadon */
+  --color-gold: #8f6c14;
+  --color-gold-wash: #f3e6bf;
+  --color-rust: #8e3c26;
+  --color-rust-wash: #eed6ca;
+  --color-sand-wash: #ece3cc;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: var(--font-shippori), "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
+    "Yu Gothic Medium", "Yu Gothic", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-washi);
+  /* faint lantern-light vignette from the top — atmosphere, not a backdrop */
+  background-image: radial-gradient(
+    120% 55% at 50% -8%,
+    rgb(253 247 233 / 0.9),
+    transparent 62%
+  );
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Turn reveal — compositor-friendly only (opacity/transform). */
+@keyframes turn-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.turn-enter {
+  animation: turn-rise var(--duration-reveal) var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turn-enter {
+    animation: none;
+  }
 }

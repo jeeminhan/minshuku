@@ -1,0 +1,21 @@
+{
+  "description": "Ordered complete() responses for the contract-002 demo learner, DAY 2 (same seed grammar.tsumori + vocab.mado/ame/fushigi/yakusoku, now=2026-06-01T09:00:00Z, recentContext from day 1: cafe-regular-encounter/cafe). Plan: minshuku-arrival-with-mom, active grammar.tsumori + vocab.mado, passives vocab.yakusoku + vocab.ame, player turns 3/5/7. Dialogue references day 1's cafe chat, festival plans, and the friend's promise. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
+  "responses": [
+    {
+      "label": "generateDialogue",
+      "text": "{\"briefing\":\"Day two: after yesterday's chat at the town cafe, you arrive at the minshuku where you'll be staying. The mother of the house welcomes you at the entrance — introduce yourself, tell her what you intend to do during your stay, and take in the view when she shows you to your room.\",\"turns\":[{\"turn\":2,\"speaker\":\"mom\",\"text\":\"いらっしゃいませ、ようこそ。昨日の夕方は雨がすごかったでしょう。町のカフェで楽しくお話しされたそうですね。ご滞在中は何をなさいますか？\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"mom\",\"text\":\"まあ、お祭りですか。お友だちとの約束、いいですね。では、お部屋にご案内しますね。こちらへどうぞ。\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"mom\",\"text\":\"ええ、朝の景色は特にきれいですよ。今夜はまた雨かもしれませんが、ゆっくり休んでくださいね。\",\"language\":\"ja\"}],\"result\":\"You settled in at the minshuku after your day at the cafe — you told the mother about your festival promise with your new friend, and she showed you to a room with a mountain view.\"}"
+    },
+    {
+      "label": "syntheticPlayerTurn-3",
+      "text": "はい、楽しかったです。週末はカフェで会った友だちと神社のお祭りに行くつもりです。"
+    },
+    {
+      "label": "syntheticPlayerTurn-5",
+      "text": "わあ、いい部屋ですね。窓から山が見えます。"
+    },
+    {
+      "label": "syntheticPlayerTurn-7",
+      "text": "ありがとうございます。明日は町をもっと歩くつもりです。"
+    }
+  ]
+}

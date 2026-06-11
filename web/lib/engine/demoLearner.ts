@@ -1,19 +1,15 @@
 import type { ReviewItem } from "@engine/types";
 
-// Fixed demo learner for contract 001: every input to runScene is pinned so
-// fixture replay is deterministic. With this seed, `now`, and empty recent
-// context, buildScenePlan deterministically picks the
+// Fixed demo learner: every input to runScene is pinned so fixture replay is
+// deterministic. recentContext comes from the persisted story state (contract
+// 002) — on day 1 it is nulls, and buildScenePlan deterministically picks the
 // `cafe-regular-encounter` template with active targets grammar.tsumori +
-// vocab.mado — the committed fixture in web/fixtures/ was recorded against
-// exactly that plan.
+// vocab.mado; on day 2 (recentContext = cafe-regular-encounter/cafe) it picks
+// `minshuku-arrival-with-mom` with the same actives. The committed fixtures
+// in web/fixtures/ were recorded against exactly those plans.
 export const DEMO_NOW = new Date("2026-06-01T09:00:00.000Z");
 
 export const DEMO_PERSONA = "intermediate-n3-foreign-student";
-
-export const DEMO_RECENT_CONTEXT = {
-  lastTemplateId: null,
-  lastLocation: null,
-} as const;
 
 function newReviewItem(itemId: string, itemType: "grammar" | "vocab"): ReviewItem {
   return {
