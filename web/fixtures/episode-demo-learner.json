@@ -1,0 +1,21 @@
+{
+  "description": "Ordered complete() responses for the contract-001 demo learner (seed grammar.tsumori + vocab.mado/ame/fushigi/yakusoku, now=2026-06-01T09:00:00Z, recentContext nulls). Plan: cafe-regular-encounter, active grammar.tsumori + vocab.mado, player turns 3/5/7. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
+  "responses": [
+    {
+      "label": "generateDialogue",
+      "text": "{\"briefing\":\"You're at the little cafe in town when a friendly regular takes the counter seat next to you. Catch up casually — they'll ask about your weekend plans, so tell them what you intend to do, and mention the seat by the glass where you saw last night's sky.\",\"turns\":[{\"turn\":2,\"speaker\":\"cafe_regular\",\"text\":\"あ、また会ったね！外、雨がすごかったでしょ。ところで、週末は何か予定ある？\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"cafe_regular\",\"text\":\"へえ、いいね！そういえば、ゆうべの空、なんか不思議な色してたの見た？\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"cafe_regular\",\"text\":\"あはは、ほんとだよね。あ、ごめん、このあと友だちと約束があるんだった。続きはまた今度ね！\",\"language\":\"ja\"}],\"result\":\"You chatted with the cafe regular about your festival plans and the strange evening sky, and they dashed off to meet a friend — promising to pick it up next time.\"}"
+    },
+    {
+      "label": "syntheticPlayerTurn-3",
+      "text": "週末は友だちと神社のお祭りに行くつもりだよ。"
+    },
+    {
+      "label": "syntheticPlayerTurn-5",
+      "text": "うん、見たよ。部屋の窓から見えて、ちょっとびっくりした。"
+    },
+    {
+      "label": "syntheticPlayerTurn-7",
+      "text": "うん、また話そう。来週もここに来るつもりだから。"
+    }
+  ]
+}
