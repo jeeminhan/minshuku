@@ -8,3 +8,5 @@ logs/
 tmp/
 public/audio/
 assets/preview/
+.vercel
+.env.freetier.bak

@@ -23,7 +23,10 @@ A demo profile with realistic SRS history and 3-4 days of story already progress
 ## 7. Deploy smoke
 Vercel deploy, key in env vars, fixture mode togglable for safe public URL. Done = live URL runs the full demo-learner loop.
 
+## 8. Voice & atmosphere layer (approved 6/12)
+Three pieces, all fixture-safe: (a) NPC + coach lines spoken — pre-generate audio ONCE locally with the existing TTS pipeline (src/lib/audio/tts.ts, per-template voiceConfig) for the four demo days' fixture dialogue, commit as static assets, play per revealed turn (no runtime API calls, no key on server); (b) per-scene ambience from the existing public/audio/<templateId>.m4a tracks (12 exist; minshuku-arrival-with-mom missing — generate via the music script or reuse a minshuku-* track), user-gesture-gated with a mute toggle; (c) mic input via browser SpeechRecognition (ja-JP) filling the player input — no API, graceful fallback when unsupported.
+
 ## Season 2 (explicitly NOT for the demo)
+- Live two-way voice conversation (Gemini Live native audio — the shaberu direction)
 - Knowledge-mirror companion (NPC constrained to player's known vocab — day-poc idea)
-- Voice I/O (mine-poc's STT loop)
 - Quick-review widget for due backlogs after lapses

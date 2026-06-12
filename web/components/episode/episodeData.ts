@@ -47,6 +47,9 @@ export const episodeResponseSchema = z.discriminatedUnion("status", [
   z.object({
     status: z.literal("completed"),
     log: z.object({
+      // The scene template id — already present in the API response; kept here
+      // (contract 008) to map the per-scene ambience track: /audio/<id>.m4a.
+      templateId: z.string(),
       briefing: z.string(),
       result: z.string(),
       turns: z.array(dialogueTurnSchema),

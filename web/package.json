@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed-demo": "tsx scripts/seed-demo.ts"
+    "seed-demo": "tsx scripts/seed-demo.ts",
+    "gen-fixture-audio": "tsx scripts/gen-fixture-audio.ts"
   },
   "dependencies": {
     "@google/genai": "^1.52.0",

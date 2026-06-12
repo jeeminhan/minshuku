@@ -122,6 +122,8 @@ npm --prefix web run seed-demo
 MINSHUKU_FAKE_LLM=1 npm --prefix web run dev
 ```
 
+**Voice & ambience assets** (contract 008) — the four demo days' NPC and coach lines are spoken with pre-generated TTS clips committed under `web/public/tts/`, and each scene has a looping ambience bed under `web/public/audio/`. The clips are produced **once, locally** by `npm --prefix web run gen-fixture-audio`, which parses the line text out of the four `web/fixtures/episode-demo-learner*.json` files and synthesizes via the engine TTS pipeline using the repo `.env` `GEMINI_API_KEY`. This script is **never run in CI, at runtime, or during QA** — the deployed app and the browser only ever fetch the committed static `.m4a` files (no server key, no per-turn API calls).
+
 ---
 
 ## Deploy (Vercel)

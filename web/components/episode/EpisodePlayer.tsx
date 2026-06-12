@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AmbiencePlayer } from "../audio/AmbiencePlayer";
+import { SoundProvider } from "../audio/SoundProvider";
+import { SoundToggle } from "../audio/SoundToggle";
 import { CoachBeat } from "./CoachBeat";
 import { CompletePanel } from "./CompletePanel";
 import type { CompletionState } from "./CompletePanel";
@@ -77,6 +80,16 @@ function revealTurns(ordered: DialogueTurn[], submittedCount: number): DialogueT
 }
 
 export function EpisodePlayer() {
+  // The SoundProvider owns the global mute state, gesture gate, and single
+  // active-clip registry for every audio control below.
+  return (
+    <SoundProvider>
+      <EpisodeBody />
+    </SoundProvider>
+  );
+}
+
+function EpisodeBody() {
   const [load, setLoad] = useState<LoadState>({ phase: "loading" });
   const [typedByTurn, setTypedByTurn] = useState<Readonly<Record<number, string>>>({});
   const [completion, setCompletion] = useState<Completion>({
@@ -144,6 +157,7 @@ export function EpisodePlayer() {
   }
 
   const { episode } = load;
+  const { day } = episode.story;
   const orderedTurns = [...episode.log.turns].sort((a, b) => a.turn - b.turn);
   const playerTurns = orderedTurns.filter((turn) => turn.speaker === "player");
   const submittedCount = Object.keys(typedByTurn).length;
@@ -152,6 +166,17 @@ export function EpisodePlayer() {
   const finished = nextPlayerTurn === null;
   const passiveItems = episode.items.filter((item) => item.mode === "passive");
   const itemsById = new Map(episode.items.map((item) => [item.itemId, item]));
+
+  // A spoken line auto-plays only when it was revealed by a submission, not on
+  // first load. After ≥1 submission, the NPC turns that follow the most recent
+  // player turn (and, when finished, the result beat) are the freshly revealed
+  // lines. The number of the most-recently-submitted player turn:
+  const lastSubmittedTurn = submittedCount > 0 ? playerTurns[submittedCount - 1].turn : null;
+  const isNewlyRevealed = (key: number | "result"): boolean => {
+    if (submittedCount === 0) return false; // first load — nothing auto-plays
+    if (key === "result") return finished;
+    return lastSubmittedTurn !== null && key > lastSubmittedTurn;
+  };
 
   const handlePlayerSubmit = (text: string) => {
     if (nextPlayerTurn === null) return;
@@ -178,8 +203,12 @@ export function EpisodePlayer() {
 
   return (
     <Shell>
+      <AmbiencePlayer src={`/audio/${episode.log.templateId}.m4a`} />
       <header className="border-b border-washi-deep pb-6">
-        <BrandMark />
+        <div className="flex items-start justify-between gap-3">
+          <BrandMark />
+          <SoundToggle />
+        </div>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
           Day {episode.story.day}
           <span lang="ja" className="ml-3 align-middle text-xl font-normal text-ink-soft sm:text-2xl">
@@ -194,7 +223,7 @@ export function EpisodePlayer() {
       {episode.story.summary !== "" && <StorySoFar summary={episode.story.summary} />}
       <section aria-label="Today’s dialogue" className="mt-8">
         <ol className="flex flex-col gap-4">
-          <CoachBeat kind="briefing" text={episode.log.briefing} />
+          <CoachBeat kind="briefing" text={episode.log.briefing} day={day} />
           {visibleTurns.map((turn) =>
             turn.speaker === "player" ? (
               <PlayerTurn
@@ -210,10 +239,19 @@ export function EpisodePlayer() {
                 speaker={turn.speaker}
                 text={turn.text}
                 passiveItems={passiveItems}
+                day={day}
+                autoOnReveal={isNewlyRevealed(turn.turn)}
               />
             ),
           )}
-          {finished && <CoachBeat kind="result" text={episode.log.result} />}
+          {finished && (
+            <CoachBeat
+              kind="result"
+              text={episode.log.result}
+              day={day}
+              autoOnReveal={isNewlyRevealed("result")}
+            />
+          )}
         </ol>
       </section>
       {finished ? (
