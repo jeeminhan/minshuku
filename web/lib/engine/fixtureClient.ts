@@ -2,6 +2,8 @@ import { GeminiClient } from "@engine/llm/client";
 import type { LLMClient } from "@engine/llm/client";
 import day1Fixture from "@web/fixtures/episode-demo-learner.json";
 import day2Fixture from "@web/fixtures/episode-demo-learner-day2.json";
+import day3Fixture from "@web/fixtures/episode-demo-learner-day3.json";
+import day4Fixture from "@web/fixtures/episode-demo-learner-day4.json";
 
 export interface FixtureResponse {
   label: string;
@@ -19,6 +21,8 @@ interface EpisodeFixture {
 const FIXTURES_BY_DAY: Record<number, { name: string; fixture: EpisodeFixture }> = {
   1: { name: "episode-demo-learner.json", fixture: day1Fixture },
   2: { name: "episode-demo-learner-day2.json", fixture: day2Fixture },
+  3: { name: "episode-demo-learner-day3.json", fixture: day3Fixture },
+  4: { name: "episode-demo-learner-day4.json", fixture: day4Fixture },
 };
 
 // Replays recorded `complete()` responses as an ordered sequence: the Nth

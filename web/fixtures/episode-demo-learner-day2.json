@@ -1,21 +1,21 @@
 {
-  "description": "Ordered complete() responses for the contract-002 demo learner, DAY 2 (same seed grammar.tsumori + vocab.mado/ame/fushigi/yakusoku, now=2026-06-01T09:00:00Z, recentContext from day 1: cafe-regular-encounter/cafe). Plan: minshuku-arrival-with-mom, active grammar.tsumori + vocab.mado, passives vocab.yakusoku + vocab.ame, player turns 3/5/7. Dialogue references day 1's cafe chat, festival plans, and the friend's promise. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
+  "description": "Ordered complete() responses for the demo learner, DAY 2, re-authored for contract 004 against the EVOLVED SRS state (day-1 outcomes applied at 2026-06-01T09:00Z: grammar.tsumori mastered → resting until 06-05, vocab.mado produced → due 06-02; clock now=2026-06-02T09:00Z, recentContext from day 1: cafe-regular-encounter/cafe). Engine plan: late-night-walk-stranger (town_outskirts, NPC `stranger` turns 2/4/6, player turns 3/5/7), active target vocab.ame ONLY, passives vocab.fushigi + vocab.mado + vocab.yakusoku — 不思議/窓/約束 appear verbatim in the stranger's lines, 雨 never does (active surface is forbidden in AI lines). The player produces 雨 unprompted in turns 3 and 7 → per-turn produced/missed/produced, aggregated vocab.ame → mastered. Dialogue references day 1's cafe chat and festival promise. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
   "responses": [
     {
       "label": "generateDialogue",
-      "text": "{\"briefing\":\"Day two: after yesterday's chat at the town cafe, you arrive at the minshuku where you'll be staying. The mother of the house welcomes you at the entrance — introduce yourself, tell her what you intend to do during your stay, and take in the view when she shows you to your room.\",\"turns\":[{\"turn\":2,\"speaker\":\"mom\",\"text\":\"いらっしゃいませ、ようこそ。昨日の夕方は雨がすごかったでしょう。町のカフェで楽しくお話しされたそうですね。ご滞在中は何をなさいますか？\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"mom\",\"text\":\"まあ、お祭りですか。お友だちとの約束、いいですね。では、お部屋にご案内しますね。こちらへどうぞ。\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"mom\",\"text\":\"ええ、朝の景色は特にきれいですよ。今夜はまた雨かもしれませんが、ゆっくり休んでくださいね。\",\"language\":\"ja\"}],\"result\":\"You settled in at the minshuku after your day at the cafe — you told the mother about your festival promise with your new friend, and she showed you to a room with a mountain view.\"}"
+      "text": "{\"briefing\":\"Night two: after yesterday's chat at the cafe you can't sleep, so you walk the road past the minshuku toward the edge of town. A stranger leaning on the fence greets you as if they had been waiting — answer their questions about tonight, and say what you think the sky is about to do.\",\"turns\":[{\"turn\":2,\"speaker\":\"stranger\",\"text\":\"こんばんは。こんな時間に散歩ですか。ゆうべの空は不思議な色でしたねえ。今夜はどうなると思いますか？\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"stranger\",\"text\":\"そうですか。ほら、あの家の窓にはまだ灯りがついていますよ。ところで、昨日カフェでお友だちと約束をなさったでしょう。\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"stranger\",\"text\":\"ふふ、風の便りですよ。その約束、大事になさってください。さあ、風が出てきました。お戻りになったほうがいい。\",\"language\":\"ja\"}],\"result\":\"On the dark road at the edge of town you met a stranger who somehow knew about yesterday's promise — you read tonight's sky for them, and turned back before the rain could catch you.\"}"
     },
     {
       "label": "syntheticPlayerTurn-3",
-      "text": "はい、楽しかったです。週末はカフェで会った友だちと神社のお祭りに行くつもりです。"
+      "text": "眠れなくて、少し歩きたかったんです。今夜はまた雨が降る気がします。"
     },
     {
       "label": "syntheticPlayerTurn-5",
-      "text": "わあ、いい部屋ですね。窓から山が見えます。"
+      "text": "えっ、どうして知っているんですか。はい、神社のお祭りに一緒に行く約束をしました。"
     },
     {
       "label": "syntheticPlayerTurn-7",
-      "text": "ありがとうございます。明日は町をもっと歩くつもりです。"
+      "text": "はい、そうします。雨が降る前に戻ります。おやすみなさい。"
     }
   ]
 }

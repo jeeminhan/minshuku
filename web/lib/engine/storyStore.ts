@@ -1,13 +1,59 @@
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { z } from "zod";
+import { applyOutcome } from "@engine/srs/intervals";
+import { pickDueItems } from "@engine/srs/pickDueItems";
+import type { Outcome, ReviewItem } from "@engine/types";
+import { demoClock, demoReviewItems } from "./demoLearner";
 
 // Story-so-far persistence for contract 002: a single JSON file at
 // web/.data/story-state.json, read from disk on EVERY request and rewritten
 // on every state change. No in-memory cache — deleting the file resets the
 // story to day 1 on the very next request, without a server restart.
 // (cwd is web/ under `next dev`/`next start`, per HARNESS.md.)
+// Contract 004 adds the learner's ReviewItem[] to the state: GET reads them
+// (never writes them), POST /api/episode/complete evolves them through the
+// engine's applyOutcome. A pre-004 state file fails the schema below and
+// produces the loud "corrupt — delete to reset" error; deleting the file is
+// the documented migration.
 const STORY_STATE_PATH = join(process.cwd(), ".data", "story-state.json");
+
+const ItemTypeSchema = z.enum(["vocab", "grammar"]);
+const RecallModeSchema = z.enum(["active", "passive"]);
+const OutcomeSchema = z.enum([
+  "missed",
+  "recognized",
+  "produced_with_help",
+  "produced",
+  "mastered",
+]);
+
+// Mirrors the engine's ReviewItem (src/lib/types.ts) — structural identity is
+// what lets state.reviewItems flow into runScene/applyOutcome/pickDueItems.
+const ReviewItemSchema = z.object({
+  itemId: z.string(),
+  itemType: ItemTypeSchema,
+  lastReviewedAt: z.string().nullable(),
+  nextReviewAt: z.string().nullable(),
+  ease: z.number(),
+  interval: z.number(),
+  lapses: z.number(),
+});
+
+// Mirrors the engine's ItemAssignment.
+const ItemAssignmentSchema = z.object({
+  itemId: z.string(),
+  itemType: ItemTypeSchema,
+  mode: RecallModeSchema,
+});
+
+// One aggregated active-target outcome from the day's SceneRunLog, with the
+// itemType joined in (log.itemOutcomes carries only itemId/mode/outcome).
+const PendingOutcomeSchema = z.object({
+  itemId: z.string(),
+  itemType: ItemTypeSchema,
+  outcome: OutcomeSchema,
+});
 
 // The not-yet-folded-in result of the current day's generated episode.
 // Recorded by GET /api/episode, consumed by POST /api/episode/complete.
@@ -16,6 +62,12 @@ const PendingEpisodeSchema = z.object({
   result: z.string(),
   templateId: z.string(),
   location: z.string().nullable(),
+  // Aggregated outcomes for the day's ACTIVE targets — applied to
+  // reviewItems on complete, and the source of the debrief's "strengthened".
+  itemOutcomes: z.array(PendingOutcomeSchema),
+  // The day's passive ItemAssignments — the debrief's "learned". Passives
+  // get NO SRS update (engine precedent: only actives are evaluated).
+  passiveItems: z.array(ItemAssignmentSchema),
 });
 
 const StoryStateSchema = z.object({
@@ -28,8 +80,12 @@ const StoryStateSchema = z.object({
     lastTemplateId: z.string().nullable(),
     lastLocation: z.string().nullable(),
   }),
+  // The persisted learner SRS state, in seed order (pickDueItems tie-breaks
+  // by stable sort on input order — preserving order is load-bearing).
+  reviewItems: z.array(ReviewItemSchema),
 });
 
+export type PendingOutcome = z.infer<typeof PendingOutcomeSchema>;
 export type PendingEpisode = z.infer<typeof PendingEpisodeSchema>;
 export type StoryState = z.infer<typeof StoryStateSchema>;
 
@@ -39,6 +95,7 @@ export function freshStoryState(): StoryState {
     summary: "",
     pending: null,
     recentContext: { lastTemplateId: null, lastLocation: null },
+    reviewItems: demoReviewItems(),
   };
 }
 
@@ -64,22 +121,80 @@ export function writeStoryState(state: StoryState): void {
   writeFileSync(STORY_STATE_PATH, `${JSON.stringify(state, null, 2)}\n`, "utf8");
 }
 
-// Fold the pending episode into the story: append its result line VERBATIM
-// (with a day-label prefix), advance the day, clear pending, and carry the
-// episode's template/location forward as the next day's recentContext.
-// Returns null when there is nothing pending (caller maps that to a 409).
-// Pure — the caller persists the returned state. No LLM involved: the
-// summary is accumulated log.result lines, nothing more.
-export function foldPendingIntoStory(state: StoryState): StoryState | null {
+// Debrief data computed at completion (contract 004), in engine terms — the
+// API route joins each entry with surface/reading/meaning for the response.
+export interface EpisodeDebrief {
+  // New passives met today (no SRS update — they resurface via dueTomorrow).
+  learned: PendingEpisode["passiveItems"];
+  // Active targets the learner actually produced today.
+  strengthened: PendingOutcome[];
+  // The evolved items due at the NEXT day's clock, in pickDueItems order.
+  dueTomorrow: ReviewItem[];
+}
+
+export interface CompletedDay {
+  state: StoryState;
+  debrief: EpisodeDebrief;
+}
+
+const STRENGTHENED_OUTCOMES: readonly Outcome[] = [
+  "produced_with_help",
+  "produced",
+  "mastered",
+];
+
+// Apply the day's aggregated outcomes exactly the way scripts/run-scene.ts
+// does (applySceneOutcomes): one engine applyOutcome per item that has an
+// entry in itemOutcomes, at the COMPLETED day's clock; items with no outcome
+// (passives, off-plan items) are left untouched.
+function applyPendingOutcomes(
+  items: StoryState["reviewItems"],
+  outcomes: PendingOutcome[],
+  now: Date,
+): StoryState["reviewItems"] {
+  const outcomesByItem = new Map(outcomes.map((o) => [o.itemId, o.outcome]));
+  return items.map((item) => {
+    const outcome = outcomesByItem.get(item.itemId);
+    return outcome ? applyOutcome(item, outcome, now) : item;
+  });
+}
+
+// Complete the pending episode (contract 004, extending contract 002's
+// foldPendingIntoStory): append its result line VERBATIM (with a day-label
+// prefix), advance the day, clear pending, carry the episode's
+// template/location forward as the next day's recentContext, evolve
+// reviewItems through the engine's applyOutcome, and compute the debrief.
+// Returns null when there is nothing pending (caller maps that to a 409 and
+// must NOT write — a 409 never applies outcomes). Pure — the caller persists
+// the returned state. No LLM involved: the summary is accumulated log.result
+// lines, nothing more.
+export function completeEpisode(state: StoryState): CompletedDay | null {
   if (!state.pending) return null;
-  const line = `Day ${state.pending.day}: ${state.pending.result}`;
+  const pending = state.pending;
+  const reviewItems = applyPendingOutcomes(
+    state.reviewItems,
+    pending.itemOutcomes,
+    demoClock(pending.day),
+  );
+  const nextDay = state.day + 1;
+  const line = `Day ${pending.day}: ${pending.result}`;
   return {
-    day: state.day + 1,
-    summary: state.summary === "" ? line : `${state.summary}\n${line}`,
-    pending: null,
-    recentContext: {
-      lastTemplateId: state.pending.templateId,
-      lastLocation: state.pending.location,
+    state: {
+      day: nextDay,
+      summary: state.summary === "" ? line : `${state.summary}\n${line}`,
+      pending: null,
+      recentContext: {
+        lastTemplateId: pending.templateId,
+        lastLocation: pending.location,
+      },
+      reviewItems,
+    },
+    debrief: {
+      learned: pending.passiveItems,
+      strengthened: pending.itemOutcomes.filter((o) =>
+        STRENGTHENED_OUTCOMES.includes(o.outcome),
+      ),
+      dueTomorrow: pickDueItems(reviewItems, demoClock(nextDay)),
     },
   };
 }

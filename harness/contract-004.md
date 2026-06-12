@@ -70,3 +70,64 @@ Day-1 ground truth (committed fixture, verified): aggregated `log.itemOutcomes` 
 - For C7/C8 reuse the contract-003 walkthrough mechanics (listeners before `goto`, non-empty text per player turn). Do not tap gloss tokens or re-assert 003 criteria — they are covered by 003's QA; this walkthrough only needs to reach the complete action.
 - C9's reset happens while the dev server runs — the store re-reads per request, no restart needed.
 - Leave `web/.data/story-state.json` deleted at the end.
+
+## Evaluator review
+
+**Verdict: ACCEPTED**
+
+### Engine simulation spot-check
+
+**Pin 1 — `grammar.tsumori → mastered` produces `interval=4, ease=2.65, nextReviewAt=2026-06-05T09:00:00.000Z`.**
+
+Verified by tracing `applyOutcome` directly against `src/lib/srs/intervals.ts`:
+- Input: `interval=0, ease=2.5` + outcome `mastered` → grade `Easy`
+- `nextInterval(0, 2.5, "Easy")`: `current === 0` branch returns `4` (grade is Easy) — correct.
+- `nextEase(2.5, "Easy")`: returns `2.5 + 0.15 = 2.65` — correct. IEEE double equality `2.65 === 2.65` confirmed in Node.js (contract note about jq safety is accurate).
+- `now.setUTCDate(1 + 4) = June 5` → `nextReviewAt = "2026-06-05T09:00:00.000Z"` — correct.
+- `lapses` stays 0 (grade ≠ Again) — correct.
+
+All C3 pins for `grammar.tsumori` match exactly.
+
+**Pin 2 — day-2 plan is `late-night-walk-stranger`, active `vocab.ame`.**
+
+Full engine simulation run:
+1. `pickDueItems` at `2026-06-02T09:00:00Z` against evolved state: tsumori (`nextReviewAt=2026-06-05`) filtered out; ame/fushigi/yakusoku (`nextReviewAt=null`) score overdueMs=nowMs; mado (`nextReviewAt=2026-06-02T09:00:00Z`) scores overdueMs=0. Sorted: `[ame, fushigi, yakusoku, mado]` (stable, seed order for tied nulls). Confirmed `grammar.tsumori` absent.
+2. `pickActiveTargets(due)`: no grammar in due → first vocab = `vocab.ame` → `[vocab.ame]` only. Confirmed C4's `[.log.activeTargetsChosen[].itemId] == ["vocab.ame"]`.
+3. `filterTemplates` for `tag:weather` (vocab.ame has scenarioTag `weather`): `cafe-regular-encounter`, `late-night-walk-stranger`, `minshuku-laundry-help` all pass register+domain fit; `shrine-afternoon-keeper` fails (register `polite`/`formal` rejects `neutral`).
+4. `scoreTemplates` with `lastTemplateId=cafe-regular-encounter, lastLocation=cafe`: cafe gets −5−2=3; late-night-walk-stranger gets 10; minshuku-laundry-help gets 10. Tie at 10. `pickBestTemplate` uses stable sort: `late-night-walk-stranger` appears first in the filtered array (alphabetical filesystem order puts it before `minshuku-laundry-help`). Winner confirmed.
+5. `pickPassiveItems(due, template, [vocab.ame])`: candidates = `[fushigi, yakusoku, mado]` (from due order); overlap with template's passiveScenarioTags `[soft-magical, feelings, weather, nature]`: fushigi=1 (soft-magical), yakusoku=0, mado=1 (weather). Stable sort descending → `[fushigi(1), mado(1), yakusoku(0)]`; top-3 = all three. Passives = `{vocab.fushigi, vocab.mado, vocab.yakusoku}`. Confirmed.
+
+Template scripted turns verified: coach(1), stranger(2,4,6), player(3,5,7), coach(8) — matches contract's "NPC turns 2/4/6, player turns 3/5/7".
+
+### Issues found and dispositions
+
+**Issue A — Template tie-break has an implicit assumption (not blocking).**
+
+`late-night-walk-stranger` wins its tie with `minshuku-laundry-help` because `readdirSync` returns alphabetical order on HFS+/APFS (macOS) and Linux ext4. This is filesystem-dependent, not guaranteed by the engine spec. The contract's evaluator note says "if C4's template differs, the generator changed the clock model, the seed order, or applied grades to passives; that is a FAIL of the corresponding decision, not a pin to relax." This framing slightly elides the tie-break source. In practice this is safe: the dev machine is macOS, the CI/QA machine is the same host, and the template cache is loaded once per process — the evaluation is reproducible. No revision required; flagging for the build round's awareness.
+
+**Issue B — C6 `vocab.ame` outcome open-ended (by design, correctly documented).**
+
+C6 checks `[.debrief.strengthened[].itemId] | index("vocab.ame") != null` but does not pin the specific outcome — this is intentional (the contract notes the outcome must be verified against the real evaluator and documented in generator-state.md). The fixture requirement states `雨 appears in at least one player line so vocab.ame aggregates to produced or mastered`. This is a build-time obligation, not an evaluator relaxation. The criterion as written is mechanically checkable (presence check + `interval>=1`). Acceptable.
+
+**Issue C — C5 phrasing "rewrite at most `pending`" is slightly ambiguous but testable.**
+
+The criterion says "repeat GETs rewrite at most `pending`, never the learner state" — `pending` may or may not be rewritten by a GET (the GET populates pending if absent). The testable assertion is the `.reviewItems` snapshot and byte-identical GET bodies — both are precisely specified. No revision needed.
+
+**Issue D — `data-testid="complete-confirmation"` retained on the debrief root (C7).**
+
+The contract says the debrief root (or a visible element within it) keeps `data-testid="complete-confirmation"` with non-empty text so contract-003 C6 stays green. This is an additive constraint on the debrief component, clearly stated. Testable as written.
+
+### Criteria quality assessment
+
+All 10 criteria are mechanically checkable without judgment calls:
+- C1–C6: exact jq filter strings, `cmp` for byte-identity, HTTP status codes.
+- C7: explicit selector vocabulary, exact counts, visible-text substring checks, computed color inequality.
+- C8: exact request counts, regex on text content, zero-error console checks.
+- C9: explicit viewport, scrollWidth bound, bounding-box right-edge numeric check.
+- C10: exit codes, grep counts, import path verification.
+
+No vague criteria ("looks good", "works well") present. itemIds pinned throughout. The selector vocabulary (`data-debrief-group`, `data-item-id`, `data-outcome`, `data-testid`) is fully specified in the scope section and referenced consistently in the criteria. The day-2 fixture re-authoring obligations are precise (4 responses, NPC speakers, surfaces verbatim, production requirement for vocab.ame).
+
+### Summary
+
+Both named pins (tsumori interval/nextReviewAt and day-2 template/active-target) are confirmed correct by direct engine code trace. The day-2 fixture requirements are stated with sufficient precision. Debrief-group criteria are pinned by exact itemIds. The demo-clock decision is testable (`DEMO_NOW + (N−1)×24h` with day-1 baseline `2026-06-01T09:00:00Z`) and its interaction with contract-002/003 determinism is explicitly addressed (GET stays read-only, no new exclusions, day-1 pins unchanged). No criteria need revision.
