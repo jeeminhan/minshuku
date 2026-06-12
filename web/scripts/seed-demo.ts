@@ -1,5 +1,7 @@
+import { day4LessonBatch } from "../lib/engine/lessonBatch";
 import { runEpisode } from "../lib/engine/runEpisode";
 import {
+  FileStoryStore,
   completeEpisode,
   freshStoryState,
   readStoryState,
@@ -7,6 +9,11 @@ import {
 } from "../lib/engine/storyStore";
 import type { StoryState } from "../lib/engine/storyStore";
 import type { ReviewItem } from "@engine/types";
+
+// This script is the FILE-mode seeder by definition: it rebuilds
+// web/.data/story-state.json. runEpisode takes its store by injection since
+// contract 007 — pass the file store explicitly.
+const fileStore = new FileStoryStore();
 
 // Seeded demo learner (contract 005): rebuild web/.data/story-state.json from
 // scratch by SIMULATING days 1-3 through the exact modules the API routes
@@ -20,28 +27,9 @@ import type { ReviewItem } from "@engine/types";
 // byte-identical state file.
 const SIMULATED_DAYS = 3;
 
-// Today's new lesson batch, appended fresh at the day-4 boundary (never
-// earlier — a fresh grammar item due on day 2 would steal that day's grammar
-// slot and invalidate the committed day-2 fixture). Fresh items carry no SRS
-// history: same all-null shape as demoLearner's seed items.
-function freshLessonItem(itemId: string, itemType: ReviewItem["itemType"]): ReviewItem {
-  return {
-    itemId,
-    itemType,
-    lastReviewedAt: null,
-    nextReviewAt: null, // never reviewed → due today
-    ease: 2.5,
-    interval: 0,
-    lapses: 0,
-  };
-}
-
-function day4LessonBatch(): ReviewItem[] {
-  return [
-    freshLessonItem("grammar.temo-ii", "grammar"),
-    freshLessonItem("vocab.motsu", "vocab"),
-  ];
-}
+// Today's new lesson batch lives in lib/engine/lessonBatch.ts since contract
+// 007: this script and the cookie store's replay must share ONE definition,
+// or the seeded file state and the cookie-derived state drift apart.
 
 function describeItem(item: ReviewItem): string {
   const next = item.nextReviewAt ?? "(never reviewed — due today)";
@@ -49,7 +37,7 @@ function describeItem(item: ReviewItem): string {
 }
 
 async function simulateDay(day: number): Promise<void> {
-  const episode = await runEpisode();
+  const episode = await runEpisode(fileStore);
   if (episode.status !== "completed") {
     throw new Error(`Seed simulation: day ${day} episode skipped — ${episode.message}`);
   }

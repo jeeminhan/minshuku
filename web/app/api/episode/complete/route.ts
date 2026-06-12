@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import type { ItemType, Outcome } from "@engine/types";
+import {
+  STORY_COOKIE_NAME,
+  STORY_COOKIE_OPTIONS,
+  createStoryStore,
+} from "@web/lib/engine/cookieStore";
 import { lookupItemDetails } from "@web/lib/engine/itemDetails";
-import { completeEpisode, readStoryState, writeStoryState } from "@web/lib/engine/storyStore";
+import { completeEpisode } from "@web/lib/engine/storyStore";
 import type { EpisodeDebrief } from "@web/lib/engine/storyStore";
 
 // Never prerender: this route reads/writes runtime state on every request.
 export const dynamic = "force-dynamic";
+
+// Cookie-mode complete = replay days 1..N−1 plus re-run day N to reconstruct
+// the pending episode — headroom over the default limit.
+export const maxDuration = 60;
 
 // One debrief entry as the UI consumes it: the id pair joined with the same
 // content-pack display fields as the episode's `items` (contract 003).
@@ -46,10 +56,16 @@ function joinDebrief(debrief: EpisodeDebrief): {
 // engine's SRS update (contract 004). Responds with { day, summary } as
 // before (contract 002) plus the debrief: learned (today's passives) /
 // strengthened (actives the learner produced) / dueTomorrow (the evolved
-// items due at tomorrow's clock). A 409 writes nothing — no double-apply.
-export async function POST(): Promise<NextResponse> {
+// items due at tomorrow's clock). A 409 writes nothing — no double-apply,
+// and (cookie mode) no Set-Cookie.
+// Explicit on every response — a CDN must never serve a stale completion or
+// a stale Set-Cookie (contract 007).
+const NO_STORE = { "cache-control": "no-store" };
+
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    const state = readStoryState();
+    const store = createStoryStore(request.cookies.get(STORY_COOKIE_NAME)?.value);
+    const state = await store.read();
     const completed = completeEpisode(state);
     if (!completed) {
       return NextResponse.json(
@@ -57,18 +73,26 @@ export async function POST(): Promise<NextResponse> {
           error:
             "No pending episode to complete — GET /api/episode to generate today's episode first.",
         },
-        { status: 409 },
+        { status: 409, headers: NO_STORE },
       );
     }
-    writeStoryState(completed.state);
-    return NextResponse.json({
-      day: completed.state.day,
-      summary: completed.state.summary,
-      debrief: joinDebrief(completed.debrief),
-    });
+    await store.write(completed.state);
+    const response = NextResponse.json(
+      {
+        day: completed.state.day,
+        summary: completed.state.summary,
+        debrief: joinDebrief(completed.debrief),
+      },
+      { headers: NO_STORE },
+    );
+    const cookie = store.cookieToSet();
+    if (cookie !== null) {
+      response.cookies.set(STORY_COOKIE_NAME, cookie, STORY_COOKIE_OPTIONS);
+    }
+    return response;
   } catch (error: unknown) {
     const message =
       error instanceof Error ? error.message : "Unexpected error while completing the episode";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: message }, { status: 500, headers: NO_STORE });
   }
 }

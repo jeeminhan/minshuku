@@ -124,6 +124,36 @@ MINSHUKU_FAKE_LLM=1 npm --prefix web run dev
 
 ---
 
+## Deploy (Vercel)
+
+The web app deploys to Vercel as project **`minshuku`** with Root Directory **`web`** (with "Include source files outside of the Root Directory" enabled — the app imports the engine from `../src/lib` and reads `../data` at runtime).
+
+**Fixture mode only.** The deployment runs with two project env vars (`MINSHUKU_FAKE_LLM=1` and `MINSHUKU_STORE=cookie`), in all environments:
+
+| Env var | Value | Why |
+|---|---|---|
+| `MINSHUKU_FAKE_LLM` | `1` | Deterministic fixture replay — no LLM calls, no API key |
+| `MINSHUKU_STORE` | `cookie` | Cookie-replay state store — Vercel's filesystem is read-only |
+
+**No `GEMINI_API_KEY` is set in fixture mode** — the safe public URL cannot spend tokens by construction. The later live-mode flip (not performed yet): add `GEMINI_API_KEY` and remove `MINSHUKU_FAKE_LLM` in the Vercel env vars, then redeploy.
+
+**State model (cookie mode).** Local file mode persists everything in `web/.data/story-state.json`; the deployed instance can't write files, so the full story state is recomputed per request from a single cookie `{ day, seeded, pending }`:
+
+- `day` — current story day (state at the start of day N = replay days 1..N−1 through the engine, deterministic in fixture mode)
+- `seeded` — whether the day-4 lesson batch applies (the deployed equivalent of `seed-demo`'s batch)
+- `pending` — today's episode was generated (set by GET) and not yet completed (cleared by POST)
+
+**Demo entry point.** `GET /demo` is the deployed equivalent of `npm run seed-demo`: it sets the cookie to the start of day 4 (days 1–3 played, lesson batch applied) and redirects to `/`. Revisiting `/demo` resets back to day 4. Reset to day 1 = clear cookies. In file mode (local default) `/demo` returns a JSON error pointing at `npm --prefix web run seed-demo` instead — it never silently half-seeds.
+
+**Deploy commands** (run from the repo root; the CLI is authenticated against the project owner's account):
+
+```sh
+npx vercel          # preview deployment — QA target
+npx vercel --prod   # production promote, ONLY after the preview passes QA
+```
+
+---
+
 ## Stack
 
 - **TypeScript** — ESM, `tsx` for CLI scripts

@@ -1,4 +1,3 @@
-import { join } from "node:path";
 import { loadTemplates } from "@engine/content";
 import { runScene } from "@engine/runScene";
 import type { RunSceneResult } from "@engine/runScene";
@@ -7,13 +6,7 @@ import { DEMO_PERSONA, demoClock } from "./demoLearner";
 import { createLLMClient } from "./fixtureClient";
 import { lookupItemDetails } from "./itemDetails";
 import { StoryContextLLMClient } from "./storyContextClient";
-import { readStoryState, writeStoryState } from "./storyStore";
-import type { PendingOutcome } from "./storyStore";
-
-// Next runs with cwd = web/ (HARNESS.md: `cd web && npm run dev`), so the
-// repo-level logs/ directory is one level up. Passed explicitly — never rely
-// on the engine's cwd default, which would write into web/logs.
-const WEB_LOG_DIR = join(process.cwd(), "..", "logs", "web");
+import type { PendingOutcome, StoryStore } from "./storyStore";
 
 // Story fields surfaced alongside the engine result (contract 002):
 // day/summary are the persisted state TODAY'S generation ran against;
@@ -76,15 +69,17 @@ function pendingOutcomes(
 
 // Server-side bridge: runs one episode for the fixed demo learner against
 // the persisted story state — including the persisted (outcome-evolved)
-// reviewItems, at the day-keyed demo clock (contract 004). Re-read from disk
-// every request (no cache), so deleting web/.data/story-state.json resets to
-// day 1 without a restart. A completed run records its result + aggregated
-// outcomes + passives as `pending`; the day only advances and the outcomes
-// only apply when POST /api/episode/complete folds `pending` in — GET is
-// strictly read-only with respect to reviewItems, and repeat GETs within a
-// day replay the same deterministic episode and rewrite the same `pending`.
-export async function runEpisode(): Promise<EpisodeResult> {
-  const state = readStoryState();
+// reviewItems, at the day-keyed demo clock (contract 004). The store is
+// injected (contract 007): the file store re-reads from disk every request
+// (no cache), so deleting web/.data/story-state.json resets to day 1 without
+// a restart; the cookie store recomputes the same state from the request
+// cookie. A completed run records its result + aggregated outcomes +
+// passives as `pending`; the day only advances and the outcomes only apply
+// when POST /api/episode/complete folds `pending` in — GET is strictly
+// read-only with respect to reviewItems, and repeat GETs within a day replay
+// the same deterministic episode and rewrite the same `pending`.
+export async function runEpisode(store: StoryStore): Promise<EpisodeResult> {
+  const state = await store.read();
   const client = new StoryContextLLMClient(
     createLLMClient(state.day),
     state.day,
@@ -95,12 +90,12 @@ export async function runEpisode(): Promise<EpisodeResult> {
     now: demoClock(state.day),
     recentContext: { ...state.recentContext },
     llmClient: client,
-    logDir: WEB_LOG_DIR,
+    logDir: store.logDir,
     persona: DEMO_PERSONA,
     userId: "demo-learner",
   });
   if (result.status === "completed") {
-    writeStoryState({
+    await store.write({
       ...state,
       pending: {
         day: state.day,

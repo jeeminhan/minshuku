@@ -1,5 +1,5 @@
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { dirname, join, sep } from "node:path";
 import { z } from "zod";
 import { applyOutcome } from "@engine/srs/intervals";
 import { pickDueItems } from "@engine/srs/pickDueItems";
@@ -16,7 +16,22 @@ import { demoClock, demoReviewItems } from "./demoLearner";
 // engine's applyOutcome. A pre-004 state file fails the schema below and
 // produces the loud "corrupt — delete to reset" error; deleting the file is
 // the documented migration.
-const STORY_STATE_PATH = join(process.cwd(), ".data", "story-state.json");
+// The file store anchors on the web app directory. Under `next dev`/`next
+// start` that IS process.cwd() (all next commands run from web/). The
+// standalone production server (contract 007's local QA path) chdirs into
+// web/.next/standalone/web — strip that suffix so the file store keeps
+// reading/writing the same web/.data and repo-level logs/ as every other
+// entry point (state inside .next/ would be invisible to seed-demo and wiped
+// by the next build).
+function webAppDir(): string {
+  const cwd = process.cwd();
+  const standaloneSuffix = `${sep}${join(".next", "standalone", "web")}`;
+  return cwd.endsWith(standaloneSuffix)
+    ? cwd.slice(0, cwd.length - standaloneSuffix.length)
+    : cwd;
+}
+
+const STORY_STATE_PATH = join(webAppDir(), ".data", "story-state.json");
 
 const ItemTypeSchema = z.enum(["vocab", "grammar"]);
 const RecallModeSchema = z.enum(["active", "passive"]);
@@ -119,6 +134,47 @@ export function readStoryState(): StoryState {
 export function writeStoryState(state: StoryState): void {
   mkdirSync(dirname(STORY_STATE_PATH), { recursive: true });
   writeFileSync(STORY_STATE_PATH, `${JSON.stringify(state, null, 2)}\n`, "utf8");
+}
+
+// Storage abstraction (contract 007): runEpisode and the API routes take a
+// StoryStore by injection instead of calling readStoryState/writeStoryState
+// directly, so the same code path serves the local file store (default,
+// behavior unchanged) and the Vercel cookie store (MINSHUKU_STORE=cookie,
+// web/lib/engine/cookieStore.ts) where the filesystem is read-only.
+export interface StoryStore {
+  // Where runScene appends its scene-run JSONL log. The file store keeps the
+  // repo-level logs/web; the cookie store points at os.tmpdir() — the only
+  // writable path on a serverless filesystem.
+  readonly logDir: string;
+  read(): Promise<StoryState>;
+  write(state: StoryState): Promise<void>;
+  // Serialized cookie value the route must Set-Cookie after a write, or null
+  // when nothing needs to reach the client (the file store is always null —
+  // its write already persisted to disk).
+  cookieToSet(): string | null;
+}
+
+// The repo-level logs/ directory is one level up from the web app dir.
+// Passed explicitly — never rely on the engine's cwd default, which would
+// write into web/logs.
+const WEB_LOG_DIR = join(webAppDir(), "..", "logs", "web");
+
+// The local default: the pre-007 file behavior, verbatim, behind the
+// StoryStore interface.
+export class FileStoryStore implements StoryStore {
+  readonly logDir = WEB_LOG_DIR;
+
+  async read(): Promise<StoryState> {
+    return readStoryState();
+  }
+
+  async write(state: StoryState): Promise<void> {
+    writeStoryState(state);
+  }
+
+  cookieToSet(): string | null {
+    return null;
+  }
 }
 
 // Debrief data computed at completion (contract 004), in engine terms — the
