@@ -112,7 +112,13 @@ export function EpisodePlayer() {
     return (
       <Shell>
         <BrandMark />
-        <p className="mt-10 animate-pulse text-ink-soft">Preparing today’s episode…</p>
+        <p
+          data-testid="episode-loading"
+          role="status"
+          className="mt-10 text-ink-soft motion-safe:animate-pulse"
+        >
+          Preparing today’s episode…
+        </p>
       </Shell>
     );
   }
