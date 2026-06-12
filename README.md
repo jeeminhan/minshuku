@@ -104,6 +104,26 @@ Other useful commands:
 
 ---
 
+## Demo
+
+The web app (`web/`) has two demo flows. Both replay committed fixtures (`MINSHUKU_FAKE_LLM=1`) — fully deterministic, no API key needed. Run the commands from the repo root, then open http://localhost:3000.
+
+**Fresh day 1** — deletes the story state, so the very next request reseeds a brand-new learner on day 1 with all five seed items due:
+
+```sh
+rm -f web/.data/story-state.json
+MINSHUKU_FAKE_LLM=1 npm --prefix web run dev
+```
+
+**Seeded demo learner** — simulates days 1–3 through the real engine (fixture episodes, real evaluator and SRS) and leaves the learner at the start of day 4, with a three-day story summary and an engine-evolved review schedule; re-running `seed-demo` resets the demo back to day 4 at any time:
+
+```sh
+npm --prefix web run seed-demo
+MINSHUKU_FAKE_LLM=1 npm --prefix web run dev
+```
+
+---
+
 ## Stack
 
 - **TypeScript** — ESM, `tsx` for CLI scripts

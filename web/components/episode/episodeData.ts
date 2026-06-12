@@ -3,7 +3,7 @@ import { z } from "zod";
 // Client-side shape of GET /api/episode — validated at the fetch boundary
 // (never trust external data, even our own API). Mirrors the parts of
 // EpisodeResult (web/lib/engine/runEpisode.ts) the UI consumes; zod strips
-// the rest (llmPrompt, scoring rationale, story.summary, …).
+// the rest (llmPrompt, scoring rationale, story.promptContext, …).
 
 export const OUTCOMES = [
   "missed",
@@ -51,7 +51,11 @@ export const episodeResponseSchema = z.discriminatedUnion("status", [
       result: z.string(),
       turns: z.array(dialogueTurnSchema),
     }),
-    story: z.object({ day: z.number().int() }),
+    story: z.object({
+      day: z.number().int(),
+      // The persisted story-so-far ("" on day 1) — drives the StorySoFar panel.
+      summary: z.string(),
+    }),
     items: z.array(episodeItemSchema),
   }),
   z.object({
@@ -63,4 +67,31 @@ export const episodeResponseSchema = z.discriminatedUnion("status", [
 export type EpisodeResponse = z.infer<typeof episodeResponseSchema>;
 export type CompletedEpisode = Extract<EpisodeResponse, { status: "completed" }>;
 
-export const completeResponseSchema = z.object({ day: z.number().int() });
+// Debrief entries from POST /api/episode/complete (contract 004): the same
+// content-pack display fields as episode items, minus the recall mode.
+const debriefEntrySchema = z.object({
+  itemId: z.string(),
+  itemType: z.enum(["vocab", "grammar"]),
+  surface: z.string(),
+  reading: z.string().nullable(),
+  meaning: z.string(),
+});
+
+export type DebriefEntry = z.infer<typeof debriefEntrySchema>;
+
+const strengthenedEntrySchema = debriefEntrySchema.extend({
+  outcome: z.enum(OUTCOMES),
+});
+
+export type StrengthenedEntry = z.infer<typeof strengthenedEntrySchema>;
+
+export const completeResponseSchema = z.object({
+  day: z.number().int(),
+  debrief: z.object({
+    learned: z.array(debriefEntrySchema),
+    strengthened: z.array(strengthenedEntrySchema),
+    dueTomorrow: z.array(debriefEntrySchema),
+  }),
+});
+
+export type CompleteResponse = z.infer<typeof completeResponseSchema>;

@@ -4,11 +4,18 @@ import { useEffect, useState } from "react";
 import { CoachBeat } from "./CoachBeat";
 import { CompletePanel } from "./CompletePanel";
 import type { CompletionState } from "./CompletePanel";
+import { DebriefPanel } from "./DebriefPanel";
 import { NpcTurn } from "./NpcTurn";
 import { PlayerInput } from "./PlayerInput";
 import { PlayerTurn } from "./PlayerTurn";
+import { StorySoFar } from "./StorySoFar";
 import { completeResponseSchema, episodeResponseSchema } from "./episodeData";
-import type { CompletedEpisode, DialogueTurn, EpisodeResponse } from "./episodeData";
+import type {
+  CompleteResponse,
+  CompletedEpisode,
+  DialogueTurn,
+  EpisodeResponse,
+} from "./episodeData";
 
 // Module-level cache: the episode is fetched exactly once per page load, even
 // under React strict mode's double effect in dev (contract 003 C2). The UI is
@@ -47,7 +54,9 @@ type LoadState =
 interface Completion {
   state: CompletionState;
   error: string | null;
-  nextDay: number | null;
+  // The parsed POST /api/episode/complete response — the debrief view is
+  // rendered from this alone (never a second episode fetch).
+  debrief: CompleteResponse | null;
 }
 
 // Reveal rule: every turn up to (but not including) the first player turn the
@@ -73,7 +82,7 @@ export function EpisodePlayer() {
   const [completion, setCompletion] = useState<Completion>({
     state: "idle",
     error: null,
-    nextDay: null,
+    debrief: null,
   });
 
   useEffect(() => {
@@ -145,18 +154,18 @@ export function EpisodePlayer() {
 
   const handleComplete = async () => {
     if (completion.state !== "idle") return;
-    setCompletion({ state: "pending", error: null, nextDay: null });
+    setCompletion({ state: "pending", error: null, debrief: null });
     try {
       const response = await fetch("/api/episode/complete", { method: "POST" });
       const body: unknown = await response.json();
       if (!response.ok) throw new Error(errorMessageFrom(body, response.status));
       const parsed = completeResponseSchema.parse(body);
-      setCompletion({ state: "done", error: null, nextDay: parsed.day });
+      setCompletion({ state: "done", error: null, debrief: parsed });
     } catch (error: unknown) {
       setCompletion({
         state: "idle",
         error: error instanceof Error ? error.message : "Could not complete the episode.",
-        nextDay: null,
+        debrief: null,
       });
     }
   };
@@ -176,6 +185,7 @@ export function EpisodePlayer() {
           words are tappable.
         </p>
       </header>
+      {episode.story.summary !== "" && <StorySoFar summary={episode.story.summary} />}
       <section aria-label="Today’s dialogue" className="mt-8">
         <ol className="flex flex-col gap-4">
           <CoachBeat kind="briefing" text={episode.log.briefing} />
@@ -201,14 +211,17 @@ export function EpisodePlayer() {
         </ol>
       </section>
       {finished ? (
-        <CompletePanel
-          state={completion.state}
-          error={completion.error}
-          nextDay={completion.nextDay}
-          onComplete={() => {
-            void handleComplete();
-          }}
-        />
+        completion.debrief !== null ? (
+          <DebriefPanel debrief={completion.debrief} />
+        ) : (
+          <CompletePanel
+            state={completion.state}
+            error={completion.error}
+            onComplete={() => {
+              void handleComplete();
+            }}
+          />
+        )
       ) : (
         <PlayerInput turnNumber={nextPlayerTurn.turn} onSubmit={handlePlayerSubmit} />
       )}

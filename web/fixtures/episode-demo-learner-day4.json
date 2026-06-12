@@ -1,0 +1,21 @@
+{
+  "description": "Ordered complete() responses for the demo learner, DAY 4 (the seeded demo day, contract 005), authored against the engine plan: minshuku-arrival-with-mom (minshuku, NPC `mom` turns 2/4/6, player turns 3/5/7; clock now=2026-06-04T09:00Z, recentContext bookshop-quiet-browse/bookshop; due order [vocab.yakusoku, grammar.temo-ii, vocab.motsu, vocab.mado, vocab.fushigi]). Active targets grammar.temo-ii + vocab.yakusoku (grammar slot first), passives vocab.motsu + vocab.mado — 持つ and 窓 each appear verbatim EXACTLY ONCE in mom's lines (gloss machinery; exactly 2 gloss tokens), てもいい and 約束 never appear in the briefing or any mom line in any form containsPattern matches. vocab.fushigi is due but excluded (domains abstract/emotional not accepted by the template). The player produces てもいい unprompted in turn 3 only and 約束 unprompted in turns 5 and 7 → per-turn (temo-ii, yakusoku): produced/missed, missed/produced, missed/produced — aggregated grammar.temo-ii → produced, vocab.yakusoku → mastered. The arrival frame is authored as mom welcoming the player back and settling them in for the evening; dialogue references day 3's bookshop find and day 1's festival promise. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
+  "responses": [
+    {
+      "label": "generateDialogue",
+      "text": "{\"briefing\":\"Day four: you come back to the minshuku with your wrapped-up book, and Mom meets you in the entryway to settle you in for the evening. Ask her permission for what you'd like to do before dinner, and when the festival comes up, tell her about the meeting you and your friend have planned for tomorrow.\",\"turns\":[{\"turn\":2,\"speaker\":\"mom\",\"text\":\"おかえりなさい。川のほうは風が冷たかったでしょう。さっき窓を開けて、お部屋に新しい風を入れておきましたよ。\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"mom\",\"text\":\"ええ、どうぞごゆっくり。それから、明日はお祭りでしょう。うちの提灯は重いから、誰か若い人が持つことになっていてね。お願いできるかしら。\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"mom\",\"text\":\"ふふ、頼もしいこと。それで、お祭りでは誰かと会うことになっているの？時間と場所はもう決めてあるのかしら。\",\"language\":\"ja\"}],\"result\":\"Mom welcomed you back to the minshuku and aired out your room — you asked to take a bath before dinner, agreed to carry the festival lantern, and told her about tomorrow's meeting at the shrine.\"}"
+    },
+    {
+      "label": "syntheticPlayerTurn-3",
+      "text": "ただいま帰りました。あの、夕食の前にお風呂に入ってもいいですか。ちょっと疲れてしまって。"
+    },
+    {
+      "label": "syntheticPlayerTurn-5",
+      "text": "はい、もちろんです。私が持ちますよ。実は明日、お祭りで友だちと会う約束をしているんです。"
+    },
+    {
+      "label": "syntheticPlayerTurn-7",
+      "text": "はい、三時に神社の前で会う約束です。ゆうべ買った本も、その時に見せるつもりです。"
+    }
+  ]
+}

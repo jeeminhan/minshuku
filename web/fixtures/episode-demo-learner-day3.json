@@ -1,0 +1,21 @@
+{
+  "description": "Ordered complete() responses for the demo learner, DAY 3, authored for contract 005 against the engine plan: bookshop-quiet-browse (bookshop, NPC `bookshop_owner` turns 2/4/6, player turns 3/5/7; clock now=2026-06-03T09:00Z, recentContext late-night-walk-stranger/town_outskirts; due order [vocab.fushigi, vocab.yakusoku, vocab.mado]). Active target vocab.fushigi ONLY, passive vocab.yakusoku — 約束 appears verbatim in the owner's lines, 不思議 never appears in the briefing or any owner line (the active surface would scaffold the production to produced_with_help). vocab.mado is due but excluded: domain physical is not in the bookshop's acceptedDomains, so it visibly rolls forward. The player produces 不思議 unprompted in turn 5 ONLY → per-turn missed/produced/missed, aggregated vocab.fushigi → produced (exactly one clean production — two would aggregate to mastered and break every day-4 pin). Dialogue references day 2's stranger on the dark road and day 1's festival promise. Call order: 1 generateDialogue call, then one syntheticPlayerTurn call per player turn.",
+  "responses": [
+    {
+      "label": "generateDialogue",
+      "text": "{\"briefing\":\"After last night's strange meeting on the dark road, you duck into the small bookshop by the river before heading home. The owner looks up from her paperbacks and asks what you're hunting for — tell her about the kind of book you want, and say how this town has been feeling to you lately.\",\"turns\":[{\"turn\":2,\"speaker\":\"bookshop_owner\",\"text\":\"いらっしゃいませ。ゆうべはひどい風でしたねえ。よく眠れましたか？今日は何かお探しですか。\",\"language\":\"ja\"},{\"turn\":4,\"speaker\":\"bookshop_owner\",\"text\":\"この町の昔話を集めた本ですね。ちょうどいいものがありますよ。そういえば、お祭りの日のお友だちとの約束、もうすぐなんでしょう。\",\"language\":\"ja\"},{\"turn\":6,\"speaker\":\"bookshop_owner\",\"text\":\"ふふ、小さい町ですからね、噂はすぐ届くんですよ。はい、包みますね。お祭りの前に読み終わるといいですねえ。\",\"language\":\"ja\"}],\"result\":\"In the dim bookshop by the river you asked the owner for a book of the town's old stories — she wrapped one up for you, somehow already knowing about your festival promise.\"}"
+    },
+    {
+      "label": "syntheticPlayerTurn-3",
+      "text": "ええと、この町の昔の話が読みたいんです。最近、気になることが多くて。"
+    },
+    {
+      "label": "syntheticPlayerTurn-5",
+      "text": "はい、神社で会う約束です。でも、どうしてみんな知っているんでしょう。この町は本当に不思議ですね。"
+    },
+    {
+      "label": "syntheticPlayerTurn-7",
+      "text": "ありがとうございます。楽しみに読みます。また来ますね。"
+    }
+  ]
+}

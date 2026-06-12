@@ -1,8 +1,10 @@
 import type { EpisodeItem, Outcome, TurnEvaluatorResult } from "./episodeData";
 
 // The full outcome ladder gets a distinct visual state even though day 1 only
-// exercises produced/missed — the enum comes from src/lib/types.ts.
-const OUTCOME_STYLES: Record<Outcome, string> = {
+// exercises produced/missed — the enum comes from src/lib/types.ts. Exported
+// so the debrief's strengthened pills (contract 004) reuse the exact same
+// badge vocabulary as the inline turn badges.
+export const OUTCOME_STYLES: Record<Outcome, string> = {
   missed: "border-rust/40 bg-rust-wash text-rust",
   recognized: "border-ink-soft/40 bg-sand-wash text-ink-soft",
   produced_with_help: "border-aizome/35 bg-seiji-wash text-aizome",
@@ -10,7 +12,7 @@ const OUTCOME_STYLES: Record<Outcome, string> = {
   mastered: "border-gold/50 bg-gold-wash text-gold",
 };
 
-const OUTCOME_LABELS: Record<Outcome, string> = {
+export const OUTCOME_LABELS: Record<Outcome, string> = {
   missed: "missed",
   recognized: "recognized",
   produced_with_help: "produced with help",

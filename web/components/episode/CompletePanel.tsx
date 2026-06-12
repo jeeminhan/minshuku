@@ -3,31 +3,13 @@ export type CompletionState = "idle" | "pending" | "done";
 interface CompletePanelProps {
   state: CompletionState;
   error: string | null;
-  nextDay: number | null;
   onComplete: () => void;
 }
 
-// End-of-episode action. After a successful POST the button is removed
-// entirely and replaced by the confirmation — the complete API 409s on a
-// double-complete, so the UI must never invite a second click.
-export function CompletePanel({ state, error, nextDay, onComplete }: CompletePanelProps) {
-  if (state === "done") {
-    return (
-      <div
-        data-testid="complete-confirmation"
-        className="mt-9 rounded-sm border border-moss/40 bg-moss-wash px-5 py-5 text-center shadow-[var(--shadow-card)]"
-      >
-        <p className="font-display text-lg text-ink">
-          <span lang="ja">お疲れさまでした。</span> Today’s episode is in the book.
-        </p>
-        <p className="mt-1 text-sm text-ink-soft">
-          {nextDay !== null
-            ? `The story picks up on Day ${nextDay} — see you tomorrow.`
-            : "See you tomorrow."}
-        </p>
-      </div>
-    );
-  }
+// End-of-episode action. After a successful POST the panel is unmounted
+// entirely and replaced by the DebriefPanel (contract 004) — the complete
+// API 409s on a double-complete, so the UI must never invite a second click.
+export function CompletePanel({ state, error, onComplete }: CompletePanelProps) {
   return (
     <div className="mt-9 text-center">
       <button
