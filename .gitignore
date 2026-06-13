@@ -10,3 +10,4 @@ public/audio/
 assets/preview/
 .vercel
 .env.freetier.bak
+.gstack/
