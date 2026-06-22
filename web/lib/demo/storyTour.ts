@@ -134,10 +134,22 @@ async function simulateTourDay(state: StoryState): Promise<{ tourDay: TourDay; n
   };
 }
 
+// The tour is fully deterministic in fixture mode (fixed seed, replayed
+// fixtures), so it's identical on every request. Cache the first build for the
+// life of the process: subsequent /story renders return it without re-running
+// the engine — faster, and it sidesteps re-loading the kuromoji dictionary per
+// request (its loader isn't safe to invoke repeatedly in one long-lived process).
+let tourCache: Promise<StoryTour> | null = null;
+
 // Build the four-day tour. Forces MINSHUKU_FAKE_LLM=1 (same as seed-demo's
 // main()) so it always replays fixtures — deterministic, no key, never live
 // Gemini — and never touches the persisted play-view state.
-export async function buildStoryTour(): Promise<StoryTour> {
+export function buildStoryTour(): Promise<StoryTour> {
+  tourCache ??= computeStoryTour();
+  return tourCache;
+}
+
+async function computeStoryTour(): Promise<StoryTour> {
   process.env.MINSHUKU_FAKE_LLM = "1";
 
   let state = freshStoryState();
