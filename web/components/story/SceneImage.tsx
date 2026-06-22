@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface SceneImageProps {
   // Image slot basename, e.g. "01-cafe" → /story/01-cafe.webp.
@@ -25,7 +25,17 @@ const INTRINSIC_HEIGHT = 900;
 
 export function SceneImage({ slot, caption, hasImage }: SceneImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const src = `/story/${slot}.webp`;
+
+  // A cached/fast image can finish loading before React hydrates and attaches
+  // onLoad, leaving `loaded` stuck false and the art invisible (opacity 0). On
+  // mount, reconcile against the real element state.
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setLoaded(true);
+    }
+  }, []);
 
   return (
     <figure
@@ -56,6 +66,7 @@ export function SceneImage({ slot, caption, hasImage }: SceneImageProps) {
       {hasImage && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
+          ref={imgRef}
           src={src}
           alt={caption}
           width={INTRINSIC_WIDTH}

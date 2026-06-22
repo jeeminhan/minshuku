@@ -25,8 +25,16 @@ export const metadata = {
 // its washi placeholder and the page fires ZERO 404s. The user drops a .webp in
 // later and it swaps in with no layout shift (the slot box is fixed).
 function presentImageSlots(slots: string[]): string[] {
-  const dir = join(process.cwd(), "public", "story");
-  return slots.filter((slot) => existsSync(join(dir, `${slot}.webp`)));
+  // In production `process.cwd()` is the web app dir, but under Turbopack dev the
+  // configured workspace root (repo root) is the cwd — so check both candidate
+  // public dirs and the art is detected in either mode.
+  const candidateDirs = [
+    join(process.cwd(), "public", "story"),
+    join(process.cwd(), "web", "public", "story"),
+  ];
+  return slots.filter((slot) =>
+    candidateDirs.some((dir) => existsSync(join(dir, `${slot}.webp`))),
+  );
 }
 
 export default async function StoryPage() {
