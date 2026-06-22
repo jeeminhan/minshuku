@@ -19,9 +19,10 @@ interface StoryTourViewProps {
 }
 
 // The client tour island: one beat visible at a time, Next/Back + arrow-key
-// navigation, the six-step progress indicator, and the global sound toggle.
-// Wraps everything in the existing SoundProvider so beat-4's Mom TTS is
-// gesture-gated and respects the global mute exactly as the play view does.
+// navigation, the seven-step progress indicator, and the global sound toggle.
+// Wraps everything in the existing SoundProvider so the intro sound-unlock CTA
+// and the per-day auto-narration are gesture-gated and respect the global mute
+// exactly as the play view does.
 export function StoryTourView({ beats, days, presentImageSlots }: StoryTourViewProps) {
   return (
     <SoundProvider>

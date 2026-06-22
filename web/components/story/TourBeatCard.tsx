@@ -1,12 +1,24 @@
 "use client";
 
-import { TtsClip } from "../audio/TtsClip";
+import Link from "next/link";
 import type { CompleteResponse } from "../episode/episodeData";
 import { KNOWLEDGE_LADDER } from "@web/lib/demo/storyline";
 import type { StoryBeat } from "@web/lib/demo/storyline";
 import type { TourDay } from "@web/lib/demo/storyTour";
+import { BeatNarration } from "./BeatNarration";
 import { SceneImage } from "./SceneImage";
+import { SoundUnlock } from "./SoundUnlock";
 import { TourDialogue } from "./TourDialogue";
+
+// The NPC voice line each day beat auto-narrates: day N → /tts/day{N}-turn2.m4a
+// (verified present on disk in contract 008). Day 4's clip IS Mom's welcome
+// line, so day 4 mounts exactly this one clip — no separate Mom block.
+const NARRATION_LABEL: Record<number, string> = {
+  1: "the café regular’s line",
+  2: "the stranger on the night road",
+  3: "the bookshop owner’s line",
+  4: "Mom’s welcome at the door",
+};
 
 interface TourBeatCardProps {
   beat: StoryBeat;
@@ -19,7 +31,9 @@ interface TourBeatCardProps {
 
 // One visible chapter card: scene image slot, narrative copy, the day's
 // highlighted dialogue, the under-the-hood callout, and the knowledge delta.
-// Beat 4 plays Mom's voiced line; beat 5 renders the knowledge ladder.
+// Intro renders the sound-unlock CTA; each day beat auto-narrates its NPC clip;
+// the how-built beat renders the play CTA; the outro renders the knowledge
+// ladder.
 export function TourBeatCard({ beat, day, hasImage }: TourBeatCardProps) {
   return (
     <article
@@ -51,6 +65,11 @@ export function TourBeatCard({ beat, day, hasImage }: TourBeatCardProps) {
         ))}
       </div>
 
+      {/* Intro beat: the prominent "▶ Begin with sound" unlock CTA. One click
+          satisfies the gesture gate + ensures sound is on, so every day beat
+          from here auto-narrates. Lives only on the intro beat. */}
+      {beat.kind === "intro" && <SoundUnlock />}
+
       {beat.kind === "day" && day !== null && (
         <>
           <section aria-label={`Day ${beat.day} dialogue`} className="flex flex-col gap-3">
@@ -60,18 +79,17 @@ export function TourBeatCard({ beat, day, hasImage }: TourBeatCardProps) {
             <TourDialogue turns={day.turns} items={day.items} highlights={beat.highlights} />
           </section>
 
-          {/* Beat 4: Mom speaks in her own voice — reuse the contract-008 TtsClip
-              (preload="none", gesture-gated, single-active via SoundProvider). */}
-          {beat.id === "day-4" && (
-            <div
-              data-testid="mom-voice"
-              className="flex flex-wrap items-center gap-3 rounded-md border border-kaki/30 bg-kaki-wash/60 px-4 py-3"
-            >
-              <p className="text-sm text-ink">
-                <span className="font-medium">Mom’s welcome</span> — hear her line.
-              </p>
-              <TtsClip src="/tts/day4-turn2.m4a" label="Mom’s welcome at the door" />
-            </div>
+          {/* Per-day NPC auto-narration: day N → /tts/day{N}-turn2.m4a, played
+              once when this beat mounts (TourBeatCard is keyed by beat.id) with
+              sound unlocked. Day 4's clip IS Mom's welcome line, so this single
+              clip replaces the old separate Mom block — no two competing
+              day4-turn2.m4a elements. preload="none" + single-active via the
+              SoundProvider, exactly like the play view. */}
+          {beat.day !== null && (
+            <BeatNarration
+              src={`/tts/day${beat.day}-turn2.m4a`}
+              label={NARRATION_LABEL[beat.day] ?? `the day ${beat.day} line`}
+            />
           )}
         </>
       )}
@@ -97,6 +115,8 @@ export function TourBeatCard({ beat, day, hasImage }: TourBeatCardProps) {
       {beat.kind === "day" && day !== null && (
         <KnowledgeDelta debrief={day.debrief} day={beat.day ?? day.day} />
       )}
+
+      {beat.kind === "how-built" && <PlayInvitation />}
 
       {beat.kind === "outro" && <KnowledgeLadder />}
 
@@ -184,7 +204,35 @@ function DeltaGroup({ title, titleJa, entries, empty }: DeltaGroupProps) {
   );
 }
 
-// The outro's in-app knowledge ladder (the default render for beat 5 — the
+// The how-built beat's invitation: a prominent link into the interactive play
+// view at `/`. This is the panel's door into the live demo — warm, not a bare
+// link. The five substance claims live in the beat's narrative + callout copy
+// (rendered above, inside the same [data-testid="tour-beat"] article).
+function PlayInvitation() {
+  return (
+    <section
+      aria-label="Play the live demo"
+      className="flex flex-col gap-3 rounded-md border border-kaki/40 bg-kaki-wash/60 px-5 py-5"
+    >
+      <p className="text-base leading-relaxed text-ink">
+        The inn is open. Step inside and play a night yourself — the same engine,
+        live.
+      </p>
+      <Link
+        href="/"
+        data-testid="play-cta"
+        className="inline-flex items-center gap-2 self-start rounded-full border border-kaki bg-kaki px-5 py-2.5 text-sm font-semibold tracking-[0.04em] text-shoji shadow-[var(--shadow-card)] transition-colors hover:bg-kaki-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kaki/60"
+      >
+        <span aria-hidden className="text-base leading-none">
+          →
+        </span>
+        Play the live demo
+      </Link>
+    </section>
+  );
+}
+
+// The outro's in-app knowledge ladder (the default render for beat 6 — the
 // image slot is optional there per the contract).
 function KnowledgeLadder() {
   return (

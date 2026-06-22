@@ -8,8 +8,8 @@ interface TourProgressProps {
   onJump: (index: number) => void;
 }
 
-// The six-step progress indicator: Intro · Day 1 · Day 2 · Day 3 · Day 4 ·
-// Outro. Exactly one pip is the current step (aria-current="step" +
+// The seven-step progress indicator: Intro · Day 1 · Day 2 · Day 3 · Day 4 ·
+// Built · Outro. Exactly one pip is the current step (aria-current="step" +
 // data-active="true"). Pips are buttons, so a presenter can jump directly;
 // Next/Back move the active marker too.
 export function TourProgress({ beats, current, onJump }: TourProgressProps) {

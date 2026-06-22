@@ -1,65 +1,125 @@
-# Generator state — contract 009 (Demo storyline tour `/story`)
+# Generator state — contract-010 (tour narration + sound unlock + how-it-was-built)
 
-Mode: BUILD. Round 1. Contract ACCEPTED. All criteria self-verified against a Playwright walk on port 3020 (production build, `next start`). Server killed, port 3020 free, the user's dev server on :3000 left untouched, `web/.data/story-state.json` byte-identical before/after.
+BUILD round. All three gates green; self-verified on port 3020 with a throwaway
+Playwright install. No commit made. Servers killed, state file untouched.
 
 ## What changed (files + why)
 
-All additive — NEW files only. Zero edits to any C-REG-pinned file.
+- **`web/lib/demo/storyline.ts`**
+  - Extended `BeatKind` union: `"intro" | "day" | "how-built" | "outro"`.
+  - Added the 7th beat object `HOW_BUILT` (id `"how-built"`, kind `"how-built"`,
+    pipLabel `"Built"`, day `null`, imageSlot `"05-ladder"`, no highlights) in
+    民宿 voice. Inserted as beat index 5 → ordered list is now
+    Intro · Day 1 · Day 2 · Day 3 · Day 4 · **How it was built** · Outro (7 beats).
+  - The 5 grep-able substance claims are woven into the beat's `narrative` +
+    `callout` (both render inside the same `[data-testid="tour-beat"]` article):
+    `"101 tests"` + `"SRS engine"` + `"rule-based grader"` (claim 1);
+    `"Gemini"` + per-character `"TTS"` voices (claim 2); `"Lyria"` (claim 3);
+    `"Vercel"` (claim 4); `"Everything you just saw runs on that same engine"`
+    + "real working prototype" (claim 5). NOTE: literal substring `"101 tests"`
+    was required by C-HOWBUILT claim 1 — copy says exactly "101 tests" (not
+    "101 passing tests"), verified.
 
-- **`web/lib/demo/storyline.ts`** (NEW) — the authored 6-beat content module: ids, pip labels, titles (EN + JA), image-slot basenames, narrative copy, under-the-hood callouts, presenter notes, and per-day highlight targets. Copy sourced from `DEMO-STORYLINE.md`. Hardcodes NO dialogue — only authored copy + which day each beat pulls + which target surfaces it highlights. Also exports `KNOWLEDGE_LADDER` (the outro's in-app chart).
-- **`web/lib/demo/storyTour.ts`** (NEW) — `buildStoryTour()` + a private `InMemoryStoryStore`. Simulates days 1→4 through the SAME engine path the play view/seed use: `runEpisode(store)` → `completeEpisode(store.state)` (called directly on the state value — it is a free function, not a store method) → `store.write(completed.state)`. Forces `MINSHUKU_FAKE_LLM=1`, appends `day4LessonBatch()` at the day-4 boundary (so day 4 casts `minshuku-arrival-with-mom` against てもいい/持つ), and points `logDir` at `os.tmpdir()`. **Never reads/writes `web/.data/story-state.json`.** Returns only serializable `TourDay[]` (briefing/result/turns/items/summary/debrief — debrief joined to display fields exactly like the complete route).
-- **`web/app/story/page.tsx`** (NEW) — server component, `force-dynamic` + `maxDuration = 60`. `await buildStoryTour()`, and `presentImageSlots()` checks `fs.existsSync` per slot so the client mounts an `<img>` ONLY for art that exists (empty `public/story/` ⇒ zero image 404s).
-- **`web/components/story/StoryTourView.tsx`** (NEW) — the client island. Wraps in the existing `SoundProvider`; owns the current-beat index; Next/Back buttons (`tour-next`/`tour-back`, disabled at the ends), ArrowRight/ArrowLeft on `document` (guarded against text fields), and renders `SoundToggle` + `TourProgress` + one `TourBeatCard`.
-- **`web/components/story/TourProgress.tsx`** (NEW) — `[data-testid="tour-progress"]` with exactly 6 button pips (Intro · Day 1–4 · Outro); current pip carries `aria-current="step"` + `data-active="true"`. Pips are clickable (direct jump) and Next/Back move the marker.
-- **`web/components/story/TourBeatCard.tsx`** (NEW) — one visible chapter: `SceneImage`, narrative, the day's dialogue, `[data-testid="tour-callout"]`, `[data-testid="tour-knowledge"]` (learned/strengthened/due), the beat-4 Mom `TtsClip`, the outro knowledge ladder, and the presenter note.
-- **`web/components/story/SceneImage.tsx`** (NEW) — fixed 16:9 box (intrinsic 1600×900) → zero layout shift. `[data-testid="scene-placeholder"]` (washi-toned, 民宿 palette tokens) is the default render; the lazy `<img loading="lazy">` mounts only when `hasImage` is true.
-- **`web/components/story/TourDialogue.tsx`** (NEW) — reuses `components/episode/glossSegments.ts`'s `segmentLine` (read-only, imported relatively), filtered to the beat's target items, wrapping matches in `<mark data-tour-highlight data-item-id>`.
-- **`web/public/story/.gitkeep`** + **`web/public/story/README.md`** (NEW) — directory exists; README documents the expected `0N-*.webp` filenames, specs, and art direction.
+- **`web/components/story/SoundUnlock.tsx`** (NEW)
+  - The intro-beat `[data-testid="sound-unlock"]` "▶ Begin with sound" CTA.
+    One click: (1) the click's pointerdown satisfies `SoundProvider`'s capture
+    gesture gate (NO provider change — relied on the existing listener as the
+    contract specified); (2) calls `toggleSound()` ONLY when `soundOn === false`
+    (never blindly toggles an already-on tour off). When `gestured && soundOn`
+    it swaps to a quiet `data-unlocked="true"` "Sound on — advance to begin"
+    affordance. Accessible name contains "sound".
 
-## IMPORTANT note for the evaluator on C6 (highlights span BOTH speakers)
+- **`web/components/story/BeatNarration.tsx`** (NEW)
+  - Per-day auto-narration. Owns its own lazy `<audio preload="none">`, uses the
+    SoundProvider primitives directly (`registerClip` / `notifyPlaying`) — same
+    mechanism as `TtsClip` but `TtsClip.tsx` is NOT modified. Auto-plays once on
+    mount when `soundOn && gestured` (TourBeatCard is keyed by `beat.id`, so each
+    day beat mounts this fresh → fires exactly once per beat activation).
+    Surfaces a live `[data-testid="reading-indicator"]` ("🔊 reading…") driven by
+    `onPlay`/`onPause`/`onEnded` (reflects ACTIVE play state, hidden when
+    paused/ended), and a `[data-testid="replay-clip"]` button (non-empty
+    accessible name) that re-fires the clip. `.play()` is `.catch()`ed so
+    autoplay-policy rejections never surface as console errors (C-CLEAN).
 
-The contract's C6 says highlights appear "inside the rendered NPC dialogue." In this engine the **active** due targets are produced by the LEARNER, so they surface in the **player** turns, not the NPC's: つもり/窓 (day-1 player lines), 雨 (day-2 player), 不思議 (day-3 player), てもいい (day-4 player, inside 入ってもいいですか). Only the day-4 passive 持つ lands in the NPC (Mom) line (若い人が持つことに…). I therefore highlight across every turn (NPC + player), anchored to real items by id. This is faithful to DEMO-STORYLINE ("you say what you intend to do (つもり)") and still satisfies C6's mechanical checks: each `[data-tour-highlight]` carries the correct `data-item-id` with matching JA text, nothing outside the targets is wrapped, and the concatenated text is unaltered. If C6 is read as "NPC turns ONLY," all four day beats would show zero/partial highlights — that reading contradicts the engine ground truth, so I did NOT restrict to NPC turns. Flagging for an explicit decision if the evaluator disagrees.
+- **`web/components/story/TourBeatCard.tsx`**
+  - Renders `<SoundUnlock/>` on the intro beat only.
+  - Replaced the old day-4-only `[data-testid="mom-voice"]` `TtsClip` block with
+    a single per-day `<BeatNarration src={`/tts/day${beat.day}-turn2.m4a`} />`
+    for EVERY day beat (1–4). Day 4 now mounts exactly ONE `day4-turn2.m4a`
+    audio element (the Mom welcome IS the day-4 auto-narration) — no two
+    competing elements. `mom-voice` testid removed (it was Mom-specific; the
+    fold makes it the generic day-4 narration).
+  - Added `<PlayInvitation/>` on the how-built beat: a `next/link`
+    `[data-testid="play-cta"]` with `href="/"` and a non-empty inviting label.
+  - Map `NARRATION_LABEL` gives each day clip a human accessible-name fragment.
 
-Verified per-beat `data-tour-highlight` ids:
-- day-1: grammar.tsumori (×2) + vocab.mado — only those two ids
-- day-2: vocab.ame (×2)
-- day-3: vocab.fushigi
-- day-4: grammar.temo-ii + vocab.motsu — exactly these two (約束/vocab.yakusoku NOT highlighted), proving the seeded-progression day-4 episode.
+- **`web/components/story/StoryTourView.tsx`**, **`TourProgress.tsx`**
+  - Doc-comment updates only ("six" → "seven" step indicator; reflect the new
+    intro CTA + per-day narration). No behavior change; both still iterate
+    `STORYLINE_BEATS` so the progress indicator and nav automatically show 7.
 
-## Self-verification (port 3020, production build, Playwright from a throwaway install)
+## Decision 7 (optional play-view first-line auto-read): DEFERRED
+Not taken. Rationale: the play view, `components/episode/**`, and the engine are
+required by C-REG-PLAY to be byte-identical (`git status --porcelain` shows no
+modifications). Adding `autoOnReveal` there is permitted but optional and there
+is NO criterion requiring it. To keep `/` provably unchanged and de-risk the
+regression gate, it is deferred. The tour (the panel-facing surface) carries all
+the narration this contract needs.
 
-31/31 checks PASS covering C2–C7, C9: one beat visible, 6 pips, Next/Back/arrow nav, end-disabled controls, placeholder visible with zero files, no `/story/*` request for non-current beats, image box height stable across beats, per-beat highlight ids, callout/knowledge non-empty, day-4 audio `src` ends `/tts/day4-turn2.m4a` + `preload="none"` + no tts request before gesture + plays after gesture + sound-off blocks play, and **zero pageerror / zero console error / zero ≥400 responses / zero non-localhost requests**.
+## Self-verification (throwaway Playwright, fresh dev server per first request)
+At 1440×900, full narrated walkthrough:
+- tts requests before any gesture: **0** (preload="none" holds).
+- sound-unlock visible, name has "sound", `data-unlocked="true"` after click,
+  `sound-toggle aria-pressed="true"`.
+- progress step count: **7**.
+- Day 1–4: each mounts exactly 1 `audio[src*="dayN-turn2.m4a"]`, a
+  `/tts/dayN-turn2.m4a` request fired, `audio.paused === false`, `replay-clip`
+  present, and exactly 1 playing audio at a time.
+- Day-4 `audio[src*="day4-turn2.m4a"]` count: **1** (single clip — C-SINGLE).
+- How-built: 5 claims all true; `play-cta` href `/`, visible; 0 day-narration
+  audio on the beat.
+- Outro: `tour-next` disabled on last beat.
+- console errors: 0; responses ≥400: 0; off-host requests: 0.
+- Responsive overflow (`scrollWidth - innerWidth`): 375 → 0 (clean), 768 → 0
+  (clean), 1440 → full walk clean.
 
-C8 (responsive): no horizontal overflow (`scrollWidth - innerWidth <= 1`) at 375/768/1440 across all six beats, with nav + progress visible at each.
+## Known issue the evaluator MUST know — kuromoji 500 on the 2nd `/story` hit
+This is a PRE-EXISTING contract-009 condition in the derivation layer
+(`buildStoryTour()` → kuromoji), NOT introduced by this contract, and is in the
+out-of-scope `web/lib/demo/storyTour.ts` / `src/lib` path I did not touch.
 
-C10 (determinism): two `/story` loads produce byte-identical Day-1..4 dialogue text.
+- The **first** `/story` request to a freshly-started dev server returns 200 and
+  renders fully. The **second** `force-dynamic` request re-initializes kuromoji
+  and throws `Error: ConnectionCosts buffer overflow` → 500.
+- **How to run the evaluator reliably:** treat `/story` as one-shot per server.
+  Either (a) restart the dev server before each fresh page-load that needs SSR,
+  or (b) use a production server. `npm run start` warns because next config is
+  `output: "standalone"` — the standalone entry is `.next/standalone/web/server.js`
+  (you must also surface `public/` and `.next/static` for it). The simplest path
+  that worked for me: `env -u GEMINI_API_KEY MINSHUKU_FAKE_LLM=1 PORT=<free> npm run dev`
+  and make the Playwright `goto('/story')` the FIRST request to that server;
+  for multi-viewport/multi-context checks, restart the dev server (or open one
+  context, complete the whole walk, then restart) so each SSR render is a "first
+  request". Once the page is loaded, all client-side stepping (Next/Back/arrows,
+  audio, replay) works fully — the 500 only affects a repeated server render.
+- Within one loaded page the criteria all pass; this only matters for how you
+  sequence multiple SSR loads.
 
-C-REG: `git status --porcelain` shows NO modifications to any pinned file (`web/app/page.tsx`, `web/components/episode/**`, `web/components/audio/**`, `web/app/api/**`, `web/fixtures/**`, `web/lib/engine/{runEpisode,fixtureClient,demoLearner,lessonBatch,storyStore}.ts`, `src/lib/**`). `storyStore.ts` was NOT touched — `InMemoryStoryStore` lives in `storyTour.ts`. `web/.data/story-state.json` byte-identical (md5 `77a78bc7…`) before and after `/story` visits. `seed-demo` script exists (Finding 9).
+## Audio-testing reminder (per contract's headless caveat)
+Assert on element state / network, never audible output. The clip "attempts
+play" signals available: a `/tts/dayN-turn2.m4a` request fires AND `audio.paused`
+flips to false AND `[data-testid="reading-indicator"]` appears AND
+`[data-testid="replay-clip"]` shows `data-state="playing"`.
 
-## Gate results
+## Gates (tails)
+- Root `npm run code-check`: `Tests  101 passed (101)` — engine intact.
+- `cd web && npm run lint`: clean (no output).
+- `cd web && npm run build`: `✓ Compiled successfully`; `/story` builds (ƒ Dynamic).
 
-```
-# repo root: npm run code-check
- Test Files  22 passed (22)
-      Tests  101 passed (101)
-
-# web: npm run lint
-> eslint
-(clean — no output)
-
-# web: npm run build  (env -u GEMINI_API_KEY MINSHUKU_FAKE_LLM=1)
-✓ Compiled successfully
-✓ Generating static pages (4/4)
-└ ƒ /story   (Dynamic — server-rendered on demand)
-```
-
-## How to run / evaluate
-
-- Dev: `cd web && env -u GEMINI_API_KEY MINSHUKU_FAKE_LLM=1 npm run dev` → http://localhost:3000/story (read port from startup). Next 16 refuses a second dev server for the same dir — if :3000 is busy, `npm run build && env -u GEMINI_API_KEY MINSHUKU_FAKE_LLM=1 PORT=<free> npm run start`.
-- Image criteria run with `web/public/story/` holding ONLY `.gitkeep` + `README.md` (zero `.webp`) — that is the shipped state; every beat shows its placeholder and the page fires zero image requests.
-- The tour derives its own state in-memory; no seed step needed. `web/.data/story-state.json` is never read or written by `/story`.
-
-## Known issues / notes
-
-- None blocking. The standalone-output warning from `next start` ("does not work with output: standalone") is pre-existing (contract-007 config) and harmless for local QA — the route still serves 200 on the chosen PORT; use `npm run start` with `PORT=<free>` as 003–008 did.
-- Did NOT commit (per harness rules).
+## State / cleanup
+- `web/.data/story-state.json` not read or written by the tour (untouched).
+- `web/public/story/` left with zero `.webp` for slot `05-ladder` (washi
+  placeholder renders; the how-built beat reuses that slot — no image binary
+  committed this round, per contract).
+- All dev servers killed. Start command unchanged:
+  `cd web && env -u GEMINI_API_KEY MINSHUKU_FAKE_LLM=1 npm run dev`.
