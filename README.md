@@ -1,87 +1,91 @@
-# minshuku 民宿
+# Hi, this is minshuku 民宿.
 
-**A Japanese guesthouse where each evening's story _is_ your spaced-repetition review.**
-The scene you play tonight is cast from the exact words you're due to remember — so
-studying and living the story become the same act.
+Hey! I'm Jeemin, and I made this because I'm learning Japanese and I got tired of
+flashcards.
+
+Here's the idea: minshuku is a little Japanese guesthouse where **each evening is a tiny
+story — and the story is your spaced-repetition review.** The scene you play tonight gets
+built from the exact words you're due to remember. So you're not studying _and_ reading a
+story. It's the same thing.
 
 ![minshuku](docs/assets/hero.png)
 
-### ▶ Live demo
+## Try it (no signup, nothing to install)
 
-- **[The story tour →](https://minshuku.vercel.app/story)** — a guided walk through four
-  evenings that explains what the app does (**start here**)
-- **[Play it →](https://minshuku.vercel.app)** — the interactive demo: type your replies
-  in Japanese, get graded, hear the characters
+- **[Take the tour →](https://minshuku.vercel.app/story)** — a guided walk through four
+  nights that shows you what this actually is. Start here.
+- **[Play it →](https://minshuku.vercel.app)** — type back in Japanese, get graded on
+  whether you actually used the words right, and hear the characters talk.
 
-_Runs in a deterministic "fixture" mode — no API key, free, identical every visit. The
-same engine also runs live against Gemini for real, generated conversations._
+It's running in a free "demo mode" so anyone can poke at it — same every time, no API key,
+can't cost anybody money. The same engine also runs live against Gemini for real,
+made-up-on-the-spot conversations.
 
----
+## So what's actually happening?
 
-## What it is
+Most apps show you a flashcard. minshuku shows you a town. Every night you go somewhere,
+talk to someone, and the conversation is stitched from whatever your memory needs to
+review. Use a word right in a real sentence and it climbs a ladder —
+**recognized → produced-with-help → produced → mastered** — then it goes quiet until it's
+due again.
 
-Most language apps show you flashcards. minshuku shows you a town. Each night you arrive
-somewhere, talk to someone, and the conversation is built from what your memory needs to
-review. Use a word correctly in real dialogue and it climbs a ladder —
-**recognized → produced-with-help → produced → mastered** — then rests until it's due again.
+Here are the four nights in the demo:
 
-Four evenings of the demo learner's story:
+| Night | Where | Words due | What happens |
+|------:|-------|-----------|--------------|
+| 1 | The café | つもり _(intend to)_, 窓 _(window)_ | You tell the regular your festival plans |
+| 2 | The night road | 雨 _(rain)_ | A stranger somehow knows about your promise |
+| 3 | The bookshop | 不思議 _(mysterious)_ | The owner wraps up a book of old town stories |
+| 4 | Back home | + てもいい, + 持つ | Mom meets you at the door — and she _talks_ |
 
-| Night | Scene | Due words | Beat |
-|------:|-------|-----------|------|
-| 1 | The café | つもり _(intend to)_, 窓 _(window)_ | Festival plans with the regular |
-| 2 | The night road | 雨 _(rain)_ | A stranger who knows your promise |
-| 3 | The bookshop | 不思議 _(mysterious)_ | A book of the town's old stories |
-| 4 | Home at the minshuku | + てもいい, + 持つ | Mom greets you — in her own voice |
+The fun part: nobody hand-wrote this as "a story." Each night the engine just picked a
+scene for the words you owed — and the story fell out of that. **What's due decides who
+you meet.**
 
-The story isn't decoration on top of an SRS app — **the review queue writes the story.**
-What's due decides who you meet tonight.
+## Wanna run it yourself?
 
-## How it works
+Easiest way is with [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Clone
+it, then paste this:
 
-1. **An SRS engine** picks the items due today and the scene that fits them.
-2. **You converse** in free-text Japanese; a rule-based evaluator grades whether you
-   actually _used_ each target correctly — not just whether you passed.
-3. **Outcomes update your memory**, the story-so-far carries to tomorrow, and the next
-   night is cast from your evolved state.
+```
+Read the README and docs/engineering.md. Get minshuku running locally on my machine
+in demo mode (no API key needed), and open the story tour for me.
+```
 
-Voices are per-character (Gemini TTS); scene music is per-location (Lyria).
-
-## Run it locally
+Or do it by hand:
 
 ```bash
 npm install && (cd web && npm install)
 
-# deterministic demo — no API key needed (also serves /story)
-MINSHUKU_FAKE_LLM=1 npm --prefix web run dev      # → http://localhost:3000
+# demo mode — no key needed. opens the play view + /story
+MINSHUKU_FAKE_LLM=1 npm --prefix web run dev      # → localhost:3000
 
-# seed the 4-day demo learner (days 1–3 simulated, lands on day 4)
+# jump straight to the seeded 4-day demo learner
 npm --prefix web run seed-demo
 ```
 
-For live generation, add a `GEMINI_API_KEY` to `.env` and run `npm --prefix web run dev`
-without the fixture flag. The demo script and scene-art notes are in
-[`DEMO-STORYLINE.md`](DEMO-STORYLINE.md).
+For real, live conversations, drop a `GEMINI_API_KEY` in `.env` and run it without the
+`MINSHUKU_FAKE_LLM` flag.
 
-## Status
+## Where it's at
 
-A **working demo of the core loop** — engine, spaced repetition, voice, story, and a
-guided tour — all real and deployed on Vercel. The path to a full app (accounts, a
-database, a larger word bank, live generation in production) is scoped and de-risked.
-The hard part — making review feel like living a story — is done.
+This is a **working demo of the whole core loop** — the engine, the spaced repetition, the
+voices, the story, the guided tour — all real, all deployed. The road to a full app
+(accounts, a real database, a way bigger word bank, live generation on the live site) is
+mapped out and the scary parts are already proven. The hard part — making review feel like
+living a story instead of grinding cards — that part's done.
 
-## Under the hood
+## A bit under the hood
 
-Subject-agnostic core: the engine (items, SRS, scenes, evaluator) doesn't know about
-Japanese — a "JP pack" supplies the grading and prompts, and a future "math" or "history"
-pack could plug in alongside. The deterministic parts (SRS, template scoring, conjugation
-rules) are covered by 101 unit tests; the model-driven dialogue is held to a separate
-qualitative review loop.
+The engine doesn't actually know Japanese. The core (items, spaced repetition, scenes,
+grading) is subject-agnostic — a "Japanese pack" plugs in the grading and prompts, and one
+day a "math pack" or "history pack" could sit right next to it. The boring-but-important
+parts (the SRS math, scene scoring, conjugation checking) have 101 tests on them; the
+model-written dialogue gets held to a separate quality-review loop so it can't quietly get
+worse.
 
-Full engineering reference — architecture, data types, testing layers, deploy model —
-lives in **[`docs/engineering.md`](docs/engineering.md)**.
+If you want the real nuts-and-bolts — architecture, data shapes, the testing setup, how it
+deploys — it's all in **[`docs/engineering.md`](docs/engineering.md)**.
 
-## Stack
-
-TypeScript (ESM) · Next.js · `@google/genai` (dialogue + TTS) · Lyria (music) ·
-`kuromoji` (Japanese morphology) · `zod` · `vitest` · deployed on Vercel.
+Built with TypeScript, Next.js, Gemini (talking + voices), Lyria (music), and kuromoji for
+the Japanese parsing. MIT licensed — go nuts.
