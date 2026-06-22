@@ -93,27 +93,31 @@ the SRS queue writes the story.** What's due decides who you meet tonight.
 
 ---
 
-## Image Shot-List (for ChatGPT / image gen)
+## Image Shot-List (for ChatGPT / image gen) — PIXEL-ART direction
 
-**Art direction (keep consistent across all six):** painterly, warm, *民宿 evening*
-palette — washi-cream, persimmon, indigo, lamplight. Soft, storybook/anime-watercolor
-feel (think Ghibli-adjacent quiet interiors), never photorealistic, never harsh.
-Consistent character: a young traveler (the learner) seen from behind or in soft focus,
-so they read as "you." 16:9 landscape, generous negative space at top or one side for
-text overlay.
+**Art direction (match the existing assets):** **pixel art**, cozy/Stardew-adjacent,
+warm *民宿 evening* palette — washi-cream, persimmon, indigo, lamplight. The reference is
+the existing `docs/assets/hero.png` tea-room (already wired in as the intro) and the
+character sprites in `assets/preview/` (the café woman = the day-1 regular; the
+yukata grandpa = a townsperson). Detailed pixel scenes, warm lamplight, soft dithered
+shadows — never photorealistic, never harsh, never flat vector. **16:9 landscape**
+(~1600×900). Wide establishing "interior/exterior set" shots, like a game's location
+background; characters optional and small if present.
 
-| Slot | Filename (drop into `web/public/story/`) | Prompt seed |
-|------|------------------------------------------|-------------|
-| 0 | `00-minshuku-dusk.webp` | "A small Japanese guesthouse (minshuku) at dusk, warm light glowing in the windows, paper lanterns, quiet street, painterly anime-watercolor, washi-cream and persimmon palette, 16:9, soft negative space top-left for a title." |
-| 1 | `01-cafe.webp` | "Cozy small-town Japanese café interior at evening, a friendly regular at the wooden counter, rain beginning beyond a large window, lamplight, painterly anime-watercolor, warm muted persimmon/indigo, 16:9." |
-| 2 | `02-night-road.webp` | "A dark country road at the edge of a Japanese town at night, a lone stranger under heavy clouds, first drops of rain, lantern glow in the distance, moody painterly anime-watercolor, indigo and warm accents, 16:9." |
-| 3 | `03-bookshop.webp` | "A dim riverside Japanese secondhand bookshop at night, tall shelves, an elderly owner wrapping a book in paper, lamplight and soft shadows, painterly anime-watercolor, warm amber tones, 16:9." |
-| 4 | `04-minshuku-mom.webp` | "The lamplit entryway (genkan) of a Japanese guesthouse at night, a warm motherly host welcoming a young traveler holding a wrapped book, slippers and wood, painterly anime-watercolor, persimmon warmth, 16:9." |
-| 5 | `05-ladder.webp` (optional) | "An elegant minimalist illustration of four ascending stepping stones in a misty Japanese garden, faint labels, painterly, washi-cream and indigo, 16:9 — or skip and use an in-app chart." |
+| Slot | Filename (drop into `web/public/story/`) | Status | Prompt seed |
+|------|------------------------------------------|--------|-------------|
+| 0 | `00-minshuku-dusk.webp` | ✅ DONE (your tea-room `hero.png`, wired in) | — |
+| 1 | `01-cafe.webp` | needed | "Pixel art, cozy small-town Japanese café interior at evening, wooden counter and stools, a large window with rain just starting outside, warm lamplight, Stardew-Valley-style detailed pixels, washi-cream and persimmon palette, 16:9 establishing shot." |
+| 2 | `02-night-road.webp` | needed | "Pixel art, a dark country road at the edge of a Japanese town at night, paper-lantern glow in the distance, heavy clouds and first drops of rain, moody indigo with warm accents, Stardew-Valley-style detailed pixels, 16:9 establishing shot." |
+| 3 | `03-bookshop.webp` | needed | "Pixel art, a dim riverside Japanese secondhand bookshop at night, tall crowded shelves, a wrapping counter, warm lamplight and soft shadows, amber tones, Stardew-Valley-style detailed pixels, 16:9 establishing shot." |
+| 4 | `04-minshuku-mom.webp` | needed | "Pixel art, the lamplit entryway (genkan) of a Japanese guesthouse at night, wooden step and slippers, a warm welcoming interior beyond, persimmon warmth, Stardew-Valley-style detailed pixels, 16:9 establishing shot. (The day-1 café-woman sprite style is the character reference for 'Mom'.)" |
+| 5 | `05-ladder.webp` (optional) | optional | "Pixel art, four ascending stone lanterns or stepping stones in a misty Japanese garden at dusk, faint glow on each, washi-cream and indigo, 16:9 — or skip and let the in-app knowledge ladder render." |
 
 **Notes:**
-- Export as `.webp` (or `.png`/`.jpg`; the build will accept any and the slot specifies
-  dimensions for zero layout shift). Target ~1600×900, keep each under ~400 KB.
-- Until you drop real images in, the tour renders tasteful washi-toned placeholders so
-  it's presentable immediately — same pattern as the audio.
-- Generate 2–3 variants of Beat 4 (the payoff) and pick the warmest.
+- The intro (slot 0) is already your tea-room — so you need **4 scenes** (1–4), plus the
+  optional ladder. Generate 2–3 variants of slot 4 (the payoff) and pick the warmest.
+- Export `.webp` (or `.png`/`.jpg` and I'll convert). ~1600×900, under ~400 KB each.
+- Drop a file into `web/public/story/` with the exact basename → that beat's placeholder
+  swaps to your art automatically (zero layout shift). Same drop-in pattern as the audio.
+- **Style-match tip for ChatGPT:** attach `docs/assets/hero.png` as a style reference so
+  the new scenes share the tea-room's exact pixel look.
